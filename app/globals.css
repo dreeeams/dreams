@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors - Change these to update the entire site */
+    --color-accent: 139 92 246; /* Purple - rgb(139, 92, 246) */
+    --color-accent-hover: 124 58 237; /* Darker purple for hover */
+
+    /* Base Colors */
+    --color-primary: 0 0 0; /* Black */
+    --color-primary-inverse: 255 255 255; /* White */
+
+    /* Background Colors */
+    --background-light: 255 255 255;
+    --background-dark: 10 10 10; /* Very dark gray, not pure black */
+
+    /* Text Colors */
+    --foreground-light: 0 0 0;
+    --foreground-dark: 255 255 255;
+
+    /* Dark mode surfaces - Different shades for contrast */
+    --surface-dark-1: 20 20 20; /* Lighter than background */
+    --surface-dark-2: 30 30 30; /* Even lighter */
+    --surface-dark-3: 40 40 40; /* Lightest surface */
+  }
+
+  .dark {
+    /* Dark mode overrides if needed */
+  }
+
+  @font-face {
+    font-family: 'PerfectlyNostalgic';
+    src: url('/fonts/nostalgic-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'PerfectlyNostalgic';
+    src: url('/fonts/nostalgic-italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark;
+    font-family: var(--font-geist-sans), 'Helvetica Neue', Helvetica, Arial,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-nostalgic), sans-serif;
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

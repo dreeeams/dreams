@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "services": "SERVICES",
+    "work": "WORK",
+    "team": "TEAM",
+    "contact": "CONTACT"
+  },
+  "hero": {
+    "title": "We build digital products that people love",
+    "subtitle": "Custom web & mobile development with cutting-edge design",
+    "cta": "Start Your Project"
+  },
+  "services": {
+    "title": "What We Do",
+    "webDev": {
+      "title": "Web Development",
+      "description": "Custom websites and web applications built with modern technologies"
+    },
+    "mobileDev": {
+      "title": "Mobile Apps",
+      "description": "Native iOS and Android apps with seamless user experiences"
+    },
+    "uiux": {
+      "title": "UI/UX Design",
+      "description": "Beautiful, intuitive interfaces that users love to interact with"
+    },
+    "consulting": {
+      "title": "Tech Consulting",
+      "description": "Strategic technology guidance to help your business grow"
+    }
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "Projects we're proud of"
+  },
+  "process": {
+    "title": "Our Process",
+    "discover": {
+      "title": "Discover",
+      "description": "We start by understanding your business goals and user needs"
+    },
+    "design": {
+      "title": "Design",
+      "description": "Creating beautiful, functional designs that bring your vision to life"
+    },
+    "develop": {
+      "title": "Develop",
+      "description": "Building your product with clean code and best practices"
+    },
+    "deliver": {
+      "title": "Deliver",
+      "description": "Launching your project and providing ongoing support"
+    }
+  },
+  "team": {
+    "title": "Meet Our Team",
+    "subtitle": "Talented people behind great products"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions"
+  },
+  "contact": {
+    "title": "Let's Build Something Amazing",
+    "subtitle": "Get in touch to discuss your project",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message"
+    }
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  }
+}

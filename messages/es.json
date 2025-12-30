@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "services": "SERVICIOS",
+    "work": "TRABAJO",
+    "team": "EQUIPO",
+    "contact": "CONTACTO"
+  },
+  "hero": {
+    "title": "Construimos productos digitales que la gente ama",
+    "subtitle": "Desarrollo web y móvil personalizado con diseño de vanguardia",
+    "cta": "Inicia Tu Proyecto"
+  },
+  "services": {
+    "title": "Lo Que Hacemos",
+    "webDev": {
+      "title": "Desarrollo Web",
+      "description": "Sitios web y aplicaciones web personalizadas construidas con tecnologías modernas"
+    },
+    "mobileDev": {
+      "title": "Apps Móviles",
+      "description": "Apps nativas iOS y Android con experiencias de usuario perfectas"
+    },
+    "uiux": {
+      "title": "Diseño UI/UX",
+      "description": "Interfaces hermosas e intuitivas con las que los usuarios aman interactuar"
+    },
+    "consulting": {
+      "title": "Consultoría Tech",
+      "description": "Orientación tecnológica estratégica para ayudar a crecer tu negocio"
+    }
+  },
+  "portfolio": {
+    "title": "Nuestro Trabajo",
+    "subtitle": "Proyectos de los que estamos orgullosos"
+  },
+  "process": {
+    "title": "Nuestro Proceso",
+    "discover": {
+      "title": "Descubrir",
+      "description": "Comenzamos entendiendo los objetivos de tu negocio y las necesidades de los usuarios"
+    },
+    "design": {
+      "title": "Diseñar",
+      "description": "Creando diseños hermosos y funcionales que dan vida a tu visión"
+    },
+    "develop": {
+      "title": "Desarrollar",
+      "description": "Construyendo tu producto con código limpio y mejores prácticas"
+    },
+    "deliver": {
+      "title": "Entregar",
+      "description": "Lanzando tu proyecto y brindando soporte continuo"
+    }
+  },
+  "team": {
+    "title": "Conoce Nuestro Equipo",
+    "subtitle": "Gente talentosa detrás de grandes productos"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes"
+  },
+  "contact": {
+    "title": "Construyamos Algo Increíble",
+    "subtitle": "Ponte en contacto para discutir tu proyecto",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo Electrónico",
+      "message": "Mensaje",
+      "submit": "Enviar Mensaje"
+    }
+  },
+  "theme": {
+    "toggle": "Cambiar tema"
+  }
+}
