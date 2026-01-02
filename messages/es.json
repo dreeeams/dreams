@@ -16,7 +16,7 @@
       "compiling": "> Compilando ideas en realidad...",
       "constStudio": "const",
       "studio": " studio ",
-      "equals": "= {",
+      "equals": "= '{'",
       "name": "  name",
       "nameValue": "\"DREAM STUDIO\"",
       "mission": "  mission",
@@ -25,7 +25,7 @@
       "outputValue": "\"Hermoso, funcional, escalable\"",
       "status": "  status",
       "statusValue": "\"LISTO PARA CONSTRUIR\"",
-      "closeBrace": "};",
+      "closeBrace": "'};'",
       "ready": "> Sistema listo. Creemos algo increible."
     }
   },
