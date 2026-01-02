@@ -7,7 +7,7 @@ export default function ContactSection() {
   const t = useTranslations('contact');
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 bg-white">
+    <section id="contact" className="relative z-10 py-24 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Main CTA */}
         <motion.div

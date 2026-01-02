@@ -79,7 +79,7 @@ export default function PortfolioSection() {
   const t = useTranslations('portfolio');
 
   return (
-    <section id="work" className="py-24 px-6 md:px-12 bg-white">
+    <section id="work" className="relative z-10 py-24 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div

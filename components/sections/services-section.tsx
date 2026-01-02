@@ -58,7 +58,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 px-6 md:px-12 bg-surface-light-1">
+    <section id="services" className="relative z-10 py-24 px-6 md:px-12 bg-surface-light-1">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <motion.div

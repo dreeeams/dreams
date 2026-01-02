@@ -4,7 +4,7 @@ import { VelocityScroll } from '@/components/ui/scroll-based-velocity';
 
 export default function MarqueeSection() {
   return (
-    <section className="w-full py-12 sm:py-16 md:py-20 bg-black border-y-2 sm:border-y-3 md:border-y-4 border-black">
+    <section className="relative z-10 w-full py-12 sm:py-16 md:py-20 bg-black border-y-2 sm:border-y-3 md:border-y-4 border-black">
       <VelocityScroll
         text="DREAM STUDIO • DREAM STUDIO • DREAM STUDIO • DREAM STUDIO • "
         default_velocity={3}

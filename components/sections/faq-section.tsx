@@ -17,7 +17,7 @@ export default function FAQSection() {
   const t = useTranslations('faq');
 
   return (
-    <section className="py-24 px-6 md:px-12">
+    <section className="relative z-10 py-24 px-6 md:px-12 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* FAQ Title */}
         <motion.div
