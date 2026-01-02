@@ -20,12 +20,12 @@ const TechCard = ({
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
     transition={{ duration: 0.3, delay }}
-    className="border-2 border-black dark:border-white p-4 flex flex-col items-center justify-center bg-white dark:bg-surface-1 hover:bg-black dark:hover:bg-white hover:border-black dark:hover:border-white transition-all cursor-pointer group"
+    className="border-2 border-black p-4 flex flex-col items-center justify-center bg-white hover:bg-black hover:border-black transition-all cursor-pointer group"
   >
     <div className={`relative w-12 h-12 mb-2 grayscale group-hover:grayscale-0 transition-all ${invertOnHover ? 'group-hover:invert' : ''}`}>
       <Image src={logo} alt={name} fill className="object-contain" />
     </div>
-    <span className="text-[10px] font-bold text-center text-black dark:text-white group-hover:text-white dark:group-hover:text-black transition-colors">
+    <span className="text-[10px] font-bold text-center text-black group-hover:text-white transition-colors">
       {name}
     </span>
   </motion.div>
@@ -36,37 +36,29 @@ export default function ServicesSection() {
 
   const services = [
     {
+      number: '01',
       titleKey: 'webDev.title',
       descriptionKey: 'webDev.description',
-      icon: '◐',
-      color: 'bg-brand',
-      image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
     },
     {
+      number: '02',
       titleKey: 'mobileDev.title',
       descriptionKey: 'mobileDev.description',
-      icon: '◑',
-      color: 'bg-black dark:bg-white',
-      image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&q=80',
     },
     {
+      number: '03',
       titleKey: 'uiux.title',
       descriptionKey: 'uiux.description',
-      icon: '◒',
-      color: 'bg-white dark:bg-surface-1 border-2 border-black dark:border-white',
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80',
     },
     {
+      number: '04',
       titleKey: 'consulting.title',
       descriptionKey: 'consulting.description',
-      icon: '◓',
-      color: 'bg-brand',
-      image: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80',
     },
   ];
 
   return (
-    <section id="services" className="py-24 px-6 md:px-12">
+    <section id="services" className="py-24 px-6 md:px-12 bg-surface-light-1">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <motion.div
@@ -74,7 +66,7 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-20"
         >
           <div className="flex items-center justify-center mb-8">
             <span className="text-7xl md:text-9xl font-nostalgic">(</span>
@@ -85,40 +77,34 @@ export default function ServicesSection() {
           </div>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Services Grid - Minimalista con Números */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-20 md:gap-y-24 mb-24">
           {services.map((service, index) => (
             <motion.div
               key={service.titleKey}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group cursor-pointer"
+              className="group"
             >
-              <div className="border-4 border-black dark:border-white bg-white dark:bg-surface-1 overflow-hidden">
-                {/* Service Image Header */}
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={t(service.titleKey)}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-500" />
-                </div>
-
-                {/* Service Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 font-nostalgic">
-                    {t(service.titleKey).toUpperCase()}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                    {t(service.descriptionKey)}
-                  </p>
-                </div>
+              {/* Número */}
+              <div className="text-brand text-6xl md:text-7xl font-mono font-bold mb-4 opacity-40">
+                [{service.number}]
               </div>
+
+              {/* Título */}
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 font-nostalgic tracking-tight">
+                {t(service.titleKey).toUpperCase()}
+              </h3>
+
+              {/* Descripción */}
+              <p className="text-base md:text-lg leading-relaxed text-foreground-light/70">
+                {t(service.descriptionKey)}
+              </p>
+
+              {/* Línea decorativa */}
+              <div className="mt-6 h-1 w-20 bg-black group-hover:w-40 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
@@ -131,8 +117,8 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="mt-16"
         >
-          <div className="border-4 border-black dark:border-white p-8 bg-background-light dark:bg-surface-2">
-            <h3 className="text-xl md:text-2xl font-bold mb-6 text-black dark:text-white font-nostalgic">
+          <div className="border-4 border-black p-8 bg-background-light">
+            <h3 className="text-xl md:text-2xl font-bold mb-6 text-black font-nostalgic">
               TECHNOLOGIES & TOOLS WE USE:
             </h3>
             <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-3">
@@ -227,7 +213,7 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-center text-sm font-medium text-gray-600 dark:text-gray-400 mt-6"
+              className="text-center text-sm font-medium text-gray-600 mt-6"
             >
               Y muchas más...
             </motion.p>

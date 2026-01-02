@@ -4,26 +4,31 @@
 
 @layer base {
   :root {
-    /* Brand Colors - Change these to update the entire site */
-    --color-accent: 139 92 246; /* Purple - rgb(139, 92, 246) */
-    --color-accent-hover: 124 58 237; /* Darker purple for hover */
+    /* Brand Colors - Urban Asphalt */
+    --color-accent: 120 120 120; /* Urban Asphalt - rgb(120, 120, 120) #787878 */
+    --color-accent-hover: 96 96 96; /* Darker gray for hover - #606060 */
 
     /* Base Colors */
-    --color-primary: 0 0 0; /* Black */
+    --color-primary: 30 30 30; /* Dark gray for text - #1E1E1E */
     --color-primary-inverse: 255 255 255; /* White */
 
-    /* Background Colors */
-    --background-light: 255 255 255;
-    --background-dark: 10 10 10; /* Very dark gray, not pure black */
+    /* Background Colors - Winter Haze System */
+    --background-light: 222 229 237; /* Winter Haze - rgb(222, 229, 237) #DEE5ED */
+    --background-dark: 18 18 18; /* Almost black for dark mode - #121212 */
 
     /* Text Colors */
-    --foreground-light: 0 0 0;
-    --foreground-dark: 255 255 255;
+    --foreground-light: 30 30 30; /* Dark gray text on light bg - #1E1E1E */
+    --foreground-dark: 240 240 240; /* Off-white text on dark bg - #F0F0F0 */
+
+    /* Light mode surfaces - Variations of Winter Haze */
+    --surface-light-1: 235 240 245; /* Slightly darker than background - #EBF0F5 */
+    --surface-light-2: 245 248 250; /* Slightly lighter than background - #F5F8FA */
+    --surface-light-3: 255 255 255; /* Pure white for cards - #FFFFFF */
 
     /* Dark mode surfaces - Different shades for contrast */
-    --surface-dark-1: 20 20 20; /* Lighter than background */
-    --surface-dark-2: 30 30 30; /* Even lighter */
-    --surface-dark-3: 40 40 40; /* Lightest surface */
+    --surface-dark-1: 28 28 28; /* Lighter than background - #1C1C1C */
+    --surface-dark-2: 38 38 38; /* Even lighter - #262626 */
+    --surface-dark-3: 48 48 48; /* Lightest surface - #303030 */
   }
 
   .dark {
@@ -31,18 +36,10 @@
   }
 
   @font-face {
-    font-family: 'PerfectlyNostalgic';
-    src: url('/fonts/nostalgic-regular.ttf') format('truetype');
+    font-family: 'Monigue';
+    src: url('/fonts/Monigue-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'PerfectlyNostalgic';
-    src: url('/fonts/nostalgic-italic.ttf') format('truetype');
-    font-weight: 400;
-    font-style: italic;
     font-display: swap;
   }
 

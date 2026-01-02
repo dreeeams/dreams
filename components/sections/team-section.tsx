@@ -14,7 +14,7 @@ export default function TeamSection() {
   const t = useTranslations('team');
 
   return (
-    <section id="team" className="py-24 px-6 md:px-12 bg-white dark:bg-black">
+    <section id="team" className="py-24 px-6 md:px-12 bg-surface-light-1">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <motion.div
@@ -45,7 +45,7 @@ export default function TeamSection() {
               {/* Card Image */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="aspect-[3/4] bg-white dark:bg-black border-4 border-black dark:border-white relative overflow-hidden mb-4"
+                className="aspect-[3/4] bg-white border-4 border-black relative overflow-hidden mb-4"
               >
                 <div className="absolute inset-0 flex items-center justify-center text-sm">
                   [TEAM MEMBER {member.id}]
@@ -55,7 +55,7 @@ export default function TeamSection() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  className="absolute inset-0 bg-black/20 dark:bg-white/20 flex items-center justify-center"
+                  className="absolute inset-0 bg-black/20 flex items-center justify-center"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
@@ -72,13 +72,13 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.2 + 0.3 }}
-                className="border-2 border-black dark:border-white bg-white dark:bg-black"
+                className="border-2 border-black bg-white"
               >
                 <div className="p-4 space-y-2">
                   <h3 className="font-bold text-sm">{member.name}</h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">{member.role}</p>
-                  <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                    <span className="text-xs font-medium bg-black dark:bg-white text-white dark:text-black px-2 py-1">
+                  <p className="text-xs text-gray-600">{member.role}</p>
+                  <div className="pt-2 border-t border-gray-200">
+                    <span className="text-xs font-medium bg-black text-white px-2 py-1">
                       {member.specialty}
                     </span>
                   </div>

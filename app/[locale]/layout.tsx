@@ -20,17 +20,12 @@ const geistMono = Geist_Mono({
   display: 'swap',
 });
 
-const nostalgic = localFont({
+const monigue = localFont({
   src: [
     {
-      path: '../../public/fonts/nostalgic-regular.ttf',
+      path: '../../public/fonts/Monigue-Regular.otf',
       weight: '400',
       style: 'normal',
-    },
-    {
-      path: '../../public/fonts/nostalgic-italic.ttf',
-      weight: '400',
-      style: 'italic',
     },
   ],
   variable: '--font-nostalgic',
@@ -60,13 +55,14 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${nostalgic.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${monigue.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
-            enableSystem
+            defaultTheme="light"
+            forcedTheme="light"
+            enableSystem={false}
             disableTransitionOnChange
           >
             {children}

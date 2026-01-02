@@ -10,17 +10,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'background-light': '#E8E4DC',
-        'background-dark': '#0a0a0a',
-        'foreground-light': '#000000',
-        'foreground-dark': '#ededed',
-        // Centralized brand color system
+        // Background colors
+        'background-light': 'rgb(var(--background-light) / <alpha-value>)',
+        'background-dark': 'rgb(var(--background-dark) / <alpha-value>)',
+
+        // Text colors
+        'foreground-light': 'rgb(var(--foreground-light) / <alpha-value>)',
+        'foreground-dark': 'rgb(var(--foreground-dark) / <alpha-value>)',
+
+        // Brand colors - Urban Asphalt
         'brand': {
           DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
           hover: 'rgb(var(--color-accent-hover) / <alpha-value>)',
         },
-        // Dark mode surfaces for better contrast
+
+        // Surface colors for layering
         'surface': {
+          // Light mode surfaces
+          'light-1': 'rgb(var(--surface-light-1) / <alpha-value>)',
+          'light-2': 'rgb(var(--surface-light-2) / <alpha-value>)',
+          'light-3': 'rgb(var(--surface-light-3) / <alpha-value>)',
+          // Dark mode surfaces
           1: 'rgb(var(--surface-dark-1) / <alpha-value>)',
           2: 'rgb(var(--surface-dark-2) / <alpha-value>)',
           3: 'rgb(var(--surface-dark-3) / <alpha-value>)',

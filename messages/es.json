@@ -7,17 +7,17 @@
   },
   "hero": {
     "title": "Construimos productos digitales que la gente ama",
-    "subtitle": "Desarrollo web y móvil personalizado con diseño de vanguardia",
+    "subtitle": "Desarrollo web y movil personalizado con diseño de vanguardia",
     "cta": "Inicia Tu Proyecto"
   },
   "services": {
     "title": "Lo Que Hacemos",
     "webDev": {
       "title": "Desarrollo Web",
-      "description": "Sitios web y aplicaciones web personalizadas construidas con tecnologías modernas"
+      "description": "Sitios web y aplicaciones web personalizadas construidas con tecnologias modernas"
     },
     "mobileDev": {
-      "title": "Apps Móviles",
+      "title": "Apps Moviles",
       "description": "Apps nativas iOS y Android con experiencias de usuario perfectas"
     },
     "uiux": {
@@ -25,8 +25,8 @@
       "description": "Interfaces hermosas e intuitivas con las que los usuarios aman interactuar"
     },
     "consulting": {
-      "title": "Consultoría Tech",
-      "description": "Orientación tecnológica estratégica para ayudar a crecer tu negocio"
+      "title": "Consultoria Tech",
+      "description": "Orientacion tecnologica estrategica para ayudar a crecer tu negocio"
     }
   },
   "portfolio": {
@@ -41,11 +41,11 @@
     },
     "design": {
       "title": "Diseñar",
-      "description": "Creando diseños hermosos y funcionales que dan vida a tu visión"
+      "description": "Creando diseños hermosos y funcionales que dan vida a tu vision"
     },
     "develop": {
       "title": "Desarrollar",
-      "description": "Construyendo tu producto con código limpio y mejores prácticas"
+      "description": "Construyendo tu producto con codigo limpio y mejores practicas"
     },
     "deliver": {
       "title": "Entregar",
@@ -54,17 +54,17 @@
   },
   "team": {
     "title": "Conoce Nuestro Equipo",
-    "subtitle": "Gente talentosa detrás de grandes productos"
+    "subtitle": "Gente talentosa detras de grandes productos"
   },
   "faq": {
     "title": "Preguntas Frecuentes"
   },
   "contact": {
-    "title": "Construyamos Algo Increíble",
+    "title": "Construyamos Algo Increible",
     "subtitle": "Ponte en contacto para discutir tu proyecto",
     "form": {
       "name": "Nombre",
-      "email": "Correo Electrónico",
+      "email": "Correo Electronico",
       "message": "Mensaje",
       "submit": "Enviar Mensaje"
     }
