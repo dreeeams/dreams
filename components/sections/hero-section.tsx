@@ -12,6 +12,7 @@ type CodeLine = {
 
 export default function HeroSection() {
   const t = useTranslations('hero.terminal');
+  const tButtons = useTranslations('hero.buttons');
   const [displayedLines, setDisplayedLines] = useState<CodeLine[]>([]);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
@@ -122,7 +123,7 @@ export default function HeroSection() {
             whileTap={{ scale: 0.95 }}
             className="px-8 sm:px-12 py-4 sm:py-5 bg-brand text-white border-4 border-black font-bold text-sm sm:text-base hover:bg-black hover:border-brand transition-colors cursor-pointer"
           >
-            START PROJECT
+            {tButtons('startProject')}
           </motion.a>
           <motion.a
             href="#work"
@@ -130,7 +131,7 @@ export default function HeroSection() {
             whileTap={{ scale: 0.95 }}
             className="px-8 sm:px-12 py-4 sm:py-5 bg-transparent text-black border-4 border-black font-bold text-sm sm:text-base hover:bg-black hover:text-white transition-colors cursor-pointer"
           >
-            VIEW WORK
+            {tButtons('viewWork')}
           </motion.a>
         </motion.div>
 
@@ -147,7 +148,7 @@ export default function HeroSection() {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-2 text-xs sm:text-sm font-bold font-mono text-black opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
           >
-            <span>&gt; SCROLL_DOWN</span>
+            <span>&gt; {tButtons('scrollDown')}</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
               <path d="M12 5v14M19 12l-7 7-7-7" />
             </svg>

@@ -5,8 +5,8 @@ import { useTranslations } from 'next-intl';
 
 type Project = {
   titleKey: string;
-  category: string;
-  description: string;
+  categoryKey: 'webApp' | 'mobileApp';
+  descriptionKey: string;
   tags: string[];
   color: string;
   url?: string;
@@ -23,24 +23,24 @@ type Project = {
 const projects: Project[] = [
   {
     titleKey: 'HUNT RHO',
-    category: 'WEB APP',
-    description: 'Modern ticketing and event management platform with real-time updates and analytics',
+    categoryKey: 'webApp',
+    descriptionKey: 'huntRho',
     tags: ['Next.js', 'TypeScript', 'Vercel'],
     color: 'bg-brand',
     url: 'hunt-rho.vercel.app',
   },
   {
     titleKey: 'PERRO NEGRO',
-    category: 'WEB APP',
-    description: 'Event ticketing platform for Perro Negro with real-time ticket sales and management',
+    categoryKey: 'webApp',
+    descriptionKey: 'perroNegro',
     tags: ['Next.js', 'Stripe', 'PostgreSQL'],
     color: 'bg-black',
     url: 'perronegro.biotickets.com',
   },
   {
     titleKey: 'MARÍA HELENA AMADOR',
-    category: 'WEB APP',
-    description: 'Ticketing platform for María Helena Amador events with seamless booking experience',
+    categoryKey: 'webApp',
+    descriptionKey: 'mariaHelena',
     tags: ['Next.js', 'Stripe', 'PostgreSQL'],
     color: 'bg-black',
     url: 'maria-helena-amador.hunt-tickets.com',
@@ -48,24 +48,24 @@ const projects: Project[] = [
   },
   {
     titleKey: 'AMAZONAS TOURES',
-    category: 'WEB APP',
-    description: 'Tourism and travel agency platform showcasing amazing Amazon tours and experiences',
+    categoryKey: 'webApp',
+    descriptionKey: 'amazonasToures',
     tags: ['Next.js', 'Tailwind', 'Supabase'],
     color: 'bg-white border-4 border-black',
     url: 'www.amazonas-toures.com',
   },
   {
     titleKey: 'WEDDING INVITATION',
-    category: 'WEB APP',
-    description: 'Beautiful and elegant wedding invitation website with RSVP and event details',
+    categoryKey: 'webApp',
+    descriptionKey: 'wedding',
     tags: ['Next.js', 'Framer Motion', 'Vercel'],
     color: 'bg-brand',
     url: 'wedding-three-rose.vercel.app',
   },
   {
     titleKey: 'HUNT TICKETS',
-    category: 'MOBILE APP',
-    description: 'Modern ticketing and event management mobile application with real-time updates and analytics',
+    categoryKey: 'mobileApp',
+    descriptionKey: 'huntTickets',
     tags: ['React Native', 'TypeScript', 'Firebase'],
     color: 'bg-gradient-to-br from-blue-600 to-purple-600',
     isMockup: true,
@@ -77,6 +77,9 @@ const projects: Project[] = [
 
 export default function PortfolioSection() {
   const t = useTranslations('portfolio');
+  const tButtons = useTranslations('portfolio.buttons');
+  const tLabels = useTranslations('portfolio.labels');
+  const tProjects = useTranslations('portfolio.projects');
 
   return (
     <section id="work" className="relative z-10 py-24 px-6 md:px-12 bg-white">
@@ -178,7 +181,7 @@ export default function PortfolioSection() {
                       rel="noopener noreferrer"
                       className="text-white font-bold border-2 border-white px-6 py-3 pointer-events-auto"
                     >
-                      VIEW PROJECT →
+                      {tButtons('viewProject')} →
                     </a>
                   </motion.div>
                 )}
@@ -188,21 +191,21 @@ export default function PortfolioSection() {
               <div className="space-y-3">
                 <div className="flex items-center justify-start gap-3 flex-wrap">
                   <span className="text-xs font-bold bg-black text-white px-3 py-1">
-                    {project.category}
+                    {tLabels(project.categoryKey)}
                   </span>
                   {project.appStore && (
                     <div className="flex items-center gap-1 text-xs bg-gray-100 px-2 py-1 rounded">
                       <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5M13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
                       </svg>
-                      <span className="font-medium">App Store</span>
+                      <span className="font-medium">{tLabels('appStore')}</span>
                     </div>
                   )}
                   {project.rating && (
                     <div className="flex items-center gap-1 text-xs">
                       <span className="text-yellow-500">★</span>
                       <span className="font-bold">{project.rating.stars}</span>
-                      <span className="text-gray-400">({project.rating.reviews}+ reviews)</span>
+                      <span className="text-gray-400">({project.rating.reviews}+ {tLabels('reviews')})</span>
                     </div>
                   )}
                   {project.downloads && (
@@ -210,7 +213,7 @@ export default function PortfolioSection() {
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                       </svg>
-                      <span className="font-medium">{project.downloads.toLocaleString()}+ downloads</span>
+                      <span className="font-medium">{project.downloads.toLocaleString()}+ {tLabels('downloads')}</span>
                     </div>
                   )}
                 </div>
@@ -219,7 +222,7 @@ export default function PortfolioSection() {
                   {project.titleKey}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  {project.description}
+                  {tProjects(`${project.descriptionKey}.description`)}
                 </p>
 
                 {/* URL if available */}
@@ -263,7 +266,7 @@ export default function PortfolioSection() {
             whileTap={{ scale: 0.95 }}
             className="px-10 py-4 border-4 border-black font-bold text-sm hover:bg-black hover:text-white transition-colors"
           >
-            VIEW ALL PROJECTS
+            {tButtons('viewAllProjects')}
           </motion.button>
         </motion.div>
       </div>

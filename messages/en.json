@@ -9,6 +9,11 @@
     "title": "We build digital products that people love",
     "subtitle": "Custom web & mobile development with cutting-edge design",
     "cta": "Start Your Project",
+    "buttons": {
+      "startProject": "START PROJECT",
+      "viewWork": "VIEW WORK",
+      "scrollDown": "SCROLL_DOWN"
+    },
     "terminal": {
       "init": "> dreamstudio.init()",
       "loading": "> Loading creative engine...",
@@ -54,7 +59,38 @@
   },
   "portfolio": {
     "title": "Our Work",
-    "subtitle": "Real projects, real results. See how we've helped companies transform their digital presence."
+    "subtitle": "Real projects, real results. See how we've helped companies transform their digital presence.",
+    "buttons": {
+      "viewProject": "VIEW PROJECT",
+      "viewAllProjects": "VIEW ALL PROJECTS"
+    },
+    "labels": {
+      "webApp": "WEB APP",
+      "mobileApp": "MOBILE APP",
+      "appStore": "App Store",
+      "reviews": "reviews",
+      "downloads": "downloads"
+    },
+    "projects": {
+      "huntRho": {
+        "description": "Modern ticketing and event management platform with real-time updates and analytics"
+      },
+      "perroNegro": {
+        "description": "Event ticketing platform for Perro Negro with real-time ticket sales and management"
+      },
+      "mariaHelena": {
+        "description": "Ticketing platform for María Helena Amador events with seamless booking experience"
+      },
+      "amazonasToures": {
+        "description": "Tourism and travel agency platform showcasing amazing Amazon tours and experiences"
+      },
+      "wedding": {
+        "description": "Beautiful and elegant wedding invitation website with RSVP and event details"
+      },
+      "huntTickets": {
+        "description": "Modern ticketing and event management mobile application with real-time updates and analytics"
+      }
+    }
   },
   "process": {
     "title": "Our Process",

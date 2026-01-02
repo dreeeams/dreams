@@ -9,6 +9,11 @@
     "title": "Construimos productos digitales que la gente ama",
     "subtitle": "Desarrollo web y movil personalizado con diseño de vanguardia",
     "cta": "Inicia Tu Proyecto",
+    "buttons": {
+      "startProject": "INICIAR PROYECTO",
+      "viewWork": "VER PROYECTOS",
+      "scrollDown": "DESPLAZAR_ABAJO"
+    },
     "terminal": {
       "init": "> dreamstudio.init()",
       "loading": "> Cargando motor creativo...",
@@ -54,7 +59,38 @@
   },
   "portfolio": {
     "title": "Nuestro Trabajo",
-    "subtitle": "Proyectos reales, resultados reales. Mira como hemos ayudado a empresas a transformar su presencia digital."
+    "subtitle": "Proyectos reales, resultados reales. Mira como hemos ayudado a empresas a transformar su presencia digital.",
+    "buttons": {
+      "viewProject": "VER PROYECTO",
+      "viewAllProjects": "VER TODOS LOS PROYECTOS"
+    },
+    "labels": {
+      "webApp": "APLICACION WEB",
+      "mobileApp": "APP MOVIL",
+      "appStore": "App Store",
+      "reviews": "reseñas",
+      "downloads": "descargas"
+    },
+    "projects": {
+      "huntRho": {
+        "description": "Plataforma moderna de tickets y gestion de eventos con actualizaciones en tiempo real y analiticas"
+      },
+      "perroNegro": {
+        "description": "Plataforma de venta de tickets para eventos de Perro Negro con ventas y gestion en tiempo real"
+      },
+      "mariaHelena": {
+        "description": "Plataforma de venta de tickets para eventos de Maria Helena Amador con experiencia de reserva perfecta"
+      },
+      "amazonasToures": {
+        "description": "Plataforma de agencia de viajes y turismo mostrando increibles tours del Amazonas y experiencias"
+      },
+      "wedding": {
+        "description": "Hermoso y elegante sitio web de invitacion de boda con confirmacion y detalles del evento"
+      },
+      "huntTickets": {
+        "description": "Aplicacion movil moderna de tickets y gestion de eventos con actualizaciones en tiempo real y analiticas"
+      }
+    }
   },
   "process": {
     "title": "Nuestro Proceso",
