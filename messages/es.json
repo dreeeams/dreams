@@ -8,7 +8,26 @@
   "hero": {
     "title": "Construimos productos digitales que la gente ama",
     "subtitle": "Desarrollo web y movil personalizado con diseño de vanguardia",
-    "cta": "Inicia Tu Proyecto"
+    "cta": "Inicia Tu Proyecto",
+    "terminal": {
+      "init": "> dreamstudio.init()",
+      "loading": "> Cargando motor creativo...",
+      "initializing": "> Inicializando sistemas de diseño...",
+      "compiling": "> Compilando ideas en realidad...",
+      "constStudio": "const",
+      "studio": " studio ",
+      "equals": "= {",
+      "name": "  name",
+      "nameValue": "\"DREAM STUDIO\"",
+      "mission": "  mission",
+      "missionValue": "\"Transformar ideas en productos digitales\"",
+      "output": "  output",
+      "outputValue": "\"Hermoso, funcional, escalable\"",
+      "status": "  status",
+      "statusValue": "\"LISTO PARA CONSTRUIR\"",
+      "closeBrace": "};",
+      "ready": "> Sistema listo. Creemos algo increible."
+    }
   },
   "services": {
     "title": "Lo Que Hacemos",

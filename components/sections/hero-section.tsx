@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 type CodeLine = {
   text: string;
@@ -10,42 +11,43 @@ type CodeLine = {
 };
 
 export default function HeroSection() {
+  const t = useTranslations('hero.terminal');
   const [displayedLines, setDisplayedLines] = useState<CodeLine[]>([]);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
   const codeLines = [
-    { text: '> dreamstudio.init()', color: 'text-purple-400' },
-    { text: '> Loading creative engine...', color: 'text-gray-500' },
-    { text: '> Initializing design systems...', color: 'text-gray-500' },
-    { text: '> Compiling ideas into reality...', color: 'text-gray-500' },
+    { text: t('init'), color: 'text-purple-400' },
+    { text: t('loading'), color: 'text-gray-500' },
+    { text: t('initializing'), color: 'text-gray-500' },
+    { text: t('compiling'), color: 'text-gray-500' },
     { text: '', color: '' },
-    { text: 'const', color: 'text-purple-400', inline: [
-      { text: ' studio ', color: 'text-blue-400' },
-      { text: '= {', color: 'text-yellow-300' }
+    { text: t('constStudio'), color: 'text-purple-400', inline: [
+      { text: t('studio'), color: 'text-blue-400' },
+      { text: t('equals'), color: 'text-yellow-300' }
     ]},
-    { text: '  name', color: 'text-cyan-400', inline: [
+    { text: t('name'), color: 'text-cyan-400', inline: [
       { text: ': ', color: 'text-white' },
-      { text: '"DREAM STUDIO"', color: 'text-orange-400' },
+      { text: t('nameValue'), color: 'text-orange-400' },
       { text: ',', color: 'text-white' }
     ]},
-    { text: '  mission', color: 'text-cyan-400', inline: [
+    { text: t('mission'), color: 'text-cyan-400', inline: [
       { text: ': ', color: 'text-white' },
-      { text: '"Transform ideas into digital products"', color: 'text-orange-400' },
+      { text: t('missionValue'), color: 'text-orange-400' },
       { text: ',', color: 'text-white' }
     ]},
-    { text: '  output', color: 'text-cyan-400', inline: [
+    { text: t('output'), color: 'text-cyan-400', inline: [
       { text: ': ', color: 'text-white' },
-      { text: '"Beautiful, functional, scalable"', color: 'text-orange-400' },
+      { text: t('outputValue'), color: 'text-orange-400' },
       { text: ',', color: 'text-white' }
     ]},
-    { text: '  status', color: 'text-cyan-400', inline: [
+    { text: t('status'), color: 'text-cyan-400', inline: [
       { text: ': ', color: 'text-white' },
-      { text: '"READY TO BUILD"', color: 'text-orange-400' }
+      { text: t('statusValue'), color: 'text-orange-400' }
     ]},
-    { text: '};', color: 'text-yellow-300' },
+    { text: t('closeBrace'), color: 'text-yellow-300' },
     { text: '', color: '' },
-    { text: '> System ready. Let\'s create something amazing.', color: 'text-green-400' },
+    { text: t('ready'), color: 'text-green-400' },
   ];
 
   useEffect(() => {

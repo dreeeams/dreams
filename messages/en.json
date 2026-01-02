@@ -8,7 +8,26 @@
   "hero": {
     "title": "We build digital products that people love",
     "subtitle": "Custom web & mobile development with cutting-edge design",
-    "cta": "Start Your Project"
+    "cta": "Start Your Project",
+    "terminal": {
+      "init": "> dreamstudio.init()",
+      "loading": "> Loading creative engine...",
+      "initializing": "> Initializing design systems...",
+      "compiling": "> Compiling ideas into reality...",
+      "constStudio": "const",
+      "studio": " studio ",
+      "equals": "= {",
+      "name": "  name",
+      "nameValue": "\"DREAM STUDIO\"",
+      "mission": "  mission",
+      "missionValue": "\"Transform ideas into digital products\"",
+      "output": "  output",
+      "outputValue": "\"Beautiful, functional, scalable\"",
+      "status": "  status",
+      "statusValue": "\"READY TO BUILD\"",
+      "closeBrace": "};",
+      "ready": "> System ready. Let's create something amazing."
+    }
   },
   "services": {
     "title": "What We Do",
