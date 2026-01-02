@@ -27,9 +27,9 @@ export default function FAQSection() {
           transition={{ duration: 0.6 }}
           className="flex items-center justify-center mb-16"
         >
-          <span className="text-7xl md:text-9xl font-nostalgic">(</span>
-          <h2 className="text-7xl md:text-9xl mx-6 font-nostalgic">{t('title').toUpperCase()}</h2>
-          <span className="text-7xl md:text-9xl font-nostalgic">)</span>
+          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic whitespace-nowrap">(</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mx-2 sm:mx-3 md:mx-4 lg:mx-6 font-nostalgic whitespace-nowrap">{t('title').toUpperCase()}</h2>
+          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic whitespace-nowrap">)</span>
         </motion.div>
 
         {/* FAQ Accordion */}

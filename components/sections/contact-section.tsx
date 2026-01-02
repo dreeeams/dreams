@@ -17,14 +17,8 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl md:text-9xl mb-8 leading-none font-nostalgic">
-            {t('title').split(' ')[0]}
-          </h2>
-          <h2 className="text-6xl md:text-9xl italic mb-8 leading-none font-nostalgic">
-            {t('title').split(' ').slice(1, 3).join(' ')}
-          </h2>
-          <h2 className="text-6xl md:text-9xl mb-8 leading-none font-nostalgic">
-            {t('title').split(' ')[3]}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-tight font-nostalgic whitespace-nowrap px-4">
+            {t('title')}
           </h2>
         </motion.div>
 
