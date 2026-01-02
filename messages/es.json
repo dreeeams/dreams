@@ -31,6 +31,10 @@
   },
   "services": {
     "title": "Lo Que Hacemos",
+    "techStack": {
+      "title": "Tecnologias y Herramientas Que Usamos:",
+      "andMore": "Y muchas mas..."
+    },
     "webDev": {
       "title": "Experiencias Digitales",
       "description": "Plataformas web modernas construidas con las ultimas tecnologias. Desde sitios corporativos hasta aplicaciones web complejas, creamos soluciones digitales escalables que generan resultados reales para tu negocio."

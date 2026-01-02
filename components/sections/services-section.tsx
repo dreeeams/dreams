@@ -119,7 +119,7 @@ export default function ServicesSection() {
         >
           <div className="border-4 border-black p-8 bg-background-light">
             <h3 className="text-xl md:text-2xl font-bold mb-6 text-black font-nostalgic">
-              TECHNOLOGIES & TOOLS WE USE:
+              {t('techStack.title').toUpperCase()}
             </h3>
             <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-3">
               <TechCard
@@ -180,10 +180,9 @@ export default function ServicesSection() {
                 delay={0.2}
               />
               <TechCard
-                name="SHADCN"
-                logo="https://ui.shadcn.com/favicon.ico"
+                name="RADIX UI"
+                logo="https://avatars.githubusercontent.com/u/75042455?s=200&v=4"
                 delay={0.22}
-                invertOnHover={true}
               />
               <TechCard
                 name="VERCEL"
@@ -192,9 +191,10 @@ export default function ServicesSection() {
                 invertOnHover={true}
               />
               <TechCard
-                name="MERCADOPAGO"
-                logo="https://contactopuro.com/wp-content/uploads/2020/08/mercadopago-logo.png"
+                name="EXPO"
+                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg"
                 delay={0.26}
+                invertOnHover={true}
               />
               <TechCard
                 name="GRAPHQL"
@@ -215,7 +215,7 @@ export default function ServicesSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-center text-sm font-medium text-gray-600 mt-6"
             >
-              Y muchas más...
+              {t('techStack.andMore')}
             </motion.p>
           </div>
         </motion.div>
