@@ -10,13 +10,20 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background-light">
       <Navigation />
-      <main className="overflow-hidden">
-        <HeroSection />
-        <ServicesSection />
-        <MarqueeSection />
-        <PortfolioSection />
-        <FAQSection />
-        <ContactSection />
+      <main className="relative">
+        {/* Hero as fixed background */}
+        <div className="fixed top-0 left-0 w-full h-screen z-0">
+          <HeroSection />
+        </div>
+
+        {/* Content that scrolls over hero */}
+        <div className="relative z-10" style={{ marginTop: '100vh' }}>
+          <ServicesSection />
+          <MarqueeSection />
+          <PortfolioSection />
+          <FAQSection />
+          <ContactSection />
+        </div>
       </main>
     </div>
   );

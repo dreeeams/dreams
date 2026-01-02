@@ -65,7 +65,7 @@ export default function HeroSection() {
   }, [currentLineIndex, codeLines]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 sm:pt-36 md:pt-40 pb-20">
+    <section className="w-full h-full flex items-center justify-center px-4 sm:px-6 bg-background-light">
       <div className="max-w-5xl w-full mx-auto">
         {/* Terminal Window */}
         <motion.div
