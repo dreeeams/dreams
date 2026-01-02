@@ -65,7 +65,7 @@ export default function HeroSection() {
   }, [currentLineIndex, codeLines]);
 
   return (
-    <section className="sticky top-0 relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 sm:pt-36 md:pt-40 pb-20 z-0">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-32 sm:pt-36 md:pt-40 pb-20">
       <div className="max-w-5xl w-full mx-auto">
         {/* Terminal Window */}
         <motion.div
