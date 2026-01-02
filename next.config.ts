@@ -48,6 +48,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'ui.shadcn.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
     ],
   },
   experimental: {
