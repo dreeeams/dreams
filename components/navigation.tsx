@@ -74,13 +74,6 @@ export default function Navigation() {
             </motion.a>
             <motion.a
               whileHover={{ y: -2 }}
-              href="#team"
-              className="hover:opacity-60 transition-opacity hidden md:block"
-            >
-              {t('team')}
-            </motion.a>
-            <motion.a
-              whileHover={{ y: -2 }}
               href="#contact"
               className="hover:opacity-60 transition-opacity hidden sm:block"
             >
