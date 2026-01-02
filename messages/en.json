@@ -62,7 +62,22 @@
     "subtitle": "Real projects, real results. See how we've helped companies transform their digital presence.",
     "buttons": {
       "viewProject": "VIEW PROJECT",
-      "viewAllProjects": "VIEW ALL PROJECTS"
+      "viewAllProjects": "VIEW ALL PROJECTS",
+      "backToHome": "BACK TO HOME"
+    },
+    "allProjects": {
+      "title": "All Projects",
+      "subtitle": "Explore our complete portfolio of digital products and experiences",
+      "filters": {
+        "search": "Search projects...",
+        "all": "All Projects",
+        "sortBy": "Sort by",
+        "newest": "Newest First",
+        "oldest": "Oldest First",
+        "nameAZ": "Name (A-Z)",
+        "nameZA": "Name (Z-A)"
+      },
+      "noResults": "No projects found matching your criteria"
     },
     "labels": {
       "webApp": "WEB APP",

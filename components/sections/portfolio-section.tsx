@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 type Project = {
   titleKey: string;
@@ -261,13 +262,15 @@ export default function PortfolioSection() {
           transition={{ duration: 0.6 }}
           className="mt-16 text-center"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 border-4 border-black font-bold text-sm hover:bg-black hover:text-white transition-colors"
-          >
-            {tButtons('viewAllProjects')}
-          </motion.button>
+          <Link href="/work">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 border-4 border-black font-bold text-sm hover:bg-black hover:text-white transition-colors"
+            >
+              {tButtons('viewAllProjects')}
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>

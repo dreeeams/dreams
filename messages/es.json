@@ -62,7 +62,22 @@
     "subtitle": "Proyectos reales, resultados reales. Mira como hemos ayudado a empresas a transformar su presencia digital.",
     "buttons": {
       "viewProject": "VER PROYECTO",
-      "viewAllProjects": "VER TODOS LOS PROYECTOS"
+      "viewAllProjects": "VER TODOS LOS PROYECTOS",
+      "backToHome": "VOLVER AL INICIO"
+    },
+    "allProjects": {
+      "title": "Todos Los Proyectos",
+      "subtitle": "Explora nuestro portafolio completo de productos y experiencias digitales",
+      "filters": {
+        "search": "Buscar proyectos...",
+        "all": "Todos Los Proyectos",
+        "sortBy": "Ordenar por",
+        "newest": "Más Recientes",
+        "oldest": "Más Antiguos",
+        "nameAZ": "Nombre (A-Z)",
+        "nameZA": "Nombre (Z-A)"
+      },
+      "noResults": "No se encontraron proyectos que coincidan con tus criterios"
     },
     "labels": {
       "webApp": "APLICACION WEB",
