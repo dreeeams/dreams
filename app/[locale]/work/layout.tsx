@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import Navbar from '@/components/navigation/navbar';
+import Navigation from '@/components/navigation';
 
 export default function WorkLayout({
   children,
@@ -7,11 +7,9 @@ export default function WorkLayout({
   children: ReactNode;
 }) {
   return (
-    <>
-      <Navbar />
-      <div className="pt-20">
-        {children}
-      </div>
-    </>
+    <div className="min-h-screen bg-background-light">
+      <Navigation />
+      {children}
+    </div>
   );
 }

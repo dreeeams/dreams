@@ -138,7 +138,7 @@ export default function AllProjectsPage() {
   }, [searchQuery, selectedCategory, sortBy, tProjects]);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white pt-16 sm:pt-20">
       {/* Filters Section */}
       <section className="py-12 px-6 md:px-12 bg-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto">
