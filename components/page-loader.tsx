@@ -1,7 +1,15 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext, useContext } from 'react';
+
+type LoaderContextType = {
+  isLoading: boolean;
+};
+
+const LoaderContext = createContext<LoaderContextType>({ isLoading: true });
+
+export const useLoader = () => useContext(LoaderContext);
 
 export default function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +30,11 @@ export default function PageLoader() {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressInterval);
-          setTimeout(() => setIsLoading(false), 500);
+          setTimeout(() => {
+            setIsLoading(false);
+            // Dispatch custom event when loading completes
+            window.dispatchEvent(new Event('loaderComplete'));
+          }, 500);
           return 100;
         }
         // Faster initial progress, slower at the end

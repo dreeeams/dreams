@@ -16,6 +16,7 @@ export default function HeroSection() {
   const [displayedLines, setDisplayedLines] = useState<CodeLine[]>([]);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [loaderComplete, setLoaderComplete] = useState(false);
 
   const codeLines = [
     { text: t('init'), color: 'text-purple-400' },
@@ -52,6 +53,22 @@ export default function HeroSection() {
   ];
 
   useEffect(() => {
+    // Listen for loader completion
+    const handleLoaderComplete = () => {
+      setLoaderComplete(true);
+    };
+
+    window.addEventListener('loaderComplete', handleLoaderComplete);
+
+    return () => {
+      window.removeEventListener('loaderComplete', handleLoaderComplete);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Don't start typing animation until loader is complete
+    if (!loaderComplete) return;
+
     if (currentLineIndex >= codeLines.length) {
       setIsTypingComplete(true);
       return;
@@ -63,7 +80,7 @@ export default function HeroSection() {
     }, 150);
 
     return () => clearTimeout(timer);
-  }, [currentLineIndex, codeLines]);
+  }, [currentLineIndex, codeLines, loaderComplete]);
 
   return (
     <section className="w-full h-full flex items-center justify-center px-4 sm:px-6 bg-background-light">
