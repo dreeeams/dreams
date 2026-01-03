@@ -131,7 +131,29 @@
     "subtitle": "Gente talentosa detras de grandes productos"
   },
   "faq": {
-    "title": "Preguntas Frecuentes"
+    "title": "Preguntas Frecuentes",
+    "questions": {
+      "q1": {
+        "question": "¿Cuánto tiempo toma un proyecto típico?",
+        "answer": "Los tiempos de proyecto varían según la complejidad. Un sitio web simple puede tomar 4-6 semanas, mientras que una aplicación móvil completa típicamente toma 3-6 meses. Te proporcionaremos un cronograma detallado durante nuestra consulta inicial."
+      },
+      "q2": {
+        "question": "¿Cuál es su modelo de precios?",
+        "answer": "Ofrecemos modelos de precios flexibles incluyendo precio fijo y tiempo y materiales. Los precios dependen del alcance del proyecto, complejidad y cronograma. Contáctanos para una cotización personalizada adaptada a tus necesidades."
+      },
+      "q3": {
+        "question": "¿Proporcionan soporte continuo?",
+        "answer": "¡Sí! Ofrecemos paquetes de mantenimiento integral que incluyen corrección de errores, actualizaciones, parches de seguridad, optimización de rendimiento y mejoras de funcionalidades. Tu éxito es nuestra prioridad."
+      },
+      "q4": {
+        "question": "¿Pueden trabajar con nuestro equipo existente?",
+        "answer": "¡Por supuesto! Colaboramos perfectamente con equipos internos, proporcionando experiencia donde se necesita. Nos integramos sin problemas en tu flujo de trabajo y complementamos tus recursos existentes."
+      },
+      "q5": {
+        "question": "¿En qué tecnologías se especializan?",
+        "answer": "Nos especializamos en tecnologías web y móviles modernas incluyendo React, Next.js, React Native, Node.js, TypeScript, PostgreSQL, y plataformas cloud líderes como Vercel y Supabase."
+      }
+    }
   },
   "contact": {
     "title": "Construyamos Algo Increible Juntos",
