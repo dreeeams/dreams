@@ -121,7 +121,7 @@ export default function HeroSection() {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 sm:px-12 py-4 sm:py-5 bg-brand text-white border-4 border-black font-bold text-sm sm:text-base hover:bg-black hover:border-brand transition-colors cursor-pointer"
+            className="px-6 sm:px-12 py-3 sm:py-5 bg-brand text-white border-4 border-black font-bold text-xs sm:text-base hover:bg-black hover:border-brand transition-colors cursor-pointer"
           >
             {tButtons('startProject')}
           </motion.a>
@@ -129,7 +129,7 @@ export default function HeroSection() {
             href="#work"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 sm:px-12 py-4 sm:py-5 bg-transparent text-black border-4 border-black font-bold text-sm sm:text-base hover:bg-black hover:text-white transition-colors cursor-pointer"
+            className="px-6 sm:px-12 py-3 sm:py-5 bg-transparent text-black border-4 border-black font-bold text-xs sm:text-base hover:bg-black hover:text-white transition-colors cursor-pointer"
           >
             {tButtons('viewWork')}
           </motion.a>

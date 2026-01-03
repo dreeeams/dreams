@@ -6,6 +6,7 @@ import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import { locales } from '@/i18n/config';
 import { ThemeProvider } from '@/components/providers/theme-provider';
+import PageLoader from '@/components/page-loader';
 import '../globals.css';
 
 const geistSans = Geist({
@@ -65,6 +66,7 @@ export default async function LocaleLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
+            <PageLoader />
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
