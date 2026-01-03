@@ -94,7 +94,7 @@ export default function PortfolioSection() {
         >
           <div className="flex items-center justify-center mb-8">
             <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic whitespace-nowrap">(</span>
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mx-2 sm:mx-4 md:mx-6 italic font-nostalgic whitespace-nowrap">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mx-2 sm:mx-4 md:mx-6 font-nostalgic whitespace-nowrap">
               {t('title').toUpperCase()}
             </h2>
             <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic whitespace-nowrap">)</span>
