@@ -139,41 +139,6 @@ export default function AllProjectsPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Header */}
-      <section className="py-24 px-6 md:px-12 bg-background-light border-b-4 border-black">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center justify-center mb-8">
-              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic whitespace-nowrap">(</span>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mx-2 sm:mx-4 md:mx-6 italic font-nostalgic whitespace-nowrap">
-                {t('title').toUpperCase()}
-              </h1>
-              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic whitespace-nowrap">)</span>
-            </div>
-            <p className="text-center text-sm max-w-2xl mx-auto mb-8">
-              {t('subtitle').toUpperCase()}
-            </p>
-
-            {/* Back to Home Button */}
-            <div className="flex justify-center">
-              <Link href="/#work">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border-4 border-black font-bold text-sm hover:bg-black hover:text-white transition-colors"
-                >
-                  ← {tButtons('backToHome')}
-                </motion.button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Filters Section */}
       <section className="py-12 px-6 md:px-12 bg-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto">
