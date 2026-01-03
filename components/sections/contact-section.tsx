@@ -231,12 +231,9 @@ export default function ContactSection() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="pt-8 border-t-4 border-black flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="pt-8 border-t-4 border-black text-center">
             <p className="text-xs text-gray-600">
               © 2024 Dream Studio. {tFooter('rights')}.
-            </p>
-            <p className="text-xs text-gray-600">
-              {tFooter('madeWith')} ❤️ Next.js & Framer Motion
             </p>
           </div>
         </motion.div>
