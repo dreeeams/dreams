@@ -147,6 +147,21 @@ export default function Navigation() {
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
             className="fixed inset-0 z-[60] bg-background-light sm:hidden"
           >
+            {/* Close Button */}
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center border-2 border-black bg-white hover:bg-black group transition-colors"
+              aria-label="Close menu"
+            >
+              <div className="relative w-6 h-6">
+                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-black group-hover:bg-white rotate-45 transform -translate-y-1/2" />
+                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-black group-hover:bg-white -rotate-45 transform -translate-y-1/2" />
+              </div>
+            </motion.button>
+
             <div className="h-full flex flex-col items-center justify-center px-8">
               {/* Logo */}
               <motion.div
