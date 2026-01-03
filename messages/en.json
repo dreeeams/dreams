@@ -163,6 +163,20 @@
       "email": "Email",
       "message": "Message",
       "submit": "Send Message"
+    },
+    "footer": {
+      "tagline": "Building digital experiences since 2019",
+      "quickLinks": "Quick Links",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "about": "About",
+      "contact": "Contact",
+      "legal": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "rights": "All rights reserved",
+      "madeWith": "Built with"
     }
   },
   "theme": {

@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
+  const tFooter = useTranslations('contact.footer');
 
   return (
     <section id="contact" className="relative z-10 py-24 px-6 md:px-12 bg-white">
@@ -144,36 +145,99 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="border-t-4 border-black pt-8"
+          className="border-t-4 border-black pt-16 mt-16"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
-              <h4 className="text-xl md:text-2xl mb-2 font-nostalgic">DREAM STUDIO</h4>
-              <p className="text-xs text-gray-600">Building digital experiences since 2019</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            {/* Brand Column */}
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <svg
+                  width="32"
+                  height="37"
+                  viewBox="0 0 97 114"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_d_3_75_animated)">
+                    <path d="M47.9849 11.0323V52.6452L38.4484 47.2258C21.5161 37.5484 11.0064 19.5484 11.0064 0H4V47.6129C4 63.0968 12.9527 77.4194 27.1602 84.1936L48.1796 94.2581V52.6452L57.7161 58.0645C74.6484 67.7419 85.1581 85.7419 85.1581 105.29H92.1645V57.6774C92.1645 42.1935 83.2118 27.871 69.0043 21.0968L47.9849 11.0323Z" fill="currentColor" className="text-black"/>
+                  </g>
+                  <defs>
+                    <filter id="filter0_d_3_75_animated" x="0" y="0" width="96.1645" height="113.29" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                      <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                      <feOffset dy="4"/>
+                      <feGaussianBlur stdDeviation="2"/>
+                      <feComposite in2="hardAlpha" operator="out"/>
+                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3_75"/>
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3_75" result="shape"/>
+                    </filter>
+                  </defs>
+                </svg>
+                <h4 className="text-2xl md:text-3xl font-nostalgic">DREAM STUDIO</h4>
+              </div>
+              <p className="text-sm text-gray-600 max-w-xs">
+                {tFooter('tagline')}
+              </p>
 
-            <div>
-              <p className="text-xs font-bold mb-2">QUICK LINKS</p>
-              <div className="space-y-1 text-xs">
-                <p className="hover:underline cursor-pointer">Services</p>
-                <p className="hover:underline cursor-pointer">Portfolio</p>
-                <p className="hover:underline cursor-pointer">About</p>
-                <p className="hover:underline cursor-pointer">Contact</p>
+              {/* Social Links */}
+              <div className="flex gap-4 mt-6">
+                {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((social) => (
+                  <motion.div
+                    key={social}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="w-10 h-10 border-2 border-black flex items-center justify-center cursor-pointer hover:bg-black hover:text-white transition-colors"
+                  >
+                    <span className="text-xs font-bold">{social[0]}</span>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
+            {/* Quick Links */}
             <div>
-              <p className="text-xs font-bold mb-2">LEGAL</p>
-              <div className="space-y-1 text-xs">
-                <p className="hover:underline cursor-pointer">Privacy Policy</p>
-                <p className="hover:underline cursor-pointer">Terms of Service</p>
-                <p className="hover:underline cursor-pointer">Cookie Policy</p>
+              <p className="text-sm font-bold mb-4">{tFooter('quickLinks').toUpperCase()}</p>
+              <div className="space-y-2 text-sm">
+                <a href="#services" className="block hover:text-brand transition-colors cursor-pointer">
+                  {tFooter('services')}
+                </a>
+                <a href="#work" className="block hover:text-brand transition-colors cursor-pointer">
+                  {tFooter('portfolio')}
+                </a>
+                <a href="#about" className="block hover:text-brand transition-colors cursor-pointer">
+                  {tFooter('about')}
+                </a>
+                <a href="#contact" className="block hover:text-brand transition-colors cursor-pointer">
+                  {tFooter('contact')}
+                </a>
+              </div>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <p className="text-sm font-bold mb-4">{tFooter('legal').toUpperCase()}</p>
+              <div className="space-y-2 text-sm">
+                <p className="hover:text-brand transition-colors cursor-pointer">
+                  {tFooter('privacy')}
+                </p>
+                <p className="hover:text-brand transition-colors cursor-pointer">
+                  {tFooter('terms')}
+                </p>
+                <p className="hover:text-brand transition-colors cursor-pointer">
+                  {tFooter('cookies')}
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-600">
-            <p>© 2024 Dream Studio. All rights reserved. Built with ❤️ using Next.js & Framer Motion</p>
+          {/* Bottom Bar */}
+          <div className="pt-8 border-t-4 border-black flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-gray-600">
+              © 2024 Dream Studio. {tFooter('rights')}.
+            </p>
+            <p className="text-xs text-gray-600">
+              {tFooter('madeWith')} ❤️ Next.js & Framer Motion
+            </p>
           </div>
         </motion.div>
       </div>

@@ -163,6 +163,20 @@
       "email": "Correo Electronico",
       "message": "Mensaje",
       "submit": "Enviar Mensaje"
+    },
+    "footer": {
+      "tagline": "Construyendo experiencias digitales desde 2019",
+      "quickLinks": "Enlaces Rápidos",
+      "services": "Servicios",
+      "portfolio": "Portafolio",
+      "about": "Acerca de",
+      "contact": "Contacto",
+      "legal": "Legal",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "cookies": "Política de Cookies",
+      "rights": "Todos los derechos reservados",
+      "madeWith": "Hecho con"
     }
   },
   "theme": {
