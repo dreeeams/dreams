@@ -44,7 +44,20 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex items-center justify-between">
-            <Link href="/">
+            {/* Left Side - Language Toggle (mobile) */}
+            <motion.button
+              onClick={toggleLanguage}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+              className="w-10 h-10 sm:hidden rounded-full border-2 border-black bg-white flex items-center justify-center hover:bg-brand hover:border-brand hover:text-white transition-colors text-black font-bold text-xs"
+              aria-label="Toggle language"
+            >
+              {locale.toUpperCase()}
+            </motion.button>
+
+            {/* Center - Logo */}
+            <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 sm:static sm:transform-none">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-2 sm:gap-3 cursor-pointer"
@@ -77,6 +90,7 @@ export default function Navigation() {
               </motion.div>
             </Link>
 
+            {/* Right Side - Menu Items & Language Toggle (desktop) */}
             <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-xs sm:text-sm font-medium text-foreground-light">
               <motion.a
                 whileHover={{ y: -2 }}
@@ -100,6 +114,18 @@ export default function Navigation() {
                 {t('contact')}
               </motion.a>
 
+              {/* Language Toggle (desktop) */}
+              <motion.button
+                onClick={toggleLanguage}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="hidden sm:flex w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-black bg-white items-center justify-center hover:bg-brand hover:border-brand hover:text-white transition-colors text-black font-bold text-xs"
+                aria-label="Toggle language"
+              >
+                {locale.toUpperCase()}
+              </motion.button>
+
               {/* Mobile Menu Button */}
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -119,18 +145,6 @@ export default function Navigation() {
                   animate={isMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
                   className="w-5 h-0.5 bg-black group-hover:bg-white transition-colors"
                 />
-              </motion.button>
-
-              {/* Language Toggle */}
-              <motion.button
-                onClick={toggleLanguage}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="w-10 h-10 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border-2 border-black bg-white flex items-center justify-center hover:bg-brand hover:border-brand hover:text-white transition-colors text-black font-bold text-xs sm:text-xs"
-                aria-label="Toggle language"
-              >
-                {locale.toUpperCase()}
               </motion.button>
             </div>
           </div>
