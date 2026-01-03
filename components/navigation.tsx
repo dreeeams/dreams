@@ -25,7 +25,7 @@ export default function Navigation() {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className="fixed top-0 left-0 right-0 z-50 bg-background-light/80 backdrop-blur-sm border-b border-black/10"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
         <div className="flex items-center justify-between">
           <Link href="/">
             <motion.div
@@ -38,7 +38,7 @@ export default function Navigation() {
                 viewBox="0 0 97 114"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 sm:h-7 md:h-8 w-auto"
+                className="h-8 sm:h-7 md:h-8 w-auto"
               >
                 <g filter="url(#filter0_d_3_75_animated)">
                   <path d="M47.9849 11.0323V52.6452L38.4484 47.2258C21.5161 37.5484 11.0064 19.5484 11.0064 0H4V47.6129C4 63.0968 12.9527 77.4194 27.1602 84.1936L48.1796 94.2581V52.6452L57.7161 58.0645C74.6484 67.7419 85.1581 85.7419 85.1581 105.29H92.1645V57.6774C92.1645 42.1935 83.2118 27.871 69.0043 21.0968L47.9849 11.0323Z" fill="currentColor" className="text-black"/>
@@ -56,7 +56,7 @@ export default function Navigation() {
                   </filter>
                 </defs>
               </svg>
-              <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-nostalgic">DREAM STUDIO</span>
+              <span className="text-lg sm:text-lg md:text-xl lg:text-2xl font-nostalgic">DREAM STUDIO</span>
             </motion.div>
           </Link>
 
@@ -89,7 +89,7 @@ export default function Navigation() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border-2 border-black bg-white flex items-center justify-center hover:bg-brand hover:border-brand hover:text-white transition-colors text-black font-bold text-[10px] sm:text-xs"
+              className="w-10 h-10 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border-2 border-black bg-white flex items-center justify-center hover:bg-brand hover:border-brand hover:text-white transition-colors text-black font-bold text-xs sm:text-xs"
               aria-label="Toggle language"
             >
               {locale.toUpperCase()}
