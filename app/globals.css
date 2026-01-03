@@ -47,16 +47,21 @@
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body {
     @apply bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark;
     font-family: var(--font-geist-sans), 'Helvetica Neue', Helvetica, Arial,
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  html {
-    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   h1,
