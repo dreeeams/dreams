@@ -53,8 +53,8 @@
       "description": "Diseño centrado en el usuario que combina estetica con funcionalidad. Creamos interfaces que no solo son hermosas, sino que resuelven problemas reales y entregan experiencias excepcionales."
     },
     "consulting": {
-      "title": "Estrategia Tecnica",
-      "description": "Consultoria tecnologica para tomar las decisiones correctas. Te ayudamos a definir arquitecturas, seleccionar tecnologias y construir equipos tecnicos de alto rendimiento alineados con tus objetivos."
+      "title": "Backend & APIs",
+      "description": "Soluciones robustas del lado del servidor y APIs escalables. Construimos APIs REST y GraphQL seguras, diseñamos arquitecturas de bases de datos eficientes, implementamos sistemas de autenticación y creamos microservicios que impulsan tus aplicaciones."
     }
   },
   "portfolio": {

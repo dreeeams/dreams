@@ -53,8 +53,8 @@
       "description": "User-centered design that combines aesthetics with functionality. We create interfaces that are not only beautiful but solve real problems and deliver exceptional user experiences."
     },
     "consulting": {
-      "title": "Technical Strategy",
-      "description": "Technology consulting to make the right decisions. We help you define architectures, select technologies, and build high-performance technical teams aligned with your goals."
+      "title": "Backend & APIs",
+      "description": "Robust server-side solutions and scalable APIs. We build secure REST and GraphQL APIs, design efficient database architectures, implement authentication systems, and create microservices that power your applications."
     }
   },
   "portfolio": {
