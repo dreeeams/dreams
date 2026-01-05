@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { LazyIframe } from '@/components/ui/lazy-iframe';
 
 type Project = {
   titleKey: string;
@@ -143,27 +144,19 @@ export default function PortfolioSection() {
                             src="/images/hunt-tickets-app.gif"
                             alt="Hunt Tickets App Demo"
                             className="w-full h-full object-cover"
+                            loading="lazy"
                           />
                         </div>
                       </div>
                     </div>
                   </div>
                 ) : project.url ? (
-                  project.mobileView ? (
-                    <iframe
-                      src={`https://${project.url}`}
-                      className="absolute inset-0 w-full h-full pointer-events-none border-0"
-                      title={project.titleKey}
-                    />
-                  ) : (
-                    <div className="absolute inset-0 w-full h-full scale-[0.25] origin-top-left">
-                      <iframe
-                        src={`https://${project.url}`}
-                        className="w-[400%] h-[400%] pointer-events-none border-0"
-                        title={project.titleKey}
-                      />
-                    </div>
-                  )
+                  <LazyIframe
+                    src={`https://${project.url}`}
+                    title={project.titleKey}
+                    className="absolute inset-0 w-full h-full pointer-events-none border-0"
+                    mobileView={project.mobileView}
+                  />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div
