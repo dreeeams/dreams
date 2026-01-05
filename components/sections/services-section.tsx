@@ -16,10 +16,14 @@ const TechCard = ({
   invertOnHover?: boolean;
 }) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.9 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.3, delay }}
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, margin: '-50px' }}
+    transition={{
+      duration: 0.5,
+      delay,
+      ease: [0.25, 0.4, 0.25, 1]
+    }}
     className="border-2 border-black p-4 flex flex-col items-center justify-center bg-white hover:bg-black hover:border-black transition-all cursor-pointer group"
   >
     <div className={`relative w-12 h-12 mb-2 grayscale group-hover:grayscale-0 transition-all ${invertOnHover ? 'group-hover:invert' : ''}`}>
@@ -130,81 +134,81 @@ export default function ServicesSection() {
               <TechCard
                 name="NEXT.JS"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                delay={0.02}
+                delay={0.05}
                 invertOnHover={true}
               />
               <TechCard
                 name="TYPESCRIPT"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                delay={0.04}
+                delay={0.1}
               />
               <TechCard
                 name="NODE.JS"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                delay={0.06}
+                delay={0.15}
               />
               <TechCard
                 name="TAILWIND"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
-                delay={0.08}
+                delay={0.2}
               />
               <TechCard
                 name="REACT NATIVE"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                delay={0.1}
+                delay={0.25}
               />
               <TechCard
                 name="FRAMER"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framermotion/framermotion-original.svg"
-                delay={0.12}
+                delay={0.3}
                 invertOnHover={true}
               />
               <TechCard
                 name="SHOPIFY"
                 logo="https://cdn.worldvectorlogo.com/logos/shopify.svg"
-                delay={0.14}
+                delay={0.35}
               />
               <TechCard
                 name="SUPABASE"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
-                delay={0.16}
+                delay={0.4}
               />
               <TechCard
                 name="POSTGRESQL"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-                delay={0.18}
+                delay={0.45}
               />
               <TechCard
                 name="STRIPE"
                 logo="https://images.ctfassets.net/fzn2n1nzq965/HTTOloNPhisV9P4hlMPNA/cacf1bb88b9fc492dfad34378d844280/Stripe_icon_-_square.svg"
-                delay={0.2}
+                delay={0.5}
               />
               <TechCard
                 name="RADIX UI"
                 logo="https://avatars.githubusercontent.com/u/75042455?s=200&v=4"
-                delay={0.22}
+                delay={0.55}
               />
               <TechCard
                 name="VERCEL"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg"
-                delay={0.24}
+                delay={0.6}
                 invertOnHover={true}
               />
               <TechCard
                 name="EXPO"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg"
-                delay={0.26}
+                delay={0.65}
                 invertOnHover={true}
               />
               <TechCard
                 name="GRAPHQL"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"
-                delay={0.28}
+                delay={0.7}
               />
               <TechCard
                 name="GITHUB"
                 logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                delay={0.3}
+                delay={0.75}
                 invertOnHover={true}
               />
             </div>
