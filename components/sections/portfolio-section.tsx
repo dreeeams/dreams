@@ -18,6 +18,11 @@ type Project = {
   };
   appStore?: boolean;
   downloads?: number;
+  metrics?: {
+    visitors?: string;
+    visits?: string;
+    bounceRate?: string;
+  };
 };
 
 const projects: Project[] = [
@@ -36,6 +41,11 @@ const projects: Project[] = [
     tags: ['Next.js', 'Stripe', 'PostgreSQL'],
     color: 'bg-black',
     url: 'perronegro.biotickets.com',
+    metrics: {
+      visitors: 'visitors',
+      visits: 'visits',
+      bounceRate: 'bounceRate',
+    },
   },
   {
     titleKey: 'MARÍA HELENA AMADOR',
@@ -217,6 +227,42 @@ export default function PortfolioSection() {
                     </div>
                   )}
                 </div>
+
+                {/* Web Metrics */}
+                {project.metrics && (
+                  <div className="grid grid-cols-3 gap-3 py-3 border-t border-b border-gray-200">
+                    {project.metrics.visitors && (
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-black">
+                          {tProjects(`${project.descriptionKey}.metrics.${project.metrics.visitors}`)}
+                        </div>
+                        <div className="text-xs text-gray-500 mt-1">
+                          {tProjects(`${project.descriptionKey}.metrics.${project.metrics.visitors}Label`)}
+                        </div>
+                      </div>
+                    )}
+                    {project.metrics.visits && (
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-black">
+                          {tProjects(`${project.descriptionKey}.metrics.${project.metrics.visits}`)}
+                        </div>
+                        <div className="text-xs text-gray-500 mt-1">
+                          {tProjects(`${project.descriptionKey}.metrics.${project.metrics.visits}Label`)}
+                        </div>
+                      </div>
+                    )}
+                    {project.metrics.bounceRate && (
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-black">
+                          {tProjects(`${project.descriptionKey}.metrics.${project.metrics.bounceRate}`)}
+                        </div>
+                        <div className="text-xs text-gray-500 mt-1">
+                          {tProjects(`${project.descriptionKey}.metrics.${project.metrics.bounceRate}Label`)}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 <h3 className="text-xl md:text-2xl font-bold font-sans">
                   {project.titleKey}
