@@ -156,13 +156,34 @@
     }
   },
   "contact": {
-    "title": "Construyamos Algo Increible Juntos",
-    "subtitle": "Ponte en contacto para discutir tu proyecto",
+    "title": "Cuéntanos Qué Quieres Construir",
+    "subtitle": "Toma menos de 30 segundos. Te contactamos con una propuesta clara.",
+    "noSpam": "Sin spam.",
     "form": {
-      "name": "Nombre",
-      "email": "Correo Electronico",
-      "message": "Mensaje",
-      "submit": "Enviar Mensaje"
+      "step": "Paso",
+      "of": "de",
+      "stepContact": "Contacto",
+      "stepProject": "Proyecto",
+      "fullName": "Nombre Completo",
+      "email": "Correo",
+      "whatsapp": "WhatsApp (opcional)",
+      "company": "Empresa / Proyecto",
+      "website": "Web o Instagram (opcional)",
+      "need": "¿Qué necesitas?",
+      "needOptions": {
+        "landing": "Landing Page",
+        "webapp": "Web App / SaaS",
+        "mobile": "App Móvil",
+        "automation": "Automatización / IA",
+        "design": "Diseño / UX",
+        "other": "Otro"
+      },
+      "summary": "En una frase, ¿qué quieres lograr?",
+      "summaryPlaceholder": "Ej: App de tickets con QR y pagos.",
+      "continue": "Continuar",
+      "submit": "Enviar",
+      "successTitle": "Listo ✅",
+      "successMessage": "Recibimos tu info. Te contactamos en las próximas horas."
     },
     "footer": {
       "tagline": "Construyendo experiencias digitales desde 2024",

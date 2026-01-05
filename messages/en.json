@@ -156,13 +156,34 @@
     }
   },
   "contact": {
-    "title": "Let's Build Something Amazing Together",
-    "subtitle": "Get in touch to discuss your project",
+    "title": "Tell Us What You Want to Build",
+    "subtitle": "Takes less than 30 seconds. We'll contact you with a clear proposal.",
+    "noSpam": "No spam.",
     "form": {
-      "name": "Name",
+      "step": "Step",
+      "of": "of",
+      "stepContact": "Contact",
+      "stepProject": "Project",
+      "fullName": "Full Name",
       "email": "Email",
-      "message": "Message",
-      "submit": "Send Message"
+      "whatsapp": "WhatsApp (optional)",
+      "company": "Company / Project",
+      "website": "Website or Instagram (optional)",
+      "need": "What do you need?",
+      "needOptions": {
+        "landing": "Landing Page",
+        "webapp": "Web App / SaaS",
+        "mobile": "Mobile App",
+        "automation": "Automation / AI",
+        "design": "Design / UX",
+        "other": "Other"
+      },
+      "summary": "In one sentence, what do you want to achieve?",
+      "summaryPlaceholder": "E.g: Ticketing app with QR and payments.",
+      "continue": "Continue",
+      "submit": "Send",
+      "successTitle": "All set ✅",
+      "successMessage": "We received your info. We'll contact you in the next few hours."
     },
     "footer": {
       "tagline": "Building digital experiences since 2024",

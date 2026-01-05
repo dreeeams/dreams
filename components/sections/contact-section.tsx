@@ -1,11 +1,45 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
+  const tForm = useTranslations('contact.form');
   const tFooter = useTranslations('contact.footer');
+
+  const [step, setStep] = useState(1);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    whatsapp: '',
+    company: '',
+    website: '',
+    need: '',
+    summary: '',
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleContinue = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formData.fullName && formData.email) {
+      setStep(2);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formData.company && formData.need) {
+      // Here you would send to your CRM/backend
+      console.log('Form submitted:', formData);
+      setSubmitted(true);
+    }
+  };
 
   return (
     <section id="contact" className="relative z-10 py-24 px-6 md:px-12 bg-white">
@@ -16,127 +50,224 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-tight font-nostalgic text-center px-4">
-            {t('title')}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight font-nostalgic">
+            {t('title').toUpperCase()}
           </h2>
+          <p className="text-lg text-gray-600 mb-2">{t('subtitle')}</p>
+          <p className="text-sm text-gray-500 font-mono">{t('noSpam')}</p>
         </motion.div>
 
-        {/* Contact Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* Left - Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="border-4 border-black bg-white p-6 md:p-8"
-          >
-            <h3 className="text-xl md:text-2xl font-bold mb-6 font-nostalgic">START YOUR PROJECT</h3>
-            <form className="space-y-4">
-              <div>
-                <label className="text-xs font-bold mb-2 block">{t('form.name').toUpperCase()}</label>
-                <input
-                  type="text"
-                  className="w-full border-2 border-black bg-white text-black p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
-                  placeholder="John Doe"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs font-bold mb-2 block">{t('form.email').toUpperCase()}</label>
-                <input
-                  type="email"
-                  className="w-full border-2 border-black bg-white text-black p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
-                  placeholder="john@company.com"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs font-bold mb-2 block">PROJECT TYPE</label>
-                <select className="w-full border-2 border-black bg-white text-black p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
-                  <option>Website Development</option>
-                  <option>Mobile App</option>
-                  <option>UI/UX Design</option>
-                  <option>E-Commerce</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="text-xs font-bold mb-2 block">{t('form.message').toUpperCase()}</label>
-                <textarea
-                  rows={4}
-                  className="w-full border-2 border-black bg-white text-black p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"
-                  placeholder="Describe your project, goals, and timeline..."
-                />
-              </div>
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="w-full bg-black text-white border-2 border-black py-4 font-bold text-sm hover:bg-brand hover:border-brand transition-colors"
+        {/* 2-Step Form */}
+        <div className="max-w-2xl mx-auto mb-16">
+          <AnimatePresence mode="wait">
+            {!submitted ? (
+              <motion.div
+                key="form"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="border-4 border-black bg-background-light p-8 md:p-12"
               >
-                {t('form.submit').toUpperCase()} →
-              </motion.button>
-            </form>
-          </motion.div>
+                {/* Progress Indicator */}
+                <div className="mb-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-sm font-bold">
+                      {tForm('step')} {step} {tForm('of')} 2 — {step === 1 ? tForm('stepContact') : tForm('stepProject')}
+                    </span>
+                    <span className="font-mono text-sm text-gray-500">{step === 1 ? '50%' : '100%'}</span>
+                  </div>
+                  <div className="h-1 bg-gray-200 border border-black">
+                    <motion.div
+                      className="h-full bg-black"
+                      initial={{ width: '0%' }}
+                      animate={{ width: step === 1 ? '50%' : '100%' }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
+                </div>
 
-          {/* Right - Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
-          >
-            {/* Email */}
-            <motion.div
-              whileHover={{ x: 5 }}
-              className="border-4 border-black bg-brand p-6 md:p-8 text-white cursor-pointer"
-            >
-              <p className="text-xs font-bold mb-2">EMAIL US</p>
-              <p className="text-xl md:text-2xl font-bold break-all">hello@techagency.com</p>
-            </motion.div>
+                <AnimatePresence mode="wait">
+                  {step === 1 ? (
+                    <motion.form
+                      key="step1"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      onSubmit={handleContinue}
+                      className="space-y-6"
+                    >
+                      {/* Full Name */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('fullName')} *
+                        </label>
+                        <input
+                          type="text"
+                          name="fullName"
+                          required
+                          value={formData.fullName}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder="Juan Pérez"
+                        />
+                      </div>
 
-            {/* Phone */}
-            <motion.div
-              whileHover={{ x: 5 }}
-              className="border-4 border-black bg-black p-6 md:p-8 text-white cursor-pointer"
-            >
-              <p className="text-xs font-bold mb-2">CALL US</p>
-              <p className="text-xl md:text-2xl font-bold">+1 (555) 123-4567</p>
-            </motion.div>
+                      {/* Email */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('email')} *
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder="juan@empresa.com"
+                        />
+                      </div>
 
-            {/* Location */}
-            <motion.div
-              whileHover={{ x: 5 }}
-              className="border-4 border-black bg-white p-6 md:p-8"
-            >
-              <p className="text-xs font-bold mb-2">VISIT US</p>
-              <p className="text-xl font-bold">123 Tech Street</p>
-              <p className="text-sm text-gray-600 mt-1">San Francisco, CA 94102</p>
-            </motion.div>
+                      {/* WhatsApp */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('whatsapp')}
+                        </label>
+                        <input
+                          type="tel"
+                          name="whatsapp"
+                          value={formData.whatsapp}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder="+1 555 123 4567"
+                        />
+                      </div>
 
-            {/* Social Links */}
-            <div className="grid grid-cols-4 gap-4">
-              {['TW', 'LI', 'GH', 'DR'].map((social, i) => (
-                <motion.div
-                  key={social}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="aspect-square border-2 border-black bg-white flex items-center justify-center font-bold cursor-pointer hover:bg-black hover:text-white transition-colors text-xs sm:text-base"
-                >
-                  {social}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        type="submit"
+                        className="w-full bg-black text-white border-2 border-black py-4 font-bold text-base hover:bg-brand hover:border-brand transition-colors"
+                      >
+                        {tForm('continue')} →
+                      </motion.button>
+                    </motion.form>
+                  ) : (
+                    <motion.form
+                      key="step2"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      onSubmit={handleSubmit}
+                      className="space-y-6"
+                    >
+                      {/* Company */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('company')} *
+                        </label>
+                        <input
+                          type="text"
+                          name="company"
+                          required
+                          value={formData.company}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder="Mi Startup"
+                        />
+                      </div>
+
+                      {/* Website */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('website')}
+                        </label>
+                        <input
+                          type="text"
+                          name="website"
+                          value={formData.website}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder="www.miempresa.com o @instagram"
+                        />
+                      </div>
+
+                      {/* Need */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('need')} *
+                        </label>
+                        <select
+                          name="need"
+                          required
+                          value={formData.need}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                        >
+                          <option value="">Selecciona una opción</option>
+                          <option value="landing">{tForm('needOptions.landing')}</option>
+                          <option value="webapp">{tForm('needOptions.webapp')}</option>
+                          <option value="mobile">{tForm('needOptions.mobile')}</option>
+                          <option value="automation">{tForm('needOptions.automation')}</option>
+                          <option value="design">{tForm('needOptions.design')}</option>
+                          <option value="other">{tForm('needOptions.other')}</option>
+                        </select>
+                      </div>
+
+                      {/* Summary */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('summary')}
+                        </label>
+                        <input
+                          type="text"
+                          name="summary"
+                          maxLength={140}
+                          value={formData.summary}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder={tForm('summaryPlaceholder')}
+                        />
+                        <p className="text-xs text-gray-500 mt-1 text-right">{formData.summary.length}/140</p>
+                      </div>
+
+                      <div className="flex gap-4">
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          type="button"
+                          onClick={() => setStep(1)}
+                          className="w-1/3 bg-white text-black border-2 border-black py-4 font-bold text-base hover:bg-gray-100 transition-colors"
+                        >
+                          ← Atrás
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          type="submit"
+                          className="w-2/3 bg-black text-white border-2 border-black py-4 font-bold text-base hover:bg-brand hover:border-brand transition-colors"
+                        >
+                          {tForm('submit')} →
+                        </motion.button>
+                      </div>
+                    </motion.form>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="border-4 border-black bg-brand p-12 text-center text-white"
+              >
+                <h3 className="text-3xl font-bold mb-4 font-nostalgic">{tForm('successTitle')}</h3>
+                <p className="text-lg">{tForm('successMessage')}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Footer */}
