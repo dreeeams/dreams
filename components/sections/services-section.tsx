@@ -18,11 +18,11 @@ const TechCard = ({
   <motion.div
     initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true, margin: '-50px' }}
+    viewport={{ once: true, amount: 0.3 }}
     transition={{
-      duration: 0.5,
+      duration: 0.4,
       delay,
-      ease: [0.25, 0.4, 0.25, 1]
+      ease: 'easeOut'
     }}
     className="border-2 border-black p-4 flex flex-col items-center justify-center bg-white hover:bg-black hover:border-black transition-all cursor-pointer group"
   >
