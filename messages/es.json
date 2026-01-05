@@ -91,7 +91,15 @@
         "description": "Plataforma moderna de tickets y gestion de eventos con actualizaciones en tiempo real y analiticas"
       },
       "perroNegro": {
-        "description": "Plataforma de venta de tickets para eventos de Perro Negro con ventas y gestion en tiempo real"
+        "description": "Plataforma de venta de tickets para eventos de Perro Negro con ventas y gestion en tiempo real",
+        "metrics": {
+          "visitors": "90.000+",
+          "visitorsLabel": "Visitantes únicos",
+          "visits": "105.000+",
+          "visitsLabel": "Visitas totales",
+          "bounceRate": "92%",
+          "bounceRateLabel": "Bounce Rate"
+        }
       },
       "mariaHelena": {
         "description": "Plataforma de venta de tickets para eventos de Maria Helena Amador con experiencia de reserva perfecta"

@@ -91,7 +91,15 @@
         "description": "Modern ticketing and event management platform with real-time updates and analytics"
       },
       "perroNegro": {
-        "description": "Event ticketing platform for Perro Negro with real-time ticket sales and management"
+        "description": "Event ticketing platform for Perro Negro with real-time ticket sales and management",
+        "metrics": {
+          "visitors": "90,000+",
+          "visitorsLabel": "Unique Visitors",
+          "visits": "105,000+",
+          "visitsLabel": "Total Visits",
+          "bounceRate": "92%",
+          "bounceRateLabel": "Bounce Rate"
+        }
       },
       "mariaHelena": {
         "description": "Ticketing platform for María Helena Amador events with seamless booking experience"
