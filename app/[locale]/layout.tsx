@@ -7,6 +7,8 @@ import { ReactNode } from 'react';
 import { locales } from '@/i18n/config';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import PageLoader from '@/components/page-loader';
+import { GoogleAnalytics, GoogleTagManager } from '@/components/analytics';
+import { WebVitals } from '@/components/web-vitals';
 import type { Metadata } from 'next';
 import '../globals.css';
 
@@ -138,6 +140,10 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <GoogleAnalytics />
+        <GoogleTagManager />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${monigue.variable} antialiased`}
       >
@@ -149,6 +155,7 @@ export default async function LocaleLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
+            <WebVitals />
             <PageLoader />
             {children}
           </ThemeProvider>

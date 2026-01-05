@@ -11,6 +11,8 @@ export default function ContactSection() {
 
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -32,12 +34,33 @@ export default function ContactSection() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.company && formData.need) {
-      // Here you would send to your CRM/backend
-      console.log('Form submitted:', formData);
-      setSubmitted(true);
+      setIsSubmitting(true);
+      setError('');
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Something went wrong');
+        }
+
+        setSubmitted(true);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to submit form');
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -233,23 +256,32 @@ export default function ContactSection() {
                         <p className="text-xs text-gray-500 mt-1 text-right">{formData.summary.length}/140</p>
                       </div>
 
+                      {/* Error Message */}
+                      {error && (
+                        <div className="bg-red-50 border-2 border-red-500 p-4 text-red-700 text-sm">
+                          {error}
+                        </div>
+                      )}
+
                       <div className="flex gap-4">
                         <motion.button
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           type="button"
                           onClick={() => setStep(1)}
-                          className="w-1/3 bg-white text-black border-2 border-black py-4 font-bold text-base hover:bg-gray-100 transition-colors"
+                          disabled={isSubmitting}
+                          className="w-1/3 bg-white text-black border-2 border-black py-4 font-bold text-base hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           ← Atrás
                         </motion.button>
                         <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
+                          whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                          whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                           type="submit"
-                          className="w-2/3 bg-black text-white border-2 border-black py-4 font-bold text-base hover:bg-brand hover:border-brand transition-colors"
+                          disabled={isSubmitting}
+                          className="w-2/3 bg-black text-white border-2 border-black py-4 font-bold text-base hover:bg-brand hover:border-brand transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          {tForm('submit')} →
+                          {isSubmitting ? 'Enviando...' : `${tForm('submit')} →`}
                         </motion.button>
                       </div>
                     </motion.form>
