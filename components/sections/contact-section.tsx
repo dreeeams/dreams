@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { CalEmbed } from '@/components/ui/cal-embed';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
@@ -291,12 +292,23 @@ export default function ContactSection() {
             ) : (
               <motion.div
                 key="success"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="border-4 border-black bg-brand p-12 text-center text-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="space-y-8"
               >
-                <h3 className="text-3xl font-bold mb-4 font-nostalgic">{tForm('successTitle')}</h3>
-                <p className="text-lg">{tForm('successMessage')}</p>
+                {/* Success Message */}
+                <div className="border-4 border-black bg-brand p-8 md:p-12 text-center text-white">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 font-nostalgic">
+                    {tForm('successTitle')}
+                  </h3>
+                  <p className="text-base md:text-lg mb-2">{tForm('successMessage')}</p>
+                  <p className="text-sm opacity-90 font-mono">
+                    {tForm('scheduleCall')}
+                  </p>
+                </div>
+
+                {/* Cal.com Embed */}
+                <CalEmbed />
               </motion.div>
             )}
           </AnimatePresence>

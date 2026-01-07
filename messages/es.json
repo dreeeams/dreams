@@ -191,7 +191,8 @@
       "continue": "Continuar",
       "submit": "Enviar",
       "successTitle": "Listo ✅",
-      "successMessage": "Recibimos tu info. Te contactamos en las próximas horas."
+      "successMessage": "Recibimos tu info. Te contactamos en las próximas horas.",
+      "scheduleCall": "Agenda una llamada de 30 minutos para discutir tu proyecto"
     },
     "footer": {
       "tagline": "Construyendo experiencias digitales desde 2024",
