@@ -279,9 +279,34 @@ export async function POST(request: NextRequest) {
           // Step 4: Create Note with project requirements
           if (personId || companyId) {
             const noteTitle = `Project Requirements: ${contactData.need}`;
-            const noteBody = contactData.summary
-              ? `${contactData.summary}\n\nService needed: ${contactData.need}`
-              : `Customer wants: ${contactData.need}`;
+
+            // Build comprehensive note body with all contact information
+            let noteBody = `## Contact Information\n\n`;
+            noteBody += `- **Name:** ${contactData.fullName}\n`;
+            noteBody += `- **Email:** ${contactData.email}\n`;
+            if (contactData.whatsapp) noteBody += `- **Phone:** ${contactData.whatsapp}\n`;
+            if (contactData.role) noteBody += `- **Role:** ${contactData.role}\n`;
+            if (contactData.linkedin) noteBody += `- **LinkedIn:** ${contactData.linkedin}\n`;
+
+            noteBody += `\n## Company Information\n\n`;
+            noteBody += `- **Company:** ${contactData.company}\n`;
+            if (contactData.websiteUrl) noteBody += `- **Website:** ${contactData.websiteUrl}\n`;
+            if (contactData.instagram) noteBody += `- **Instagram:** ${contactData.instagram}\n`;
+            if (contactData.companySize) noteBody += `- **Company Size:** ${contactData.companySize}\n`;
+            if (contactData.industry) noteBody += `- **Industry:** ${contactData.industry}\n`;
+
+            noteBody += `\n## Project Details\n\n`;
+            noteBody += `- **Services Needed:** ${contactData.need}\n`;
+            if (contactData.summary) {
+              noteBody += `\n**Project Summary:**\n${contactData.summary}\n`;
+            }
+
+            if (contactData.heardFrom) {
+              noteBody += `\n## Source\n\n`;
+              noteBody += `- **How they heard about us:** ${contactData.heardFrom}\n`;
+            }
+
+            noteBody += `\n---\n*Submitted: ${contactData.submittedAt}*`;
 
             console.log('📝 Creating note in Twenty CRM:', {
               title: noteTitle,
