@@ -21,6 +21,7 @@ export default function ContactSection() {
     fullName: '',
     email: '',
     whatsapp: '',
+    linkedin: '',
     company: '',
     website: '',
     need: '',
@@ -177,6 +178,21 @@ export default function ContactSection() {
                           onChange={(value) => setFormData({ ...formData, whatsapp: value || '' })}
                           className="w-full border-2 border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-brand phone-input-custom"
                           required
+                        />
+                      </div>
+
+                      {/* LinkedIn */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('linkedin')}
+                        </label>
+                        <input
+                          type="url"
+                          name="linkedin"
+                          value={formData.linkedin}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder="linkedin.com/in/tu-perfil"
                         />
                       </div>
 
