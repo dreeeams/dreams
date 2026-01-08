@@ -113,6 +113,7 @@
   padding-right: 0.5rem !important;
   border-right: 1px solid #e5e7eb !important;
   margin-right: 0.5rem !important;
+  background: transparent !important;
 }
 
 .phone-input-custom .PhoneInputCountrySelect {
