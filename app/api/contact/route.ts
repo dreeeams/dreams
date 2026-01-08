@@ -198,11 +198,60 @@ export async function POST(request: NextRequest) {
           });
         } else {
           const personData = await personResponse.json();
+          const personId = personData.data?.createPerson?.id;
+
           console.log('✅ Contact successfully added to Twenty CRM:', {
-            personId: personData.data?.createPerson?.id,
+            personId,
             email: personData.data?.createPerson?.emails?.primaryEmail,
             companyId: personData.data?.createPerson?.companyId
           });
+
+          // Step 3: Create Opportunity
+          const opportunityName = `${contactData.company || contactData.fullName} - ${contactData.need}`;
+
+          console.log('🎯 Creating opportunity in Twenty CRM:', {
+            name: opportunityName,
+            companyId,
+            personId
+          });
+
+          const opportunityPayload: any = {
+            name: opportunityName,
+            stage: 'NEW',
+          };
+
+          // Link to company if exists
+          if (companyId) {
+            opportunityPayload.companyId = companyId;
+          }
+
+          // Link to person as point of contact if exists
+          if (personId) {
+            opportunityPayload.pointOfContactId = personId;
+          }
+
+          const opportunityResponse = await fetch(`${twentyApiUrl}/rest/opportunities`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${twentyApiKey}`,
+            },
+            body: JSON.stringify(opportunityPayload),
+          });
+
+          if (opportunityResponse.ok) {
+            const opportunityData = await opportunityResponse.json();
+            console.log('✅ Opportunity created:', {
+              id: opportunityData.data?.createOpportunity?.id,
+              name: opportunityData.data?.createOpportunity?.name,
+              stage: opportunityData.data?.createOpportunity?.stage,
+              companyId: opportunityData.data?.createOpportunity?.companyId,
+              pointOfContactId: opportunityData.data?.createOpportunity?.pointOfContactId
+            });
+          } else {
+            const errorText = await opportunityResponse.text();
+            console.error('❌ Opportunity creation failed:', errorText);
+          }
         }
       } catch (error) {
         console.error('❌ Failed to send to Twenty CRM:', error);
