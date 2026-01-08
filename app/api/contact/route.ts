@@ -85,26 +85,40 @@ export async function POST(request: NextRequest) {
       userAgent: request.headers.get('user-agent'),
     };
 
-    // Send to CRM if configured
-    const crmApiUrl = process.env.CRM_API_URL;
-    const crmApiKey = process.env.CRM_API_KEY;
+    // Send to Twenty CRM if configured
+    const twentyApiKey = process.env.TWENTY_API_KEY;
+    const twentyApiUrl = process.env.TWENTY_API_URL || 'https://api.twenty.com';
 
-    if (crmApiUrl && crmApiKey) {
+    if (twentyApiKey) {
       try {
-        const crmResponse = await fetch(crmApiUrl, {
+        // Create a new Person in Twenty CRM
+        const crmResponse = await fetch(`${twentyApiUrl}/rest/people`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${crmApiKey}`,
+            'Authorization': `Bearer ${twentyApiKey}`,
           },
-          body: JSON.stringify(contactData),
+          body: JSON.stringify({
+            name: {
+              firstName: contactData.fullName.split(' ')[0] || contactData.fullName,
+              lastName: contactData.fullName.split(' ').slice(1).join(' ') || '',
+            },
+            email: contactData.email,
+            phone: contactData.whatsapp || undefined,
+            companyName: contactData.company,
+            jobTitle: contactData.need,
+          }),
         });
 
         if (!crmResponse.ok) {
-          console.error('CRM integration failed:', await crmResponse.text());
+          const errorText = await crmResponse.text();
+          console.error('Twenty CRM integration failed:', errorText);
+        } else {
+          const crmData = await crmResponse.json();
+          console.log('Contact successfully added to Twenty CRM:', crmData);
         }
       } catch (error) {
-        console.error('Failed to send to CRM:', error);
+        console.error('Failed to send to Twenty CRM:', error);
       }
     }
 
