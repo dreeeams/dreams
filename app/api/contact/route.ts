@@ -87,12 +87,11 @@ export async function POST(request: NextRequest) {
 
     // Send to Twenty CRM if configured
     const twentyApiKey = process.env.TWENTY_API_KEY;
-    const twentyApiUrl = process.env.TWENTY_API_URL || 'https://api.twenty.com';
+    const twentyApiUrl = process.env.TWENTY_API_URL;
 
-    if (twentyApiKey) {
+    if (twentyApiKey && twentyApiUrl) {
       try {
-        // Create a new Person in Twenty CRM
-        // Prepare Twenty CRM payload
+        // Prepare minimal payload: only name, email, and phone
         const twentyPayload: any = {
           name: {
             firstName: contactData.fullName.split(' ')[0] || contactData.fullName,
@@ -102,10 +101,9 @@ export async function POST(request: NextRequest) {
             primaryEmail: contactData.email,
             additionalEmails: [],
           },
-          jobTitle: contactData.need,
         };
 
-        // Only add phones if whatsapp is provided
+        // Add phone only if provided
         if (contactData.whatsapp) {
           twentyPayload.phones = {
             primaryPhoneNumber: contactData.whatsapp,
