@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://dreamstudio.dev/sitemap.xml
+Sitemap: https://dreeeams.com/sitemap.xml
