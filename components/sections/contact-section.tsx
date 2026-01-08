@@ -43,14 +43,16 @@ export default function ContactSection() {
 
   const handleContinue = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.fullName && formData.email && formData.whatsapp) {
+    if (step === 1 && formData.fullName && formData.email && formData.whatsapp) {
       setStep(2);
+    } else if (step === 2 && formData.company) {
+      setStep(3);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.company && formData.need) {
+    if (formData.need) {
       setIsSubmitting(true);
       setError('');
 
@@ -114,15 +116,15 @@ export default function ContactSection() {
                 <div className="mb-8">
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-mono text-sm font-bold">
-                      {tForm('step')} {step} {tForm('of')} 2 — {step === 1 ? tForm('stepContact') : tForm('stepProject')}
+                      {tForm('step')} {step} {tForm('of')} 3 — {step === 1 ? tForm('stepContact') : step === 2 ? tForm('stepCompany') : tForm('stepProject')}
                     </span>
-                    <span className="font-mono text-sm text-gray-500">{step === 1 ? '50%' : '100%'}</span>
+                    <span className="font-mono text-sm text-gray-500">{step === 1 ? '33%' : step === 2 ? '66%' : '100%'}</span>
                   </div>
                   <div className="h-1 bg-gray-200 border border-black">
                     <motion.div
                       className="h-full bg-black"
                       initial={{ width: '0%' }}
-                      animate={{ width: step === 1 ? '50%' : '100%' }}
+                      animate={{ width: step === 1 ? '33%' : step === 2 ? '66%' : '100%' }}
                       transition={{ duration: 0.3 }}
                     />
                   </div>
@@ -332,6 +334,35 @@ export default function ContactSection() {
                         </select>
                       </div>
 
+                      <div className="flex gap-4">
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          type="button"
+                          onClick={() => setStep(1)}
+                          className="w-1/3 bg-white text-black border-2 border-black py-4 font-bold text-base hover:bg-gray-100 transition-colors"
+                        >
+                          ← Atrás
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          type="submit"
+                          className="w-2/3 bg-black text-white border-2 border-black py-4 font-bold text-base hover:bg-brand hover:border-brand transition-colors"
+                        >
+                          {tForm('continue')} →
+                        </motion.button>
+                      </div>
+                    </motion.form>
+                  ) : step === 3 ? (
+                    <motion.form
+                      key="step3"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      onSubmit={handleSubmit}
+                      className="space-y-6"
+                    >
                       {/* Need */}
                       <div>
                         <label className="text-sm font-bold mb-2 block">
@@ -383,7 +414,7 @@ export default function ContactSection() {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           type="button"
-                          onClick={() => setStep(1)}
+                          onClick={() => setStep(2)}
                           disabled={isSubmitting}
                           className="w-1/3 bg-white text-black border-2 border-black py-4 font-bold text-base hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
@@ -400,7 +431,7 @@ export default function ContactSection() {
                         </motion.button>
                       </div>
                     </motion.form>
-                  )}
+                  ) : null}
                 </AnimatePresence>
               </motion.div>
             ) : (
