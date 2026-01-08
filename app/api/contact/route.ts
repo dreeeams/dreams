@@ -92,22 +92,36 @@ export async function POST(request: NextRequest) {
     if (twentyApiKey) {
       try {
         // Create a new Person in Twenty CRM
+        // Prepare Twenty CRM payload
+        const twentyPayload: any = {
+          name: {
+            firstName: contactData.fullName.split(' ')[0] || contactData.fullName,
+            lastName: contactData.fullName.split(' ').slice(1).join(' ') || '',
+          },
+          emails: {
+            primaryEmail: contactData.email,
+            additionalEmails: [],
+          },
+          jobTitle: contactData.need,
+        };
+
+        // Only add phones if whatsapp is provided
+        if (contactData.whatsapp) {
+          twentyPayload.phones = {
+            primaryPhoneNumber: contactData.whatsapp,
+            primaryPhoneCountryCode: '',
+            primaryPhoneCallingCode: '',
+            additionalPhones: [],
+          };
+        }
+
         const crmResponse = await fetch(`${twentyApiUrl}/rest/people`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${twentyApiKey}`,
           },
-          body: JSON.stringify({
-            name: {
-              firstName: contactData.fullName.split(' ')[0] || contactData.fullName,
-              lastName: contactData.fullName.split(' ').slice(1).join(' ') || '',
-            },
-            email: contactData.email,
-            phone: contactData.whatsapp || undefined,
-            companyName: contactData.company,
-            jobTitle: contactData.need,
-          }),
+          body: JSON.stringify(twentyPayload),
         });
 
         if (!crmResponse.ok) {
