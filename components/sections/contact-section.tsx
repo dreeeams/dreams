@@ -28,7 +28,7 @@ export default function ContactSection() {
     instagram: '',
     companySize: '',
     industry: '',
-    need: '',
+    need: [] as string[],
     summary: '',
     heardFrom: '',
     acceptTerms: false,
@@ -41,11 +41,20 @@ export default function ContactSection() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
-    if (type === 'checkbox') {
+    if (type === 'checkbox' && name === 'acceptTerms') {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData({ ...formData, [name]: checked });
     } else {
       setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleNeedCheckbox = (value: string) => {
+    const currentNeeds = formData.need;
+    if (currentNeeds.includes(value)) {
+      setFormData({ ...formData, need: currentNeeds.filter(need => need !== value) });
+    } else {
+      setFormData({ ...formData, need: [...currentNeeds, value] });
     }
   };
 
@@ -60,7 +69,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.need && formData.acceptTerms) {
+    if (formData.need.length > 0 && formData.acceptTerms) {
       setIsSubmitting(true);
       setError('');
 
@@ -80,7 +89,7 @@ export default function ContactSection() {
         }
 
         setSubmitted(true);
-        analytics.formCompleted('contact', { need: formData.need });
+        analytics.formCompleted('contact', { need: formData.need.join(', ') });
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : 'Failed to submit form';
         setError(errorMessage);
@@ -373,24 +382,33 @@ export default function ContactSection() {
                     >
                       {/* Need */}
                       <div>
-                        <label className="text-sm font-bold mb-2 block">
+                        <label className="text-sm font-bold mb-3 block">
                           {tForm('need')} *
                         </label>
-                        <select
-                          name="need"
-                          required
-                          value={formData.need}
-                          onChange={handleInputChange}
-                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
-                        >
-                          <option value="">Selecciona una opción</option>
-                          <option value="landing">{tForm('needOptions.landing')}</option>
-                          <option value="webapp">{tForm('needOptions.webapp')}</option>
-                          <option value="mobile">{tForm('needOptions.mobile')}</option>
-                          <option value="automation">{tForm('needOptions.automation')}</option>
-                          <option value="design">{tForm('needOptions.design')}</option>
-                          <option value="other">{tForm('needOptions.other')}</option>
-                        </select>
+                        <div className="space-y-3">
+                          {[
+                            { value: 'landing', label: tForm('needOptions.landing') },
+                            { value: 'webapp', label: tForm('needOptions.webapp') },
+                            { value: 'mobile', label: tForm('needOptions.mobile') },
+                            { value: 'chatbot', label: tForm('needOptions.chatbot') },
+                            { value: 'automation', label: tForm('needOptions.automation') },
+                            { value: 'design', label: tForm('needOptions.design') },
+                            { value: 'other', label: tForm('needOptions.other') },
+                          ].map((option) => (
+                            <label
+                              key={option.value}
+                              className="flex items-center gap-3 cursor-pointer border-2 border-black bg-white p-3 hover:bg-gray-50 transition-colors"
+                            >
+                              <input
+                                type="checkbox"
+                                checked={formData.need.includes(option.value)}
+                                onChange={() => handleNeedCheckbox(option.value)}
+                                className="w-5 h-5 border-2 border-black accent-black focus:ring-2 focus:ring-black"
+                              />
+                              <span className="text-sm font-medium">{option.label}</span>
+                            </label>
+                          ))}
+                        </div>
                       </div>
 
                       {/* Summary */}
@@ -441,7 +459,7 @@ export default function ContactSection() {
                             checked={formData.acceptTerms}
                             onChange={handleInputChange}
                             required
-                            className="mt-1 w-5 h-5 border-2 border-black focus:ring-2 focus:ring-brand"
+                            className="mt-1 w-5 h-5 border-2 border-black accent-black focus:ring-2 focus:ring-black"
                           />
                           <span className="text-sm">
                             {tForm('acceptTerms.text')}{' '}

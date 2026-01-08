@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     const { fullName, email, whatsapp, linkedin, role, company, website, instagram, companySize, industry, need, summary, heardFrom, acceptTerms } = body;
 
     // Validate required fields
-    if (!fullName || !email || !company || !need || !acceptTerms) {
+    if (!fullName || !email || !company || !need || (Array.isArray(need) && need.length === 0) || !acceptTerms) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
       instagram: instagram ? sanitizeInput(instagram) : null,
       companySize: companySize ? sanitizeInput(companySize) : null,
       industry: industry ? sanitizeInput(industry) : null,
-      need: sanitizeInput(need),
+      need: Array.isArray(need) ? need.map(n => sanitizeInput(n)).join(', ') : sanitizeInput(need),
       summary: summary ? sanitizeInput(summary) : null,
       heardFrom: heardFrom ? sanitizeInput(heardFrom) : null,
       acceptTerms: Boolean(acceptTerms),

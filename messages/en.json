@@ -220,6 +220,7 @@
         "landing": "Landing Page",
         "webapp": "Web App / SaaS",
         "mobile": "Mobile App",
+        "chatbot": "Chatbot / AI Assistant",
         "automation": "Automation / AI",
         "design": "Design / UX",
         "other": "Other"
