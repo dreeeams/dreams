@@ -120,7 +120,8 @@ export async function POST(request: NextRequest) {
           console.log('🏢 Creating company in Twenty CRM:', {
             name: contactData.company,
             websiteUrl: contactData.websiteUrl,
-            instagram: contactData.instagram
+            instagram: contactData.instagram,
+            companySize: contactData.companySize
           });
 
           // Prepare company payload
@@ -148,6 +149,18 @@ export async function POST(request: NextRequest) {
               primaryLinkLabel: contactData.instagram,
               secondaryLinks: [],
             };
+          }
+
+          // Map company size to employees number (use midpoint of range)
+          if (contactData.companySize) {
+            const sizeMapping: Record<string, number> = {
+              'solo': 1,
+              'small': 6,      // midpoint of 2-10
+              'medium': 30,    // midpoint of 11-50
+              'large': 125,    // midpoint of 51-200
+              'enterprise': 201 // 201+
+            };
+            companyPayload.employees = sizeMapping[contactData.companySize] || null;
           }
 
           const companyResponse = await fetch(`${twentyApiUrl}/rest/companies`, {
@@ -319,11 +332,10 @@ export async function POST(request: NextRequest) {
               noteBody += `\n**Project Summary:**\n${contactData.summary}\n`;
             }
 
-            // Add company details not in structured fields
-            if (contactData.companySize || contactData.industry) {
-              noteBody += `\n## Additional Company Information\n\n`;
-              if (contactData.companySize) noteBody += `- **Company Size:** ${contactData.companySize}\n`;
-              if (contactData.industry) noteBody += `- **Industry:** ${contactData.industry}\n`;
+            // Add industry if provided (only field not in structured objects)
+            if (contactData.industry) {
+              noteBody += `\n## Additional Information\n\n`;
+              noteBody += `- **Industry:** ${contactData.industry}\n`;
             }
 
             noteBody += `\n---\n*Submitted: ${contactData.submittedAt}*`;
