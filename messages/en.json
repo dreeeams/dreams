@@ -176,6 +176,18 @@
       "email": "Email",
       "whatsapp": "WhatsApp",
       "linkedin": "LinkedIn (optional)",
+      "role": "Role (optional)",
+      "roleOptions": {
+        "select": "Select your role",
+        "founder": "Founder / Co-Founder",
+        "ceo": "CEO / Executive",
+        "cto": "CTO / Tech Lead",
+        "product": "Product Manager",
+        "marketing": "Marketing / Growth",
+        "developer": "Developer / Engineer",
+        "designer": "Designer",
+        "other": "Other"
+      },
       "company": "Company / Project",
       "website": "Website or Instagram (optional)",
       "need": "What do you need?",

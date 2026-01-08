@@ -22,6 +22,7 @@ export default function ContactSection() {
     email: '',
     whatsapp: '',
     linkedin: '',
+    role: '',
     company: '',
     website: '',
     need: '',
@@ -194,6 +195,29 @@ export default function ContactSection() {
                           className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
                           placeholder="linkedin.com/in/tu-perfil"
                         />
+                      </div>
+
+                      {/* Role */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('role')}
+                        </label>
+                        <select
+                          name="role"
+                          value={formData.role}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                        >
+                          <option value="">{tForm('roleOptions.select')}</option>
+                          <option value="founder">{tForm('roleOptions.founder')}</option>
+                          <option value="ceo">{tForm('roleOptions.ceo')}</option>
+                          <option value="cto">{tForm('roleOptions.cto')}</option>
+                          <option value="product">{tForm('roleOptions.product')}</option>
+                          <option value="marketing">{tForm('roleOptions.marketing')}</option>
+                          <option value="developer">{tForm('roleOptions.developer')}</option>
+                          <option value="designer">{tForm('roleOptions.designer')}</option>
+                          <option value="other">{tForm('roleOptions.other')}</option>
+                        </select>
                       </div>
 
                       <motion.button
