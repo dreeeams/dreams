@@ -3,8 +3,18 @@ import { NextRequest, NextResponse } from 'next/server';
 // Email validation regex
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Rate limiting (simple in-memory store - use Redis in production)
+// Rate limiting (in-memory store with cleanup)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+
+// Cleanup old entries every 5 minutes
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, data] of rateLimitStore.entries()) {
+    if (now > data.resetTime) {
+      rateLimitStore.delete(ip);
+    }
+  }
+}, 300000);
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -21,6 +31,11 @@ function checkRateLimit(ip: string): boolean {
 
   limit.count++;
   return true;
+}
+
+// Input sanitization
+function sanitizeInput(input: string): string {
+  return input.trim().replace(/[<>]/g, '');
 }
 
 export async function POST(request: NextRequest) {
@@ -71,15 +86,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Prepare contact data
+    // Prepare contact data with sanitization
     const contactData = {
-      fullName: fullName.trim(),
+      fullName: sanitizeInput(fullName),
       email: email.trim().toLowerCase(),
-      whatsapp: whatsapp?.trim() || null,
-      company: company.trim(),
-      website: website?.trim() || null,
-      need,
-      summary: summary?.trim() || null,
+      whatsapp: whatsapp ? sanitizeInput(whatsapp) : null,
+      company: sanitizeInput(company),
+      website: website ? sanitizeInput(website) : null,
+      need: sanitizeInput(need),
+      summary: summary ? sanitizeInput(summary) : null,
       submittedAt: new Date().toISOString(),
       ip,
       userAgent: request.headers.get('user-agent'),
