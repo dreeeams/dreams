@@ -24,7 +24,7 @@ export default function PrivacyPage() {
           <Link href="/" className="inline-block mb-6 text-white hover:underline">
             ← {t('backToHome')}
           </Link>
-          <h1 className="text-4xl md:text-5xl font-nostalgic text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t('title').toUpperCase()}
           </h1>
           <p className="text-white/90">{t('lastUpdated')}: January 8, 2026</p>
