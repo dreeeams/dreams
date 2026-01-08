@@ -252,6 +252,86 @@ export async function POST(request: NextRequest) {
             const errorText = await opportunityResponse.text();
             console.error('❌ Opportunity creation failed:', errorText);
           }
+
+          // Step 4: Create Note with project requirements
+          if (personId || companyId) {
+            const noteTitle = `Project Requirements: ${contactData.need}`;
+            const noteBody = contactData.summary
+              ? `${contactData.summary}\n\nService needed: ${contactData.need}`
+              : `Customer wants: ${contactData.need}`;
+
+            console.log('📝 Creating note in Twenty CRM:', {
+              title: noteTitle,
+              personId,
+              companyId
+            });
+
+            const noteResponse = await fetch(`${twentyApiUrl}/rest/notes`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${twentyApiKey}`,
+              },
+              body: JSON.stringify({
+                title: noteTitle,
+                bodyV2: {
+                  markdown: noteBody,
+                  blocknote: null
+                }
+              }),
+            });
+
+            if (noteResponse.ok) {
+              const noteData = await noteResponse.json();
+              const noteId = noteData.data?.createNote?.id;
+
+              console.log('✅ Note created:', {
+                id: noteId,
+                title: noteData.data?.createNote?.title
+              });
+
+              // Link note to person
+              if (personId && noteId) {
+                const personLinkResponse = await fetch(`${twentyApiUrl}/rest/noteTargets`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${twentyApiKey}`,
+                  },
+                  body: JSON.stringify({ noteId, personId }),
+                });
+
+                if (personLinkResponse.ok) {
+                  console.log('✅ Note linked to person');
+                } else {
+                  const errorText = await personLinkResponse.text();
+                  console.error('❌ Failed to link note to person:', errorText);
+                }
+              }
+
+              // Link note to company
+              if (companyId && noteId) {
+                const companyLinkResponse = await fetch(`${twentyApiUrl}/rest/noteTargets`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${twentyApiKey}`,
+                  },
+                  body: JSON.stringify({ noteId, companyId }),
+                });
+
+                if (companyLinkResponse.ok) {
+                  console.log('✅ Note linked to company');
+                } else {
+                  const errorText = await companyLinkResponse.text();
+                  console.error('❌ Failed to link note to company:', errorText);
+                }
+              }
+            } else {
+              const errorText = await noteResponse.text();
+              console.error('❌ Note creation failed:', errorText);
+            }
+          }
         }
       } catch (error) {
         console.error('❌ Failed to send to Twenty CRM:', error);
