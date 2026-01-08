@@ -94,7 +94,6 @@ export async function POST(request: NextRequest) {
       linkedin: linkedin ? sanitizeInput(linkedin) : null,
       role: role ? sanitizeInput(role) : null,
       company: sanitizeInput(company),
-      website: website ? sanitizeInput(website) : null,
       websiteUrl: websiteUrl ? sanitizeInput(websiteUrl) : null,
       instagram: instagram ? sanitizeInput(instagram) : null,
       companySize: companySize ? sanitizeInput(companySize) : null,
@@ -120,7 +119,8 @@ export async function POST(request: NextRequest) {
         if (contactData.company) {
           console.log('🏢 Creating company in Twenty CRM:', {
             name: contactData.company,
-            websiteUrl: contactData.websiteUrl
+            websiteUrl: contactData.websiteUrl,
+            instagram: contactData.instagram
           });
 
           // Prepare company payload
@@ -128,11 +128,24 @@ export async function POST(request: NextRequest) {
             name: contactData.company,
           };
 
-          // Add domain name if website URL is provided
+          // Add domain name: use website URL if available, otherwise Instagram
           if (contactData.websiteUrl) {
             companyPayload.domainName = {
               primaryLinkUrl: contactData.websiteUrl,
               primaryLinkLabel: contactData.websiteUrl,
+              secondaryLinks: [],
+            };
+          } else if (contactData.instagram) {
+            // If no website but has Instagram, use Instagram as the primary link
+            const instagramUrl = contactData.instagram.startsWith('@')
+              ? `https://instagram.com/${contactData.instagram.substring(1)}`
+              : contactData.instagram.startsWith('http')
+                ? contactData.instagram
+                : `https://instagram.com/${contactData.instagram}`;
+
+            companyPayload.domainName = {
+              primaryLinkUrl: instagramUrl,
+              primaryLinkLabel: contactData.instagram,
               secondaryLinks: [],
             };
           }
@@ -299,30 +312,18 @@ export async function POST(request: NextRequest) {
           if (personId || companyId) {
             const noteTitle = `Project Requirements: ${contactData.need}`;
 
-            // Build comprehensive note body with all contact information
-            let noteBody = `## Contact Information\n\n`;
-            noteBody += `- **Name:** ${contactData.fullName}\n`;
-            noteBody += `- **Email:** ${contactData.email}\n`;
-            if (contactData.whatsapp) noteBody += `- **Phone:** ${contactData.whatsapp}\n`;
-            if (contactData.role) noteBody += `- **Role:** ${contactData.role}\n`;
-            if (contactData.linkedin) noteBody += `- **LinkedIn:** ${contactData.linkedin}\n`;
-
-            noteBody += `\n## Company Information\n\n`;
-            noteBody += `- **Company:** ${contactData.company}\n`;
-            if (contactData.websiteUrl) noteBody += `- **Website:** ${contactData.websiteUrl}\n`;
-            if (contactData.instagram) noteBody += `- **Instagram:** ${contactData.instagram}\n`;
-            if (contactData.companySize) noteBody += `- **Company Size:** ${contactData.companySize}\n`;
-            if (contactData.industry) noteBody += `- **Industry:** ${contactData.industry}\n`;
-
-            noteBody += `\n## Project Details\n\n`;
+            // Build note body with additional information not in structured fields
+            let noteBody = `## Project Details\n\n`;
             noteBody += `- **Services Needed:** ${contactData.need}\n`;
             if (contactData.summary) {
               noteBody += `\n**Project Summary:**\n${contactData.summary}\n`;
             }
 
-            if (contactData.heardFrom) {
-              noteBody += `\n## Source\n\n`;
-              noteBody += `- **How they heard about us:** ${contactData.heardFrom}\n`;
+            // Add company details not in structured fields
+            if (contactData.companySize || contactData.industry) {
+              noteBody += `\n## Additional Company Information\n\n`;
+              if (contactData.companySize) noteBody += `- **Company Size:** ${contactData.companySize}\n`;
+              if (contactData.industry) noteBody += `- **Industry:** ${contactData.industry}\n`;
             }
 
             noteBody += `\n---\n*Submitted: ${contactData.submittedAt}*`;
