@@ -95,7 +95,24 @@ export async function POST(request: NextRequest) {
 
         // Step 1: Create Company if provided
         if (contactData.company) {
-          console.log('🏢 Creating company in Twenty CRM:', contactData.company);
+          console.log('🏢 Creating company in Twenty CRM:', {
+            name: contactData.company,
+            website: contactData.website
+          });
+
+          // Prepare company payload
+          const companyPayload: any = {
+            name: contactData.company,
+          };
+
+          // Add domain name if website is provided
+          if (contactData.website) {
+            companyPayload.domainName = {
+              primaryLinkUrl: contactData.website,
+              primaryLinkLabel: contactData.website,
+              secondaryLinks: [],
+            };
+          }
 
           const companyResponse = await fetch(`${twentyApiUrl}/rest/companies`, {
             method: 'POST',
@@ -103,9 +120,7 @@ export async function POST(request: NextRequest) {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${twentyApiKey}`,
             },
-            body: JSON.stringify({
-              name: contactData.company,
-            }),
+            body: JSON.stringify(companyPayload),
           });
 
           if (companyResponse.ok) {
@@ -113,7 +128,8 @@ export async function POST(request: NextRequest) {
             companyId = companyData.data?.createCompany?.id;
             console.log('✅ Company created:', {
               id: companyId,
-              name: companyData.data?.createCompany?.name
+              name: companyData.data?.createCompany?.name,
+              domainName: companyData.data?.createCompany?.domainName?.primaryLinkUrl
             });
           } else {
             const errorText = await companyResponse.text();
