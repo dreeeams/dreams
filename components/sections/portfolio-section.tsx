@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { LazyIframe } from '@/components/ui/lazy-iframe';
+import { analytics } from '@/lib/analytics';
 
 type Project = {
   titleKey: string;
@@ -193,6 +194,11 @@ export default function PortfolioSection() {
                       href={project.url ? `https://${project.url}` : '#'}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => {
+                        if (project.url) {
+                          analytics.projectLinkClicked(project.titleKey, project.url);
+                        }
+                      }}
                       className="text-white font-bold border-2 border-white px-6 py-3 pointer-events-auto"
                     >
                       {tButtons('viewProject')} →
@@ -270,6 +276,7 @@ export default function PortfolioSection() {
                     href={`https://${project.url}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => analytics.projectLinkClicked(project.titleKey, project.url!)}
                     className="text-xs font-bold text-brand hover:underline flex items-center gap-1"
                   >
                     {project.url} →
