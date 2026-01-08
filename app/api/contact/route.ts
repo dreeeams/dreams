@@ -53,10 +53,10 @@ export async function POST(request: NextRequest) {
 
     // Parse request body
     const body = await request.json();
-    const { fullName, email, whatsapp, linkedin, role, company, website, instagram, companySize, industry, need, summary } = body;
+    const { fullName, email, whatsapp, linkedin, role, company, website, instagram, companySize, industry, need, summary, heardFrom, acceptTerms } = body;
 
     // Validate required fields
-    if (!fullName || !email || !company || !need) {
+    if (!fullName || !email || !company || !need || !acceptTerms) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -79,9 +79,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (summary && summary.length > 140) {
+    if (summary && summary.length > 500) {
       return NextResponse.json(
-        { error: 'Summary must be 140 characters or less' },
+        { error: 'Summary must be 500 characters or less' },
         { status: 400 }
       );
     }
@@ -100,6 +100,8 @@ export async function POST(request: NextRequest) {
       industry: industry ? sanitizeInput(industry) : null,
       need: sanitizeInput(need),
       summary: summary ? sanitizeInput(summary) : null,
+      heardFrom: heardFrom ? sanitizeInput(heardFrom) : null,
+      acceptTerms: Boolean(acceptTerms),
       submittedAt: new Date().toISOString(),
       ip,
       userAgent: request.headers.get('user-agent'),

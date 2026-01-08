@@ -224,13 +224,30 @@
         "design": "Design / UX",
         "other": "Other"
       },
-      "summary": "In one sentence, what do you want to achieve?",
-      "summaryPlaceholder": "E.g: Ticketing app with QR and payments.",
+      "summary": "Tell us about your project and what you want to achieve",
+      "summaryPlaceholder": "Describe your project in detail: what problem you want to solve, key features you need, target audience, any technical requirements, etc.",
       "continue": "Continue",
       "submit": "Send",
       "successTitle": "Perfect",
       "successMessage": "We received your information and will get back to you soon.",
-      "scheduleCall": ""
+      "scheduleCall": "",
+      "heardFrom": "How did you hear about us? (optional)",
+      "heardFromOptions": {
+        "select": "Select an option",
+        "google": "Google Search",
+        "social": "Social Media",
+        "referral": "Referral / Recommendation",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram",
+        "event": "Event / Conference",
+        "other": "Other"
+      },
+      "acceptTerms": {
+        "text": "I accept the",
+        "terms": "Terms of Service",
+        "and": "and",
+        "privacy": "Privacy Policy"
+      }
     },
     "footer": {
       "tagline": "Building digital experiences since 2024",

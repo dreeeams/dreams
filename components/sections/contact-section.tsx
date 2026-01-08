@@ -30,6 +30,8 @@ export default function ContactSection() {
     industry: '',
     need: '',
     summary: '',
+    heardFrom: '',
+    acceptTerms: false,
   });
 
   // Track form start
@@ -38,7 +40,13 @@ export default function ContactSection() {
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type } = e.target;
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData({ ...formData, [name]: checked });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleContinue = (e: React.FormEvent) => {
@@ -52,7 +60,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.need) {
+    if (formData.need && formData.acceptTerms) {
       setIsSubmitting(true);
       setError('');
 
@@ -234,13 +242,13 @@ export default function ContactSection() {
                         {tForm('continue')} →
                       </motion.button>
                     </motion.form>
-                  ) : (
+                  ) : step === 2 ? (
                     <motion.form
                       key="step2"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      onSubmit={handleSubmit}
+                      onSubmit={handleContinue}
                       className="space-y-6"
                     >
                       {/* Company */}
@@ -390,16 +398,62 @@ export default function ContactSection() {
                         <label className="text-sm font-bold mb-2 block">
                           {tForm('summary')}
                         </label>
-                        <input
-                          type="text"
+                        <textarea
                           name="summary"
-                          maxLength={140}
+                          rows={5}
+                          maxLength={500}
                           value={formData.summary}
                           onChange={handleInputChange}
-                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand resize-none"
                           placeholder={tForm('summaryPlaceholder')}
                         />
-                        <p className="text-xs text-gray-500 mt-1 text-right">{formData.summary.length}/140</p>
+                        <p className="text-xs text-gray-500 mt-1 text-right">{formData.summary.length}/500</p>
+                      </div>
+
+                      {/* Heard From */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('heardFrom')}
+                        </label>
+                        <select
+                          name="heardFrom"
+                          value={formData.heardFrom}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                        >
+                          <option value="">{tForm('heardFromOptions.select')}</option>
+                          <option value="google">{tForm('heardFromOptions.google')}</option>
+                          <option value="social">{tForm('heardFromOptions.social')}</option>
+                          <option value="referral">{tForm('heardFromOptions.referral')}</option>
+                          <option value="linkedin">{tForm('heardFromOptions.linkedin')}</option>
+                          <option value="instagram">{tForm('heardFromOptions.instagram')}</option>
+                          <option value="event">{tForm('heardFromOptions.event')}</option>
+                          <option value="other">{tForm('heardFromOptions.other')}</option>
+                        </select>
+                      </div>
+
+                      {/* Accept Terms */}
+                      <div className="border-2 border-black bg-gray-50 p-4">
+                        <label className="flex items-start gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            name="acceptTerms"
+                            checked={formData.acceptTerms}
+                            onChange={handleInputChange}
+                            required
+                            className="mt-1 w-5 h-5 border-2 border-black focus:ring-2 focus:ring-brand"
+                          />
+                          <span className="text-sm">
+                            {tForm('acceptTerms.text')}{' '}
+                            <Link href="/terms" className="underline hover:text-brand" target="_blank">
+                              {tForm('acceptTerms.terms')}
+                            </Link>
+                            {' '}{tForm('acceptTerms.and')}{' '}
+                            <Link href="/privacy" className="underline hover:text-brand" target="_blank">
+                              {tForm('acceptTerms.privacy')}
+                            </Link>
+                          </span>
+                        </label>
                       </div>
 
                       {/* Error Message */}

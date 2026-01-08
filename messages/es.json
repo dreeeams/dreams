@@ -224,13 +224,30 @@
         "design": "Diseño / UX",
         "other": "Otro"
       },
-      "summary": "En una frase, ¿qué quieres lograr?",
-      "summaryPlaceholder": "Ej: App de tickets con QR y pagos.",
+      "summary": "Cuéntanos sobre tu proyecto y qué quieres lograr",
+      "summaryPlaceholder": "Describe tu proyecto en detalle: qué problema quieres resolver, funcionalidades clave que necesitas, audiencia objetivo, requisitos técnicos, etc.",
       "continue": "Continuar",
       "submit": "Enviar",
       "successTitle": "Perfecto",
       "successMessage": "Recibimos tu información y te contactaremos pronto.",
-      "scheduleCall": ""
+      "scheduleCall": "",
+      "heardFrom": "¿Cómo te enteraste de nosotros? (opcional)",
+      "heardFromOptions": {
+        "select": "Selecciona una opción",
+        "google": "Búsqueda en Google",
+        "social": "Redes Sociales",
+        "referral": "Referido / Recomendación",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram",
+        "event": "Evento / Conferencia",
+        "other": "Otro"
+      },
+      "acceptTerms": {
+        "text": "Acepto los",
+        "terms": "Términos de Servicio",
+        "and": "y la",
+        "privacy": "Política de Privacidad"
+      }
     },
     "footer": {
       "tagline": "Construyendo experiencias digitales desde 2024",
