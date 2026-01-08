@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
 
     // Parse request body
     const body = await request.json();
-    const { fullName, email, whatsapp, linkedin, role, company, website, need, summary } = body;
+    const { fullName, email, whatsapp, linkedin, role, company, website, instagram, companySize, industry, need, summary } = body;
 
     // Validate required fields
     if (!fullName || !email || !company || !need) {
@@ -95,6 +95,9 @@ export async function POST(request: NextRequest) {
       role: role ? sanitizeInput(role) : null,
       company: sanitizeInput(company),
       website: website ? sanitizeInput(website) : null,
+      instagram: instagram ? sanitizeInput(instagram) : null,
+      companySize: companySize ? sanitizeInput(companySize) : null,
+      industry: industry ? sanitizeInput(industry) : null,
       need: sanitizeInput(need),
       summary: summary ? sanitizeInput(summary) : null,
       submittedAt: new Date().toISOString(),

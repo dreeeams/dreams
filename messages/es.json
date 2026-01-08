@@ -188,8 +188,32 @@
         "designer": "Diseñador",
         "other": "Otro"
       },
-      "company": "Empresa / Proyecto",
-      "website": "Web o Instagram (opcional)",
+      "company": "Empresa",
+      "website": "Sitio Web (opcional)",
+      "instagram": "Instagram (opcional)",
+      "companySize": "Tamaño de Empresa (opcional)",
+      "companySizeOptions": {
+        "select": "Selecciona el tamaño",
+        "solo": "Solo / Freelancer",
+        "small": "2-10 empleados",
+        "medium": "11-50 empleados",
+        "large": "51-200 empleados",
+        "enterprise": "201+ empleados"
+      },
+      "industry": "Industria (opcional)",
+      "industryOptions": {
+        "select": "Selecciona la industria",
+        "tech": "Tecnología / Software",
+        "ecommerce": "E-commerce / Retail",
+        "finance": "Finanzas / Fintech",
+        "health": "Salud / Bienestar",
+        "education": "Educación / E-learning",
+        "realEstate": "Bienes Raíces",
+        "food": "Alimentos y Bebidas",
+        "entertainment": "Entretenimiento / Medios",
+        "services": "Servicios Profesionales",
+        "other": "Otro"
+      },
       "need": "¿Qué necesitas?",
       "needOptions": {
         "landing": "Landing Page",

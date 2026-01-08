@@ -25,6 +25,9 @@ export default function ContactSection() {
     role: '',
     company: '',
     website: '',
+    instagram: '',
+    companySize: '',
+    industry: '',
     need: '',
     summary: '',
   });
@@ -260,13 +263,73 @@ export default function ContactSection() {
                           {tForm('website')}
                         </label>
                         <input
-                          type="text"
+                          type="url"
                           name="website"
                           value={formData.website}
                           onChange={handleInputChange}
                           className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
-                          placeholder="www.miempresa.com o @instagram"
+                          placeholder="www.miempresa.com"
                         />
+                      </div>
+
+                      {/* Instagram */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('instagram')}
+                        </label>
+                        <input
+                          type="text"
+                          name="instagram"
+                          value={formData.instagram}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder="@miempresa"
+                        />
+                      </div>
+
+                      {/* Company Size */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('companySize')}
+                        </label>
+                        <select
+                          name="companySize"
+                          value={formData.companySize}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                        >
+                          <option value="">{tForm('companySizeOptions.select')}</option>
+                          <option value="solo">{tForm('companySizeOptions.solo')}</option>
+                          <option value="2-10">{tForm('companySizeOptions.small')}</option>
+                          <option value="11-50">{tForm('companySizeOptions.medium')}</option>
+                          <option value="51-200">{tForm('companySizeOptions.large')}</option>
+                          <option value="201+">{tForm('companySizeOptions.enterprise')}</option>
+                        </select>
+                      </div>
+
+                      {/* Industry */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('industry')}
+                        </label>
+                        <select
+                          name="industry"
+                          value={formData.industry}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                        >
+                          <option value="">{tForm('industryOptions.select')}</option>
+                          <option value="tech">{tForm('industryOptions.tech')}</option>
+                          <option value="ecommerce">{tForm('industryOptions.ecommerce')}</option>
+                          <option value="finance">{tForm('industryOptions.finance')}</option>
+                          <option value="health">{tForm('industryOptions.health')}</option>
+                          <option value="education">{tForm('industryOptions.education')}</option>
+                          <option value="real-estate">{tForm('industryOptions.realEstate')}</option>
+                          <option value="food">{tForm('industryOptions.food')}</option>
+                          <option value="entertainment">{tForm('industryOptions.entertainment')}</option>
+                          <option value="services">{tForm('industryOptions.services')}</option>
+                          <option value="other">{tForm('industryOptions.other')}</option>
+                        </select>
                       </div>
 
                       {/* Need */}
