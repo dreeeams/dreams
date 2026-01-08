@@ -38,6 +38,57 @@ function sanitizeInput(input: string): string {
   return input.trim().replace(/[<>]/g, '');
 }
 
+// Capitalize first letter of each word
+function capitalizeText(text: string): string {
+  return text
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}
+
+// Map industry codes to full text
+function mapIndustry(industryCode: string): string {
+  const industryMap: Record<string, string> = {
+    'tech': 'Technology / Software',
+    'ecommerce': 'E-commerce / Retail',
+    'finance': 'Finance / Fintech',
+    'health': 'Healthcare / Wellness',
+    'education': 'Education / E-learning',
+    'realEstate': 'Real Estate',
+    'food': 'Food & Beverage',
+    'entertainment': 'Entertainment / Media',
+    'services': 'Professional Services',
+    'other': 'Other'
+  };
+  return industryMap[industryCode] || capitalizeText(industryCode);
+}
+
+// Map heardFrom codes to full text
+function mapHeardFrom(heardFromCode: string): string {
+  const heardFromMap: Record<string, string> = {
+    'google': 'Google Search',
+    'social': 'Social Media',
+    'referral': 'Referral / Recommendation',
+    'linkedin': 'LinkedIn',
+    'instagram': 'Instagram',
+    'event': 'Event / Conference',
+    'other': 'Other'
+  };
+  return heardFromMap[heardFromCode] || capitalizeText(heardFromCode);
+}
+
+// Map company size codes to full text
+function mapCompanySize(sizeCode: string): string {
+  const sizeMap: Record<string, string> = {
+    'solo': 'Solo / Freelancer',
+    'small': '2-10 Employees',
+    'medium': '11-50 Employees',
+    'large': '51-200 Employees',
+    'enterprise': '201+ Employees'
+  };
+  return sizeMap[sizeCode] || capitalizeText(sizeCode);
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Get client IP for rate limiting
@@ -86,21 +137,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Prepare contact data with sanitization
+    // Prepare contact data with sanitization and proper formatting
     const contactData = {
-      fullName: sanitizeInput(fullName),
+      fullName: capitalizeText(sanitizeInput(fullName)),
       email: email.trim().toLowerCase(),
       whatsapp: whatsapp ? sanitizeInput(whatsapp) : null,
       linkedin: linkedin ? sanitizeInput(linkedin) : null,
-      role: role ? sanitizeInput(role) : null,
-      company: sanitizeInput(company),
+      role: role ? capitalizeText(sanitizeInput(role)) : null,
+      company: capitalizeText(sanitizeInput(company)),
       websiteUrl: websiteUrl ? sanitizeInput(websiteUrl) : null,
       instagram: instagram ? sanitizeInput(instagram) : null,
-      companySize: companySize ? sanitizeInput(companySize) : null,
-      industry: industry ? sanitizeInput(industry) : null,
-      need: Array.isArray(need) ? need.map(n => sanitizeInput(n)).join(', ') : sanitizeInput(need),
-      summary: summary ? sanitizeInput(summary) : null,
-      heardFrom: heardFrom ? sanitizeInput(heardFrom) : null,
+      companySize: companySize ? mapCompanySize(companySize) : null,
+      industry: industry ? mapIndustry(industry) : null,
+      need: Array.isArray(need) ? need.map(n => capitalizeText(sanitizeInput(n))).join(', ') : capitalizeText(sanitizeInput(need)),
+      summary: summary ? capitalizeText(sanitizeInput(summary)) : null,
+      heardFrom: heardFrom ? mapHeardFrom(heardFrom) : null,
       acceptTerms: Boolean(acceptTerms),
       submittedAt: new Date().toISOString(),
       ip,
@@ -151,19 +202,12 @@ export async function POST(request: NextRequest) {
             };
           }
 
-          // Map company size to employees number (use midpoint of range)
+          // Add company size as text field (already mapped to full text)
           if (contactData.companySize) {
-            const sizeMapping: Record<string, number> = {
-              'solo': 1,
-              'small': 6,      // midpoint of 2-10
-              'medium': 30,    // midpoint of 11-50
-              'large': 125,    // midpoint of 51-200
-              'enterprise': 201 // 201+
-            };
-            companyPayload.employees = sizeMapping[contactData.companySize] || null;
+            companyPayload.companySize = contactData.companySize;
           }
 
-          // Add industry if provided
+          // Add industry if provided (already mapped to full text)
           if (contactData.industry) {
             companyPayload.industry = contactData.industry;
           }
@@ -312,6 +356,8 @@ export async function POST(request: NextRequest) {
             opportunityPayload.pointOfContactId = personId;
           }
 
+          console.log('📤 Opportunity payload:', JSON.stringify(opportunityPayload, null, 2));
+
           const opportunityResponse = await fetch(`${twentyApiUrl}/rest/opportunities`, {
             method: 'POST',
             headers: {
@@ -320,6 +366,8 @@ export async function POST(request: NextRequest) {
             },
             body: JSON.stringify(opportunityPayload),
           });
+
+          console.log('📥 Opportunity Response Status:', opportunityResponse.status);
 
           if (opportunityResponse.ok) {
             const opportunityData = await opportunityResponse.json();
@@ -332,7 +380,12 @@ export async function POST(request: NextRequest) {
             });
           } else {
             const errorText = await opportunityResponse.text();
-            console.error('❌ Opportunity creation failed:', errorText);
+            console.error('❌ Opportunity creation failed:', {
+              status: opportunityResponse.status,
+              statusText: opportunityResponse.statusText,
+              error: errorText,
+              payload: opportunityPayload
+            });
           }
         }
       } catch (error) {
