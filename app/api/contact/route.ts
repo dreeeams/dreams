@@ -256,10 +256,34 @@ export async function POST(request: NextRequest) {
             formattedPhone = `+57${formattedPhone}`;
           }
 
+          // Extract country code and calling code
+          // Format: +[calling code][number]
+          // Example: +573001234567 -> calling code: +57, country code: CO
+          const callingCodeMatch = formattedPhone.match(/^\+(\d{1,4})/);
+          const callingCode = callingCodeMatch ? `+${callingCodeMatch[1]}` : '+57';
+
+          // Map calling codes to country codes
+          const countryCodeMap: Record<string, string> = {
+            '+1': 'US',
+            '+52': 'MX',
+            '+57': 'CO',
+            '+58': 'VE',
+            '+54': 'AR',
+            '+56': 'CL',
+            '+51': 'PE',
+            '+55': 'BR',
+            '+34': 'ES',
+            '+44': 'GB',
+            '+33': 'FR',
+            '+49': 'DE',
+          };
+
+          const countryCode = countryCodeMap[callingCode] || 'CO';
+
           twentyPayload.phones = {
             primaryPhoneNumber: formattedPhone,
-            primaryPhoneCountryCode: '',
-            primaryPhoneCallingCode: '',
+            primaryPhoneCountryCode: countryCode,
+            primaryPhoneCallingCode: callingCode,
             additionalPhones: [],
           };
         }
