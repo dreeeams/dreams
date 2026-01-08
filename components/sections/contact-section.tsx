@@ -297,13 +297,10 @@ export default function ContactSection() {
               >
                 {/* Success Message */}
                 <div className="border-4 border-black bg-brand p-8 md:p-12 text-center text-white">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4 font-nostalgic">
-                    {tForm('successTitle')}
+                  <h3 className="text-5xl md:text-6xl font-bold mb-6 font-nostalgic tracking-widest">
+                    {tForm('successTitle').toUpperCase()}
                   </h3>
-                  <p className="text-base md:text-lg mb-2">{tForm('successMessage')}</p>
-                  <p className="text-sm opacity-90 font-mono">
-                    {tForm('scheduleCall')}
-                  </p>
+                  <p className="text-base md:text-lg">{tForm('successMessage')}</p>
                 </div>
               </motion.div>
             )}
