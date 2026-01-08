@@ -5,12 +5,14 @@ import ServicesSection from '@/components/sections/services-section';
 import PortfolioSection from '@/components/sections/portfolio-section';
 import FAQSection from '@/components/sections/faq-section';
 import ContactSection from '@/components/sections/contact-section';
+import SkipToContent from '@/components/skip-to-content';
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background-light">
+      <SkipToContent />
       <Navigation />
-      <main className="relative">
+      <main id="main-content" className="relative">
         {/* Hero as fixed background */}
         <div className="fixed top-0 left-0 w-full h-screen z-0">
           <HeroSection />

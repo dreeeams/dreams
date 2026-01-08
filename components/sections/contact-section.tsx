@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { analytics } from '@/lib/analytics';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
@@ -22,6 +23,11 @@ export default function ContactSection() {
     need: '',
     summary: '',
   });
+
+  // Track form start
+  useEffect(() => {
+    analytics.formStarted('contact');
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -56,8 +62,11 @@ export default function ContactSection() {
         }
 
         setSubmitted(true);
+        analytics.formCompleted('contact', { need: formData.need });
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to submit form');
+        const errorMessage = err instanceof Error ? err.message : 'Failed to submit form';
+        setError(errorMessage);
+        analytics.formError('contact', errorMessage);
       } finally {
         setIsSubmitting(false);
       }
