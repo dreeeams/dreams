@@ -172,7 +172,7 @@ export default function ContactSection() {
                         </label>
                         <PhoneInput
                           international
-                          defaultCountry="US"
+                          defaultCountry="CO"
                           value={formData.whatsapp}
                           onChange={(value) => setFormData({ ...formData, whatsapp: value || '' })}
                           className="w-full border-2 border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-brand phone-input-custom"

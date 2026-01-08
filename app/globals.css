@@ -132,7 +132,14 @@
   width: 1.5rem !important;
   height: 1.5rem !important;
   border-radius: 2px !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.phone-input-custom .PhoneInputCountryIcon img {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .phone-input-custom .PhoneInputCountrySelectArrow {
