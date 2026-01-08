@@ -91,7 +91,37 @@ export async function POST(request: NextRequest) {
 
     if (twentyApiKey && twentyApiUrl) {
       try {
-        // Prepare minimal payload: only name, email, and phone
+        let companyId = null;
+
+        // Step 1: Create Company if provided
+        if (contactData.company) {
+          console.log('🏢 Creating company in Twenty CRM:', contactData.company);
+
+          const companyResponse = await fetch(`${twentyApiUrl}/rest/companies`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${twentyApiKey}`,
+            },
+            body: JSON.stringify({
+              name: contactData.company,
+            }),
+          });
+
+          if (companyResponse.ok) {
+            const companyData = await companyResponse.json();
+            companyId = companyData.data?.createCompany?.id;
+            console.log('✅ Company created:', {
+              id: companyId,
+              name: companyData.data?.createCompany?.name
+            });
+          } else {
+            const errorText = await companyResponse.text();
+            console.error('❌ Company creation failed:', errorText);
+          }
+        }
+
+        // Step 2: Create Person
         const twentyPayload: any = {
           name: {
             firstName: contactData.fullName.split(' ')[0] || contactData.fullName,
@@ -120,12 +150,18 @@ export async function POST(request: NextRequest) {
           };
         }
 
-        console.log('📤 Sending to Twenty CRM:', {
-          url: `${twentyApiUrl}/rest/people`,
-          payload: twentyPayload
+        // Link person to company if created
+        if (companyId) {
+          twentyPayload.companyId = companyId;
+        }
+
+        console.log('👤 Creating person in Twenty CRM:', {
+          name: twentyPayload.name,
+          email: twentyPayload.emails.primaryEmail,
+          companyId
         });
 
-        const crmResponse = await fetch(`${twentyApiUrl}/rest/people`, {
+        const personResponse = await fetch(`${twentyApiUrl}/rest/people`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -134,21 +170,21 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify(twentyPayload),
         });
 
-        console.log('📥 Twenty CRM Response Status:', crmResponse.status);
+        console.log('📥 Person Response Status:', personResponse.status);
 
-        if (!crmResponse.ok) {
-          const errorText = await crmResponse.text();
-          console.error('❌ Twenty CRM integration failed:', {
-            status: crmResponse.status,
-            statusText: crmResponse.statusText,
+        if (!personResponse.ok) {
+          const errorText = await personResponse.text();
+          console.error('❌ Person creation failed:', {
+            status: personResponse.status,
+            statusText: personResponse.statusText,
             error: errorText
           });
         } else {
-          const crmData = await crmResponse.json();
+          const personData = await personResponse.json();
           console.log('✅ Contact successfully added to Twenty CRM:', {
-            id: crmData.data?.createPerson?.id,
-            email: crmData.data?.createPerson?.emails?.primaryEmail,
-            fullData: crmData
+            personId: personData.data?.createPerson?.id,
+            email: personData.data?.createPerson?.emails?.primaryEmail,
+            companyId: personData.data?.createPerson?.companyId
           });
         }
       } catch (error) {
