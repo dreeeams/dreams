@@ -163,6 +163,11 @@ export async function POST(request: NextRequest) {
             companyPayload.employees = sizeMapping[contactData.companySize] || null;
           }
 
+          // Add industry if provided
+          if (contactData.industry) {
+            companyPayload.industry = contactData.industry;
+          }
+
           const companyResponse = await fetch(`${twentyApiUrl}/rest/companies`, {
             method: 'POST',
             headers: {
@@ -325,20 +330,15 @@ export async function POST(request: NextRequest) {
           if (personId || companyId) {
             const noteTitle = `Project Requirements: ${contactData.need}`;
 
-            // Build note body with additional information not in structured fields
-            let noteBody = `## Project Details\n\n`;
-            noteBody += `- **Services Needed:** ${contactData.need}\n`;
+            // Build note body with project details only
+            let noteBody = `## Project Requirements\n\n`;
+            noteBody += `**Services Needed:** ${contactData.need}\n\n`;
+
             if (contactData.summary) {
-              noteBody += `\n**Project Summary:**\n${contactData.summary}\n`;
+              noteBody += `**Project Summary:**\n${contactData.summary}\n\n`;
             }
 
-            // Add industry if provided (only field not in structured objects)
-            if (contactData.industry) {
-              noteBody += `\n## Additional Information\n\n`;
-              noteBody += `- **Industry:** ${contactData.industry}\n`;
-            }
-
-            noteBody += `\n---\n*Submitted: ${contactData.submittedAt}*`;
+            noteBody += `---\n*Submitted: ${contactData.submittedAt}*`;
 
             console.log('📝 Creating note in Twenty CRM:', {
               title: noteTitle,
