@@ -358,7 +358,7 @@ export async function POST(request: NextRequest) {
 
           const opportunityPayload: any = {
             name: opportunityName,
-            stage: 'NEW',
+            stage: 'NEW_LEAD',
           };
 
           // Add services and summary to opportunity
