@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { CalEmbed } from '@/components/ui/cal-embed';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
@@ -306,9 +305,6 @@ export default function ContactSection() {
                     {tForm('scheduleCall')}
                   </p>
                 </div>
-
-                {/* Cal.com Embed */}
-                <CalEmbed />
               </motion.div>
             )}
           </AnimatePresence>
