@@ -177,7 +177,7 @@
       "email": "Email",
       "whatsapp": "Phone Number",
       "linkedin": "LinkedIn (optional)",
-      "role": "Role (optional)",
+      "role": "Role",
       "roleOptions": {
         "select": "Select your role",
         "founder": "Founder / Co-Founder",
