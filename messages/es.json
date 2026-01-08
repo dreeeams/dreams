@@ -190,9 +190,15 @@
         "other": "Otro"
       },
       "company": "Empresa",
-      "website": "Sitio Web (opcional)",
-      "instagram": "Instagram (opcional)",
-      "companySize": "Tamaño de Empresa (opcional)",
+      "website": "¿Tienes página web?",
+      "websiteOptions": {
+        "select": "Selecciona una opción",
+        "noWebsite": "No, no tengo página web",
+        "hasWebsite": "Sí, tengo página web"
+      },
+      "websiteUrl": "URL del Sitio Web",
+      "instagram": "Instagram",
+      "companySize": "Tamaño de Empresa",
       "companySizeOptions": {
         "select": "Selecciona el tamaño",
         "solo": "Solo / Freelancer",
@@ -201,7 +207,7 @@
         "large": "51-200 empleados",
         "enterprise": "201+ empleados"
       },
-      "industry": "Industria (opcional)",
+      "industry": "Industria",
       "industryOptions": {
         "select": "Selecciona la industria",
         "tech": "Tecnología / Software",

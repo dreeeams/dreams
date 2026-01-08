@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
 
     // Parse request body
     const body = await request.json();
-    const { fullName, email, whatsapp, linkedin, role, company, website, instagram, companySize, industry, need, summary, heardFrom, acceptTerms } = body;
+    const { fullName, email, whatsapp, linkedin, role, company, website, websiteUrl, instagram, companySize, industry, need, summary, heardFrom, acceptTerms } = body;
 
     // Validate required fields
     if (!fullName || !email || !company || !need || (Array.isArray(need) && need.length === 0) || !acceptTerms) {
@@ -95,6 +95,7 @@ export async function POST(request: NextRequest) {
       role: role ? sanitizeInput(role) : null,
       company: sanitizeInput(company),
       website: website ? sanitizeInput(website) : null,
+      websiteUrl: websiteUrl ? sanitizeInput(websiteUrl) : null,
       instagram: instagram ? sanitizeInput(instagram) : null,
       companySize: companySize ? sanitizeInput(companySize) : null,
       industry: industry ? sanitizeInput(industry) : null,
@@ -119,7 +120,7 @@ export async function POST(request: NextRequest) {
         if (contactData.company) {
           console.log('🏢 Creating company in Twenty CRM:', {
             name: contactData.company,
-            website: contactData.website
+            websiteUrl: contactData.websiteUrl
           });
 
           // Prepare company payload
@@ -127,11 +128,11 @@ export async function POST(request: NextRequest) {
             name: contactData.company,
           };
 
-          // Add domain name if website is provided
-          if (contactData.website) {
+          // Add domain name if website URL is provided
+          if (contactData.websiteUrl) {
             companyPayload.domainName = {
-              primaryLinkUrl: contactData.website,
-              primaryLinkLabel: contactData.website,
+              primaryLinkUrl: contactData.websiteUrl,
+              primaryLinkLabel: contactData.websiteUrl,
               secondaryLinks: [],
             };
           }

@@ -25,6 +25,7 @@ export default function ContactSection() {
     role: '',
     company: '',
     website: '',
+    websiteUrl: '',
     instagram: '',
     companySize: '',
     industry: '',
@@ -60,10 +61,16 @@ export default function ContactSection() {
 
   const handleContinue = (e: React.FormEvent) => {
     e.preventDefault();
-    if (step === 1 && formData.fullName && formData.email && formData.whatsapp) {
+    if (step === 1 && formData.fullName && formData.email && formData.whatsapp && formData.role) {
       setStep(2);
-    } else if (step === 2 && formData.company) {
-      setStep(3);
+    } else if (step === 2) {
+      // Validar Step 2: company, website selection, size, industry
+      const hasWebsiteUrl = formData.website === 'has-website' ? formData.websiteUrl : true;
+      const hasInstagram = formData.website === 'no-website' ? formData.instagram : true;
+
+      if (formData.company && formData.website && formData.companySize && formData.industry && hasWebsiteUrl && hasInstagram) {
+        setStep(3);
+      }
     }
   };
 
@@ -204,28 +211,14 @@ export default function ContactSection() {
                         />
                       </div>
 
-                      {/* LinkedIn */}
-                      <div>
-                        <label className="text-sm font-bold mb-2 block">
-                          {tForm('linkedin')}
-                        </label>
-                        <input
-                          type="url"
-                          name="linkedin"
-                          value={formData.linkedin}
-                          onChange={handleInputChange}
-                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
-                          placeholder="linkedin.com/in/tu-perfil"
-                        />
-                      </div>
-
                       {/* Role */}
                       <div>
                         <label className="text-sm font-bold mb-2 block">
-                          {tForm('role')}
+                          {tForm('role')} *
                         </label>
                         <select
                           name="role"
+                          required
                           value={formData.role}
                           onChange={handleInputChange}
                           className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
@@ -240,6 +233,21 @@ export default function ContactSection() {
                           <option value="designer">{tForm('roleOptions.designer')}</option>
                           <option value="other">{tForm('roleOptions.other')}</option>
                         </select>
+                      </div>
+
+                      {/* LinkedIn */}
+                      <div>
+                        <label className="text-sm font-bold mb-2 block">
+                          {tForm('linkedin')}
+                        </label>
+                        <input
+                          type="url"
+                          name="linkedin"
+                          value={formData.linkedin}
+                          onChange={handleInputChange}
+                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                          placeholder="linkedin.com/in/tu-perfil"
+                        />
                       </div>
 
                       <motion.button
@@ -279,40 +287,65 @@ export default function ContactSection() {
                       {/* Website */}
                       <div>
                         <label className="text-sm font-bold mb-2 block">
-                          {tForm('website')}
+                          {tForm('website')} *
                         </label>
-                        <input
-                          type="url"
+                        <select
                           name="website"
+                          required
                           value={formData.website}
                           onChange={handleInputChange}
                           className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
-                          placeholder="www.miempresa.com"
-                        />
+                        >
+                          <option value="">{tForm('websiteOptions.select')}</option>
+                          <option value="no-website">{tForm('websiteOptions.noWebsite')}</option>
+                          <option value="has-website">{tForm('websiteOptions.hasWebsite')}</option>
+                        </select>
                       </div>
 
-                      {/* Instagram */}
-                      <div>
-                        <label className="text-sm font-bold mb-2 block">
-                          {tForm('instagram')}
-                        </label>
-                        <input
-                          type="text"
-                          name="instagram"
-                          value={formData.instagram}
-                          onChange={handleInputChange}
-                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
-                          placeholder="@miempresa"
-                        />
-                      </div>
+                      {/* Website URL - solo si tiene website */}
+                      {formData.website === 'has-website' && (
+                        <div>
+                          <label className="text-sm font-bold mb-2 block">
+                            {tForm('websiteUrl')} *
+                          </label>
+                          <input
+                            type="url"
+                            name="websiteUrl"
+                            required
+                            value={formData.websiteUrl || ''}
+                            onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
+                            className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                            placeholder="www.miempresa.com"
+                          />
+                        </div>
+                      )}
+
+                      {/* Instagram - solo si NO tiene website */}
+                      {formData.website === 'no-website' && (
+                        <div>
+                          <label className="text-sm font-bold mb-2 block">
+                            {tForm('instagram')} *
+                          </label>
+                          <input
+                            type="text"
+                            name="instagram"
+                            required
+                            value={formData.instagram}
+                            onChange={handleInputChange}
+                            className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
+                            placeholder="@miempresa"
+                          />
+                        </div>
+                      )}
 
                       {/* Company Size */}
                       <div>
                         <label className="text-sm font-bold mb-2 block">
-                          {tForm('companySize')}
+                          {tForm('companySize')} *
                         </label>
                         <select
                           name="companySize"
+                          required
                           value={formData.companySize}
                           onChange={handleInputChange}
                           className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
@@ -329,10 +362,11 @@ export default function ContactSection() {
                       {/* Industry */}
                       <div>
                         <label className="text-sm font-bold mb-2 block">
-                          {tForm('industry')}
+                          {tForm('industry')} *
                         </label>
                         <select
                           name="industry"
+                          required
                           value={formData.industry}
                           onChange={handleInputChange}
                           className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
