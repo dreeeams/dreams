@@ -158,6 +158,7 @@ export async function POST(request: NextRequest) {
         console.log('👤 Creating person in Twenty CRM:', {
           name: twentyPayload.name,
           email: twentyPayload.emails.primaryEmail,
+          phone: twentyPayload.phones?.primaryPhoneNumber,
           companyId
         });
 
