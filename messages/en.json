@@ -190,9 +190,9 @@
       "summaryPlaceholder": "E.g: Ticketing app with QR and payments.",
       "continue": "Continue",
       "submit": "Send",
-      "successTitle": "All set ✅",
-      "successMessage": "We received your info. We'll contact you in the next few hours.",
-      "scheduleCall": "Schedule a 30-minute call to discuss your project"
+      "successTitle": "Thank you!",
+      "successMessage": "We received your information and will get back to you soon.",
+      "scheduleCall": "We'll review your request and reach out to discuss your project."
     },
     "footer": {
       "tagline": "Building digital experiences since 2024",

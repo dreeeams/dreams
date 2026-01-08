@@ -190,9 +190,9 @@
       "summaryPlaceholder": "Ej: App de tickets con QR y pagos.",
       "continue": "Continuar",
       "submit": "Enviar",
-      "successTitle": "Listo ✅",
-      "successMessage": "Recibimos tu info. Te contactamos en las próximas horas.",
-      "scheduleCall": "Agenda una llamada de 30 minutos para discutir tu proyecto"
+      "successTitle": "¡Gracias!",
+      "successMessage": "Recibimos tu información y te contactaremos pronto.",
+      "scheduleCall": "Revisaremos tu solicitud y te contactaremos para discutir tu proyecto."
     },
     "footer": {
       "tagline": "Construyendo experiencias digitales desde 2024",
