@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 import { analytics } from '@/lib/analytics';
 import Link from 'next/link';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
@@ -36,7 +38,7 @@ export default function ContactSection() {
 
   const handleContinue = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.fullName && formData.email) {
+    if (formData.fullName && formData.email && formData.whatsapp) {
       setStep(2);
     }
   };
@@ -166,15 +168,15 @@ export default function ContactSection() {
                       {/* WhatsApp */}
                       <div>
                         <label className="text-sm font-bold mb-2 block">
-                          {tForm('whatsapp')}
+                          {tForm('whatsapp')} *
                         </label>
-                        <input
-                          type="tel"
-                          name="whatsapp"
+                        <PhoneInput
+                          international
+                          defaultCountry="US"
                           value={formData.whatsapp}
-                          onChange={handleInputChange}
-                          className="w-full border-2 border-black bg-white text-black p-4 text-base focus:outline-none focus:ring-2 focus:ring-brand"
-                          placeholder="+1 555 123 4567"
+                          onChange={(value) => setFormData({ ...formData, whatsapp: value || '' })}
+                          className="w-full border-2 border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-brand phone-input-custom"
+                          required
                         />
                       </div>
 
