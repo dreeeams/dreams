@@ -371,7 +371,7 @@ export default function ContactSection() {
                         </motion.button>
                       </div>
                     </motion.form>
-                  ) : step === 3 ? (
+                  ) : (
                     <motion.form
                       key="step3"
                       initial={{ opacity: 0, x: 20 }}
@@ -503,7 +503,7 @@ export default function ContactSection() {
                         </motion.button>
                       </div>
                     </motion.form>
-                  ) : null}
+                  )}
                 </AnimatePresence>
               </motion.div>
             ) : (
