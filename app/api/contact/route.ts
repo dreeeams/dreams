@@ -105,13 +105,25 @@ export async function POST(request: NextRequest) {
 
         // Add phone only if provided
         if (contactData.whatsapp) {
+          // Format phone: ensure it starts with + for international format
+          let formattedPhone = contactData.whatsapp.trim();
+          if (!formattedPhone.startsWith('+')) {
+            // If no country code, assume Colombia (+57)
+            formattedPhone = `+57${formattedPhone}`;
+          }
+
           twentyPayload.phones = {
-            primaryPhoneNumber: contactData.whatsapp,
+            primaryPhoneNumber: formattedPhone,
             primaryPhoneCountryCode: '',
             primaryPhoneCallingCode: '',
             additionalPhones: [],
           };
         }
+
+        console.log('📤 Sending to Twenty CRM:', {
+          url: `${twentyApiUrl}/rest/people`,
+          payload: twentyPayload
+        });
 
         const crmResponse = await fetch(`${twentyApiUrl}/rest/people`, {
           method: 'POST',
@@ -122,16 +134,28 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify(twentyPayload),
         });
 
+        console.log('📥 Twenty CRM Response Status:', crmResponse.status);
+
         if (!crmResponse.ok) {
           const errorText = await crmResponse.text();
-          console.error('Twenty CRM integration failed:', errorText);
+          console.error('❌ Twenty CRM integration failed:', {
+            status: crmResponse.status,
+            statusText: crmResponse.statusText,
+            error: errorText
+          });
         } else {
           const crmData = await crmResponse.json();
-          console.log('Contact successfully added to Twenty CRM:', crmData);
+          console.log('✅ Contact successfully added to Twenty CRM:', {
+            id: crmData.data?.createPerson?.id,
+            email: crmData.data?.createPerson?.emails?.primaryEmail,
+            fullData: crmData
+          });
         }
       } catch (error) {
-        console.error('Failed to send to Twenty CRM:', error);
+        console.error('❌ Failed to send to Twenty CRM:', error);
       }
+    } else {
+      console.log('⚠️  Twenty CRM not configured (missing API key or URL)');
     }
 
     // Send email notification if configured
