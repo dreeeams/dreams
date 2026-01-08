@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 import { analytics } from '@/lib/analytics';
+import Link from 'next/link';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
@@ -434,12 +435,12 @@ export default function ContactSection() {
             <div>
               <p className="text-sm font-bold mb-4">{tFooter('legal').toUpperCase()}</p>
               <div className="space-y-2 text-sm">
-                <p className="hover:text-brand transition-colors cursor-pointer">
+                <Link href="/privacy" className="block hover:text-brand transition-colors cursor-pointer">
                   {tFooter('privacy')}
-                </p>
-                <p className="hover:text-brand transition-colors cursor-pointer">
+                </Link>
+                <Link href="/terms" className="block hover:text-brand transition-colors cursor-pointer">
                   {tFooter('terms')}
-                </p>
+                </Link>
                 <p className="hover:text-brand transition-colors cursor-pointer">
                   {tFooter('cookies')}
                 </p>
