@@ -189,6 +189,25 @@ export async function POST(request: NextRequest) {
           };
         }
 
+        // Add job title (role) if provided
+        if (contactData.role) {
+          twentyPayload.jobTitle = contactData.role;
+        }
+
+        // Add LinkedIn link if provided
+        if (contactData.linkedin) {
+          twentyPayload.linkedinLink = {
+            primaryLinkUrl: contactData.linkedin,
+            primaryLinkLabel: 'LinkedIn',
+            secondaryLinks: [],
+          };
+        }
+
+        // Add referral source if provided
+        if (contactData.heardFrom) {
+          twentyPayload.referall = contactData.heardFrom;
+        }
+
         // Link person to company if created
         if (companyId) {
           twentyPayload.companyId = companyId;
