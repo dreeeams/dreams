@@ -1,6 +1,13 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt for https://dreeeams.com
+
+# Allow all search engines
 User-agent: *
 Allow: /
 
 # Sitemaps
 Sitemap: https://dreeeams.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 0
+
+# Disallow admin/sensitive paths (none currently)
