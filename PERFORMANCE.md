@@ -27,7 +27,7 @@ npm run build:analyze
 **Optimizations:**
 - Tree-shaking enabled (automatic with Next.js 16)
 - Package optimization: `framer-motion`, `react-phone-number-input`
-- SWC minification enabled
+- SWC minification (default in Next.js 16)
 - Production source maps disabled (-30% bundle size)
 
 **Current Bundle Sizes:**

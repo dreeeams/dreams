@@ -6,10 +6,25 @@ import type { Metadata } from 'next';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'privacy' });
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreeeams.com';
 
   return {
     title: t('meta.title'),
     description: t('meta.description'),
+    alternates: {
+      canonical: `${baseUrl}/${locale}/privacy`,
+      languages: {
+        en: `${baseUrl}/en/privacy`,
+        es: `${baseUrl}/es/privacy`,
+      },
+    },
+    openGraph: {
+      title: t('meta.title'),
+      description: t('meta.description'),
+      url: `${baseUrl}/${locale}/privacy`,
+      type: 'website',
+      locale: locale === 'es' ? 'es_ES' : 'en_US',
+    },
   };
 }
 

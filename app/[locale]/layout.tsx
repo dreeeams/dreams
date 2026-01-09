@@ -138,8 +138,66 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreeeams.com';
+
+  // Schema.org structured data
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Dream Studio',
+    url: baseUrl,
+    logo: `${baseUrl}/og-image.png`,
+    description: locale === 'es'
+      ? 'Agencia de desarrollo web y móvil especializada en React, Next.js y React Native'
+      : 'Web and mobile development agency specializing in React, Next.js, and React Native',
+    email: 'contact@dreamstudio.dev',
+    foundingDate: '2026',
+    sameAs: [
+      // Add social media URLs when available
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'US',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: 'contact@dreamstudio.dev',
+      availableLanguage: ['English', 'Spanish'],
+    },
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Dream Studio',
+    url: baseUrl,
+    description: locale === 'es'
+      ? 'Construimos productos digitales hermosos y escalables. Aplicaciones web modernas, apps móviles y experiencias de usuario excepcionales.'
+      : 'We build beautiful, scalable digital products. Modern web apps, mobile applications, and exceptional user experiences.',
+    inLanguage: [locale === 'es' ? 'es-ES' : 'en-US'],
+    publisher: {
+      '@type': 'Organization',
+      name: 'Dream Studio',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/og-image.png`,
+      },
+    },
+  };
+
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${monigue.variable} antialiased`}
       >

@@ -64,7 +64,6 @@ const nextConfig: NextConfig = {
   },
   // Performance optimizations
   productionBrowserSourceMaps: false,
-  swcMinify: true,
   async headers() {
     return [
       // Security headers for all routes
