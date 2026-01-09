@@ -118,17 +118,42 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight font-nostalgic">
-            {t('title').toUpperCase()}
-          </h2>
-          <p className="text-lg text-gray-600 mb-2">{t('subtitle')}</p>
-          <p className="text-sm text-gray-500 font-mono">{t('noSpam')}</p>
+          <AnimatePresence mode="wait">
+            {submitted ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight font-nostalgic">
+                  {tForm('successTitle').toUpperCase()}
+                </h2>
+                <p className="text-lg text-gray-600">{tForm('successMessage')}</p>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="form-title"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight font-nostalgic">
+                  {t('title').toUpperCase()}
+                </h2>
+                <p className="text-lg text-gray-600 mb-2">{t('subtitle')}</p>
+                <p className="text-sm text-gray-500 font-mono">{t('noSpam')}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
         {/* 2-Step Form */}
-        <div className="max-w-2xl mx-auto mb-16">
-          <AnimatePresence mode="wait">
-            {!submitted ? (
+        {!submitted && (
+          <div className="max-w-2xl mx-auto mb-16">
+            <AnimatePresence mode="wait">
               <motion.div
                 key="form"
                 initial={{ opacity: 0, y: 20 }}
@@ -540,24 +565,9 @@ export default function ContactSection() {
                   )}
                 </AnimatePresence>
               </motion.div>
-            ) : (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="space-y-8"
-              >
-                {/* Success Message */}
-                <div className="border-4 border-black bg-brand p-8 md:p-12 text-center text-white">
-                  <h3 className="text-5xl md:text-6xl font-bold mb-6 font-nostalgic tracking-widest">
-                    {tForm('successTitle').toUpperCase()}
-                  </h3>
-                  <p className="text-base md:text-lg">{tForm('successMessage')}</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+            </AnimatePresence>
+          </div>
+        )}
 
         {/* Footer */}
         <motion.div
