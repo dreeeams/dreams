@@ -426,11 +426,17 @@ export async function POST(request: NextRequest) {
 
     if (resendApiKey) {
       try {
+        console.log('📧 Starting email sending process...');
+        console.log('📧 From email:', fromEmail);
+        console.log('📧 Admin email:', adminEmail);
+        console.log('📧 User email:', contactData.email);
+
         const { Resend } = await import('resend');
         const { UserConfirmationEmail, AdminNotificationEmail } = await import('@/lib/email-templates');
         const { renderToStaticMarkup } = await import('react-dom/server');
 
         const resend = new Resend(resendApiKey);
+        console.log('📧 Resend client initialized');
 
         // Prepare form data for email templates
         const emailFormData = {
@@ -451,11 +457,14 @@ export async function POST(request: NextRequest) {
         };
 
         // Send confirmation email to user
+        console.log('📧 Rendering user confirmation email...');
         const userEmailHtml = renderToStaticMarkup(
           UserConfirmationEmail({ formData: emailFormData })
         );
+        console.log('📧 User email HTML rendered, length:', userEmailHtml.length);
 
-        await resend.emails.send({
+        console.log('📧 Sending confirmation email to user...');
+        const userEmailResult = await resend.emails.send({
           from: `Dream Studio <${fromEmail}>`,
           to: contactData.email,
           replyTo: adminEmail,
@@ -464,13 +473,17 @@ export async function POST(request: NextRequest) {
         });
 
         console.log('✅ Confirmation email sent to user:', contactData.email);
+        console.log('📧 User email result:', JSON.stringify(userEmailResult, null, 2));
 
         // Send notification email to admin
+        console.log('📧 Rendering admin notification email...');
         const adminEmailHtml = renderToStaticMarkup(
           AdminNotificationEmail({ formData: emailFormData })
         );
+        console.log('📧 Admin email HTML rendered, length:', adminEmailHtml.length);
 
-        await resend.emails.send({
+        console.log('📧 Sending notification email to admin...');
+        const adminEmailResult = await resend.emails.send({
           from: `Dream Studio Notifications <${fromEmail}>`,
           to: adminEmail,
           subject: `🎯 Nuevo Lead: ${contactData.company} - ${contactData.fullName}`,
@@ -479,8 +492,11 @@ export async function POST(request: NextRequest) {
         });
 
         console.log('✅ Notification email sent to admin:', adminEmail);
+        console.log('📧 Admin email result:', JSON.stringify(adminEmailResult, null, 2));
       } catch (error) {
         console.error('❌ Failed to send emails via Resend:', error);
+        console.error('❌ Error details:', error instanceof Error ? error.message : String(error));
+        console.error('❌ Error stack:', error instanceof Error ? error.stack : 'No stack trace');
         // Don't fail the entire request if email fails
       }
     } else {
