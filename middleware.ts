@@ -1,11 +1,28 @@
 import createMiddleware from 'next-intl/middleware';
 import { locales, defaultLocale } from './i18n/config';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default createMiddleware({
+const intlMiddleware = createMiddleware({
   locales,
   defaultLocale,
   localePrefix: 'as-needed',
 });
+
+export default function middleware(request: NextRequest) {
+  // HTTPS Enforcement in production
+  if (
+    process.env.NODE_ENV === 'production' &&
+    request.headers.get('x-forwarded-proto') !== 'https'
+  ) {
+    const url = request.nextUrl.clone();
+    url.protocol = 'https:';
+    return NextResponse.redirect(url, 301);
+  }
+
+  // Security headers are already set in next.config.ts
+  // Continue with i18n middleware
+  return intlMiddleware(request);
+}
 
 export const config = {
   matcher: ['/', '/(en|es)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
