@@ -17,6 +17,16 @@ interface ContactFormData {
   heardFrom?: string;
 }
 
+// Brand colors from Dream Studio
+const COLORS = {
+  black: '#000000',
+  white: '#FFFFFF',
+  gray: '#787878',
+  lightGray: '#F5F5F5',
+  darkGray: '#1E1E1E',
+  border: '#000000',
+};
+
 // Traducción de valores para el email
 const translations = {
   companySize: {
@@ -58,170 +68,250 @@ const translations = {
   },
 };
 
+// Logo SVG inline
+const DreamStudioLogo = () => (
+  <svg width="40" height="46" viewBox="0 0 97 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M47.9849 11.0323V52.6452L38.4484 47.2258C21.5161 37.5484 11.0064 19.5484 11.0064 0H4V47.6129C4 63.0968 12.9527 77.4194 27.1602 84.1936L48.1796 94.2581V52.6452L57.7161 58.0645C74.6484 67.7419 85.1581 85.7419 85.1581 105.29H92.1645V57.6774C92.1645 42.1935 83.2118 27.871 69.0043 21.0968L47.9849 11.0323Z" fill="currentColor"/>
+  </svg>
+);
+
 // Email de confirmación al usuario
 export const UserConfirmationEmail = ({ formData }: { formData: ContactFormData }) => {
+  const firstName = formData.fullName.split(' ')[0];
+
   return (
     <html>
       <head>
         <style>{`
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
           body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
             line-height: 1.6;
-            color: #000000;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 0;
+            color: ${COLORS.darkGray};
+            background-color: ${COLORS.lightGray};
+            padding: 40px 20px;
           }
           .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: #ffffff;
+            background-color: ${COLORS.white};
+            border: 4px solid ${COLORS.black};
           }
           .header {
-            background-color: #FF6B35;
-            padding: 40px 20px;
-            text-align: center;
-            border: 4px solid #000000;
-            border-bottom: none;
+            background-color: ${COLORS.black};
+            padding: 40px 30px;
+            border-bottom: 4px solid ${COLORS.black};
+          }
+          .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
           }
           .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: #ffffff;
-            letter-spacing: 2px;
+            color: ${COLORS.white};
           }
-          .content {
-            padding: 40px 30px;
-            border: 4px solid #000000;
-            border-top: none;
-          }
-          .title {
+          .brand-name {
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 20px;
-            color: #000000;
+            color: ${COLORS.white};
+            letter-spacing: 2px;
+            text-transform: uppercase;
           }
-          .text {
-            font-size: 16px;
-            margin-bottom: 15px;
-            color: #333333;
-          }
-          .box {
-            background-color: #F5F5F5;
-            border: 2px solid #000000;
-            padding: 20px;
-            margin: 25px 0;
-          }
-          .box-title {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 10px;
+          .tagline {
+            font-size: 12px;
+            color: ${COLORS.gray};
             text-transform: uppercase;
             letter-spacing: 1px;
           }
-          .next-steps {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 20px;
-            margin: 25px 0;
+          .content {
+            padding: 40px 30px;
           }
-          .next-steps h3 {
-            margin-top: 0;
+          .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            color: ${COLORS.black};
+            line-height: 1.3;
+          }
+          .text {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: ${COLORS.darkGray};
+            line-height: 1.7;
+          }
+          .divider {
+            width: 60px;
+            height: 4px;
+            background-color: ${COLORS.black};
+            margin: 30px 0;
+          }
+          .info-box {
+            background-color: ${COLORS.lightGray};
+            border: 3px solid ${COLORS.black};
+            padding: 24px;
+            margin: 30px 0;
+          }
+          .info-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: ${COLORS.gray};
+          }
+          .info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: ${COLORS.black};
+            margin-bottom: 8px;
+          }
+          .timeline {
+            margin: 30px 0;
+          }
+          .timeline-title {
             font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: ${COLORS.black};
+            text-transform: uppercase;
+            letter-spacing: 1px;
           }
-          .step {
-            margin: 10px 0;
-            padding-left: 20px;
+          .timeline-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-left: 24px;
             position: relative;
           }
-          .step:before {
-            content: "→";
+          .timeline-item:before {
+            content: '';
             position: absolute;
             left: 0;
-            color: #FF6B35;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: ${COLORS.black};
+          }
+          .timeline-text {
+            font-size: 15px;
+            color: ${COLORS.darkGray};
+          }
+          .contact-info {
+            background-color: ${COLORS.black};
+            color: ${COLORS.white};
+            padding: 24px;
+            margin: 30px 0;
+          }
+          .contact-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+          }
+          .contact-item {
+            font-size: 15px;
+            margin-bottom: 8px;
+          }
+          .contact-link {
+            color: ${COLORS.white};
+            text-decoration: underline;
           }
           .footer {
+            background-color: ${COLORS.lightGray};
             padding: 30px;
+            border-top: 4px solid ${COLORS.black};
             text-align: center;
-            border-top: 4px solid #000000;
-            background-color: #F5F5F5;
           }
           .footer-text {
             font-size: 12px;
-            color: #666666;
-            margin: 5px 0;
+            color: ${COLORS.gray};
+            margin: 8px 0;
           }
-          .social-links {
-            margin: 20px 0;
-          }
-          .social-link {
-            display: inline-block;
-            margin: 0 10px;
-            color: #000000;
+          .footer-link {
+            color: ${COLORS.gray};
             text-decoration: none;
-            font-size: 14px;
+            margin: 0 8px;
+          }
+          .footer-link:hover {
+            text-decoration: underline;
           }
         `}</style>
       </head>
       <body>
         <div className="container">
-          {/* Header */}
           <div className="header">
-            <div className="logo">DREAM STUDIO</div>
+            <div className="logo-container">
+              <div className="logo">
+                <DreamStudioLogo />
+              </div>
+              <div>
+                <div className="brand-name">DREAM STUDIO</div>
+                <div className="tagline">Building Digital Experiences</div>
+              </div>
+            </div>
           </div>
 
-          {/* Content */}
           <div className="content">
-            <h1 className="title">¡Gracias por contactarnos, {formData.fullName.split(' ')[0]}! 🎉</h1>
+            <h1 className="title">Gracias por contactarnos, {firstName}</h1>
 
             <p className="text">
-              Hemos recibido tu solicitud y estamos emocionados de conocer más sobre tu proyecto.
+              Hemos recibido tu solicitud y estamos emocionados de conocer más sobre {formData.company}.
             </p>
 
-            <div className="box">
-              <div className="box-title">📋 Resumen de tu solicitud</div>
-              <p className="text">
-                <strong>Empresa:</strong> {formData.company}<br/>
-                <strong>Servicios de interés:</strong> {formData.need.map(n => translations.need[n as keyof typeof translations.need]).join(', ')}
-              </p>
+            <div className="divider"></div>
+
+            <div className="info-box">
+              <div className="info-label">Resumen de tu solicitud</div>
+              <div className="info-value">{formData.company}</div>
+              <div className="info-value">{formData.need.map(n => translations.need[n as keyof typeof translations.need]).join(', ')}</div>
             </div>
 
-            <div className="next-steps">
-              <h3>🚀 Próximos pasos</h3>
-              <div className="step">Revisaremos tu solicitud en las próximas 24 horas</div>
-              <div className="step">Te contactaremos para agendar una llamada de descubrimiento</div>
-              <div className="step">Discutiremos tu proyecto en detalle y crearemos una propuesta personalizada</div>
+            <div className="timeline">
+              <div className="timeline-title">Próximos pasos</div>
+              <div className="timeline-item">
+                <div className="timeline-text">Revisaremos tu solicitud en las próximas 24 horas</div>
+              </div>
+              <div className="timeline-item">
+                <div className="timeline-text">Te contactaremos para agendar una llamada de descubrimiento</div>
+              </div>
+              <div className="timeline-item">
+                <div className="timeline-text">Discutiremos tu proyecto y crearemos una propuesta personalizada</div>
+              </div>
             </div>
+
+            <div className="divider"></div>
 
             <p className="text">
-              Mientras tanto, si tienes alguna pregunta urgente, no dudes en responder a este email o contactarnos directamente:
+              Mientras tanto, si tienes alguna pregunta urgente, no dudes en contactarnos:
             </p>
 
-            <div className="box">
-              <p className="text" style={{ margin: 0 }}>
-                📧 <strong>Email:</strong> info@dreeeams.com<br/>
-                💬 <strong>WhatsApp:</strong> {formData.whatsapp}
-              </p>
+            <div className="contact-info">
+              <div className="contact-title">Contacto</div>
+              <div className="contact-item">
+                Email: <a href="mailto:info@dreeeams.com" className="contact-link">info@dreeeams.com</a>
+              </div>
+              <div className="contact-item">
+                WhatsApp: {formData.whatsapp}
+              </div>
             </div>
-
-            <p className="text" style={{ marginTop: 30, fontSize: 14, color: '#666666' }}>
-              ¿Quieres conocer más sobre nuestro trabajo? Visita nuestro portfolio en <a href="https://dreeeams.com" style={{ color: '#FF6B35' }}>dreeeams.com</a>
-            </p>
           </div>
 
-          {/* Footer */}
           <div className="footer">
-            <div className="social-links">
-              <a href="https://linkedin.com/company/dreamstudio" className="social-link">LinkedIn</a>
-              <a href="https://instagram.com/dreamstudio" className="social-link">Instagram</a>
-              <a href="https://x.com/dreamstudio" className="social-link">Twitter</a>
+            <div className="footer-text">DREAM STUDIO</div>
+            <div className="footer-text">
+              <a href="https://dreeeams.com/privacy" className="footer-link">Privacidad</a>
+              <span>|</span>
+              <a href="https://dreeeams.com/terms" className="footer-link">Términos</a>
             </div>
-            <p className="footer-text">Dream Studio - Building Digital Experiences</p>
-            <p className="footer-text">© 2024 Dream Studio. Todos los derechos reservados.</p>
-            <p className="footer-text" style={{ marginTop: 15 }}>
-              <a href="https://dreeeams.com/privacy" style={{ color: '#666666', textDecoration: 'underline' }}>Política de Privacidad</a> |
-              <a href="https://dreeeams.com/terms" style={{ color: '#666666', textDecoration: 'underline', marginLeft: 5 }}>Términos de Servicio</a>
-            </p>
+            <div className="footer-text" style={{ marginTop: 16 }}>
+              2024 Dream Studio. Todos los derechos reservados.
+            </div>
           </div>
         </div>
       </body>
@@ -235,177 +325,213 @@ export const AdminNotificationEmail = ({ formData }: { formData: ContactFormData
     <html>
       <head>
         <style>{`
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
           body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
             line-height: 1.6;
-            color: #000000;
-            background-color: #F5F5F5;
-            margin: 0;
-            padding: 20px;
+            color: ${COLORS.darkGray};
+            background-color: ${COLORS.lightGray};
+            padding: 40px 20px;
           }
           .container {
             max-width: 700px;
             margin: 0 auto;
-            background-color: #ffffff;
+            background-color: ${COLORS.white};
+            border: 4px solid ${COLORS.black};
           }
           .header {
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            background-color: ${COLORS.black};
             padding: 30px;
-            text-align: center;
-            border: 4px solid #000000;
-            border-bottom: none;
+            border-bottom: 4px solid ${COLORS.black};
+          }
+          .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .logo {
+            color: ${COLORS.white};
           }
           .header-title {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
-            color: #ffffff;
-            margin: 0;
-            letter-spacing: 1px;
+            color: ${COLORS.white};
+            text-transform: uppercase;
+            letter-spacing: 2px;
           }
           .header-subtitle {
-            font-size: 14px;
-            color: #ffffff;
-            margin-top: 5px;
-            opacity: 0.9;
-          }
-          .content {
-            padding: 30px;
-            border: 4px solid #000000;
-            border-top: none;
-          }
-          .alert {
-            background-color: #FFF3CD;
-            border: 2px solid #FFC107;
-            padding: 15px;
-            margin-bottom: 25px;
-            border-radius: 4px;
-          }
-          .alert-text {
-            margin: 0;
-            font-size: 14px;
-            color: #856404;
-          }
-          .section {
-            margin-bottom: 30px;
-          }
-          .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #000000;
+            font-size: 13px;
+            color: ${COLORS.gray};
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 8px;
           }
-          .data-grid {
-            display: table;
-            width: 100%;
-            border: 2px solid #000000;
-          }
-          .data-row {
-            display: table-row;
-          }
-          .data-row:nth-child(even) {
-            background-color: #F5F5F5;
-          }
-          .data-label {
-            display: table-cell;
-            padding: 12px 15px;
+          .priority-badge {
+            background-color: ${COLORS.white};
+            color: ${COLORS.black};
+            padding: 8px 16px;
+            font-size: 12px;
             font-weight: bold;
-            width: 35%;
-            border-right: 2px solid #000000;
-            border-bottom: 1px solid #DDDDDD;
-            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 3px solid ${COLORS.black};
+          }
+          .content {
+            padding: 40px 30px;
+          }
+          .alert {
+            background-color: ${COLORS.black};
+            color: ${COLORS.white};
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 3px solid ${COLORS.black};
+          }
+          .alert-text {
+            font-size: 14px;
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 0.5px;
           }
-          .data-value {
-            display: table-cell;
-            padding: 12px 15px;
-            border-bottom: 1px solid #DDDDDD;
-            font-size: 14px;
+          .section {
+            margin-bottom: 40px;
           }
-          .needs-list {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 15px 20px;
-            margin: 15px 0;
+          .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 4px solid ${COLORS.black};
           }
-          .needs-list-item {
-            padding: 8px 0;
-            border-bottom: 1px solid #333333;
+          .data-grid {
+            border: 3px solid ${COLORS.black};
           }
-          .needs-list-item:last-child {
+          .data-row {
+            display: flex;
+            border-bottom: 1px solid ${COLORS.lightGray};
+          }
+          .data-row:last-child {
             border-bottom: none;
           }
+          .data-row:nth-child(even) {
+            background-color: ${COLORS.lightGray};
+          }
+          .data-label {
+            flex: 0 0 35%;
+            padding: 16px 20px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-right: 3px solid ${COLORS.black};
+            background-color: ${COLORS.lightGray};
+          }
+          .data-value {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 15px;
+          }
+          .data-link {
+            color: ${COLORS.black};
+            text-decoration: underline;
+            font-weight: 600;
+          }
+          .services-list {
+            background-color: ${COLORS.black};
+            color: ${COLORS.white};
+            padding: 24px 28px;
+            border: 3px solid ${COLORS.black};
+          }
+          .services-item {
+            padding: 12px 0;
+            border-bottom: 1px solid ${COLORS.gray};
+            font-size: 15px;
+            font-weight: 500;
+          }
+          .services-item:last-child {
+            border-bottom: none;
+          }
+          .services-item:before {
+            content: '■';
+            margin-right: 12px;
+          }
           .summary-box {
-            background-color: #F5F5F5;
-            border: 2px solid #000000;
-            padding: 20px;
-            margin: 15px 0;
+            background-color: ${COLORS.lightGray};
+            border: 3px solid ${COLORS.black};
+            padding: 24px;
+            font-size: 15px;
+            line-height: 1.7;
             font-style: italic;
           }
-          .action-buttons {
-            display: table;
-            width: 100%;
-            margin-top: 30px;
+          .actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
           }
           .action-button {
-            display: table-cell;
+            flex: 1;
+            background-color: ${COLORS.black};
+            color: ${COLORS.white};
+            padding: 16px 24px;
             text-align: center;
-            padding: 15px;
-            background-color: #FF6B35;
-            color: #ffffff;
             text-decoration: none;
             font-weight: bold;
-            border: 3px solid #000000;
-            margin: 0 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 3px solid ${COLORS.black};
+            display: block;
           }
           .footer {
-            padding: 20px;
+            background-color: ${COLORS.black};
+            color: ${COLORS.white};
+            padding: 24px;
             text-align: center;
-            background-color: #000000;
-            color: #ffffff;
-            font-size: 12px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
           }
         `}</style>
       </head>
       <body>
         <div className="container">
-          {/* Header */}
           <div className="header">
-            <h1 className="header-title">🎯 NUEVO LEAD</h1>
-            <p className="header-subtitle">Formulario de contacto - Dream Studio</p>
+            <div className="header-content">
+              <div>
+                <div className="header-title">NUEVO LEAD</div>
+                <div className="header-subtitle">Formulario de Contacto</div>
+              </div>
+              <div className="priority-badge">URGENTE</div>
+            </div>
           </div>
 
-          {/* Content */}
           <div className="content">
             <div className="alert">
-              <p className="alert-text">
-                <strong>⏰ Acción requerida:</strong> Responder en las próximas 24 horas para maximizar conversión
-              </p>
+              <div className="alert-text">Responder en 24 horas para maximizar conversión</div>
             </div>
 
-            {/* Información Personal */}
             <div className="section">
-              <h2 className="section-title">👤 Información de Contacto</h2>
+              <h2 className="section-title">Información de Contacto</h2>
               <div className="data-grid">
                 <div className="data-row">
-                  <div className="data-label">Nombre Completo</div>
+                  <div className="data-label">Nombre</div>
                   <div className="data-value">{formData.fullName}</div>
                 </div>
                 <div className="data-row">
                   <div className="data-label">Email</div>
                   <div className="data-value">
-                    <a href={`mailto:${formData.email}`} style={{ color: '#FF6B35', textDecoration: 'none' }}>
-                      {formData.email}
-                    </a>
+                    <a href={`mailto:${formData.email}`} className="data-link">{formData.email}</a>
                   </div>
                 </div>
                 <div className="data-row">
                   <div className="data-label">WhatsApp</div>
                   <div className="data-value">
-                    <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} style={{ color: '#FF6B35', textDecoration: 'none' }}>
+                    <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} className="data-link">
                       {formData.whatsapp}
                     </a>
                   </div>
@@ -414,9 +540,7 @@ export const AdminNotificationEmail = ({ formData }: { formData: ContactFormData
                   <div className="data-row">
                     <div className="data-label">LinkedIn</div>
                     <div className="data-value">
-                      <a href={formData.linkedin} style={{ color: '#FF6B35', textDecoration: 'none' }}>
-                        {formData.linkedin}
-                      </a>
+                      <a href={formData.linkedin} className="data-link">{formData.linkedin}</a>
                     </div>
                   </div>
                 )}
@@ -427,9 +551,8 @@ export const AdminNotificationEmail = ({ formData }: { formData: ContactFormData
               </div>
             </div>
 
-            {/* Información de la Empresa */}
             <div className="section">
-              <h2 className="section-title">🏢 Información de la Empresa</h2>
+              <h2 className="section-title">Información de la Empresa</h2>
               <div className="data-grid">
                 <div className="data-row">
                   <div className="data-label">Empresa</div>
@@ -439,9 +562,7 @@ export const AdminNotificationEmail = ({ formData }: { formData: ContactFormData
                   <div className="data-row">
                     <div className="data-label">Sitio Web</div>
                     <div className="data-value">
-                      <a href={formData.websiteUrl} target="_blank" style={{ color: '#FF6B35', textDecoration: 'none' }}>
-                        {formData.websiteUrl}
-                      </a>
+                      <a href={formData.websiteUrl} className="data-link">{formData.websiteUrl}</a>
                     </div>
                   </div>
                 )}
@@ -462,60 +583,54 @@ export const AdminNotificationEmail = ({ formData }: { formData: ContactFormData
               </div>
             </div>
 
-            {/* Necesidades del Proyecto */}
             <div className="section">
-              <h2 className="section-title">🎯 Servicios Requeridos</h2>
-              <div className="needs-list">
+              <h2 className="section-title">Servicios Requeridos</h2>
+              <div className="services-list">
                 {formData.need.map((need, index) => (
-                  <div key={index} className="needs-list-item">
-                    ✓ {translations.need[need as keyof typeof translations.need]}
+                  <div key={index} className="services-item">
+                    {translations.need[need as keyof typeof translations.need]}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Resumen del Proyecto */}
             {formData.summary && (
               <div className="section">
-                <h2 className="section-title">📝 Descripción del Proyecto</h2>
+                <h2 className="section-title">Descripción del Proyecto</h2>
                 <div className="summary-box">
-                  "{formData.summary}"
+                  {formData.summary}
                 </div>
               </div>
             )}
 
-            {/* Información Adicional */}
             <div className="section">
-              <h2 className="section-title">ℹ️ Información Adicional</h2>
+              <h2 className="section-title">Información Adicional</h2>
               <div className="data-grid">
                 {formData.heardFrom && (
                   <div className="data-row">
-                    <div className="data-label">Cómo nos conoció</div>
+                    <div className="data-label">Fuente</div>
                     <div className="data-value">{translations.heardFrom[formData.heardFrom as keyof typeof translations.heardFrom]}</div>
                   </div>
                 )}
                 <div className="data-row">
-                  <div className="data-label">Fecha de solicitud</div>
+                  <div className="data-label">Fecha</div>
                   <div className="data-value">{new Date().toLocaleString('es-ES', { dateStyle: 'full', timeStyle: 'short' })}</div>
                 </div>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="action-buttons">
+            <div className="actions">
               <a href={`mailto:${formData.email}?subject=Re: Tu solicitud en Dream Studio`} className="action-button">
-                📧 Responder por Email
+                Responder Email
               </a>
               <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} className="action-button">
-                💬 Contactar por WhatsApp
+                WhatsApp
               </a>
             </div>
           </div>
 
-          {/* Footer */}
           <div className="footer">
-            <p style={{ margin: 0 }}>Dream Studio - Sistema de Notificaciones</p>
-            <p style={{ margin: '5px 0 0 0', opacity: 0.7 }}>Este email fue generado automáticamente desde el formulario de contacto</p>
+            Dream Studio - Sistema de Notificaciones
           </div>
         </div>
       </body>
