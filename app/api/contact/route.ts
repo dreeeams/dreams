@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 // Email validation regex
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -168,7 +169,7 @@ export async function POST(request: NextRequest) {
 
         // Step 1: Create Company if provided
         if (contactData.company) {
-          console.log('🏢 Creating company in Twenty CRM:', {
+          logger.log('🏢 Creating company in Twenty CRM:', {
             name: contactData.company,
             websiteUrl: contactData.websiteUrl,
             instagram: contactData.instagram,
@@ -224,14 +225,14 @@ export async function POST(request: NextRequest) {
           if (companyResponse.ok) {
             const companyData = await companyResponse.json();
             companyId = companyData.data?.createCompany?.id;
-            console.log('✅ Company created:', {
+            logger.log('✅ Company created:', {
               id: companyId,
               name: companyData.data?.createCompany?.name,
               domainName: companyData.data?.createCompany?.domainName?.primaryLinkUrl
             });
           } else {
             const errorText = await companyResponse.text();
-            console.error('❌ Company creation failed:', errorText);
+            logger.error('❌ Company creation failed:', errorText);
           }
         }
 
@@ -312,7 +313,7 @@ export async function POST(request: NextRequest) {
           twentyPayload.companyId = companyId;
         }
 
-        console.log('👤 Creating person in Twenty CRM:', {
+        logger.log('👤 Creating person in Twenty CRM:', {
           name: twentyPayload.name,
           email: twentyPayload.emails.primaryEmail,
           phone: twentyPayload.phones?.primaryPhoneNumber,
@@ -328,11 +329,11 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify(twentyPayload),
         });
 
-        console.log('📥 Person Response Status:', personResponse.status);
+        logger.log('📥 Person Response Status:', personResponse.status);
 
         if (!personResponse.ok) {
           const errorText = await personResponse.text();
-          console.error('❌ Person creation failed:', {
+          logger.error('❌ Person creation failed:', {
             status: personResponse.status,
             statusText: personResponse.statusText,
             error: errorText
@@ -341,7 +342,7 @@ export async function POST(request: NextRequest) {
           const personData = await personResponse.json();
           const personId = personData.data?.createPerson?.id;
 
-          console.log('✅ Contact successfully added to Twenty CRM:', {
+          logger.log('✅ Contact successfully added to Twenty CRM:', {
             personId,
             email: personData.data?.createPerson?.emails?.primaryEmail,
             companyId: personData.data?.createPerson?.companyId
@@ -350,7 +351,7 @@ export async function POST(request: NextRequest) {
           // Step 3: Create Opportunity
           const opportunityName = `${contactData.company || contactData.fullName} - ${contactData.need}`;
 
-          console.log('🎯 Creating opportunity in Twenty CRM:', {
+          logger.log('🎯 Creating opportunity in Twenty CRM:', {
             name: opportunityName,
             companyId,
             personId
@@ -380,7 +381,7 @@ export async function POST(request: NextRequest) {
             opportunityPayload.pointOfContactId = personId;
           }
 
-          console.log('📤 Opportunity payload:', JSON.stringify(opportunityPayload, null, 2));
+          logger.log('📤 Opportunity payload:', JSON.stringify(opportunityPayload, null, 2));
 
           const opportunityResponse = await fetch(`${twentyApiUrl}/rest/opportunities`, {
             method: 'POST',
@@ -391,11 +392,11 @@ export async function POST(request: NextRequest) {
             body: JSON.stringify(opportunityPayload),
           });
 
-          console.log('📥 Opportunity Response Status:', opportunityResponse.status);
+          logger.log('📥 Opportunity Response Status:', opportunityResponse.status);
 
           if (opportunityResponse.ok) {
             const opportunityData = await opportunityResponse.json();
-            console.log('✅ Opportunity created:', {
+            logger.log('✅ Opportunity created:', {
               id: opportunityData.data?.createOpportunity?.id,
               name: opportunityData.data?.createOpportunity?.name,
               stage: opportunityData.data?.createOpportunity?.stage,
@@ -404,7 +405,7 @@ export async function POST(request: NextRequest) {
             });
           } else {
             const errorText = await opportunityResponse.text();
-            console.error('❌ Opportunity creation failed:', {
+            logger.error('❌ Opportunity creation failed:', {
               status: opportunityResponse.status,
               statusText: opportunityResponse.statusText,
               error: errorText,
@@ -413,10 +414,10 @@ export async function POST(request: NextRequest) {
           }
         }
       } catch (error) {
-        console.error('❌ Failed to send to Twenty CRM:', error);
+        logger.error('❌ Failed to send to Twenty CRM:', error);
       }
     } else {
-      console.log('⚠️  Twenty CRM not configured (missing API key or URL)');
+      logger.log('⚠️  Twenty CRM not configured (missing API key or URL)');
     }
 
     // Send emails using Resend
@@ -426,17 +427,17 @@ export async function POST(request: NextRequest) {
 
     if (resendApiKey) {
       try {
-        console.log('📧 Starting email sending process...');
-        console.log('📧 From email:', fromEmail);
-        console.log('📧 Admin email:', adminEmail);
-        console.log('📧 User email:', contactData.email);
+        logger.log('📧 Starting email sending process...');
+        logger.log('📧 From email:', fromEmail);
+        logger.log('📧 Admin email:', adminEmail);
+        logger.log('📧 User email:', contactData.email);
 
         const { Resend } = await import('resend');
         const { UserConfirmationEmail, AdminNotificationEmail } = await import('@/lib/email-templates');
         const { renderToStaticMarkup } = await import('react-dom/server');
 
         const resend = new Resend(resendApiKey);
-        console.log('📧 Resend client initialized');
+        logger.log('📧 Resend client initialized');
 
         // Prepare form data for email templates
         const emailFormData = {
@@ -457,13 +458,13 @@ export async function POST(request: NextRequest) {
         };
 
         // Send confirmation email to user
-        console.log('📧 Rendering user confirmation email...');
+        logger.log('📧 Rendering user confirmation email...');
         const userEmailHtml = renderToStaticMarkup(
           UserConfirmationEmail({ formData: emailFormData })
         );
-        console.log('📧 User email HTML rendered, length:', userEmailHtml.length);
+        logger.log('📧 User email HTML rendered, length:', userEmailHtml.length);
 
-        console.log('📧 Sending confirmation email to user...');
+        logger.log('📧 Sending confirmation email to user...');
         const userEmailResult = await resend.emails.send({
           from: `Dream Studio <${fromEmail}>`,
           to: contactData.email,
@@ -472,17 +473,17 @@ export async function POST(request: NextRequest) {
           html: userEmailHtml,
         });
 
-        console.log('✅ Confirmation email sent to user:', contactData.email);
-        console.log('📧 User email result:', JSON.stringify(userEmailResult, null, 2));
+        logger.log('✅ Confirmation email sent to user:', contactData.email);
+        logger.log('📧 User email result:', JSON.stringify(userEmailResult, null, 2));
 
         // Send notification email to admin
-        console.log('📧 Rendering admin notification email...');
+        logger.log('📧 Rendering admin notification email...');
         const adminEmailHtml = renderToStaticMarkup(
           AdminNotificationEmail({ formData: emailFormData })
         );
-        console.log('📧 Admin email HTML rendered, length:', adminEmailHtml.length);
+        logger.log('📧 Admin email HTML rendered, length:', adminEmailHtml.length);
 
-        console.log('📧 Sending notification email to admin...');
+        logger.log('📧 Sending notification email to admin...');
         const adminEmailResult = await resend.emails.send({
           from: `Dream Studio Notifications <${fromEmail}>`,
           to: adminEmail,
@@ -491,20 +492,20 @@ export async function POST(request: NextRequest) {
           replyTo: contactData.email,
         });
 
-        console.log('✅ Notification email sent to admin:', adminEmail);
-        console.log('📧 Admin email result:', JSON.stringify(adminEmailResult, null, 2));
+        logger.log('✅ Notification email sent to admin:', adminEmail);
+        logger.log('📧 Admin email result:', JSON.stringify(adminEmailResult, null, 2));
       } catch (error) {
-        console.error('❌ Failed to send emails via Resend:', error);
-        console.error('❌ Error details:', error instanceof Error ? error.message : String(error));
-        console.error('❌ Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+        logger.error('❌ Failed to send emails via Resend:', error);
+        logger.error('❌ Error details:', error instanceof Error ? error.message : String(error));
+        logger.error('❌ Error stack:', error instanceof Error ? error.stack : 'No stack trace');
         // Don't fail the entire request if email fails
       }
     } else {
-      console.log('⚠️  Resend not configured (missing API key)');
+      logger.log('⚠️  Resend not configured (missing API key)');
     }
 
     // Log the submission (in production, send to logging service)
-    console.log('Contact form submission:', contactData);
+    logger.log('Contact form submission:', contactData);
 
     return NextResponse.json(
       {
@@ -515,7 +516,7 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    logger.error('Contact form error:', error);
     return NextResponse.json(
       { error: 'Internal server error. Please try again later.' },
       { status: 500 }
