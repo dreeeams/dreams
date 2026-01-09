@@ -419,19 +419,71 @@ export async function POST(request: NextRequest) {
       console.log('⚠️  Twenty CRM not configured (missing API key or URL)');
     }
 
-    // Send email notification if configured
-    const smtpHost = process.env.SMTP_HOST;
-    const smtpUser = process.env.SMTP_USER;
-    const smtpPassword = process.env.SMTP_PASSWORD;
+    // Send emails using Resend
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'noreply@dreeeams.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'info@dreeeams.com';
 
-    if (smtpHost && smtpUser && smtpPassword) {
+    if (resendApiKey) {
       try {
-        // Use nodemailer or similar library here
-        // For now, just logging
-        console.log('Email would be sent with data:', contactData);
+        const { Resend } = await import('resend');
+        const { UserConfirmationEmail, AdminNotificationEmail } = await import('@/lib/email-templates');
+        const { renderToStaticMarkup } = await import('react-dom/server');
+
+        const resend = new Resend(resendApiKey);
+
+        // Prepare form data for email templates
+        const emailFormData = {
+          fullName: contactData.fullName,
+          email: contactData.email,
+          whatsapp: contactData.whatsapp || '',
+          linkedin: contactData.linkedin || undefined,
+          role: contactData.role || '',
+          company: contactData.company,
+          website,
+          websiteUrl: contactData.websiteUrl || undefined,
+          instagram: contactData.instagram || undefined,
+          companySize,
+          industry,
+          need,
+          summary: contactData.summary || undefined,
+          heardFrom: contactData.heardFrom || undefined,
+        };
+
+        // Send confirmation email to user
+        const userEmailHtml = renderToStaticMarkup(
+          UserConfirmationEmail({ formData: emailFormData })
+        );
+
+        await resend.emails.send({
+          from: `Dream Studio <${fromEmail}>`,
+          to: contactData.email,
+          subject: '¡Gracias por contactarnos! - Dream Studio',
+          html: userEmailHtml,
+        });
+
+        console.log('✅ Confirmation email sent to user:', contactData.email);
+
+        // Send notification email to admin
+        const adminEmailHtml = renderToStaticMarkup(
+          AdminNotificationEmail({ formData: emailFormData })
+        );
+
+        await resend.emails.send({
+          from: `Dream Studio Notifications <${fromEmail}>`,
+          to: adminEmail,
+          subject: `🎯 Nuevo Lead: ${contactData.company} - ${contactData.fullName}`,
+          html: adminEmailHtml,
+          replyTo: contactData.email,
+        });
+
+        console.log('✅ Notification email sent to admin:', adminEmail);
       } catch (error) {
-        console.error('Failed to send email:', error);
+        console.error('❌ Failed to send emails via Resend:', error);
+        // Don't fail the entire request if email fails
       }
+    } else {
+      console.log('⚠️  Resend not configured (missing API key)');
     }
 
     // Log the submission (in production, send to logging service)
