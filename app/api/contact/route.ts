@@ -421,7 +421,7 @@ export async function POST(request: NextRequest) {
 
     // Send emails using Resend
     const resendApiKey = process.env.RESEND_API_KEY;
-    const fromEmail = process.env.RESEND_FROM_EMAIL || 'noreply@dreeeams.com';
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'no-reply@updates.dreeeams.com';
     const adminEmail = process.env.ADMIN_EMAIL || 'info@dreeeams.com';
 
     if (resendApiKey) {
