@@ -458,6 +458,7 @@ export async function POST(request: NextRequest) {
         await resend.emails.send({
           from: `Dream Studio <${fromEmail}>`,
           to: contactData.email,
+          replyTo: adminEmail,
           subject: '¡Gracias por contactarnos! - Dream Studio',
           html: userEmailHtml,
         });
