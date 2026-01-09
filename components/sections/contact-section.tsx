@@ -674,9 +674,6 @@ export default function ContactSection() {
                 <a href="#work" className="block hover:text-brand transition-colors cursor-pointer">
                   {tFooter('portfolio')}
                 </a>
-                <a href="#about" className="block hover:text-brand transition-colors cursor-pointer">
-                  {tFooter('about')}
-                </a>
                 <a href="#contact" className="block hover:text-brand transition-colors cursor-pointer">
                   {tFooter('contact')}
                 </a>

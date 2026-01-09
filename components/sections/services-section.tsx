@@ -122,7 +122,7 @@ export default function ServicesSection() {
           className="mt-16"
         >
           <div className="border-4 border-black p-8 bg-background-light">
-            <h3 className="text-xl md:text-2xl font-bold mb-6 text-black font-nostalgic">
+            <h3 className="text-xl md:text-2xl font-bold mb-6 text-black font-nostalgic md:tracking-wider">
               {t('techStack.title').toUpperCase()}
             </h3>
             <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-3">
