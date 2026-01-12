@@ -9,6 +9,8 @@ import { ThemeProvider } from '@/components/providers/theme-provider';
 import PageLoader from '@/components/page-loader';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import WebVitalsReporter from '@/components/web-vitals-reporter';
+import { ErrorBoundary } from '@/components/error-boundary';
 import type { Metadata } from 'next';
 import '../globals.css';
 
@@ -209,10 +211,13 @@ export default async function LocaleLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            <PageLoader />
-            {children}
-            <Analytics />
-            <SpeedInsights />
+            <ErrorBoundary>
+              <PageLoader />
+              {children}
+              <Analytics />
+              <SpeedInsights />
+              <WebVitalsReporter />
+            </ErrorBoundary>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
