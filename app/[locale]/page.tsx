@@ -1,11 +1,20 @@
+import dynamic from 'next/dynamic';
 import Navigation from '@/components/navigation';
 import HeroSection from '@/components/sections/hero-section';
 import MarqueeSection from '@/components/sections/marquee-section';
 import ServicesSection from '@/components/sections/services-section';
-import PortfolioSection from '@/components/sections/portfolio-section';
-import FAQSection from '@/components/sections/faq-section';
-import ContactSection from '@/components/sections/contact-section';
 import SkipToContent from '@/components/skip-to-content';
+
+// Lazy load below-the-fold sections for better initial load performance
+const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-section'), {
+  loading: () => <div className="min-h-screen" />,
+});
+const FAQSection = dynamic(() => import('@/components/sections/faq-section'), {
+  loading: () => <div className="min-h-[50vh]" />,
+});
+const ContactSection = dynamic(() => import('@/components/sections/contact-section'), {
+  loading: () => <div className="min-h-screen" />,
+});
 
 export default function HomePage() {
   return (

@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { memo } from 'react';
 
-const TechCard = ({
+const TechCard = memo(({
   name,
   logo,
   delay,
@@ -33,7 +34,7 @@ const TechCard = ({
       {name}
     </span>
   </motion.div>
-);
+));
 
 export default function ServicesSection() {
   const t = useTranslations('services');
