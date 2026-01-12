@@ -45,14 +45,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const metadata = {
     en: {
-      title: 'Dream Studio | Web & Mobile Development Agency',
-      description: 'We build beautiful, scalable digital products. Modern web apps, mobile applications, and exceptional user experiences. React, Next.js, React Native experts.',
-      keywords: 'web development, mobile app development, React, Next.js, React Native, UI/UX design, software development agency, custom web applications, SaaS development',
+      title: 'Dream Studio - Web & Mobile App Development Experts',
+      description: 'Dream Studio builds scalable web and mobile apps. Expert developers in React, Next.js & React Native. Transform your ideas into exceptional digital products.',
+      keywords: 'dream studio, web development, mobile app development, React, Next.js, React Native, UI/UX design, software development agency, custom web applications, SaaS development',
     },
     es: {
-      title: 'Dream Studio | Agencia de Desarrollo Web y Móvil',
-      description: 'Construimos productos digitales hermosos y escalables. Aplicaciones web modernas, apps móviles y experiencias de usuario excepcionales. Expertos en React, Next.js y React Native.',
-      keywords: 'desarrollo web, desarrollo de aplicaciones móviles, React, Next.js, React Native, diseño UI/UX, agencia de desarrollo de software, aplicaciones web personalizadas, desarrollo SaaS',
+      title: 'Dream Studio - Expertos en Desarrollo Web y Móvil',
+      description: 'Dream Studio construye apps web y móviles escalables. Desarrolladores expertos en React, Next.js y React Native. Transformamos tus ideas en productos digitales excepcionales.',
+      keywords: 'dream studio, desarrollo web, desarrollo de aplicaciones móviles, React, Next.js, React Native, diseño UI/UX, agencia de desarrollo de software, aplicaciones web personalizadas, desarrollo SaaS',
     },
   };
 

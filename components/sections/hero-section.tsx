@@ -85,6 +85,11 @@ export default function HeroSection() {
   return (
     <section className="w-full h-full flex items-center justify-center px-4 sm:px-6 bg-background-light">
       <div className="max-w-5xl w-full mx-auto">
+        {/* SEO H1 - Visually hidden but available for screen readers and SEO */}
+        <h1 className="sr-only">
+          Dream Studio - Web and Mobile App Development Agency
+        </h1>
+
         {/* Terminal Window */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
