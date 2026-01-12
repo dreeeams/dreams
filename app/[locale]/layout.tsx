@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     es: {
       title: 'Dream Studio - Expertos en Desarrollo Web y Móvil',
-      description: 'Dream Studio construye apps web y móviles escalables. Desarrolladores expertos en React, Next.js y React Native. Transformamos tus ideas en productos digitales excepcionales.',
+      description: 'Dream Studio construye apps web y móviles escalables. Expertos en React, Next.js y React Native. Transformamos tus ideas en productos digitales.',
       keywords: 'dream studio, desarrollo web, desarrollo de aplicaciones móviles, React, Next.js, React Native, diseño UI/UX, agencia de desarrollo de software, aplicaciones web personalizadas, desarrollo SaaS',
     },
   };

@@ -88,7 +88,7 @@ export default function PageLoader() {
                   transition={{ duration: 2, ease: "easeInOut" }}
                 />
               </svg>
-              <h1 className="text-2xl font-nostalgic">DREAM STUDIO</h1>
+              <div className="text-2xl font-nostalgic" aria-label="Dream Studio">DREAM STUDIO</div>
             </motion.div>
 
             {/* Terminal Message */}
