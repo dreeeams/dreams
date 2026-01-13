@@ -67,9 +67,9 @@ const projects: Project[] = [
     url: 'www.amazonas-toures.com',
   },
   {
-    titleKey: 'PAGA DREAM STUDIO',
+    titleKey: 'KUENTA',
     categoryKey: 'webApp',
-    descriptionKey: 'pagaDreamStudio',
+    descriptionKey: 'kuenta',
     tags: ['Next.js', 'TypeScript', 'Vercel'],
     color: 'bg-gradient-to-br from-purple-600 to-pink-600',
     url: 'paga-dreamstudio.vercel.app',
