@@ -67,12 +67,12 @@ const projects: Project[] = [
     url: 'www.amazonas-toures.com',
   },
   {
-    titleKey: 'WEDDING INVITATION',
+    titleKey: 'PAGA DREAM STUDIO',
     categoryKey: 'webApp',
-    descriptionKey: 'wedding',
-    tags: ['Next.js', 'Framer Motion', 'Vercel'],
-    color: 'bg-brand',
-    url: 'wedding-three-rose.vercel.app',
+    descriptionKey: 'pagaDreamStudio',
+    tags: ['Next.js', 'TypeScript', 'Vercel'],
+    color: 'bg-gradient-to-br from-purple-600 to-pink-600',
+    url: 'paga-dreamstudio.vercel.app',
   },
   {
     titleKey: 'HUNT TICKETS',
