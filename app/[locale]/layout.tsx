@@ -11,6 +11,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import WebVitalsReporter from '@/components/web-vitals-reporter';
 import { ErrorBoundary } from '@/components/error-boundary';
+import WhatsAppButton from '@/components/whatsapp-button';
 import type { Metadata } from 'next';
 import '../globals.css';
 
@@ -212,8 +213,9 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             <ErrorBoundary>
-              <PageLoader />
+              {/* <PageLoader /> - Temporarily disabled due to loading freeze */}
               {children}
+              <WhatsAppButton />
               <Analytics />
               <SpeedInsights />
               <WebVitalsReporter />
