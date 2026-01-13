@@ -213,7 +213,7 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             <ErrorBoundary>
-              {/* <PageLoader /> - Temporarily disabled due to loading freeze */}
+              <PageLoader />
               {children}
               <WhatsAppButton />
               <Analytics />
