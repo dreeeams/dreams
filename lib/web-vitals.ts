@@ -20,8 +20,7 @@ function getConnectionSpeed(): string {
  * Send metrics to analytics endpoint
  */
 export function sendToAnalytics(metric: Metric) {
-  const body = {
-    dsn: process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID,
+  const body: Record<string, string> = {
     id: metric.id,
     page: window.location.pathname,
     href: window.location.href,
@@ -29,6 +28,11 @@ export function sendToAnalytics(metric: Metric) {
     value: metric.value.toString(),
     speed: getConnectionSpeed(),
   };
+
+  // Only add dsn if it's defined
+  if (process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID) {
+    body.dsn = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID;
+  }
 
   const blob = new Blob([new URLSearchParams(body).toString()], {
     type: 'application/x-www-form-urlencoded',
