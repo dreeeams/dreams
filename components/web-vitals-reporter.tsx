@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { onCLS, onFID, onLCP, onFCP, onTTFB, onINP } from 'web-vitals';
+import { onCLS, onLCP, onFCP, onTTFB, onINP } from 'web-vitals';
 import { reportWebVitals } from '@/lib/web-vitals';
 
 /**
@@ -10,11 +10,12 @@ import { reportWebVitals } from '@/lib/web-vitals';
  *
  * Metrics tracked:
  * - LCP (Largest Contentful Paint): Loading performance
- * - FID (First Input Delay): Interactivity
+ * - INP (Interaction to Next Paint): Responsiveness (replaces FID)
  * - CLS (Cumulative Layout Shift): Visual stability
  * - FCP (First Contentful Paint): Initial load
  * - TTFB (Time to First Byte): Server response time
- * - INP (Interaction to Next Paint): Responsiveness
+ *
+ * Note: FID has been deprecated in favor of INP in web-vitals v4
  */
 export default function WebVitalsReporter() {
   useEffect(() => {
@@ -23,7 +24,6 @@ export default function WebVitalsReporter() {
 
     // Track Core Web Vitals
     onCLS(reportWebVitals);
-    onFID(reportWebVitals);
     onLCP(reportWebVitals);
     onFCP(reportWebVitals);
     onTTFB(reportWebVitals);

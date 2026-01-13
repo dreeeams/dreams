@@ -20,8 +20,8 @@ function getConnectionSpeed(): string {
  * Send metrics to analytics endpoint
  */
 export function sendToAnalytics(metric: Metric) {
-  const body = {
-    dsn: process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID,
+  const body: Record<string, string> = {
+    dsn: process.env.NEXT_PUBLIC_VERCEL_ANALYTICS_ID || '',
     id: metric.id,
     page: window.location.pathname,
     href: window.location.href,
@@ -69,11 +69,11 @@ export function logMetric(metric: Metric) {
 
 /**
  * Get threshold status for a metric
+ * Note: FID is deprecated in favor of INP
  */
 export function getMetricStatus(name: string, value: number): 'good' | 'needs-improvement' | 'poor' {
   const thresholds = {
     CLS: { good: 0.1, poor: 0.25 },
-    FID: { good: 100, poor: 300 },
     LCP: { good: 2500, poor: 4000 },
     FCP: { good: 1800, poor: 3000 },
     TTFB: { good: 800, poor: 1800 },
