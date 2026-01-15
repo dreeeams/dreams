@@ -192,11 +192,28 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-7RHVN0C6WY"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-7RHVN0C6WY');
+            `,
+          }}
+        />
+        {/* Umami Analytics */}
         <script
           defer
           src="https://analytics.dreeeams.com/script.js"
           data-website-id="247f3db2-3f01-4be3-ab41-9f3e6d9a0767"
         />
+        {/* Schema.org structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
