@@ -193,6 +193,11 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <head>
         <script
+          defer
+          src="https://analytics.dreeeams.com/script.js"
+          data-website-id="247f3db2-3f01-4be3-ab41-9f3e6d9a0767"
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />

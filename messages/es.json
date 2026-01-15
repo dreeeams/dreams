@@ -84,7 +84,8 @@
       "mobileApp": "APP MOVIL",
       "appStore": "App Store",
       "reviews": "reseñas",
-      "downloads": "descargas"
+      "downloads": "descargas",
+      "ticketsSold": "tickets vendidos"
     },
     "projects": {
       "huntRho": {

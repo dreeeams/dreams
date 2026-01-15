@@ -20,6 +20,7 @@ type Project = {
   };
   appStore?: boolean;
   downloads?: number;
+  ticketsSold?: number;
   metrics?: {
     visitors?: string;
     visits?: string;
@@ -84,6 +85,7 @@ const projects: Project[] = [
     rating: { stars: 4.3, reviews: 250 },
     appStore: true,
     downloads: 5000,
+    ticketsSold: 30000,
   },
 ];
 
@@ -234,6 +236,14 @@ export default function PortfolioSection() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                       </svg>
                       <span className="font-medium">{project.downloads >= 1000 ? `${(project.downloads / 1000).toFixed(0)}K` : project.downloads}+ {tLabels('downloads')}</span>
+                    </div>
+                  )}
+                  {project.ticketsSold && (
+                    <div className="flex items-center gap-1 text-xs text-gray-600">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                      </svg>
+                      <span className="font-medium">{project.ticketsSold >= 1000 ? `${(project.ticketsSold / 1000).toFixed(0)}K` : project.ticketsSold}+ {tLabels('ticketsSold')}</span>
                     </div>
                   )}
                   {project.metrics?.visitors && (

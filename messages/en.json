@@ -84,7 +84,8 @@
       "mobileApp": "MOBILE APP",
       "appStore": "App Store",
       "reviews": "reviews",
-      "downloads": "downloads"
+      "downloads": "downloads",
+      "ticketsSold": "tickets sold"
     },
     "projects": {
       "huntRho": {
