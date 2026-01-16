@@ -75,6 +75,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     authors: [{ name: 'Dream Studio' }],
     creator: 'Dream Studio',
     publisher: 'Dream Studio',
+    viewport: {
+      width: 'device-width',
+      initialScale: 1,
+      maximumScale: 1,
+      userScalable: false,
+    },
     formatDetection: {
       email: false,
       address: false,

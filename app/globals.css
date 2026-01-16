@@ -214,3 +214,28 @@ select {
   background-position: right 1rem center;
   padding-right: 2.5rem !important;
 }
+
+/* Cal.com Mobile Fix - Prevent zoom on input focus */
+@media screen and (max-width: 768px) {
+  /* Target Cal.com inputs */
+  [data-cal-namespace] input,
+  [data-cal-namespace] select,
+  [data-cal-namespace] textarea,
+  .cal-embed input,
+  .cal-embed select,
+  .cal-embed textarea {
+    font-size: 16px !important;
+  }
+
+  /* Ensure all form inputs have minimum 16px font size on mobile */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  input[type="time"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
