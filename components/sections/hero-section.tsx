@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import TerminalPong from '@/components/terminal-pong';
 
 type CodeLine = {
   text: string;
@@ -129,6 +130,18 @@ export default function HeroSection() {
               </div>
             ))}
             {!isTypingComplete && <span className="animate-pulse text-white">▊</span>}
+
+            {/* Pong Game - appears after typing is complete */}
+            {isTypingComplete && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="mt-8"
+              >
+                <TerminalPong />
+              </motion.div>
+            )}
           </div>
         </motion.div>
 
