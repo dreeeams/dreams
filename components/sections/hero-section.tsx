@@ -87,7 +87,7 @@ export default function HeroSection() {
       <div className="max-w-5xl w-full mx-auto">
         {/* SEO H1 - Visually hidden but available for screen readers and SEO */}
         <h1 className="sr-only">
-          Dream Studio - Web and Mobile App Development Agency
+          Dream Studio - Professional Web Development Agency | Custom Mobile App Development | React & Next.js Experts
         </h1>
 
         {/* Terminal Window */}

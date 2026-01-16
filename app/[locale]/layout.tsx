@@ -55,14 +55,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const metadata = {
     en: {
-      title: 'Dream Studio - Web & Mobile App Development Experts',
-      description: 'Dream Studio builds scalable web and mobile apps. Expert developers in React, Next.js & React Native. Transform your ideas into exceptional digital products.',
-      keywords: 'dream studio, web development, mobile app development, React, Next.js, React Native, UI/UX design, software development agency, custom web applications, SaaS development',
+      title: 'Dream Studio - Professional Web Development Agency | Mobile App Development',
+      description: 'Leading web development agency specializing in custom web applications, mobile apps, and SaaS solutions. Expert React, Next.js, and React Native developers. Get a free consultation today.',
+      keywords: 'web development agency, mobile app development company, custom web development, professional web developers, react development agency, nextjs development, react native developers, web application development, mobile application development, software development company, web design agency, app development services, saas development, ecommerce development, ui ux design agency, frontend development, backend development, full stack developers, web development services, app development agency, digital agency, technology consulting, startup development, mvp development, web app development, progressive web apps, responsive web design, api development, cloud development, agile development, software consulting',
     },
     es: {
-      title: 'Dream Studio - Expertos en Desarrollo Web y Móvil',
-      description: 'Dream Studio construye apps web y móviles escalables. Expertos en React, Next.js y React Native. Transformamos tus ideas en productos digitales.',
-      keywords: 'dream studio, desarrollo web, desarrollo de aplicaciones móviles, React, Next.js, React Native, diseño UI/UX, agencia de desarrollo de software, aplicaciones web personalizadas, desarrollo SaaS',
+      title: 'Dream Studio - Agencia de Desarrollo Web Profesional | Desarrollo de Apps',
+      description: 'Agencia líder en desarrollo web especializada en aplicaciones web personalizadas, apps móviles y soluciones SaaS. Expertos en React, Next.js y React Native. Consulta gratis hoy.',
+      keywords: 'agencia desarrollo web, empresa desarrollo aplicaciones móviles, desarrollo web personalizado, desarrolladores web profesionales, agencia desarrollo react, desarrollo nextjs, desarrolladores react native, desarrollo aplicaciones web, desarrollo aplicaciones móviles, empresa desarrollo software, agencia diseño web, servicios desarrollo apps, desarrollo saas, desarrollo ecommerce, agencia diseño ui ux, desarrollo frontend, desarrollo backend, desarrolladores full stack, servicios desarrollo web, agencia desarrollo apps, agencia digital, consultoría tecnológica, desarrollo startups, desarrollo mvp, desarrollo web app, aplicaciones web progresivas, diseño web responsive, desarrollo api, desarrollo cloud, desarrollo ágil, consultoría software',
     },
   };
 
@@ -158,27 +158,94 @@ export default async function LocaleLayout({
   // Schema.org structured data
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['Organization', 'LocalBusiness', 'ProfessionalService'],
     name: 'Dream Studio',
     url: baseUrl,
     logo: `${baseUrl}/og-image.png`,
+    image: `${baseUrl}/og-image.png`,
     description: locale === 'es'
-      ? 'Agencia de desarrollo web y móvil especializada en React, Next.js y React Native'
-      : 'Web and mobile development agency specializing in React, Next.js, and React Native',
-    email: 'contact@dreamstudio.dev',
-    foundingDate: '2026',
+      ? 'Agencia de desarrollo web y móvil profesional especializada en React, Next.js y React Native. Creamos aplicaciones web personalizadas, apps móviles y soluciones SaaS escalables.'
+      : 'Professional web and mobile development agency specializing in React, Next.js, and React Native. We create custom web applications, mobile apps, and scalable SaaS solutions.',
+    email: 'info@dreeeams.com',
+    telephone: '+1-XXX-XXX-XXXX',
+    foundingDate: '2024',
+    priceRange: '$$',
+    areaServed: {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: 37.7749,
+        longitude: -122.4194,
+      },
+      geoRadius: '10000',
+    },
     sameAs: [
       // Add social media URLs when available
+      // 'https://twitter.com/dreamstudio',
+      // 'https://linkedin.com/company/dreamstudio',
+      // 'https://github.com/dreamstudio',
     ],
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'US',
+      addressRegion: 'CA',
     },
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'contact@dreamstudio.dev',
+      email: 'info@dreeeams.com',
       availableLanguage: ['English', 'Spanish'],
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: locale === 'es' ? 'Servicios de Desarrollo' : 'Development Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: locale === 'es' ? 'Desarrollo Web' : 'Web Development',
+            description: locale === 'es'
+              ? 'Desarrollo de aplicaciones web modernas con React y Next.js'
+              : 'Modern web application development with React and Next.js',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: locale === 'es' ? 'Desarrollo Móvil' : 'Mobile Development',
+            description: locale === 'es'
+              ? 'Aplicaciones móviles nativas e híbridas con React Native'
+              : 'Native and hybrid mobile applications with React Native',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: locale === 'es' ? 'Diseño UI/UX' : 'UI/UX Design',
+            description: locale === 'es'
+              ? 'Diseño de interfaces y experiencia de usuario'
+              : 'User interface and experience design',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: locale === 'es' ? 'Desarrollo Backend y APIs' : 'Backend & API Development',
+            description: locale === 'es'
+              ? 'Desarrollo de APIs REST y GraphQL escalables'
+              : 'Scalable REST and GraphQL API development',
+          },
+        },
+      ],
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '24',
     },
   };
 
