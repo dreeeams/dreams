@@ -13,6 +13,7 @@ import WebVitalsReporter from '@/components/web-vitals-reporter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import ScrollToTop from '@/components/scroll-to-top';
 import ServiceWorkerRegister from '@/components/service-worker-register';
+import DisableZoomOnInput from '@/components/disable-zoom-on-input';
 import type { Metadata } from 'next';
 import '../globals.css';
 import ConsoleFilter from '@/components/console-filter';
@@ -78,8 +79,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     viewport: {
       width: 'device-width',
       initialScale: 1,
-      maximumScale: 1,
-      userScalable: false,
+      maximumScale: 5,
     },
     formatDetection: {
       email: false,
@@ -251,6 +251,7 @@ export default async function LocaleLayout({
           >
             <ConsoleFilter />
             <ServiceWorkerRegister />
+            <DisableZoomOnInput />
             <ErrorBoundary>
               <PageLoader />
               {children}
