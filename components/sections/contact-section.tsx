@@ -4,169 +4,154 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
   const tFooter = useTranslations('contact.footer');
 
   useEffect(() => {
-    // Cal.com embed script
-    (function (C: any, A: string, L: string) {
-      let p = function (a: any, ar: any) {
-        a.q.push(ar);
-      };
-      let d = C.document;
-      C.Cal =
-        C.Cal ||
-        function () {
-          let cal = C.Cal;
-          let ar = arguments;
-          if (!cal.loaded) {
-            cal.ns = {};
-            cal.q = cal.q || [];
-            d.head.appendChild(d.createElement('script')).src = A;
-            cal.loaded = true;
-          }
-          if (ar[0] === L) {
-            const api = function () {
-              p(api, arguments);
-            };
-            const namespace = ar[1];
-            api.q = api.q || [];
-            if (typeof namespace === 'string') {
-              cal.ns[namespace] = cal.ns[namespace] || api;
-              p(cal.ns[namespace], ar);
-              p(cal, ['initNamespace', namespace]);
-            } else p(cal, ar);
-            return;
-          }
-          p(cal, ar);
-        };
-    })(window, 'https://app.cal.com/embed/embed.js', 'init');
+    // Wait for Cal to be available and initialize
+    const initCal = () => {
+      if (typeof window !== 'undefined' && (window as any).Cal) {
+        (window as any).Cal('init', '30min', { origin: 'https://app.cal.com' });
+        (window as any).Cal.ns['30min']('ui', {
+          theme: 'light',
+          cssVarsPerTheme: {
+            light: { 'cal-brand': '#1E1E1E' },
+            dark: { 'cal-brand': '#DEE5ED' },
+          },
+          hideEventTypeDetails: false,
+          layout: 'month_view',
+        });
+      } else {
+        setTimeout(initCal, 100);
+      }
+    };
 
-    (window as any).Cal('init', '30min', { origin: 'https://app.cal.com' });
-
-    (window as any).Cal.ns['30min']('ui', {
-      theme: 'light',
-      cssVarsPerTheme: {
-        light: { 'cal-brand': '#1E1E1E' },
-        dark: { 'cal-brand': '#DEE5ED' },
-      },
-      hideEventTypeDetails: false,
-      layout: 'month_view',
-    });
+    initCal();
   }, []);
 
   return (
-    <section id="contact" className="relative z-10 bg-white">
-      {/* Contact Section */}
-      <div className="py-24 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <div className="flex items-center justify-center mb-8">
-              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic">
-                ({' '}
-              </span>
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic text-center">
-                {t('title').toUpperCase()}
-              </h2>
-              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic">
-                {' '}
-                )
-              </span>
-            </div>
-            <p className="text-lg md:text-xl mb-4">{t('subtitle')}</p>
-            <p className="text-sm text-gray-600">{t('noSpam')}</p>
-          </motion.div>
+    <>
+      <Script
+        src="https://app.cal.com/embed/embed.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          console.log('Cal.com script loaded');
+        }}
+      />
 
-          {/* Cal.com Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <button
-              data-cal-link="luis-fernandez-ezzzmp/30min"
-              data-cal-namespace="30min"
-              data-cal-config='{"layout":"month_view","theme":"light"}'
-              type="button"
-              className="bg-black text-white px-8 py-4 text-lg font-bold hover:bg-gray-800 transition-colors cursor-pointer"
+      <section id="contact" className="relative z-10 bg-white">
+        {/* Contact Section */}
+        <div className="py-24 px-6 md:px-12">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-12"
             >
-              SCHEDULE A MEETING
-            </button>
-          </motion.div>
-        </div>
-      </div>
+              <div className="flex items-center justify-center mb-8">
+                <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic">
+                  ({' '}
+                </span>
+                <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic text-center">
+                  {t('title').toUpperCase()}
+                </h2>
+                <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic">
+                  {' '}
+                  )
+                </span>
+              </div>
+              <p className="text-lg md:text-xl mb-4">{t('subtitle')}</p>
+              <p className="text-sm text-gray-600">{t('noSpam')}</p>
+            </motion.div>
 
-      {/* Footer */}
-      <footer className="bg-black text-white py-16 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-            {/* Brand */}
-            <div>
-              <h3 className="text-2xl font-nostalgic mb-4">DREAM STUDIO</h3>
-              <p className="text-gray-400 text-sm">{tFooter('tagline')}</p>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="font-bold mb-4">{tFooter('quickLinks')}</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#services" className="text-gray-400 hover:text-white transition-colors">
-                    {tFooter('services')}
-                  </a>
-                </li>
-                <li>
-                  <a href="#work" className="text-gray-400 hover:text-white transition-colors">
-                    {tFooter('portfolio')}
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                    {tFooter('contact')}
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Legal */}
-            <div>
-              <h4 className="font-bold mb-4">{tFooter('legal')}</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                    {tFooter('privacy')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                    {tFooter('terms')}
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} Dream Studio. {tFooter('rights')}.
-            </p>
-            <p className="text-sm text-gray-400">
-              {tFooter('madeWith')} Next.js, TypeScript & Tailwind CSS
-            </p>
+            {/* Cal.com Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <button
+                data-cal-link="luis-fernandez-ezzzmp/30min"
+                data-cal-namespace="30min"
+                data-cal-config='{"layout":"month_view","theme":"light"}'
+                type="button"
+                className="bg-black text-white px-8 py-4 text-lg font-bold hover:bg-gray-800 transition-colors cursor-pointer"
+              >
+                SCHEDULE A MEETING
+              </button>
+            </motion.div>
           </div>
         </div>
-      </footer>
-    </section>
+
+        {/* Footer */}
+        <footer className="bg-black text-white py-16 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+              {/* Brand */}
+              <div>
+                <h3 className="text-2xl font-nostalgic mb-4">DREAM STUDIO</h3>
+                <p className="text-gray-400 text-sm">{tFooter('tagline')}</p>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h4 className="font-bold mb-4">{tFooter('quickLinks')}</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <a href="#services" className="text-gray-400 hover:text-white transition-colors">
+                      {tFooter('services')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#work" className="text-gray-400 hover:text-white transition-colors">
+                      {tFooter('portfolio')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
+                      {tFooter('contact')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Legal */}
+              <div>
+                <h4 className="font-bold mb-4">{tFooter('legal')}</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                      {tFooter('privacy')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                      {tFooter('terms')}
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-sm text-gray-400">
+                © {new Date().getFullYear()} Dream Studio. {tFooter('rights')}.
+              </p>
+              <p className="text-sm text-gray-400">
+                {tFooter('madeWith')} Next.js, TypeScript & Tailwind CSS
+              </p>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </>
   );
 }
