@@ -1,4 +1,13 @@
 {
+  "loader": {
+    "messages": {
+      "init": "> Inicializando Dream Studio...",
+      "loading": "> Cargando motor creativo...",
+      "compiling": "> Compilando sistemas de diseño...",
+      "preparing": "> Preparando experiencia...",
+      "almostReady": "> Casi listo..."
+    }
+  },
   "nav": {
     "services": "SERVICIOS",
     "work": "PROYECTOS",

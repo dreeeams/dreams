@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, createContext, useContext } from 'react';
+import { useTranslations } from 'next-intl';
 
 type LoaderContextType = {
   isLoading: boolean;
@@ -12,16 +13,17 @@ const LoaderContext = createContext<LoaderContextType>({ isLoading: true });
 export const useLoader = () => useContext(LoaderContext);
 
 export default function PageLoader() {
+  const t = useTranslations('loader.messages');
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [messageIndex, setMessageIndex] = useState(0);
 
   const loadingMessages = [
-    '> Initializing Dream Studio...',
-    '> Loading creative engine...',
-    '> Compiling design systems...',
-    '> Preparing experience...',
-    '> Almost ready...',
+    t('init'),
+    t('loading'),
+    t('compiling'),
+    t('preparing'),
+    t('almostReady'),
   ];
 
   useEffect(() => {
