@@ -6,7 +6,7 @@ export default function TerminalPong() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [score, setScore] = useState({ player: 0, ai: 0 });
   const gameStateRef = useRef({
-    ball: { x: 0, y: 0, dx: 3, dy: 3, size: 8 },
+    ball: { x: 0, y: 0, dx: 5, dy: 5, size: 8 },
     player: { y: 0, height: 80, width: 8 },
     ai: { y: 0, height: 80, width: 8 },
     keys: { up: false, down: false },
@@ -142,8 +142,8 @@ export default function TerminalPong() {
         // Reset ball
         ball.x = canvas.width / 2;
         ball.y = canvas.height / 2;
-        ball.dx = 3;
-        ball.dy = 3;
+        ball.dx = 5;
+        ball.dy = 5;
       }
 
       if (ball.x + ball.size >= canvas.width) {
@@ -151,8 +151,8 @@ export default function TerminalPong() {
         // Reset ball
         ball.x = canvas.width / 2;
         ball.y = canvas.height / 2;
-        ball.dx = -3;
-        ball.dy = 3;
+        ball.dx = -5;
+        ball.dy = 5;
       }
 
       // Draw player paddle
