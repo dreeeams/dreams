@@ -12,16 +12,21 @@ export default function ContactSection() {
 
   useEffect(() => {
     (async function () {
-      const cal = await getCalApi({ namespace: '30min' });
-      cal('ui', {
-        theme: 'light',
-        cssVarsPerTheme: {
-          light: { 'cal-brand': '#1E1E1E' },
-          dark: { 'cal-brand': '#DEE5ED' },
-        },
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      });
+      try {
+        const cal = await getCalApi({ namespace: '30min' });
+        console.log('Cal.com API loaded successfully');
+        cal('ui', {
+          theme: 'light',
+          cssVarsPerTheme: {
+            light: { 'cal-brand': '#1E1E1E' },
+            dark: { 'cal-brand': '#DEE5ED' },
+          },
+          hideEventTypeDetails: false,
+          layout: 'month_view',
+        });
+      } catch (error) {
+        console.error('Error loading Cal.com:', error);
+      }
     })();
   }, []);
 
@@ -65,9 +70,10 @@ export default function ContactSection() {
               data-cal-namespace="30min"
               data-cal-link="luis-fernandez-ezzzmp/30min"
               data-cal-config='{"layout":"month_view","theme":"light"}'
-              className="inline-block bg-black text-white px-8 py-4 text-lg font-bold hover:bg-gray-800 transition-colors"
+              type="button"
+              className="bg-black text-white px-8 py-4 text-lg font-bold hover:bg-gray-800 transition-colors cursor-pointer"
             >
-              {t('title')}
+              SCHEDULE A MEETING
             </button>
           </motion.div>
         </div>
