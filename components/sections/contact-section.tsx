@@ -37,13 +37,13 @@ export default function ContactSection() {
             className="mb-12 text-center"
           >
             <div className="flex items-center justify-center mb-8">
-              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic">
                 ({' '}
               </span>
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic text-center whitespace-nowrap">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic text-center whitespace-nowrap">
                 {t('title').toUpperCase()}
               </h2>
-              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic">
                 {' '}
                 )
               </span>
