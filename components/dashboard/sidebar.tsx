@@ -1,9 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const menuItems = [
   {
@@ -46,7 +44,6 @@ const menuItems = [
 ];
 
 export default function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -57,74 +54,46 @@ export default function Sidebar() {
   };
 
   return (
-    <motion.div
-      initial={{ width: 256 }}
-      animate={{ width: isCollapsed ? 80 : 256 }}
-      transition={{ duration: 0.3 }}
-      className="bg-black text-white border-r-4 border-white/10 flex flex-col h-screen sticky top-0"
-    >
-      {/* Header */}
-      <div className="p-6 border-b border-white/10 flex items-center justify-between">
-        <AnimatePresence mode="wait">
-          {!isCollapsed && (
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="text-xl font-nostalgic"
-            >
-              DREAM STUDIO
-            </motion.h1>
-          )}
-        </AnimatePresence>
-        <button
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          className="p-2 hover:bg-white/10 rounded transition-colors"
+    <div className="w-64 bg-white border-r border-gray-200 flex flex-col h-screen sticky top-0">
+      {/* Header with Logo */}
+      <div className="p-6 flex items-center justify-center border-b border-gray-200">
+        <svg
+          width="40"
+          height="47"
+          viewBox="0 0 97 114"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-labelledby="sidebar-logo-title"
         >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={isCollapsed ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"}
-            />
-          </svg>
-        </button>
+          <title id="sidebar-logo-title">Dream Studio</title>
+          <path
+            d="M47.9849 11.0323V52.6452L38.4484 47.2258C21.5161 37.5484 11.0064 19.5484 11.0064 0H4V47.6129C4 63.0968 12.9527 77.4194 27.1602 84.1936L48.1796 94.2581V52.6452L57.7161 58.0645C74.6484 67.7419 85.1581 85.7419 85.1581 105.29H92.1645V57.6774C92.1645 42.1935 83.2118 27.871 69.0043 21.0968L47.9849 11.0323Z"
+            fill="currentColor"
+            className="text-gray-900"
+          />
+        </svg>
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 py-6 overflow-y-auto">
-        <ul className="space-y-2 px-3">
+        <ul className="space-y-1 px-3">
           {menuItems.map((item) => {
             const isActive = pathname === item.href || pathname?.startsWith(item.href + '/');
             return (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-3 px-3 py-3 rounded transition-colors ${
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all ${
                     isActive
-                      ? 'bg-brand text-white'
-                      : 'hover:bg-white/10 text-gray-300'
+                      ? 'bg-gray-900 text-white'
+                      : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
                   {item.icon}
-                  <AnimatePresence mode="wait">
-                    {!isCollapsed && (
-                      <motion.span
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="font-medium text-sm"
-                      >
-                        {item.label}
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
+                  <span className="font-medium text-sm">
+                    {item.label}
+                  </span>
                 </Link>
               </li>
             );
@@ -133,28 +102,17 @@ export default function Sidebar() {
       </nav>
 
       {/* User Section */}
-      <div className="border-t border-white/10 p-4">
+      <div className="border-t border-gray-200 p-4">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 w-full px-3 py-3 hover:bg-white/10 rounded transition-colors text-gray-300"
+          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-gray-700 hover:bg-red-50 hover:text-red-600 transition-all font-medium text-sm"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
           </svg>
-          <AnimatePresence mode="wait">
-            {!isCollapsed && (
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="font-medium text-sm"
-              >
-                Logout
-              </motion.span>
-            )}
-          </AnimatePresence>
+          <span>Logout</span>
         </button>
       </div>
-    </motion.div>
+    </div>
   );
 }
