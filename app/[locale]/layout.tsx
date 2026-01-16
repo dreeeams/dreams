@@ -14,6 +14,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import WhatsAppButton from '@/components/whatsapp-button';
 import type { Metadata } from 'next';
 import '../globals.css';
+import ConsoleFilter from '@/components/console-filter';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -234,6 +235,7 @@ export default async function LocaleLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
+            <ConsoleFilter />
             <ErrorBoundary>
               <PageLoader />
               {children}

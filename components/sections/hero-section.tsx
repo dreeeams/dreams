@@ -139,16 +139,14 @@ export default function HeroSection() {
           transition={{ duration: 0.6 }}
           className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6"
         >
-          <motion.button
-            data-cal-link="luis-fernandez-ezzzmp/30min"
-            data-cal-config='{"layout":"month_view","theme":"light"}'
-            type="button"
+          <motion.a
+            href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-6 sm:px-12 py-3 sm:py-5 bg-brand text-white border-4 border-black font-bold text-xs sm:text-base hover:bg-black hover:border-brand transition-colors cursor-pointer"
           >
             {tButtons('startProject')}
-          </motion.button>
+          </motion.a>
           <motion.a
             href="#work"
             whileHover={{ scale: 1.05 }}
