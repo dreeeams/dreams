@@ -54,16 +54,16 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 flex flex-col h-screen">
+    <aside className="w-64 bg-[#1a1a1a] flex flex-col h-screen">
       {/* Header with Logo */}
-      <div className="h-20 flex items-center justify-center border-b border-gray-200">
+      <div className="h-20 flex items-center justify-center border-b border-gray-800/50">
         <svg
           width="36"
           height="42"
           viewBox="0 0 97 114"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="text-gray-900"
+          className="text-white"
         >
           <path
             d="M47.9849 11.0323V52.6452L38.4484 47.2258C21.5161 37.5484 11.0064 19.5484 11.0064 0H4V47.6129C4 63.0968 12.9527 77.4194 27.1602 84.1936L48.1796 94.2581V52.6452L57.7161 58.0645C74.6484 67.7419 85.1581 85.7419 85.1581 105.29H92.1645V57.6774C92.1645 42.1935 83.2118 27.871 69.0043 21.0968L47.9849 11.0323Z"
@@ -83,8 +83,8 @@ export default function Sidebar() {
                   href={item.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 ${
                     isActive
-                      ? 'bg-gray-900 text-white'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      ? 'bg-gray-800/60 text-white'
+                      : 'text-gray-400 hover:bg-gray-800/40 hover:text-white'
                   }`}
                 >
                   {item.icon}
@@ -99,10 +99,10 @@ export default function Sidebar() {
       </nav>
 
       {/* User Section */}
-      <div className="border-t border-gray-200 p-4">
+      <div className="border-t border-gray-800/50 p-4">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors duration-200 font-medium"
+          className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-gray-400 hover:bg-red-900/30 hover:text-red-400 transition-colors duration-200 font-medium"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
