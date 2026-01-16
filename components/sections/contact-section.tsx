@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
-import { getCalApi } from '@calcom/embed-react';
 import Link from 'next/link';
 
 export default function ContactSection() {
@@ -11,23 +10,51 @@ export default function ContactSection() {
   const tFooter = useTranslations('contact.footer');
 
   useEffect(() => {
-    (async function () {
-      try {
-        const cal = await getCalApi({ namespace: '30min' });
-        console.log('Cal.com API loaded successfully');
-        cal('ui', {
-          theme: 'light',
-          cssVarsPerTheme: {
-            light: { 'cal-brand': '#1E1E1E' },
-            dark: { 'cal-brand': '#DEE5ED' },
-          },
-          hideEventTypeDetails: false,
-          layout: 'month_view',
-        });
-      } catch (error) {
-        console.error('Error loading Cal.com:', error);
-      }
-    })();
+    // Cal.com embed script
+    (function (C: any, A: string, L: string) {
+      let p = function (a: any, ar: any) {
+        a.q.push(ar);
+      };
+      let d = C.document;
+      C.Cal =
+        C.Cal ||
+        function () {
+          let cal = C.Cal;
+          let ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement('script')).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () {
+              p(api, arguments);
+            };
+            const namespace = ar[1];
+            api.q = api.q || [];
+            if (typeof namespace === 'string') {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal, ['initNamespace', namespace]);
+            } else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+    })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+    (window as any).Cal('init', '30min', { origin: 'https://app.cal.com' });
+
+    (window as any).Cal.ns['30min']('ui', {
+      theme: 'light',
+      cssVarsPerTheme: {
+        light: { 'cal-brand': '#1E1E1E' },
+        dark: { 'cal-brand': '#DEE5ED' },
+      },
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+    });
   }, []);
 
   return (
@@ -67,8 +94,8 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <button
-              data-cal-namespace="30min"
               data-cal-link="luis-fernandez-ezzzmp/30min"
+              data-cal-namespace="30min"
               data-cal-config='{"layout":"month_view","theme":"light"}'
               type="button"
               className="bg-black text-white px-8 py-4 text-lg font-bold hover:bg-gray-800 transition-colors cursor-pointer"

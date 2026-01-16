@@ -22,7 +22,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@calcom/embed-react": "^1.5.3",
     "@paper-design/shaders-react": "^0.0.68",
     "@upstash/ratelimit": "^2.0.7",
     "@upstash/redis": "^1.36.1",
