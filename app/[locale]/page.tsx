@@ -5,16 +5,26 @@ import MarqueeSection from '@/components/sections/marquee-section';
 import ServicesSection from '@/components/sections/services-section';
 import FooterSection from '@/components/sections/footer-section';
 import SkipToContent from '@/components/skip-to-content';
+import { SkeletonProjectCard } from '@/components/skeleton';
 
 // Lazy load below-the-fold sections for better initial load performance
 const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-section'), {
-  loading: () => <div className="min-h-screen" />,
+  loading: () => (
+    <div className="py-24 px-6 md:px-12 bg-white">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <SkeletonProjectCard />
+        <SkeletonProjectCard />
+        <SkeletonProjectCard />
+        <SkeletonProjectCard />
+      </div>
+    </div>
+  ),
 });
 const FAQSection = dynamic(() => import('@/components/sections/faq-section'), {
-  loading: () => <div className="min-h-[50vh]" />,
+  loading: () => <div className="min-h-[50vh] bg-white" />,
 });
 const ContactSection = dynamic(() => import('@/components/sections/contact-section'), {
-  loading: () => <div className="min-h-screen" />,
+  loading: () => <div className="min-h-screen bg-background-light" />,
 });
 
 export default function HomePage() {

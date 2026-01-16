@@ -12,6 +12,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import WebVitalsReporter from '@/components/web-vitals-reporter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import WhatsAppButton from '@/components/whatsapp-button';
+import ScrollToTop from '@/components/scroll-to-top';
+import ServiceWorkerRegister from '@/components/service-worker-register';
 import type { Metadata } from 'next';
 import '../globals.css';
 import ConsoleFilter from '@/components/console-filter';
@@ -20,12 +22,16 @@ const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
   display: 'swap',
+  preload: true,
+  fallback: ['ui-monospace', 'monospace'],
 });
 
 const monigue = localFont({
@@ -227,6 +233,9 @@ export default async function LocaleLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${monigue.variable} antialiased`}
       >
+        <a href="#main-content" className="skip-to-main">
+          {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
+        </a>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
@@ -236,10 +245,12 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             <ConsoleFilter />
+            <ServiceWorkerRegister />
             <ErrorBoundary>
               <PageLoader />
               {children}
               <WhatsAppButton />
+              <ScrollToTop />
               <Analytics />
               <SpeedInsights />
               <WebVitalsReporter />

@@ -85,11 +85,66 @@
     font-family: var(--font-nostalgic), sans-serif;
     font-weight: 400;
   }
+
+  /* Accessibility: Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Accessibility: Focus visible for keyboard navigation */
+  *:focus-visible {
+    outline: 3px solid #787878;
+    outline-offset: 2px;
+  }
+
+  /* Skip to main content link for screen readers */
+  .skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem;
+    background-color: #1E1E1E;
+    color: white;
+    text-decoration: none;
+  }
+
+  .skip-to-main:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1rem;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Micro-interactions: Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 8px 0 0 #1E1E1E;
+  }
+
+  /* Button press effect */
+  .button-press:active {
+    transform: scale(0.98);
   }
 }
 
