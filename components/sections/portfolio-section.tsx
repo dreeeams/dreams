@@ -14,6 +14,7 @@ type Project = {
   url?: string;
   mobileView?: boolean;
   isMockup?: boolean;
+  isIcon?: boolean;
   rating?: {
     stars: number;
     reviews: number;
@@ -80,8 +81,8 @@ const projects: Project[] = [
     categoryKey: 'mobileApp',
     descriptionKey: 'huntTickets',
     tags: ['React Native', 'TypeScript', 'Firebase'],
-    color: 'bg-gradient-to-br from-blue-600 to-purple-600',
-    isMockup: true,
+    color: 'bg-white',
+    isIcon: true,
     rating: { stars: 4.3, reviews: 250 },
     appStore: true,
     downloads: 5000,
@@ -132,9 +133,20 @@ export default function PortfolioSection() {
               {/* Project Image Placeholder */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className={`${project.isMockup ? 'aspect-[4/3]' : 'aspect-[4/3]'} ${project.color} relative mb-4 border-4 border-black`}
+                className={`${project.isMockup || project.isIcon ? 'aspect-[4/3]' : 'aspect-[4/3]'} ${project.color} relative mb-4 border-4 border-black`}
               >
-                {project.isMockup ? (
+                {project.isIcon ? (
+                  <div className="absolute inset-0 flex items-center justify-center p-12 bg-white">
+                    {/* Simple Icon Display */}
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <img
+                        src="/images/hunt-tickets-icon.svg"
+                        alt="Hunt Tickets App Icon"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </div>
+                ) : project.isMockup ? (
                   <div className="absolute inset-0 flex items-center justify-center p-8 bg-gradient-to-br from-blue-600 to-purple-600">
                     {/* Phone Mockup with Real GIF */}
                     <div className="relative h-full aspect-[9/19.5]">
@@ -186,7 +198,7 @@ export default function PortfolioSection() {
                 )}
 
                 {/* Hover Overlay */}
-                {!project.isMockup && (
+                {!project.isMockup && !project.isIcon && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
@@ -281,7 +293,7 @@ export default function PortfolioSection() {
                 </p>
 
                 {/* URL if available */}
-                {project.url && !project.isMockup && (
+                {project.url && !project.isMockup && !project.isIcon && (
                   <a
                     href={`https://${project.url}`}
                     target="_blank"
