@@ -129,86 +129,86 @@ export default function ServicesSection() {
             <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-3">
               <TechCard
                 name="REACT"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                logo="/tech-logos/react.svg"
                 delay={0}
               />
               <TechCard
                 name="NEXT.JS"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                logo="/tech-logos/nextjs.svg"
                 delay={0.05}
                 invertOnHover={true}
               />
               <TechCard
                 name="TYPESCRIPT"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                logo="/tech-logos/typescript.svg"
                 delay={0.1}
               />
               <TechCard
                 name="NODE.JS"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                logo="/tech-logos/nodejs.svg"
                 delay={0.15}
               />
               <TechCard
                 name="TAILWIND"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                logo="/tech-logos/tailwind.svg"
                 delay={0.2}
               />
               <TechCard
                 name="REACT NATIVE"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                logo="/tech-logos/react.svg"
                 delay={0.25}
               />
               <TechCard
                 name="FRAMER"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framermotion/framermotion-original.svg"
+                logo="/tech-logos/framer.svg"
                 delay={0.3}
                 invertOnHover={true}
               />
               <TechCard
                 name="SHOPIFY"
-                logo="https://cdn.worldvectorlogo.com/logos/shopify.svg"
+                logo="/tech-logos/shopify.svg"
                 delay={0.35}
               />
               <TechCard
                 name="SUPABASE"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
+                logo="/tech-logos/supabase.svg"
                 delay={0.4}
               />
               <TechCard
                 name="POSTGRESQL"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                logo="/tech-logos/postgresql.svg"
                 delay={0.45}
               />
               <TechCard
                 name="STRIPE"
-                logo="https://images.ctfassets.net/fzn2n1nzq965/HTTOloNPhisV9P4hlMPNA/cacf1bb88b9fc492dfad34378d844280/Stripe_icon_-_square.svg"
+                logo="/tech-logos/stripe.svg"
                 delay={0.5}
               />
               <TechCard
                 name="RADIX UI"
-                logo="https://avatars.githubusercontent.com/u/75042455?s=200&v=4"
+                logo="/tech-logos/radix.svg"
                 delay={0.55}
               />
               <TechCard
                 name="VERCEL"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg"
+                logo="/tech-logos/vercel.svg"
                 delay={0.6}
                 invertOnHover={true}
               />
               <TechCard
                 name="EXPO"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg"
+                logo="/tech-logos/expo.svg"
                 delay={0.65}
                 invertOnHover={true}
               />
               <TechCard
                 name="GRAPHQL"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg"
+                logo="/tech-logos/graphql.svg"
                 delay={0.7}
               />
               <TechCard
                 name="GITHUB"
-                logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                logo="/tech-logos/github.svg"
                 delay={0.75}
                 invertOnHover={true}
               />
