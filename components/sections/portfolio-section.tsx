@@ -136,11 +136,11 @@ export default function PortfolioSection() {
                 className={`${project.isMockup || project.isIcon ? 'aspect-[4/3]' : 'aspect-[4/3]'} ${project.color} relative mb-4 border-4 border-black`}
               >
                 {project.isIcon ? (
-                  <div className="absolute inset-0 flex items-center justify-center p-12 bg-white">
+                  <div className="absolute inset-0 flex items-center justify-center bg-white">
                     {/* Simple Icon Display */}
                     <div className="relative w-full h-full flex items-center justify-center">
                       <img
-                        src="/images/hunt-tickets-icon.svg"
+                        src="/images/hunt-tickets-icon.png"
                         alt="Hunt Tickets App Icon"
                         className="w-full h-full object-contain"
                       />
