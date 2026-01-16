@@ -165,9 +165,10 @@
     }
   },
   "contact": {
-    "title": "Hablanos De Tu Proyecto",
-    "subtitle": "Toma menos de 30 segundos. Te contactamos con una propuesta clara.",
-    "noSpam": "Sin spam.",
+    "title": "Hablanos de tu proyecto",
+    "subtitle": "Toma menos de 30 segundos. Cuadra la reunion en segundos.",
+    "noSpam": "",
+    "scheduleButton": "AGENDAR REUNION",
     "form": {
       "step": "Paso",
       "of": "de",

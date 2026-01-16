@@ -165,9 +165,10 @@
     }
   },
   "contact": {
-    "title": "Tell Us What You Want to Build",
-    "subtitle": "Takes less than 30 seconds. We'll contact you with a clear proposal.",
-    "noSpam": "No spam.",
+    "title": "Tell us about your project",
+    "subtitle": "Takes less than 30 seconds. Schedule the meeting in seconds.",
+    "noSpam": "",
+    "scheduleButton": "SCHEDULE MEETING",
     "form": {
       "step": "Step",
       "of": "of",

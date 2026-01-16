@@ -3,6 +3,7 @@ import Navigation from '@/components/navigation';
 import HeroSection from '@/components/sections/hero-section';
 import MarqueeSection from '@/components/sections/marquee-section';
 import ServicesSection from '@/components/sections/services-section';
+import FooterSection from '@/components/sections/footer-section';
 import SkipToContent from '@/components/skip-to-content';
 
 // Lazy load below-the-fold sections for better initial load performance
@@ -32,8 +33,9 @@ export default function HomePage() {
           <ServicesSection />
           <MarqueeSection />
           <PortfolioSection />
-          <FAQSection />
           <ContactSection />
+          <FAQSection />
+          <FooterSection />
         </div>
       </main>
     </div>
