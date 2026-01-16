@@ -11,7 +11,6 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import WebVitalsReporter from '@/components/web-vitals-reporter';
 import { ErrorBoundary } from '@/components/error-boundary';
-import WhatsAppButton from '@/components/whatsapp-button';
 import ScrollToTop from '@/components/scroll-to-top';
 import ServiceWorkerRegister from '@/components/service-worker-register';
 import type { Metadata } from 'next';
@@ -249,7 +248,6 @@ export default async function LocaleLayout({
             <ErrorBoundary>
               <PageLoader />
               {children}
-              <WhatsAppButton />
               <ScrollToTop />
               <Analytics />
               <SpeedInsights />
