@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
+import { SplitText } from '@/components/ui/animated-text';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
@@ -24,7 +25,7 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <section id="contact" className="relative z-10 bg-background-light">
+    <section id="contact" className="relative z-10 bg-background-light pt-12">
       {/* Contact Section */}
       <div className="py-12 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -37,16 +38,9 @@ export default function ContactSection() {
             className="mb-12 text-center"
           >
             <div className="flex items-center justify-center mb-8">
-              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic">
-                ({' '}
-              </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic text-center whitespace-nowrap">
-                {t('title').toUpperCase()}
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center whitespace-nowrap">
+                <SplitText text={t('title')} delay={0.2} />
               </h2>
-              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic">
-                {' '}
-                )
-              </span>
             </div>
             <p className="text-lg md:text-xl mb-4">{t('subtitle')}</p>
             <p className="text-sm text-gray-600">{t('noSpam')}</p>

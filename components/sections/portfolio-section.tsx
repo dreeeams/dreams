@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { LazyIframe } from '@/components/ui/lazy-iframe';
 import { analytics } from '@/lib/analytics';
+import { SplitText } from '@/components/ui/animated-text';
 
 type Project = {
   titleKey: string;
@@ -108,14 +109,12 @@ export default function PortfolioSection() {
           className="mb-16"
         >
           <div className="flex items-center justify-center mb-8">
-            <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic">( </span>
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic text-center">
-              {t('title').toUpperCase()}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center">
+              <SplitText text={t('title')} delay={0.2} />
             </h2>
-            <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-nostalgic"> )</span>
           </div>
           <p className="text-center text-sm max-w-2xl mx-auto">
-            {t('subtitle').toUpperCase()}
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -132,8 +131,7 @@ export default function PortfolioSection() {
             >
               {/* Project Image Placeholder */}
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                className={`${project.isMockup || project.isIcon ? 'aspect-[4/3]' : 'aspect-[4/3]'} ${project.color} relative mb-4 border-4 border-black`}
+                className={`${project.isMockup || project.isIcon ? 'aspect-[4/3]' : 'aspect-[4/3]'} ${project.color} relative mb-4 border-2 border-black overflow-hidden`}
               >
                 {project.isIcon ? (
                   <div className="absolute inset-0 bg-white overflow-hidden">
@@ -200,9 +198,10 @@ export default function PortfolioSection() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
-                    className="absolute inset-0 bg-black/80 flex items-center justify-center"
+                    transition={{ duration: 0.2 }}
+                    className="absolute inset-0 bg-gradient-to-br from-black/90 to-black/70 flex items-center justify-center backdrop-blur-sm"
                   >
-                    <a
+                    <motion.a
                       href={project.url ? `https://${project.url}` : '#'}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -211,10 +210,22 @@ export default function PortfolioSection() {
                           analytics.projectLinkClicked(project.titleKey, project.url);
                         }
                       }}
-                      className="text-white font-bold border-2 border-white px-6 py-3 pointer-events-auto"
+                      initial={{ scale: 0.8, y: 10 }}
+                      whileHover={{
+                        scale: 1.1,
+                        y: 0,
+                        backgroundColor: "rgba(255, 255, 255, 0.1)"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 17
+                      }}
+                      className="text-white font-bold border-2 border-white px-8 py-4 pointer-events-auto"
                     >
                       {tButtons('viewProject')} →
-                    </a>
+                    </motion.a>
                   </motion.div>
                 )}
               </motion.div>
@@ -283,7 +294,7 @@ export default function PortfolioSection() {
                   )}
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold font-sans">
+                <h3 className="text-xl md:text-2xl font-bold font-pixel">
                   {project.titleKey}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
@@ -318,7 +329,6 @@ export default function PortfolioSection() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

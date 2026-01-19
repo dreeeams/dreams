@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
+import { SplitText } from '@/components/ui/animated-text';
 
 const faqs = ['q1', 'q2', 'q3', 'q4', 'q5'];
 
@@ -62,9 +63,9 @@ export default function FAQSection() {
           transition={{ duration: 0.6 }}
           className="flex items-center justify-center mb-20"
         >
-          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic">( </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic text-center">{t('title').toUpperCase()}</h2>
-          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-nostalgic"> )</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center">
+            <SplitText text={t('title')} delay={0.2} />
+          </h2>
         </motion.div>
 
         {/* FAQ List */}
@@ -72,10 +73,14 @@ export default function FAQSection() {
           {faqs.map((faqKey, index) => (
             <motion.div
               key={faqKey}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.22, 1, 0.36, 1]
+              }}
               className="border-t-4 border-black first:border-t-0"
               itemScope
               itemProp="mainEntity"
@@ -83,6 +88,8 @@ export default function FAQSection() {
             >
               <motion.button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                whileHover={{ x: 10 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="w-full py-8 flex items-center justify-between text-left group"
               >
                 <div className="flex items-center gap-6 flex-1">

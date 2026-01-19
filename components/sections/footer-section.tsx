@@ -13,7 +13,7 @@ export default function FooterSection() {
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h2 className="text-3xl font-nostalgic mb-3">DREAM STUDIO</h2>
+            <h2 className="text-3xl font-logo mb-3">DREEEAMS</h2>
             <p className="text-sm text-gray-400 max-w-xs">
               {tFooter('tagline')}
             </p>

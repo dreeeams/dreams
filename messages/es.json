@@ -282,6 +282,36 @@
       "madeWith": "Hecho con"
     }
   },
+  "features": {
+    "title": "Características",
+    "typography": {
+      "title": "Tipografía",
+      "description": "Tipo hermoso y responsive que escala perfectamente."
+    },
+    "speed": {
+      "title": "Velocidad",
+      "description": "Rendimiento ultrarrápido."
+    },
+    "layouts": {
+      "title": "Diseños",
+      "description": "Grillas flexibles que se adaptan."
+    },
+    "speedNetwork": {
+      "title": "Velocidad",
+      "description": "Rendimiento ultrarrápido en todo el mundo."
+    },
+    "security": {
+      "title": "Seguridad Primero",
+      "description": "Encriptación de nivel empresarial integrada."
+    },
+    "mobile": {
+      "title": "Móvil Listo",
+      "description": "Optimizado para todos los dispositivos y tamaños de pantalla."
+    },
+    "speedIndicator": {
+      "loadTime": "Tiempo de Carga"
+    }
+  },
   "theme": {
     "toggle": "Cambiar tema"
   },

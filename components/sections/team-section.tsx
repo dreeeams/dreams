@@ -24,7 +24,7 @@ export default function TeamSection() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <p className="text-xs font-medium mb-8">( {t('title').toUpperCase()} )</p>
+          <p className="text-xs font-medium mb-8">{t('title')}</p>
           <h2 className="text-5xl md:text-7xl font-nostalgic">THE PEOPLE</h2>
           <h2 className="text-5xl md:text-7xl italic font-nostalgic">BEHIND YOUR</h2>
           <h2 className="text-5xl md:text-7xl font-nostalgic">SUCCESS</h2>

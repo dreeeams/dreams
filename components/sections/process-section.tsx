@@ -24,7 +24,7 @@ export default function ProcessSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-xs font-bold mb-4">( {t('title').toUpperCase()} )</h2>
+          <h2 className="text-xs font-bold mb-4">{t('title')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-4 border-black dark:border-white max-w-4xl mx-auto">
             <div className="border-r-4 border-black dark:border-white p-6 bg-white dark:bg-black">
               <h3 className="text-2xl font-nostalgic">HOW</h3>
@@ -67,7 +67,7 @@ export default function ProcessSection() {
 
               {/* Content */}
               <h3 className="text-2xl font-bold mb-3 font-nostalgic">
-                {t(`${['discover', 'design', 'develop', 'deliver'][index]}.title`).toUpperCase()}
+                {t(`${['discover', 'design', 'develop', 'deliver'][index]}.title`)}
               </h3>
               <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
                 {t(`${['discover', 'design', 'develop', 'deliver'][index]}.description`)}
@@ -120,7 +120,7 @@ export default function ProcessSection() {
                   </motion.div>
                   <p className="text-xs font-medium">{week}</p>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-                    {t(`${['discover', 'design', 'develop', 'deliver'][i]}.title`).toUpperCase()}
+                    {t(`${['discover', 'design', 'develop', 'deliver'][i]}.title`)}
                   </p>
                 </motion.div>
               ))}

@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { InfiniteGrid } from '@/components/ui/the-infinite-grid';
 
 type CodeLine = {
   text: string;
@@ -19,37 +20,37 @@ export default function HeroSection() {
   const [loaderComplete, setLoaderComplete] = useState(false);
 
   const codeLines = [
-    { text: t('init'), color: 'text-purple-400' },
+    { text: t('init'), color: 'text-gray-400' },
     { text: t('loading'), color: 'text-gray-500' },
     { text: t('initializing'), color: 'text-gray-500' },
     { text: t('compiling'), color: 'text-gray-500' },
     { text: '', color: '' },
-    { text: t('constStudio'), color: 'text-purple-400', inline: [
-      { text: t('studio'), color: 'text-blue-400' },
-      { text: t('equals'), color: 'text-yellow-300' }
+    { text: t('constStudio'), color: 'text-gray-400', inline: [
+      { text: t('studio'), color: 'text-white' },
+      { text: t('equals'), color: 'text-gray-400' }
     ]},
-    { text: t('name'), color: 'text-cyan-400', inline: [
+    { text: t('name'), color: 'text-gray-400', inline: [
       { text: ': ', color: 'text-white' },
-      { text: t('nameValue'), color: 'text-orange-400' },
-      { text: ',', color: 'text-white' }
+      { text: t('nameValue'), color: 'text-white' },
+      { text: ',', color: 'text-gray-400' }
     ]},
-    { text: t('mission'), color: 'text-cyan-400', inline: [
+    { text: t('mission'), color: 'text-gray-400', inline: [
       { text: ': ', color: 'text-white' },
-      { text: t('missionValue'), color: 'text-orange-400' },
-      { text: ',', color: 'text-white' }
+      { text: t('missionValue'), color: 'text-white' },
+      { text: ',', color: 'text-gray-400' }
     ]},
-    { text: t('output'), color: 'text-cyan-400', inline: [
+    { text: t('output'), color: 'text-gray-400', inline: [
       { text: ': ', color: 'text-white' },
-      { text: t('outputValue'), color: 'text-orange-400' },
-      { text: ',', color: 'text-white' }
+      { text: t('outputValue'), color: 'text-white' },
+      { text: ',', color: 'text-gray-400' }
     ]},
-    { text: t('status'), color: 'text-cyan-400', inline: [
+    { text: t('status'), color: 'text-gray-400', inline: [
       { text: ': ', color: 'text-white' },
-      { text: t('statusValue'), color: 'text-orange-400' }
+      { text: t('statusValue'), color: 'text-white' }
     ]},
-    { text: t('closeBrace'), color: 'text-yellow-300' },
+    { text: t('closeBrace'), color: 'text-gray-400' },
     { text: '', color: '' },
-    { text: t('ready'), color: 'text-green-400' },
+    { text: t('ready'), color: 'text-white' },
   ];
 
   useEffect(() => {
@@ -83,8 +84,9 @@ export default function HeroSection() {
   }, [currentLineIndex, codeLines, loaderComplete]);
 
   return (
-    <section className="w-full h-full flex items-center justify-center px-4 sm:px-6 bg-background-light">
-      <div className="max-w-5xl w-full mx-auto">
+    <InfiniteGrid className="bg-background-light">
+      <section className="w-full h-full flex items-center justify-center px-6 md:px-12">
+        <div className="max-w-7xl w-full mx-auto">
         {/* SEO H1 - Visually hidden but available for screen readers and SEO */}
         <h1 className="sr-only">
           Dream Studio - Professional Web Development Agency | Custom Mobile App Development | React & Next.js Experts
@@ -95,10 +97,10 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-black border-4 border-black shadow-2xl"
+          className="bg-black border-2 border-black shadow-2xl"
         >
           {/* Terminal Header */}
-          <div className="bg-white border-b-4 border-black px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+          <div className="bg-white border-b-2 border-black px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="flex gap-1.5 sm:gap-2">
                 <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-red-500 border-2 border-black" />
@@ -143,7 +145,7 @@ export default function HeroSection() {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 sm:px-12 py-3 sm:py-5 bg-brand text-white border-4 border-black font-bold text-xs sm:text-base hover:bg-black hover:border-brand transition-colors cursor-pointer"
+            className="px-6 sm:px-12 py-3 sm:py-5 bg-brand text-white border-2 border-black font-bold text-xs sm:text-base hover:bg-black hover:border-brand transition-colors cursor-pointer"
           >
             {tButtons('startProject')}
           </motion.a>
@@ -151,7 +153,7 @@ export default function HeroSection() {
             href="#work"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 sm:px-12 py-3 sm:py-5 bg-transparent text-black border-4 border-black font-bold text-xs sm:text-base hover:bg-black hover:text-white transition-colors cursor-pointer"
+            className="px-6 sm:px-12 py-3 sm:py-5 bg-transparent text-black border-2 border-black font-bold text-xs sm:text-base hover:bg-black hover:text-white transition-colors cursor-pointer"
           >
             {tButtons('viewWork')}
           </motion.a>
@@ -176,7 +178,8 @@ export default function HeroSection() {
             </svg>
           </motion.a>
         </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </InfiniteGrid>
   );
 }

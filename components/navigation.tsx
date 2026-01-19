@@ -77,7 +77,7 @@ export default function Navigation() {
                     </filter>
                   </defs>
                 </svg>
-                <span className="text-lg sm:text-lg md:text-xl lg:text-2xl font-nostalgic">DREAM STUDIO</span>
+                <span className="text-lg sm:text-lg md:text-xl lg:text-2xl font-logo">DREEEAMS</span>
               </motion.div>
             </Link>
 
@@ -216,7 +216,7 @@ export default function Navigation() {
                 className="absolute bottom-12 left-0 right-0 px-8"
               >
                 <div className="flex items-center justify-between text-sm font-mono">
-                  <span className="text-gray-600">DREAM STUDIO</span>
+                  <span className="text-gray-600 font-logo">DREEEAMS</span>
                   <span className="text-gray-600">2024</span>
                 </div>
               </motion.div>

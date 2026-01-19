@@ -282,6 +282,36 @@
       "madeWith": "Built with"
     }
   },
+  "features": {
+    "title": "Features",
+    "typography": {
+      "title": "Typography",
+      "description": "Beautiful, responsive type that scales perfectly."
+    },
+    "speed": {
+      "title": "Speed",
+      "description": "Blazing fast performance."
+    },
+    "layouts": {
+      "title": "Layouts",
+      "description": "Flexible grids that adapt."
+    },
+    "speedNetwork": {
+      "title": "Speed",
+      "description": "Lightning-fast performance worldwide."
+    },
+    "security": {
+      "title": "Security First",
+      "description": "Enterprise-grade encryption built-in."
+    },
+    "mobile": {
+      "title": "Mobile Ready",
+      "description": "Optimized for all devices and screen sizes."
+    },
+    "speedIndicator": {
+      "loadTime": "Load Time"
+    }
+  },
   "theme": {
     "toggle": "Toggle theme"
   },

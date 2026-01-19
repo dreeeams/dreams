@@ -35,15 +35,39 @@ const geistMono = Geist_Mono({
   fallback: ['ui-monospace', 'monospace'],
 });
 
-const monigue = localFont({
+const ztHoky = localFont({
   src: [
     {
-      path: '../../public/fonts/Monigue-Regular.otf',
+      path: '../../public/fonts/ZTHoky-Regular.otf',
       weight: '400',
       style: 'normal',
     },
   ],
   variable: '--font-nostalgic',
+  display: 'swap',
+});
+
+const chaos16 = localFont({
+  src: [
+    {
+      path: '../../public/fonts/CHAOS16.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-logo',
+  display: 'swap',
+});
+
+const pixelFont = localFont({
+  src: [
+    {
+      path: '../../public/fonts/thatthatnewpixelfamilytest-square.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-pixel',
   display: 'swap',
 });
 
@@ -304,7 +328,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${monigue.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} ${chaos16.variable} ${pixelFont.variable} antialiased`}
       >
         <a href="#main-content" className="skip-to-main">
           {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
