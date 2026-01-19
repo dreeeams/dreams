@@ -57,14 +57,14 @@ export default function FAQSection() {
       <div className="max-w-4xl mx-auto">
         {/* FAQ Title */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="flex items-center justify-center mb-20"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center">
-            <SplitText text={t('title')} delay={0.2} />
+            {t('title')}
           </h2>
         </motion.div>
 

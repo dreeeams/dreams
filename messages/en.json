@@ -9,10 +9,11 @@
     }
   },
   "nav": {
-    "services": "SERVICES",
-    "work": "WORK",
-    "team": "TEAM",
-    "contact": "CONTACT"
+    "services": "Services",
+    "work": "Portfolio",
+    "team": "Team",
+    "contact": "Contact",
+    "getStarted": "Get Started"
   },
   "hero": {
     "title": "We build digital products that people love",
@@ -314,6 +315,107 @@
   },
   "theme": {
     "toggle": "Toggle theme"
+  },
+  "uiuxPage": {
+    "meta": {
+      "title": "UI/UX Design Services | Dream Studio",
+      "description": "User-centered design that combines aesthetics with functionality. We create beautiful interfaces that solve real problems."
+    },
+    "hero": {
+      "title": "Product Design",
+      "subtitle": "User-centered design that combines aesthetics with functionality. We create interfaces that are not only beautiful but solve real problems and deliver exceptional user experiences."
+    },
+    "process": {
+      "title": "Design Process",
+      "subtitle": "Our proven methodology for creating exceptional digital experiences",
+      "steps": {
+        "research": {
+          "title": "Research & Discovery",
+          "description": "We dive deep into understanding your users, market, and business goals. Through user interviews, competitive analysis, and data research, we build a solid foundation for design decisions."
+        },
+        "wireframe": {
+          "title": "Wireframing & Architecture",
+          "description": "We map out the user journey and create low-fidelity wireframes to validate the structure and flow. This phase focuses on functionality and user experience before visual design."
+        },
+        "design": {
+          "title": "Visual Design",
+          "description": "We bring the wireframes to life with stunning visual designs. Every color, typography choice, and interaction is carefully crafted to create an engaging and cohesive experience."
+        },
+        "prototype": {
+          "title": "Prototype & Testing",
+          "description": "We build interactive prototypes and conduct usability testing with real users. This validates our design decisions and ensures the product meets user needs before development."
+        },
+        "handoff": {
+          "title": "Development Handoff",
+          "description": "We deliver detailed design specs, style guides, and assets to development teams. We collaborate closely to ensure the final product matches the design vision."
+        }
+      }
+    },
+    "tools": {
+      "title": "Design Tools & Methods",
+      "subtitle": "Industry-leading tools and proven methodologies",
+      "items": {
+        "figma": {
+          "title": "Figma",
+          "description": "Collaborative design and prototyping"
+        },
+        "sketch": {
+          "title": "Sketch",
+          "description": "Vector-based UI design"
+        },
+        "adobe": {
+          "title": "Adobe XD",
+          "description": "End-to-end UX design platform"
+        },
+        "principle": {
+          "title": "Principle",
+          "description": "Advanced animation and interaction"
+        },
+        "userTesting": {
+          "title": "User Testing",
+          "description": "Real user feedback and validation"
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Data-driven design decisions"
+        }
+      }
+    },
+    "principles": {
+      "title": "Design Principles",
+      "subtitle": "The core values that guide our design work",
+      "items": {
+        "userFirst": {
+          "title": "User-First Approach",
+          "description": "Every decision starts with the user. We design for real people with real needs, not just aesthetics."
+        },
+        "simplicity": {
+          "title": "Simplicity & Clarity",
+          "description": "Complex doesn't mean complicated. We create intuitive interfaces that are easy to understand and use."
+        },
+        "consistency": {
+          "title": "Consistency",
+          "description": "Design systems that scale. We build consistent patterns and components for cohesive experiences."
+        },
+        "accessibility": {
+          "title": "Accessibility",
+          "description": "Design for everyone. We ensure our products are usable by people of all abilities."
+        },
+        "dataInformed": {
+          "title": "Data-Informed",
+          "description": "Design backed by research. We validate decisions with user testing and analytics."
+        },
+        "iterative": {
+          "title": "Iterative Process",
+          "description": "Design is never done. We continuously improve based on feedback and data."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Product?",
+      "subtitle": "Let's create an experience your users will love",
+      "button": "Schedule a Design Consultation"
+    }
   },
   "privacy": {
     "meta": {

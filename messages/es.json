@@ -9,10 +9,11 @@
     }
   },
   "nav": {
-    "services": "SERVICIOS",
-    "work": "PROYECTOS",
-    "team": "EQUIPO",
-    "contact": "CONTACTO"
+    "services": "Servicios",
+    "work": "Portafolio",
+    "team": "Equipo",
+    "contact": "Contacto",
+    "getStarted": "Comenzar"
   },
   "hero": {
     "title": "Construimos productos digitales que la gente ama",
@@ -314,6 +315,107 @@
   },
   "theme": {
     "toggle": "Cambiar tema"
+  },
+  "uiuxPage": {
+    "meta": {
+      "title": "Servicios de Diseño UI/UX | Dream Studio",
+      "description": "Diseño centrado en el usuario que combina estética con funcionalidad. Creamos interfaces hermosas que resuelven problemas reales."
+    },
+    "hero": {
+      "title": "Diseño de Producto",
+      "subtitle": "Diseño centrado en el usuario que combina estética con funcionalidad. Creamos interfaces que no solo son hermosas, sino que resuelven problemas reales y entregan experiencias excepcionales."
+    },
+    "process": {
+      "title": "Proceso de Diseño",
+      "subtitle": "Nuestra metodología probada para crear experiencias digitales excepcionales",
+      "steps": {
+        "research": {
+          "title": "Investigación y Descubrimiento",
+          "description": "Nos sumergimos en entender a tus usuarios, el mercado y objetivos de negocio. A través de entrevistas, análisis competitivo e investigación de datos, construimos una base sólida para las decisiones de diseño."
+        },
+        "wireframe": {
+          "title": "Wireframes y Arquitectura",
+          "description": "Mapeamos el recorrido del usuario y creamos wireframes de baja fidelidad para validar la estructura y flujo. Esta fase se enfoca en funcionalidad y experiencia antes del diseño visual."
+        },
+        "design": {
+          "title": "Diseño Visual",
+          "description": "Damos vida a los wireframes con diseños visuales impresionantes. Cada color, tipografía e interacción es cuidadosamente elaborada para crear una experiencia atractiva y cohesiva."
+        },
+        "prototype": {
+          "title": "Prototipo y Pruebas",
+          "description": "Construimos prototipos interactivos y realizamos pruebas de usabilidad con usuarios reales. Esto valida nuestras decisiones de diseño y asegura que el producto cumple las necesidades del usuario antes del desarrollo."
+        },
+        "handoff": {
+          "title": "Entrega a Desarrollo",
+          "description": "Entregamos especificaciones detalladas, guías de estilo y assets al equipo de desarrollo. Colaboramos de cerca para asegurar que el producto final coincida con la visión de diseño."
+        }
+      }
+    },
+    "tools": {
+      "title": "Herramientas y Métodos de Diseño",
+      "subtitle": "Herramientas líderes en la industria y metodologías probadas",
+      "items": {
+        "figma": {
+          "title": "Figma",
+          "description": "Diseño colaborativo y prototipado"
+        },
+        "sketch": {
+          "title": "Sketch",
+          "description": "Diseño UI basado en vectores"
+        },
+        "adobe": {
+          "title": "Adobe XD",
+          "description": "Plataforma UX de extremo a extremo"
+        },
+        "principle": {
+          "title": "Principle",
+          "description": "Animación e interacción avanzada"
+        },
+        "userTesting": {
+          "title": "Pruebas de Usuario",
+          "description": "Retroalimentación y validación real"
+        },
+        "analytics": {
+          "title": "Analítica",
+          "description": "Decisiones de diseño basadas en datos"
+        }
+      }
+    },
+    "principles": {
+      "title": "Principios de Diseño",
+      "subtitle": "Los valores fundamentales que guían nuestro trabajo de diseño",
+      "items": {
+        "userFirst": {
+          "title": "Enfoque en el Usuario",
+          "description": "Cada decisión comienza con el usuario. Diseñamos para personas reales con necesidades reales, no solo estética."
+        },
+        "simplicity": {
+          "title": "Simplicidad y Claridad",
+          "description": "Complejo no significa complicado. Creamos interfaces intuitivas que son fáciles de entender y usar."
+        },
+        "consistency": {
+          "title": "Consistencia",
+          "description": "Sistemas de diseño que escalan. Construimos patrones y componentes consistentes para experiencias cohesivas."
+        },
+        "accessibility": {
+          "title": "Accesibilidad",
+          "description": "Diseño para todos. Aseguramos que nuestros productos sean usables por personas de todas las capacidades."
+        },
+        "dataInformed": {
+          "title": "Basado en Datos",
+          "description": "Diseño respaldado por investigación. Validamos decisiones con pruebas de usuario y analítica."
+        },
+        "iterative": {
+          "title": "Proceso Iterativo",
+          "description": "El diseño nunca termina. Mejoramos continuamente basándonos en retroalimentación y datos."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Transformar tu Producto?",
+      "subtitle": "Creemos una experiencia que tus usuarios amarán",
+      "button": "Agendar Consulta de Diseño"
+    }
   },
   "privacy": {
     "meta": {

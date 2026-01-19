@@ -102,15 +102,15 @@ export default function PortfolioSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="mb-16"
         >
           <div className="flex items-center justify-center mb-8">
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center">
-              <SplitText text={t('title')} delay={0.2} />
+              {t('title')}
             </h2>
           </div>
           <p className="text-center text-sm max-w-2xl mx-auto">

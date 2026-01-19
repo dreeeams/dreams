@@ -160,11 +160,9 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isTypingComplete ? 1 : 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+        <div
           className="mt-12 sm:mt-16 flex justify-center"
+          style={{ opacity: isTypingComplete ? 1 : 0 }}
         >
           <motion.a
             href="#services"
@@ -177,7 +175,7 @@ export default function HeroSection() {
               <path d="M12 5v14M19 12l-7 7-7-7" />
             </svg>
           </motion.a>
-        </motion.div>
+        </div>
         </div>
       </section>
     </InfiniteGrid>

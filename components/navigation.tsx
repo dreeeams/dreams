@@ -12,6 +12,19 @@ export default function Navigation() {
   const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  // Only show services dropdown in development
+  const isDevelopment = process.env.NODE_ENV === 'development';
+
+  const services = [
+    { name: 'Diseño UI/UX', href: `/${locale}/servicios/diseno-uiux` },
+    { name: 'Innovación Digital', href: `/${locale}/servicios/innovacion-digital` },
+    { name: 'API & Backend', href: `/${locale}/servicios/api-backend` },
+    { name: 'Desarrollo Software', href: `/${locale}/servicios/desarrollo-software` },
+    { name: 'Seguridad', href: `/${locale}/servicios/seguridad-ciberseguridad` },
+    { name: 'IA Empresas', href: `/${locale}/servicios/ai-empresas` },
+  ];
 
   const toggleLanguage = () => {
     const newLocale = locale === 'en' ? 'es' : 'en';
@@ -41,6 +54,7 @@ export default function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className="fixed top-0 left-0 right-0 z-50 bg-background-light/80 backdrop-blur-sm border-b border-black/10"
+        onMouseLeave={() => setIsServicesOpen(false)}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex items-center justify-between">
@@ -82,41 +96,58 @@ export default function Navigation() {
             </Link>
 
             {/* Right Side - Navigation & Controls */}
-            <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-xs sm:text-sm font-medium text-foreground-light">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-foreground-light ml-auto">
+              {/* Language Toggle */}
+              <motion.button
+                onClick={toggleLanguage}
+                whileTap={{ scale: 0.98 }}
+                className="px-4 py-2 hover:bg-black border border-black/10 hover:border-black transition-all duration-200 flex items-center justify-center group"
+                aria-label="Toggle language"
+              >
+                {locale === 'en' ? (
+                  <svg className="w-7 h-5" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#bd3d44" d="M0 0h640v480H0z"/>
+                    <path stroke="#fff" strokeWidth="37" d="M0 55.3h640m0 74H0m0 73.9h640m0 74H0m0 73.8h640m0 74H0"/>
+                    <path fill="#192f5d" d="M0 0h364.8v258.5H0z"/>
+                    <marker id="us-a" markerHeight="30" markerWidth="30">
+                      <path fill="#fff" d="m14 0 9 27L0 10h28L5 27z"/>
+                    </marker>
+                    <path fill="none" marker-mid="url(#us-a)" d="m0 0 16 11h61 61 61 61 60L47 37h61 61 60 61L16 63h61 61 61 61 60L47 89h61 61 60 61L16 115h61 61 61 61 60L47 141h61 61 60 61L16 166h61 61 61 61 60L47 192h61 61 60 61L16 218h61 61 61 61 60z"/>
+                  </svg>
+                ) : (
+                  <svg className="w-7 h-5" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="900" height="300" fill="#FCD116"/>
+                    <rect width="900" height="150" y="300" fill="#003893"/>
+                    <rect width="900" height="150" y="450" fill="#CE1126"/>
+                  </svg>
+                )}
+              </motion.button>
+
               {/* Desktop Menu Items */}
+              {/* Services with Dropdown - Only in Development */}
               <motion.a
-                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 href="#services"
-                className="hover:opacity-60 transition-opacity hidden sm:block"
+                onMouseEnter={() => isDevelopment && setIsServicesOpen(true)}
+                className="md:block hidden px-4 py-2 text-sm font-medium text-foreground-light hover:text-white hover:bg-black border border-black/10 hover:border-black transition-all duration-200"
               >
                 {t('services')}
               </motion.a>
+
               <motion.a
-                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 href="#work"
-                className="hover:opacity-60 transition-opacity hidden md:block"
+                className="md:block hidden px-4 py-2 text-sm font-medium text-foreground-light hover:text-white hover:bg-black border border-black/10 hover:border-black transition-all duration-200"
               >
                 {t('work')}
               </motion.a>
               <motion.a
-                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 href="#contact"
-                className="hover:opacity-60 transition-opacity hidden sm:block"
+                className="sm:block hidden px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
               >
-                {t('contact')}
+                {t('getStarted')} →
               </motion.a>
-
-              {/* Language Toggle */}
-              <motion.button
-                onClick={toggleLanguage}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="w-10 h-10 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full border-2 border-black bg-white flex items-center justify-center hover:bg-brand hover:border-brand hover:text-white transition-colors text-black font-bold text-xs"
-                aria-label="Toggle language"
-              >
-                {locale.toUpperCase()}
-              </motion.button>
 
               {/* Mobile Menu Button */}
               <motion.button
@@ -141,6 +172,53 @@ export default function Navigation() {
             </div>
           </div>
         </div>
+
+        {/* Services Dropdown - Expands below nav - Only in Development */}
+        <AnimatePresence>
+          {isDevelopment && isServicesOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              className="overflow-hidden bg-white/90 backdrop-blur-md border-t border-black/5"
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 text-right">
+                <div className="inline-flex flex-wrap gap-1 justify-end">
+                  {services.map((service, index) => (
+                    <motion.div
+                      key={service.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.03 }}
+                    >
+                      <Link
+                        href={service.href}
+                        className="inline-block px-4 py-2 text-sm font-medium text-foreground-light hover:text-white hover:bg-black border border-black/10 hover:border-black transition-all duration-200"
+                      >
+                        {service.name}
+                      </Link>
+                    </motion.div>
+                  ))}
+
+                  {/* Ver Todos Button */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: services.length * 0.03 }}
+                  >
+                    <Link
+                      href="#services"
+                      className="inline-block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+                    >
+                      Ver todos →
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
 
       {/* Full Screen Mobile Menu */}
