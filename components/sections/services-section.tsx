@@ -54,18 +54,12 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={service.titleKey}
-              initial={{ opacity: 0, y: 50, rotateX: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{
-                duration: 0.8,
-                delay: index * 0.15,
-                ease: [0.22, 1, 0.36, 1]
-              }}
-              whileHover={{
-                scale: 1.02,
-                x: 10,
-                transition: { duration: 0.3 }
+                duration: 0.5,
+                delay: index * 0.05
               }}
               className="group"
             >

@@ -123,10 +123,10 @@ export default function PortfolioSection() {
           {projects.map((project, index) => (
             <motion.div
               key={project.titleKey}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.4 }}
               className="group cursor-pointer"
             >
               {/* Project Image Placeholder */}
@@ -199,9 +199,9 @@ export default function PortfolioSection() {
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute inset-0 bg-gradient-to-br from-black/90 to-black/70 flex items-center justify-center backdrop-blur-sm"
+                    className="absolute inset-0 bg-black/80 flex items-center justify-center"
                   >
-                    <motion.a
+                    <a
                       href={project.url ? `https://${project.url}` : '#'}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -210,22 +210,10 @@ export default function PortfolioSection() {
                           analytics.projectLinkClicked(project.titleKey, project.url);
                         }
                       }}
-                      initial={{ scale: 0.8, y: 10 }}
-                      whileHover={{
-                        scale: 1.1,
-                        y: 0,
-                        backgroundColor: "rgba(255, 255, 255, 0.1)"
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 17
-                      }}
-                      className="text-white font-bold border-2 border-white px-8 py-4 pointer-events-auto"
+                      className="text-white font-bold border-2 border-white px-8 py-4 pointer-events-auto hover:bg-white hover:text-black transition-colors"
                     >
                       {tButtons('viewProject')} →
-                    </motion.a>
+                    </a>
                   </motion.div>
                 )}
               </motion.div>

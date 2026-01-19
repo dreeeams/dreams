@@ -73,23 +73,17 @@ export default function FAQSection() {
           {faqs.map((faqKey, index) => (
             <motion.div
               key={faqKey}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1]
-              }}
+              transition={{ duration: 0.3 }}
               className="border-t-4 border-black first:border-t-0"
               itemScope
               itemProp="mainEntity"
               itemType="https://schema.org/Question"
             >
-              <motion.button
+              <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                whileHover={{ x: 10 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="w-full py-8 flex items-center justify-between text-left group"
               >
                 <div className="flex items-center gap-6 flex-1">
@@ -100,14 +94,10 @@ export default function FAQSection() {
                     {t(`questions.${faqKey}.question`)}
                   </span>
                 </div>
-                <motion.div
-                  animate={{ rotate: activeIndex === index ? 45 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-4xl font-bold flex-shrink-0 ml-6"
-                >
+                <div className={`text-4xl font-bold flex-shrink-0 ml-6 transition-transform duration-300 ${activeIndex === index ? 'rotate-45' : ''}`}>
                   +
-                </motion.div>
-              </motion.button>
+                </div>
+              </button>
 
               <motion.div
                 initial={false}
