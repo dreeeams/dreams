@@ -178,7 +178,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900">LF DREAMS SAS</dd>
+                  <dd className="font-medium text-gray-900 flex items-center">
+                    <span>LF DREAMS SAS</span>
+                    <CopyButton text="LF DREAMS SAS" fieldId="bold-holder" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.idNumber')}</dt>
@@ -252,7 +255,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900">LF DREAMS SAS</dd>
+                  <dd className="font-medium text-gray-900 flex items-center">
+                    <span>LF DREAMS SAS</span>
+                    <CopyButton text="LF DREAMS SAS" fieldId="wise-usa-holder" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountNumber')}</dt>
@@ -298,7 +304,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900">LF DREAMS SAS</dd>
+                  <dd className="font-medium text-gray-900 flex items-center">
+                    <span>LF DREAMS SAS</span>
+                    <CopyButton text="LF DREAMS SAS" fieldId="europe-holder" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.iban')}</dt>
