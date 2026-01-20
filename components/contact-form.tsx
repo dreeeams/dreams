@@ -88,7 +88,7 @@ export default function ContactForm() {
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900"
+              className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
             />
           </div>
           <div>
@@ -101,7 +101,7 @@ export default function ContactForm() {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900"
+              className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
             />
           </div>
         </div>
@@ -119,7 +119,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             placeholder="ejemplo@dreeeams.com"
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+            className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
@@ -136,7 +136,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             placeholder="+57"
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+            className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
@@ -153,7 +153,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             placeholder={t('companyNamePlaceholder')}
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+            className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
@@ -170,7 +170,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             placeholder={t('websitePlaceholder')}
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+            className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
@@ -186,7 +186,7 @@ export default function ContactForm() {
             onChange={handleChange}
             rows={5}
             placeholder={t('projectDetailsPlaceholder')}
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400 resize-none"
+            className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400 resize-none"
           />
         </div>
 
@@ -201,11 +201,11 @@ export default function ContactForm() {
             value={formData.howDidYouHear}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 appearance-none cursor-pointer"
+            className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 appearance-none cursor-pointer pr-8"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
               backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'right 1rem center',
+              backgroundPosition: 'right 0 center',
             }}
           >
             <option value="">{t('howDidYouHearPlaceholder')}</option>
