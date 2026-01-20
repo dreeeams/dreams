@@ -25,61 +25,52 @@ export default function PaymentsPage() {
           </h1>
           <p className="text-sm text-gray-500">{t('lastUpdated')}</p>
         </div>
-
-        {/* Tabs */}
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="flex gap-1 border-b border-gray-200">
-            <button
-              onClick={() => setActiveTab('colombia')}
-              className={`px-6 py-3 text-sm font-medium transition-colors relative ${
-                activeTab === 'colombia'
-                  ? 'text-gray-900'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <span>🇨🇴</span>
-                <span>{t('tabs.colombia')}</span>
-              </span>
-              {activeTab === 'colombia' && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
-              )}
-            </button>
-            <button
-              onClick={() => setActiveTab('usa')}
-              className={`px-6 py-3 text-sm font-medium transition-colors relative ${
-                activeTab === 'usa'
-                  ? 'text-gray-900'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <span>🇺🇸</span>
-                <span>{t('tabs.usa')}</span>
-              </span>
-              {activeTab === 'usa' && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
-              )}
-            </button>
-            <button
-              onClick={() => setActiveTab('crypto')}
-              className={`px-6 py-3 text-sm font-medium transition-colors relative ${
-                activeTab === 'crypto'
-                  ? 'text-gray-900'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <span>₿</span>
-                <span>{t('tabs.crypto')}</span>
-              </span>
-              {activeTab === 'crypto' && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
-              )}
-            </button>
-          </div>
-        </div>
       </header>
+
+      {/* Tabs - Outside Header */}
+      <div className="max-w-3xl mx-auto px-6 py-8">
+        <div className="flex gap-3">
+          <button
+            onClick={() => setActiveTab('colombia')}
+            className={`px-6 py-3 text-sm font-medium transition-all border ${
+              activeTab === 'colombia'
+                ? 'bg-black text-white border-black'
+                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <span>🇨🇴</span>
+              <span>{t('tabs.colombia')}</span>
+            </span>
+          </button>
+          <button
+            onClick={() => setActiveTab('usa')}
+            className={`px-6 py-3 text-sm font-medium transition-all border ${
+              activeTab === 'usa'
+                ? 'bg-black text-white border-black'
+                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <span>🇺🇸</span>
+              <span>{t('tabs.usa')}</span>
+            </span>
+          </button>
+          <button
+            onClick={() => setActiveTab('crypto')}
+            className={`px-6 py-3 text-sm font-medium transition-all border ${
+              activeTab === 'crypto'
+                ? 'bg-black text-white border-black'
+                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+            }`}
+          >
+            <span className="flex items-center gap-2">
+              <span>₿</span>
+              <span>{t('tabs.crypto')}</span>
+            </span>
+          </button>
+        </div>
+      </div>
 
       {/* Content */}
       <main className="max-w-3xl mx-auto px-6 py-20">
@@ -259,13 +250,9 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <svg className="w-10 h-10" viewBox="0 0 784 1277" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M392.07 0L383.5 29.11V873.74L392.07 882.29L784.13 650.54L392.07 0Z" fill="#343434"/>
-                        <path d="M392.07 0L0 650.54L392.07 882.29V472.33V0Z" fill="#8C8C8C"/>
-                        <path d="M392.07 956.52L387.24 962.41V1263.28L392.07 1277L784.37 724.89L392.07 956.52Z" fill="#3C3C3B"/>
-                        <path d="M392.07 1277V956.52L0 724.89L392.07 1277Z" fill="#8C8C8C"/>
-                        <path d="M392.07 882.29L784.13 650.54L392.07 472.33V882.29Z" fill="#141414"/>
-                        <path d="M0 650.54L392.07 882.29V472.33L0 650.54Z" fill="#393939"/>
+                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L4 12L12 16L20 12L12 2Z" fill="#374151" stroke="#374151" strokeWidth="0.5"/>
+                        <path d="M12 17L4 13L12 22L20 13L12 17Z" fill="#6B7280" stroke="#6B7280" strokeWidth="0.5"/>
                       </svg>
                     </div>
                     <div>
@@ -286,11 +273,9 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <svg className="w-10 h-10" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="none" fillRule="evenodd">
-                          <circle cx="16" cy="16" r="16" fill="#F7931A"/>
-                          <path fill="#FFF" fillRule="nonzero" d="M23.189 14.02c.314-2.096-1.283-3.223-3.465-3.975l.708-2.84-1.728-.43-.69 2.765c-.454-.114-.92-.22-1.385-.326l.695-2.783L15.596 6l-.708 2.839c-.376-.086-.746-.17-1.104-.26l.002-.009-2.384-.595-.46 1.846s1.283.294 1.256.312c.7.175.826.638.805 1.006l-.806 3.235c.048.012.11.03.18.057l-.183-.045-1.13 4.532c-.086.212-.303.531-.793.41.018.025-1.256-.313-1.256-.313l-.858 1.978 2.25.561c.418.105.828.215 1.231.318l-.715 2.872 1.727.43.708-2.84c.472.127.93.245 1.378.357l-.706 2.828 1.728.43.715-2.866c2.948.558 5.164.333 6.097-2.333.752-2.146-.037-3.385-1.588-4.192 1.13-.26 1.98-1.003 2.207-2.538zm-3.95 5.538c-.533 2.147-4.148.986-5.32.695l.95-3.805c1.172.293 4.929.872 4.37 3.11zm.535-5.569c-.487 1.953-3.495.96-4.47.717l.86-3.45c.975.243 4.118.696 3.61 2.733z"/>
-                        </g>
+                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#F7931A" strokeWidth="1.5" fill="none"/>
+                        <path d="M13.5 8.5V7H10.5V8.5H9V10.5H10.5V15.5H9V17H15V15.5H13.5V10.5H15V8.5H13.5Z" fill="#F7931A"/>
                       </svg>
                     </div>
                     <div>
@@ -311,11 +296,9 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <svg className="w-10 h-10" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="none" fillRule="evenodd">
-                          <circle cx="16" cy="16" r="16" fill="#26A17B"/>
-                          <path fill="#FFF" d="M17.922 17.383v-.002c-.11.008-.677.042-1.942.042-1.01 0-1.721-.03-1.971-.042v.003c-3.888-.171-6.79-.848-6.79-1.658 0-.809 2.902-1.486 6.79-1.66v2.644c.254.018.982.061 1.988.061 1.207 0 1.812-.05 1.925-.06v-2.643c3.88.173 6.775.85 6.775 1.658 0 .81-2.895 1.485-6.775 1.657m0-3.59v-2.366h5.414V7.819H8.595v3.608h5.414v2.365c-4.4.202-7.709 1.074-7.709 2.118 0 1.044 3.309 1.915 7.709 2.118v7.582h3.913v-7.584c4.393-.202 7.694-1.073 7.694-2.116 0-1.043-3.301-1.914-7.694-2.117"/>
-                        </g>
+                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#26A17B" strokeWidth="1.5" fill="none"/>
+                        <path d="M13.5 9.5V8H10.5V9.5H9V11H10.5V15.5H9V17H15V15.5H13.5V11H15V9.5H13.5Z" fill="#26A17B"/>
                       </svg>
                     </div>
                     <div>
@@ -336,11 +319,9 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <svg className="w-10 h-10" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="none" fillRule="evenodd">
-                          <circle cx="16" cy="16" r="16" fill="#2775CA"/>
-                          <path fill="#FFF" d="M20.022 18.124c0-2.124-1.28-2.852-3.84-3.156-1.828-.243-2.193-.728-2.193-1.578 0-.85.61-1.396 1.828-1.396 1.097 0 1.707.364 2.011 1.275a.458.458 0 00.427.303h.975a.416.416 0 00.427-.425v-.06a3.04 3.04 0 00-2.743-2.489V9.142c0-.243-.183-.425-.487-.486h-.915c-.243 0-.426.182-.487.486v1.396c-1.829.242-2.986 1.456-2.986 2.974 0 2.002 1.218 2.791 3.778 3.095 1.707.303 2.255.668 2.255 1.639 0 .97-.853 1.638-2.011 1.638-1.585 0-2.133-.667-2.316-1.578-.06-.242-.244-.364-.427-.364h-1.036a.416.416 0 00-.426.425v.06c.243 1.518 1.219 2.61 3.23 2.914v1.457c0 .242.183.425.487.485h.915c.243 0 .426-.182.487-.485V21.34c1.829-.303 3.047-1.578 3.047-3.217z"/>
-                        </g>
+                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#2775CA" strokeWidth="1.5" fill="none"/>
+                        <path d="M13 15H11V14C11 13.7 11.2 13.5 11.5 13.5H12.5C12.8 13.5 13 13.3 13 13V11C13 10.7 12.8 10.5 12.5 10.5H11V9H13C13.6 9 14 9.4 14 10V13C14 13.6 13.6 14 13 14V15Z" fill="#2775CA"/>
                       </svg>
                     </div>
                     <div>
