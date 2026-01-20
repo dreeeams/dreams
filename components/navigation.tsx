@@ -152,8 +152,8 @@ export default function Navigation() {
               {/* Mobile Menu Button */}
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                whileTap={{ scale: 0.9 }}
-                className="sm:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 border-2 border-black bg-white hover:bg-black group transition-colors"
+                whileTap={{ scale: 0.98 }}
+                className="sm:hidden px-4 py-2 flex flex-col items-center justify-center gap-1.5 border border-black/10 hover:border-black bg-white hover:bg-black group transition-all duration-200"
                 aria-label="Toggle menu"
               >
                 <motion.span
@@ -237,7 +237,7 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center border-2 border-black bg-white hover:bg-black group transition-colors"
+              className="absolute top-4 right-4 px-4 py-3 flex items-center justify-center border border-black/10 hover:border-black bg-white hover:bg-black group transition-all duration-200"
               aria-label="Close menu"
             >
               <div className="relative w-6 h-6">
