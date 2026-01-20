@@ -167,17 +167,15 @@ export default function Navigation() {
               </motion.a>
 
               {/* Contact Button - Visible when header is visible - Desktop only */}
-              <motion.a
-                whileTap={{ scale: 0.98 }}
-                href="#contact"
-                initial={false}
-                animate={{ opacity: isVisible ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="hidden sm:block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
-                style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
-              >
-                {t('getStarted')} →
-              </motion.a>
+              {isVisible && (
+                <motion.a
+                  whileTap={{ scale: 0.98 }}
+                  href="#contact"
+                  className="hidden sm:block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+                >
+                  {t('getStarted')} →
+                </motion.a>
+              )}
 
               {/* Mobile Menu Button */}
               <motion.button
