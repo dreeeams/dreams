@@ -3,11 +3,12 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Cal, { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
-import { SplitText } from '@/components/ui/animated-text';
+import { useEffect, useState } from "react";
+import ContactForm from '@/components/contact-form';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
+  const [showCalendar, setShowCalendar] = useState(false);
 
   useEffect(() => {
     (async function () {
@@ -46,20 +47,23 @@ export default function ContactSection() {
             <p className="text-sm text-gray-600">{t('noSpam')}</p>
           </motion.div>
 
-          {/* Cal.com Embed */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full"
-          >
-            <Cal
-              calLink="luis-fernandez-ezzzmp/30min"
-              style={{ width: "100%", height: "auto" }}
-              config={{ layout: "month_view", theme: "light" }}
-            />
-          </motion.div>
+          {/* Form or Calendar */}
+          {!showCalendar ? (
+            <ContactForm />
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-full"
+            >
+              <Cal
+                calLink="luis-fernandez-ezzzmp/30min"
+                style={{ width: "100%", height: "auto" }}
+                config={{ layout: "month_view", theme: "light" }}
+              />
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
