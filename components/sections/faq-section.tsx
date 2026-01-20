@@ -77,7 +77,7 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3 }}
-              className="border-t-4 border-black first:border-t-0"
+              className="border-t border-black first:border-t-0"
               itemScope
               itemProp="mainEntity"
               itemType="https://schema.org/Question"
@@ -121,7 +121,7 @@ export default function FAQSection() {
           ))}
 
           {/* Bottom border */}
-          <div className="border-t-4 border-black"></div>
+          <div className="border-t border-black"></div>
         </div>
       </div>
     </section>
