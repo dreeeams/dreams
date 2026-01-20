@@ -167,22 +167,25 @@ export default function Navigation() {
               </motion.a>
 
               {/* Contact Button - Visible when header is visible */}
-              <motion.a
-                whileTap={{ scale: 0.98 }}
-                href="#contact"
-                animate={{ opacity: isVisible ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="block px-4 py-2 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
-                style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
-              >
-                {t('getStarted')} →
-              </motion.a>
+              {isVisible && (
+                <motion.a
+                  whileTap={{ scale: 0.98 }}
+                  href="#contact"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+                >
+                  {t('getStarted')} →
+                </motion.a>
+              )}
 
               {/* Mobile Menu Button */}
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 whileTap={{ scale: 0.98 }}
-                className="sm:hidden px-4 py-2 flex flex-col items-center justify-center gap-1.5 border border-black/10 hover:border-black hover:bg-black group transition-all duration-200"
+                className="sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border border-black/10 hover:border-black hover:bg-black group transition-all duration-200"
                 aria-label="Toggle menu"
               >
                 <motion.span
