@@ -198,7 +198,7 @@ export default function BentoGrid() {
 
           {/* 1. Typography */}
           <motion.div
-            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden shadow-lg group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -214,7 +214,7 @@ export default function BentoGrid() {
 
           {/* 2. Speed */}
           <motion.div
-            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden shadow-lg group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -231,7 +231,7 @@ export default function BentoGrid() {
 
           {/* 3. Layouts */}
           <motion.div
-            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden shadow-lg group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -250,7 +250,7 @@ export default function BentoGrid() {
 
           {/* 4. Global Network */}
           <motion.div
-            className="bg-gray-100 border-2 border-black p-4 sm:p-6 flex flex-col overflow-hidden shadow-lg group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border-2 border-black p-4 sm:p-6 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -271,7 +271,7 @@ export default function BentoGrid() {
 
           {/* 5. Security */}
           <motion.div
-            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden shadow-lg group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -290,7 +290,7 @@ export default function BentoGrid() {
 
           {/* 6. Mobile Ready */}
           <motion.div
-            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden shadow-lg group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border-2 border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
