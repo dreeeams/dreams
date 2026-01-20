@@ -166,6 +166,18 @@ export default function Navigation() {
                 {t('work')}
               </motion.a>
 
+              {/* Contact Button - Visible when header is visible */}
+              <motion.a
+                whileTap={{ scale: 0.98 }}
+                href="#contact"
+                animate={{ opacity: isVisible ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="sm:block hidden px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+                style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
+              >
+                {t('getStarted')} →
+              </motion.a>
+
               {/* Mobile Menu Button */}
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -238,14 +250,15 @@ export default function Navigation() {
         </AnimatePresence>
       </motion.nav>
 
-      {/* Floating Contact Button - Always Visible */}
+      {/* Fixed Contact Button - Visible when header is hidden */}
       <motion.a
         href="#contact"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.3 }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed top-4 right-4 sm:top-5 sm:right-6 z-[60] px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200 shadow-lg"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isVisible ? 0 : 1, y: isVisible ? -20 : 0 }}
+        transition={{ duration: 0.3 }}
+        whileTap={{ scale: 0.98 }}
+        className="sm:block hidden fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+        style={{ pointerEvents: isVisible ? 'none' : 'auto' }}
       >
         {t('getStarted')} →
       </motion.a>
