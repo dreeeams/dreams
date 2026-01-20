@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import Navigation from '@/components/navigation';
 import FooterSection from '@/components/sections/footer-section';
 import SkipToContent from '@/components/skip-to-content';
-import CustomCursor from '@/components/custom-cursor';
 
 export default function DisenoUIUXPage() {
   const t = useTranslations('uiuxPage');
@@ -52,8 +51,7 @@ export default function DisenoUIUXPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background-light cursor-none">
-      <CustomCursor />
+    <div className="min-h-screen bg-background-light">
       <SkipToContent />
       <Navigation />
 

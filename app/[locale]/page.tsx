@@ -6,7 +6,6 @@ import ServicesSection from '@/components/sections/services-section';
 import FooterSection from '@/components/sections/footer-section';
 import SkipToContent from '@/components/skip-to-content';
 import { SkeletonProjectCard } from '@/components/skeleton';
-import CustomCursor from '@/components/custom-cursor';
 
 // Lazy load below-the-fold sections for better initial load performance
 const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-section'), {
@@ -30,8 +29,7 @@ const ContactSection = dynamic(() => import('@/components/sections/contact-secti
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background-light cursor-none">
-      <CustomCursor />
+    <div className="min-h-screen bg-background-light">
       <SkipToContent />
       <Navigation />
       <main id="main-content" className="relative">
