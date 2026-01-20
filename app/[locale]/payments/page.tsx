@@ -55,91 +55,93 @@ export default function PaymentsPage() {
 
       {/* Tabs - Outside Header */}
       <div className="max-w-3xl mx-auto px-6 py-8">
-        <div className="flex gap-3">
-          <button
-            onClick={() => setActiveTab('colombia')}
-            className={`px-6 py-3 text-sm font-medium transition-all border ${
-              activeTab === 'colombia'
-                ? 'bg-black text-white border-black'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
-            }`}
-          >
-            <span className="flex items-center gap-3">
-              <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src="https://flagcdn.com/w80/co.png"
-                  alt="Colombia"
-                  width={20}
-                  height={20}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <span>{t('tabs.colombia')}</span>
-            </span>
-          </button>
-          <button
-            onClick={() => setActiveTab('usa')}
-            className={`px-6 py-3 text-sm font-medium transition-all border ${
-              activeTab === 'usa'
-                ? 'bg-black text-white border-black'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
-            }`}
-          >
-            <span className="flex items-center gap-3">
-              <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src="https://flagcdn.com/w80/us.png"
-                  alt="USA"
-                  width={20}
-                  height={20}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <span>{t('tabs.usa')}</span>
-            </span>
-          </button>
-          <button
-            onClick={() => setActiveTab('europe')}
-            className={`px-6 py-3 text-sm font-medium transition-all border ${
-              activeTab === 'europe'
-                ? 'bg-black text-white border-black'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
-            }`}
-          >
-            <span className="flex items-center gap-3">
-              <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src="https://flagcdn.com/w80/eu.png"
-                  alt="Europe"
-                  width={20}
-                  height={20}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <span>{t('tabs.europe')}</span>
-            </span>
-          </button>
-          <button
-            onClick={() => setActiveTab('crypto')}
-            className={`px-6 py-3 text-sm font-medium transition-all border ${
-              activeTab === 'crypto'
-                ? 'bg-black text-white border-black'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
-            }`}
-          >
-            <span className="flex items-center gap-3">
-              <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
-                  alt="Crypto"
-                  width={20}
-                  height={20}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <span>{t('tabs.crypto')}</span>
-            </span>
-          </button>
+        <div className="overflow-x-auto -mx-6 px-6">
+          <div className="flex gap-2 sm:gap-3 min-w-max">
+            <button
+              onClick={() => setActiveTab('colombia')}
+              className={`px-4 sm:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+                activeTab === 'colombia'
+                  ? 'bg-black text-white border-black'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+              }`}
+            >
+              <span className="flex items-center gap-2 sm:gap-3">
+                <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src="https://flagcdn.com/w80/co.png"
+                    alt="Colombia"
+                    width={20}
+                    height={20}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span>{t('tabs.colombia')}</span>
+              </span>
+            </button>
+            <button
+              onClick={() => setActiveTab('usa')}
+              className={`px-4 sm:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+                activeTab === 'usa'
+                  ? 'bg-black text-white border-black'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+              }`}
+            >
+              <span className="flex items-center gap-2 sm:gap-3">
+                <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src="https://flagcdn.com/w80/us.png"
+                    alt="USA"
+                    width={20}
+                    height={20}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span>{t('tabs.usa')}</span>
+              </span>
+            </button>
+            <button
+              onClick={() => setActiveTab('europe')}
+              className={`px-4 sm:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+                activeTab === 'europe'
+                  ? 'bg-black text-white border-black'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+              }`}
+            >
+              <span className="flex items-center gap-2 sm:gap-3">
+                <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src="https://flagcdn.com/w80/eu.png"
+                    alt="Europe"
+                    width={20}
+                    height={20}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span>{t('tabs.europe')}</span>
+              </span>
+            </button>
+            <button
+              onClick={() => setActiveTab('crypto')}
+              className={`px-4 sm:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+                activeTab === 'crypto'
+                  ? 'bg-black text-white border-black'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+              }`}
+            >
+              <span className="flex items-center gap-2 sm:gap-3">
+                <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
+                    alt="Crypto"
+                    width={20}
+                    height={20}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span>{t('tabs.crypto')}</span>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
