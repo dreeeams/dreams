@@ -2,36 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import Cal, { getCalApi } from "@calcom/embed-react";
-import { useEffect, useState } from "react";
 import ContactForm from '@/components/contact-form';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [prefillData, setPrefillData] = useState<{
-    name?: string;
-    email?: string;
-    phone?: string;
-    notes?: string;
-  }>({});
 
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi();
-      cal("ui", {
-        theme: "light",
-        cssVarsPerTheme: {
-          light: { "cal-brand": "#787878" },
-          dark: { "cal-brand": "#DEE5ED" }
-        },
-        hideEventTypeDetails: false,
-        layout: "month_view"
-      });
-    })();
-  }, []);
-
-  const handleFormSuccess = (data: {
+  const handleFormSuccess = async (data: {
     firstName: string;
     lastName: string;
     email: string;
@@ -42,19 +18,36 @@ export default function ContactSection() {
     projectDetails: string;
     howDidYouHear: string;
   }) => {
-    // Prepare prefill data for Cal.com
-    const fullName = `${data.firstName}${data.lastName ? ' ' + data.lastName : ''}`.trim();
-    const notes = `Company: ${data.companyName}\nWebsite: ${data.websiteUrl}\nProject Details: ${data.projectDetails}\nHow did you hear about us: ${data.howDidYouHear}`;
+    // Send data to Zapier webhook
+    try {
+      const fullName = `${data.firstName}${data.lastName ? ' ' + data.lastName : ''}`.trim();
 
-    setPrefillData({
-      name: fullName,
-      email: data.email,
-      phone: data.phone,
-      notes: notes,
-    });
+      const zapierData = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        fullName: fullName,
+        email: data.email,
+        phone: data.phone,
+        companyName: data.companyName,
+        websiteUrl: data.websiteUrl,
+        projectType: data.projectType,
+        projectDetails: data.projectDetails,
+        howDidYouHear: data.howDidYouHear,
+        submittedAt: new Date().toISOString(),
+      };
 
-    // Show calendar after form submission
-    setShowCalendar(true);
+      await fetch('https://hooks.zapier.com/hooks/catch/26067874/uqb7bzv/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(zapierData),
+      });
+
+      console.log('Data sent to Zapier successfully');
+    } catch (error) {
+      console.error('Failed to send data to Zapier:', error);
+    }
   };
 
   return (
@@ -79,30 +72,8 @@ export default function ContactSection() {
             <p className="text-sm text-gray-600">{t('noSpam')}</p>
           </motion.div>
 
-          {/* Form or Calendar */}
-          {!showCalendar ? (
-            <ContactForm onSuccess={handleFormSuccess} />
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="w-full"
-            >
-              <Cal
-                calLink="luis-fernandez-ezzzmp/30min"
-                style={{ width: "100%", height: "auto" }}
-                config={{
-                  layout: "month_view",
-                  theme: "light",
-                  ...(prefillData.name && { name: prefillData.name }),
-                  ...(prefillData.email && { email: prefillData.email }),
-                  ...(prefillData.phone && { phone: prefillData.phone }),
-                  ...(prefillData.notes && { notes: prefillData.notes }),
-                }}
-              />
-            </motion.div>
-          )}
+          {/* Contact Form */}
+          <ContactForm onSuccess={handleFormSuccess} />
         </div>
       </div>
     </section>
