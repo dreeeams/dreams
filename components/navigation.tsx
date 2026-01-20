@@ -167,15 +167,17 @@ export default function Navigation() {
               </motion.a>
 
               {/* Contact Button - Visible when header is visible - Desktop only */}
-              {isVisible && (
-                <motion.a
-                  whileTap={{ scale: 0.98 }}
-                  href="#contact"
-                  className="hidden sm:block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
-                >
-                  {t('getStarted')} →
-                </motion.a>
-              )}
+              <motion.a
+                whileTap={{ scale: 0.98 }}
+                href="#contact"
+                initial={false}
+                animate={{ opacity: isVisible ? 1 : 0 }}
+                transition={{ duration: 0.2 }}
+                className="hidden sm:block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+                style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
+              >
+                {t('getStarted')} →
+              </motion.a>
 
               {/* Mobile Menu Button */}
               <motion.button
@@ -250,15 +252,17 @@ export default function Navigation() {
       </motion.nav>
 
       {/* Fixed Contact Button - Visible when header is hidden */}
-      {!isVisible && (
-        <motion.a
-          href="#contact"
-          whileTap={{ scale: 0.98 }}
-          className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-4 py-2 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
-        >
-          {t('getStarted')} →
-        </motion.a>
-      )}
+      <motion.a
+        href="#contact"
+        whileTap={{ scale: 0.98 }}
+        initial={false}
+        animate={{ opacity: isVisible ? 0 : 1 }}
+        transition={{ duration: 0.2 }}
+        className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-4 py-2 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+        style={{ pointerEvents: isVisible ? 'none' : 'auto' }}
+      >
+        {t('getStarted')} →
+      </motion.a>
 
       {/* Full Screen Mobile Menu */}
       <AnimatePresence>
