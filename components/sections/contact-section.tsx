@@ -9,6 +9,12 @@ import ContactForm from '@/components/contact-form';
 export default function ContactSection() {
   const t = useTranslations('contact');
   const [showCalendar, setShowCalendar] = useState(false);
+  const [prefillData, setPrefillData] = useState<{
+    name?: string;
+    email?: string;
+    phone?: string;
+    notes?: string;
+  }>({});
 
   useEffect(() => {
     (async function () {
@@ -24,6 +30,32 @@ export default function ContactSection() {
       });
     })();
   }, []);
+
+  const handleFormSuccess = (data: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    companyName: string;
+    website: string;
+    projectType: string;
+    projectDetails: string;
+    howDidYouHear: string;
+  }) => {
+    // Prepare prefill data for Cal.com
+    const fullName = `${data.firstName}${data.lastName ? ' ' + data.lastName : ''}`.trim();
+    const notes = `Company: ${data.companyName}\nWebsite: ${data.website}\nProject Details: ${data.projectDetails}\nHow did you hear about us: ${data.howDidYouHear}`;
+
+    setPrefillData({
+      name: fullName,
+      email: data.email,
+      phone: data.phone,
+      notes: notes,
+    });
+
+    // Show calendar after form submission
+    setShowCalendar(true);
+  };
 
   return (
     <section id="contact" className="relative z-10 bg-background-light pt-12">
@@ -49,7 +81,7 @@ export default function ContactSection() {
 
           {/* Form or Calendar */}
           {!showCalendar ? (
-            <ContactForm />
+            <ContactForm onSuccess={handleFormSuccess} />
           ) : (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -60,7 +92,14 @@ export default function ContactSection() {
               <Cal
                 calLink="luis-fernandez-ezzzmp/30min"
                 style={{ width: "100%", height: "auto" }}
-                config={{ layout: "month_view", theme: "light" }}
+                config={{
+                  layout: "month_view",
+                  theme: "light",
+                  ...(prefillData.name && { name: prefillData.name }),
+                  ...(prefillData.email && { email: prefillData.email }),
+                  ...(prefillData.phone && { phone: prefillData.phone }),
+                  ...(prefillData.notes && { notes: prefillData.notes }),
+                }}
               />
             </motion.div>
           )}

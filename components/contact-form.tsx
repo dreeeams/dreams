@@ -5,7 +5,21 @@ import { useTranslations, useLocale } from 'next-intl';
 import { useState } from 'react';
 import Link from 'next/link';
 
-export default function ContactForm() {
+interface ContactFormProps {
+  onSuccess?: (data: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    companyName: string;
+    website: string;
+    projectType: string;
+    projectDetails: string;
+    howDidYouHear: string;
+  }) => void;
+}
+
+export default function ContactForm({ onSuccess }: ContactFormProps) {
   const t = useTranslations('contactForm');
   const locale = useLocale();
   const [formData, setFormData] = useState({
@@ -45,6 +59,10 @@ export default function ContactForm() {
 
       if (response.ok) {
         setSubmitStatus('success');
+        // Call onSuccess callback with form data before resetting
+        if (onSuccess) {
+          onSuccess({ ...formData });
+        }
         setFormData({
           firstName: '',
           lastName: '',
