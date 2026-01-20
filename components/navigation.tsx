@@ -72,6 +72,7 @@ export default function Navigation() {
 
   return (
     <>
+      {/* Main Navigation - Hides on scroll */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
@@ -164,13 +165,6 @@ export default function Navigation() {
               >
                 {t('work')}
               </motion.a>
-              <motion.a
-                whileTap={{ scale: 0.98 }}
-                href="#contact"
-                className="sm:block hidden px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
-              >
-                {t('getStarted')} →
-              </motion.a>
 
               {/* Mobile Menu Button */}
               <motion.button
@@ -243,6 +237,18 @@ export default function Navigation() {
           )}
         </AnimatePresence>
       </motion.nav>
+
+      {/* Floating Contact Button - Always Visible */}
+      <motion.a
+        href="#contact"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5, duration: 0.3 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed top-4 right-4 sm:top-5 sm:right-6 z-[60] px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200 shadow-lg"
+      >
+        {t('getStarted')} →
+      </motion.a>
 
       {/* Full Screen Mobile Menu */}
       <AnimatePresence>
