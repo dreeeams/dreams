@@ -166,7 +166,7 @@ export default function Navigation() {
                 {t('work')}
               </motion.a>
 
-              {/* Contact Button - Visible when header is visible */}
+              {/* Contact Button - Visible when header is visible - Desktop only */}
               {isVisible && (
                 <motion.a
                   whileTap={{ scale: 0.98 }}
@@ -175,7 +175,7 @@ export default function Navigation() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+                  className="hidden sm:block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
                 >
                   {t('getStarted')} →
                 </motion.a>
