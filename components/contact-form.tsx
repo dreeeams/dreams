@@ -51,37 +51,46 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
 
     try {
       // Transform form data to API format
-      let whatsappNumber = formData.phone.trim();
-      // Ensure phone number has country code if not empty
-      if (whatsappNumber && !whatsappNumber.startsWith('+')) {
-        whatsappNumber = `+57${whatsappNumber}`;
-      }
-
       const apiData: any = {
         fullName: `${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`.trim(),
-        email: formData.email,
-        company: formData.companyName,
-        need: formData.projectType || 'General Inquiry',
+        email: formData.email.trim(),
+        company: formData.companyName.trim(),
+        need: 'web',
         acceptTerms: true,
-        website: formData.website, // Honeypot (should be empty)
+        website: '', // Honeypot (should be empty)
       };
 
-      // Add optional fields only if they have values
-      if (whatsappNumber) {
-        apiData.whatsapp = whatsappNumber;
+      // Add optional phone number with proper E.164 formatting
+      if (formData.phone.trim()) {
+        let whatsappNumber = formData.phone.trim();
+        // Remove any non-numeric characters except +
+        whatsappNumber = whatsappNumber.replace(/[^\d+]/g, '');
+
+        // Ensure it starts with country code
+        if (!whatsappNumber.startsWith('+')) {
+          whatsappNumber = `+57${whatsappNumber}`;
+        }
+
+        // Only add if it matches E.164 format (+ followed by 1-15 digits)
+        if (/^\+[1-9]\d{1,14}$/.test(whatsappNumber)) {
+          apiData.whatsapp = whatsappNumber;
+        }
       }
 
-      if (formData.websiteUrl) {
-        apiData.websiteUrl = formData.websiteUrl;
+      if (formData.websiteUrl.trim()) {
+        apiData.websiteUrl = formData.websiteUrl.trim();
       }
 
-      if (formData.projectDetails) {
-        apiData.summary = formData.projectDetails;
+      if (formData.projectDetails.trim()) {
+        apiData.summary = formData.projectDetails.trim();
       }
 
-      if (formData.howDidYouHear) {
+      // Only add heardFrom if user actually selected something (not empty string)
+      if (formData.howDidYouHear && formData.howDidYouHear !== '') {
         apiData.heardFrom = formData.howDidYouHear;
       }
+
+      console.log('Sending to API:', apiData);
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -110,6 +119,11 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
           website: '',
         });
       } else {
+        const errorData = await response.json();
+        console.error('API Error:', errorData);
+        if (errorData.details) {
+          console.error('Error details:', JSON.stringify(errorData.details, null, 2));
+        }
         setSubmitStatus('error');
       }
     } catch (error) {
