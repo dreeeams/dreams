@@ -17,6 +17,9 @@ export default function FooterSection() {
             <p className="text-sm text-gray-400 max-w-xs">
               {tFooter('tagline')}
             </p>
+            <p className="text-xs text-gray-500 mt-3">
+              Bogotá, Colombia
+            </p>
           </div>
 
           {/* Links */}
