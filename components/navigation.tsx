@@ -36,7 +36,7 @@ export default function Navigation() {
   const menuItems = [
     { label: t('services'), href: '#services' },
     { label: t('work'), href: '#work' },
-    { label: t('contact'), href: '#contact' },
+    { label: t('getStarted'), href: '#contact' },
   ];
 
   const handleMenuClick = (href: string) => {
