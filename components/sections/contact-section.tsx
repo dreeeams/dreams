@@ -2,10 +2,32 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { useState, useEffect } from 'react';
 import ContactForm from '@/components/contact-form';
+import Cal, { getCalApi } from '@calcom/embed-react';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
+  const [isLocalhost, setIsLocalhost] = useState(false);
+
+  useEffect(() => {
+    // Detectar si estamos en localhost
+    const hostname = window.location.hostname;
+    setIsLocalhost(hostname === 'localhost' || hostname === '127.0.0.1');
+
+    // Inicializar Cal.com embed si NO estamos en localhost
+    if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+      (async function () {
+        const cal = await getCalApi({ namespace: 'dream-studio-discovery-call' });
+        cal('ui', {
+          theme: 'light',
+          styles: { branding: { brandColor: '#000000' } },
+          hideEventTypeDetails: false,
+          layout: 'month_view',
+        });
+      })();
+    }
+  }, []);
 
   const handleFormSuccess = (data: {
     firstName: string;
@@ -44,8 +66,27 @@ export default function ContactSection() {
             <p className="text-sm text-gray-600">{t('noSpam')}</p>
           </motion.div>
 
-          {/* Contact Form */}
-          <ContactForm onSuccess={handleFormSuccess} />
+          {/* Conditional rendering: Form in localhost, Cal.com in production */}
+          {isLocalhost ? (
+            // Mostrar formulario en localhost
+            <ContactForm onSuccess={handleFormSuccess} />
+          ) : (
+            // Mostrar Cal.com embedded en producción
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="w-full max-w-5xl mx-auto"
+            >
+              <Cal
+                namespace="dream-studio-discovery-call"
+                calLink="dream-studio-sa/dream-studio-discovery-call"
+                style={{ width: '100%', height: '100%', overflow: 'scroll' }}
+                config={{ layout: 'month_view', theme: 'light' }}
+              />
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
