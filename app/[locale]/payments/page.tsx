@@ -158,12 +158,16 @@ export default function PaymentsPage() {
             {/* Bank Account 1 - Bold CF */}
             <div>
               <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                {t('bankTransfer1.title')}
+                Deposito Ordinario
               </h3>
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.bankName')}</dt>
-                  <dd className="font-medium text-gray-900">Bold CF - Depósito Electrónico</dd>
+                  <dd className="font-medium text-gray-900">Bold CF</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountType')}</dt>
+                  <dd className="font-medium text-gray-900">Depósito Electrónico</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountNumber')}</dt>
