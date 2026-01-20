@@ -43,9 +43,9 @@ export default function PaymentsPage() {
               <Image
                 src="https://flagcdn.com/w80/co.png"
                 alt="Colombia"
-                width={24}
-                height={16}
-                className="rounded"
+                width={20}
+                height={20}
+                className="rounded-full object-cover"
               />
               <span>{t('tabs.colombia')}</span>
             </span>
@@ -62,9 +62,9 @@ export default function PaymentsPage() {
               <Image
                 src="https://flagcdn.com/w80/us.png"
                 alt="USA"
-                width={24}
-                height={16}
-                className="rounded"
+                width={20}
+                height={20}
+                className="rounded-full object-cover"
               />
               <span>{t('tabs.usa')}</span>
             </span>
