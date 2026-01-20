@@ -320,7 +320,6 @@ export default function BentoGrid() {
                   y="8"
                   width="24"
                   height="48"
-                  rx="3"
                   className="fill-none stroke-black group-hover:stroke-white transition-colors duration-300"
                   strokeWidth="2"
                 />
