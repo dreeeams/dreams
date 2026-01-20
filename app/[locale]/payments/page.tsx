@@ -2,13 +2,38 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Circle } from 'lucide-react';
+import { Circle, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 
 export default function PaymentsPage() {
   const t = useTranslations('payments');
   const [activeTab, setActiveTab] = useState<'colombia' | 'usa' | 'europe' | 'crypto'>('colombia');
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+
+  const copyToClipboard = async (text: string, fieldId: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedField(fieldId);
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
+  const CopyButton = ({ text, fieldId }: { text: string; fieldId: string }) => (
+    <button
+      onClick={() => copyToClipboard(text, fieldId)}
+      className="ml-2 p-1.5 hover:bg-gray-100 rounded transition-colors"
+      aria-label="Copy to clipboard"
+    >
+      {copiedField === fieldId ? (
+        <Check className="w-4 h-4 text-green-600" />
+      ) : (
+        <Copy className="w-4 h-4 text-gray-400 hover:text-gray-600" />
+      )}
+    </button>
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -142,7 +167,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountNumber')}</dt>
-                  <dd className="font-mono text-gray-900">1700-1386-5009</dd>
+                  <dd className="font-mono text-gray-900 flex items-center">
+                    <span>1700-1386-5009</span>
+                    <CopyButton text="1700-1386-5009" fieldId="bold-account" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountHolder')}</dt>
@@ -150,7 +178,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.idNumber')}</dt>
-                  <dd className="font-mono text-gray-900">902022315</dd>
+                  <dd className="font-mono text-gray-900 flex items-center">
+                    <span>902022315</span>
+                    <CopyButton text="902022315" fieldId="bold-nit" />
+                  </dd>
                 </div>
               </dl>
               <div className="mt-6 p-4 bg-gray-50">
@@ -198,7 +229,10 @@ export default function PaymentsPage() {
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.phoneNumber')}</dt>
-                  <dd className="font-mono text-gray-900">+1 555 892 0875</dd>
+                  <dd className="font-mono text-gray-900 flex items-center">
+                    <span>+1 555 892 0875</span>
+                    <CopyButton text="+1 555 892 0875" fieldId="nequi-phone" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.accountHolder')}</dt>
@@ -251,15 +285,24 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountNumber')}</dt>
-                  <dd className="font-mono text-gray-900">863066497361982</dd>
+                  <dd className="font-mono text-gray-900 flex items-center">
+                    <span>863066497361982</span>
+                    <CopyButton text="863066497361982" fieldId="wise-account-number" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.routingNumber')}</dt>
-                  <dd className="font-mono text-gray-900">084009519</dd>
+                  <dd className="font-mono text-gray-900 flex items-center">
+                    <span>084009519</span>
+                    <CopyButton text="084009519" fieldId="wise-routing" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.swiftCode')}</dt>
-                  <dd className="font-mono text-gray-900">TRWIUS35XXX</dd>
+                  <dd className="font-mono text-gray-900 flex items-center">
+                    <span>TRWIUS35XXX</span>
+                    <CopyButton text="TRWIUS35XXX" fieldId="wise-swift" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.bankAddress')}</dt>
@@ -288,11 +331,17 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.iban')}</dt>
-                  <dd className="font-mono text-gray-900">BE55 9675 2466 1444</dd>
+                  <dd className="font-mono text-gray-900 flex items-center">
+                    <span>BE55 9675 2466 1444</span>
+                    <CopyButton text="BE55 9675 2466 1444" fieldId="europe-iban" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.bic')}</dt>
-                  <dd className="font-mono text-gray-900">TRWIBEB1XXX</dd>
+                  <dd className="font-mono text-gray-900 flex items-center">
+                    <span>TRWIBEB1XXX</span>
+                    <CopyButton text="TRWIBEB1XXX" fieldId="europe-bic" />
+                  </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.bankAddress')}</dt>
@@ -333,7 +382,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all">0xD36e81f28b10A847af00153b359De90b5156FAEF</p>
+                  <p className="font-mono text-xs text-gray-900 break-all flex items-center">
+                    <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                    <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="eth-address" />
+                  </p>
                 </div>
               </div>
 
@@ -359,7 +411,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all">bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44</p>
+                  <p className="font-mono text-xs text-gray-900 break-all flex items-center">
+                    <span>bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44</span>
+                    <CopyButton text="bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44" fieldId="btc-address" />
+                  </p>
                 </div>
               </div>
 
@@ -385,7 +440,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all">0xD36e81f28b10A847af00153b359De90b5156FAEF</p>
+                  <p className="font-mono text-xs text-gray-900 break-all flex items-center">
+                    <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                    <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdt-address" />
+                  </p>
                 </div>
               </div>
 
@@ -411,7 +469,10 @@ export default function PaymentsPage() {
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all">0xD36e81f28b10A847af00153b359De90b5156FAEF</p>
+                  <p className="font-mono text-xs text-gray-900 break-all flex items-center">
+                    <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                    <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdc-address" />
+                  </p>
                 </div>
               </div>
             </div>
