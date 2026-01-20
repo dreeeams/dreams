@@ -297,24 +297,24 @@ export default function BentoGrid() {
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center relative">
+              {/* Phone 1 - Center Large */}
               <motion.svg
                 width="64"
                 height="64"
                 viewBox="0 0 64 64"
-                className="w-16 h-16"
+                className="w-16 h-16 relative z-10"
                 xmlns="http://www.w3.org/2000/svg"
                 animate={{
-                  y: [0, -8, 0],
-                  rotate: [0, 3, -3, 0]
+                  y: [0, -12, 0],
+                  rotate: [0, 2, -2, 0]
                 }}
                 transition={{
-                  duration: 2.5,
+                  duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
               >
-                {/* Phone body */}
                 <rect
                   x="20"
                   y="8"
@@ -323,7 +323,6 @@ export default function BentoGrid() {
                   className="fill-none stroke-black group-hover:stroke-white transition-colors duration-300"
                   strokeWidth="2"
                 />
-                {/* Screen */}
                 <rect
                   x="22"
                   y="12"
@@ -331,7 +330,129 @@ export default function BentoGrid() {
                   height="36"
                   className="fill-black group-hover:fill-white transition-colors duration-300"
                 />
-                {/* Home button/indicator */}
+                <circle
+                  cx="32"
+                  cy="52"
+                  r="2"
+                  className="fill-black group-hover:fill-white transition-colors duration-300"
+                />
+              </motion.svg>
+
+              {/* Phone 2 - Left Small */}
+              <motion.svg
+                width="48"
+                height="48"
+                viewBox="0 0 64 64"
+                className="w-12 h-12 absolute left-4 top-8"
+                xmlns="http://www.w3.org/2000/svg"
+                animate={{
+                  y: [0, -8, 0],
+                  rotate: [0, -3, 3, 0]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5
+                }}
+              >
+                <rect
+                  x="20"
+                  y="8"
+                  width="24"
+                  height="48"
+                  className="fill-none stroke-black group-hover:stroke-white transition-colors duration-300"
+                  strokeWidth="2"
+                />
+                <rect
+                  x="22"
+                  y="12"
+                  width="20"
+                  height="36"
+                  className="fill-black group-hover:fill-white transition-colors duration-300"
+                />
+                <circle
+                  cx="32"
+                  cy="52"
+                  r="2"
+                  className="fill-black group-hover:fill-white transition-colors duration-300"
+                />
+              </motion.svg>
+
+              {/* Phone 3 - Right Small */}
+              <motion.svg
+                width="48"
+                height="48"
+                viewBox="0 0 64 64"
+                className="w-12 h-12 absolute right-4 top-12"
+                xmlns="http://www.w3.org/2000/svg"
+                animate={{
+                  y: [0, -10, 0],
+                  rotate: [0, 4, -4, 0]
+                }}
+                transition={{
+                  duration: 2.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+              >
+                <rect
+                  x="20"
+                  y="8"
+                  width="24"
+                  height="48"
+                  className="fill-none stroke-black group-hover:stroke-white transition-colors duration-300"
+                  strokeWidth="2"
+                />
+                <rect
+                  x="22"
+                  y="12"
+                  width="20"
+                  height="36"
+                  className="fill-black group-hover:fill-white transition-colors duration-300"
+                />
+                <circle
+                  cx="32"
+                  cy="52"
+                  r="2"
+                  className="fill-black group-hover:fill-white transition-colors duration-300"
+                />
+              </motion.svg>
+
+              {/* Phone 4 - Top Center Mini */}
+              <motion.svg
+                width="40"
+                height="40"
+                viewBox="0 0 64 64"
+                className="w-10 h-10 absolute top-2 left-1/2 -translate-x-1/2"
+                xmlns="http://www.w3.org/2000/svg"
+                animate={{
+                  y: [0, -6, 0],
+                  rotate: [0, -2, 2, 0]
+                }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5
+                }}
+              >
+                <rect
+                  x="20"
+                  y="8"
+                  width="24"
+                  height="48"
+                  className="fill-none stroke-black group-hover:stroke-white transition-colors duration-300"
+                  strokeWidth="2"
+                />
+                <rect
+                  x="22"
+                  y="12"
+                  width="20"
+                  height="36"
+                  className="fill-black group-hover:fill-white transition-colors duration-300"
+                />
                 <circle
                   cx="32"
                   cy="52"
