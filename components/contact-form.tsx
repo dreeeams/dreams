@@ -12,7 +12,7 @@ interface ContactFormProps {
     email: string;
     phone: string;
     companyName: string;
-    website: string;
+    websiteUrl: string;
     projectType: string;
     projectDetails: string;
     howDidYouHear: string;
@@ -28,10 +28,11 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
     email: '',
     phone: '',
     companyName: '',
-    website: '',
+    websiteUrl: '',
     projectType: '',
     projectDetails: '',
     howDidYouHear: '',
+    website: '', // Honeypot field (hidden)
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -49,12 +50,32 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
     setSubmitStatus('idle');
 
     try {
+      // Transform form data to API format
+      let whatsappNumber = formData.phone.trim();
+      // Ensure phone number has country code
+      if (whatsappNumber && !whatsappNumber.startsWith('+')) {
+        whatsappNumber = `+57${whatsappNumber}`;
+      }
+
+      const apiData = {
+        fullName: `${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`.trim(),
+        email: formData.email,
+        whatsapp: whatsappNumber,
+        company: formData.companyName,
+        websiteUrl: formData.websiteUrl,
+        need: formData.projectType || 'General Inquiry',
+        summary: formData.projectDetails,
+        heardFrom: formData.howDidYouHear,
+        acceptTerms: true,
+        website: formData.website, // Honeypot (should be empty)
+      };
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(apiData),
       });
 
       if (response.ok) {
@@ -69,10 +90,11 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
           email: '',
           phone: '',
           companyName: '',
-          website: '',
+          websiteUrl: '',
           projectType: '',
           projectDetails: '',
           howDidYouHear: '',
+          website: '',
         });
       } else {
         setSubmitStatus('error');
@@ -177,20 +199,32 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
 
         {/* Website */}
         <div>
-          <label htmlFor="website" className="block text-sm font-medium text-gray-900 mb-2">
+          <label htmlFor="websiteUrl" className="block text-sm font-medium text-gray-900 mb-2">
             {t('website')} <span className="text-gray-400">*</span>
           </label>
           <input
             type="url"
-            id="website"
-            name="website"
-            value={formData.website}
+            id="websiteUrl"
+            name="websiteUrl"
+            value={formData.websiteUrl}
             onChange={handleChange}
             required
             placeholder={t('websitePlaceholder')}
             className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
           />
         </div>
+
+        {/* Honeypot field - hidden from users */}
+        <input
+          type="text"
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+          style={{ position: 'absolute', left: '-9999px' }}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
 
         {/* Project Details */}
         <div>

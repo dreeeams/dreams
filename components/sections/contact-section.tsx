@@ -37,14 +37,14 @@ export default function ContactSection() {
     email: string;
     phone: string;
     companyName: string;
-    website: string;
+    websiteUrl: string;
     projectType: string;
     projectDetails: string;
     howDidYouHear: string;
   }) => {
     // Prepare prefill data for Cal.com
     const fullName = `${data.firstName}${data.lastName ? ' ' + data.lastName : ''}`.trim();
-    const notes = `Company: ${data.companyName}\nWebsite: ${data.website}\nProject Details: ${data.projectDetails}\nHow did you hear about us: ${data.howDidYouHear}`;
+    const notes = `Company: ${data.companyName}\nWebsite: ${data.websiteUrl}\nProject Details: ${data.projectDetails}\nHow did you hear about us: ${data.howDidYouHear}`;
 
     setPrefillData({
       name: fullName,
