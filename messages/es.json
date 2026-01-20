@@ -249,7 +249,8 @@
       "submit": "Enviar",
       "successTitle": "Perfecto",
       "successMessage": "Recibimos tu información y te contactaremos pronto.",
-      "scheduleCall": "",
+      "scheduleCall": "Agendar una Reunión",
+      "callDescription": "Agenda una llamada de 30 minutos para hablar sobre tu proyecto",
       "heardFrom": "¿Cómo te enteraste de nosotros? (opcional)",
       "heardFromOptions": {
         "select": "Selecciona una opción",
