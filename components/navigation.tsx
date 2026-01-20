@@ -70,7 +70,7 @@ export default function Navigation() {
                   viewBox="0 0 97 114"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 sm:h-7 md:h-8 w-auto"
+                  className="h-6 sm:h-5 md:h-6 w-auto"
                   role="img"
                   aria-labelledby="logo-title"
                 >
@@ -91,7 +91,7 @@ export default function Navigation() {
                     </filter>
                   </defs>
                 </svg>
-                <span className="text-lg sm:text-lg md:text-xl lg:text-2xl font-logo">DREEEAMS</span>
+                <span className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-logo">DREEEAMS</span>
               </motion.div>
             </Link>
 
