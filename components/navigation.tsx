@@ -256,9 +256,13 @@ export default function Navigation() {
       {/* Fixed Contact Button - Visible when header is hidden */}
       <motion.a
         href="#contact"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isVisible ? 0 : 1, y: isVisible ? -20 : 0 }}
-        transition={{ duration: 0.3 }}
+        initial={{ opacity: 0, x: 20, scale: 0.95 }}
+        animate={{
+          opacity: isVisible ? 0 : 1,
+          x: isVisible ? 20 : 0,
+          scale: isVisible ? 0.95 : 1
+        }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         whileTap={{ scale: 0.98 }}
         className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-4 py-2 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
         style={{ pointerEvents: isVisible ? 'none' : 'auto' }}
