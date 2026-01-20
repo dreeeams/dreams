@@ -155,6 +155,17 @@ export default function PaymentsPage() {
         {/* Colombia Tab */}
         {activeTab === 'colombia' && (
           <section className="space-y-12">
+            {/* BRE-B Account */}
+            <div>
+              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">{t('brebAccount.title')}</h3>
+              <dl className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.brebKey')}</dt>
+                  <dd className="font-mono text-gray-900">[BRE-B Key]</dd>
+                </div>
+              </dl>
+            </div>
+
             {/* Bank Account 1 - Bold CF */}
             <div>
               <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
@@ -197,46 +208,6 @@ export default function PaymentsPage() {
                   {t('bankTransfer1.importantText')}
                 </p>
               </div>
-            </div>
-
-            {/* Bank Account 2 - Placeholder */}
-            <div>
-              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                {t('bankTransfer2.title')}
-              </h3>
-              <dl className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.bankName')}</dt>
-                  <dd className="font-medium text-gray-900">[Bank Name]</dd>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountType')}</dt>
-                  <dd className="font-medium text-gray-900">[Account Type]</dd>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountNumber')}</dt>
-                  <dd className="font-mono text-gray-900">[Account Number]</dd>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900">[Account Holder]</dd>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.idNumber')}</dt>
-                  <dd className="font-mono text-gray-900">[Tax ID]</dd>
-                </div>
-              </dl>
-            </div>
-
-            {/* BRE-B Account */}
-            <div>
-              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">{t('brebAccount.title')}</h3>
-              <dl className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.brebKey')}</dt>
-                  <dd className="font-mono text-gray-900">[BRE-B Key]</dd>
-                </div>
-              </dl>
             </div>
           </section>
         )}
