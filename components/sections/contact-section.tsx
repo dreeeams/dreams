@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
+import { Calendar } from 'lucide-react';
 import ContactForm from '@/components/contact-form';
 
 export default function ContactSection() {
@@ -14,63 +15,6 @@ export default function ContactSection() {
     const hostname = window.location.hostname;
     const isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
     setIsLocalhost(isLocal);
-
-    console.log('🔍 Hostname:', hostname);
-    console.log('🔍 Is localhost?', isLocal);
-
-    // Inicializar Cal.com inline embed si NO estamos en localhost
-    if (!isLocal) {
-      console.log('📅 Loading Cal.com embed...');
-
-      // Cargar el script de Cal.com
-      const script = document.createElement('script');
-      script.src = 'https://app.cal.com/embed/embed.js';
-      script.async = true;
-
-      script.onload = () => {
-        console.log('✅ Cal.com script loaded');
-
-        // @ts-ignore
-        if (window.Cal) {
-          console.log('✅ Cal object found');
-
-          try {
-            // @ts-ignore
-            window.Cal('init', 'dream-studio-call', { origin: 'https://app.cal.com' });
-            console.log('✅ Cal initialized');
-
-            // @ts-ignore
-            window.Cal.ns['dream-studio-call']('inline', {
-              elementOrSelector: '#dream-studio-cal-inline',
-              config: { layout: 'month_view' },
-              calLink: 'dream-studio-sa/dream-studio-discovery-call',
-            });
-            console.log('✅ Cal inline configured');
-
-            // @ts-ignore
-            window.Cal.ns['dream-studio-call']('ui', {
-              cssVarsPerTheme: {
-                light: { 'cal-brand': '#000000' },
-                dark: { 'cal-brand': '#000000' }
-              },
-              hideEventTypeDetails: false,
-              layout: 'month_view'
-            });
-            console.log('✅ Cal UI configured');
-          } catch (error) {
-            console.error('❌ Error configuring Cal.com:', error);
-          }
-        } else {
-          console.error('❌ Cal object not found');
-        }
-      };
-
-      script.onerror = () => {
-        console.error('❌ Error loading Cal.com script');
-      };
-
-      document.head.appendChild(script);
-    }
   }, []);
 
   const handleFormSuccess = (data: {
@@ -110,28 +54,34 @@ export default function ContactSection() {
             <p className="text-sm text-gray-600">{t('noSpam')}</p>
           </motion.div>
 
-          {/* Conditional rendering: Form in localhost, Cal.com in production */}
+          {/* Conditional rendering: Form in localhost, Button in production */}
           {isLocalhost ? (
             // Mostrar formulario en localhost
             <ContactForm onSuccess={handleFormSuccess} />
           ) : (
-            // Mostrar Cal.com inline embed en producción
+            // Mostrar botón para agendar en producción
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="w-full max-w-5xl mx-auto"
+              className="w-full max-w-3xl mx-auto text-center"
             >
-              <div
-                id="dream-studio-cal-inline"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  minHeight: '700px',
-                  overflow: 'scroll'
-                }}
-              />
+              <motion.a
+                href="https://cal.com/luis-fernandez-ezzzmp/30min?overlayCalendar=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center gap-3 px-12 py-6 text-lg font-medium text-white bg-black hover:bg-gray-800 transition-all duration-200 border-2 border-black shadow-lg group"
+              >
+                <Calendar className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+                <span>{t('scheduleCall') || 'Agendar una Reunión'}</span>
+              </motion.a>
+
+              <p className="text-sm text-gray-600 mt-6">
+                {t('callDescription') || 'Agenda una llamada de 30 minutos para hablar sobre tu proyecto'}
+              </p>
             </motion.div>
           )}
         </div>
