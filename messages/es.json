@@ -358,6 +358,60 @@
   "theme": {
     "toggle": "Cambiar tema"
   },
+  "payments": {
+    "title": "Instrucciones de Pago",
+    "lastUpdated": "Última Actualización: Enero 2026",
+    "backToHome": "Volver al Inicio",
+    "intro": "Gracias por confiar en Dream Studio. A continuación encontrarás las diferentes opciones para realizar tu pago de forma segura y conveniente.",
+    "bankTransfer": {
+      "title": "Transferencia Bancaria (Colombia)",
+      "bankName": "Banco",
+      "accountType": "Tipo de Cuenta",
+      "savingsAccount": "Cuenta de Ahorros",
+      "accountNumber": "Número de Cuenta",
+      "accountHolder": "Titular",
+      "idNumber": "NIT",
+      "important": "Importante",
+      "importantText": "Por favor envía el comprobante de pago después de realizar la transferencia para confirmar tu pago y agilizar el proceso."
+    },
+    "nequi": {
+      "title": "Nequi",
+      "phoneNumber": "Número de Teléfono",
+      "accountHolder": "Titular"
+    },
+    "international": {
+      "title": "Pagos Internacionales",
+      "paypal": {
+        "title": "PayPal",
+        "email": "Correo"
+      },
+      "wise": {
+        "title": "Wise (TransferWise)",
+        "description": "Aceptamos pagos internacionales a través de Wise. Contáctanos para obtener los detalles de la cuenta."
+      },
+      "crypto": {
+        "title": "Criptomonedas",
+        "description": "Aceptamos pagos en USDT, USDC, BTC y ETH. Contáctanos para obtener la dirección de la wallet."
+      }
+    },
+    "confirmation": {
+      "title": "Confirmación de Pago",
+      "description": "Una vez realizado el pago, por favor envía el comprobante a través de cualquiera de estos medios:",
+      "sendTo": "Enviar a",
+      "email": "Correo",
+      "whatsapp": "WhatsApp",
+      "include": "Incluir en el mensaje",
+      "item1": "Comprobante de pago (captura de pantalla o PDF)",
+      "item2": "Nombre completo o empresa",
+      "item3": "Número de factura o referencia del servicio"
+    },
+    "support": {
+      "title": "¿Necesitas Ayuda?",
+      "description": "Si tienes alguna pregunta o necesitas asistencia con tu pago, no dudes en contactarnos:",
+      "email": "Correo",
+      "whatsapp": "WhatsApp"
+    }
+  },
   "uiuxPage": {
     "meta": {
       "title": "Servicios de Diseño UI/UX | Dream Studio",

@@ -358,6 +358,60 @@
   "theme": {
     "toggle": "Toggle theme"
   },
+  "payments": {
+    "title": "Payment Instructions",
+    "lastUpdated": "Last Updated: January 2026",
+    "backToHome": "Back to Home",
+    "intro": "Thank you for trusting Dream Studio. Below you'll find different options to make your payment securely and conveniently.",
+    "bankTransfer": {
+      "title": "Bank Transfer (Colombia)",
+      "bankName": "Bank",
+      "accountType": "Account Type",
+      "savingsAccount": "Savings Account",
+      "accountNumber": "Account Number",
+      "accountHolder": "Account Holder",
+      "idNumber": "Tax ID",
+      "important": "Important",
+      "importantText": "Please send the payment receipt after making the transfer to confirm your payment and speed up the process."
+    },
+    "nequi": {
+      "title": "Nequi",
+      "phoneNumber": "Phone Number",
+      "accountHolder": "Account Holder"
+    },
+    "international": {
+      "title": "International Payments",
+      "paypal": {
+        "title": "PayPal",
+        "email": "Email"
+      },
+      "wise": {
+        "title": "Wise (TransferWise)",
+        "description": "We accept international payments through Wise. Contact us to get the account details."
+      },
+      "crypto": {
+        "title": "Cryptocurrency",
+        "description": "We accept payments in USDT, USDC, BTC, and ETH. Contact us to get the wallet address."
+      }
+    },
+    "confirmation": {
+      "title": "Payment Confirmation",
+      "description": "Once the payment is made, please send the receipt through any of these channels:",
+      "sendTo": "Send to",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "include": "Include in the message",
+      "item1": "Payment receipt (screenshot or PDF)",
+      "item2": "Full name or company",
+      "item3": "Invoice number or service reference"
+    },
+    "support": {
+      "title": "Need Help?",
+      "description": "If you have any questions or need assistance with your payment, don't hesitate to contact us:",
+      "email": "Email",
+      "whatsapp": "WhatsApp"
+    }
+  },
   "uiuxPage": {
     "meta": {
       "title": "UI/UX Design Services | Dream Studio",
