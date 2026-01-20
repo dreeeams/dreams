@@ -192,7 +192,7 @@ export default function BentoGrid() {
         </motion.p>
 
         {/* Bento Grid - 3x3 Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[240px]">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[240px]">
 
           {/* Row 1 - 3 cards */}
 
