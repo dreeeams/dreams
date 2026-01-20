@@ -371,6 +371,7 @@
       "accountNumber": "Account Number",
       "accountHolder": "Account Holder",
       "idNumber": "Tax ID",
+      "brebKey": "BRE-B Key",
       "important": "Important",
       "importantText": "Please send the payment receipt after making the transfer to confirm your payment and speed up the process."
     },

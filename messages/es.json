@@ -371,6 +371,7 @@
       "accountNumber": "Número de Cuenta",
       "accountHolder": "Titular",
       "idNumber": "NIT",
+      "brebKey": "Llave BRE-B",
       "important": "Importante",
       "importantText": "Por favor envía el comprobante de pago después de realizar la transferencia para confirmar tu pago y agilizar el proceso."
     },

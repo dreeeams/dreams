@@ -92,9 +92,13 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
               <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.accountHolder')}</dt>
               <dd className="font-medium text-gray-900">LF DREAMS S.A.S.</dd>
             </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-3">
+            <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-gray-100">
               <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.idNumber')}</dt>
               <dd className="font-mono text-gray-900">902.022.315-1</dd>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:justify-between py-3">
+              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.brebKey')}</dt>
+              <dd className="font-mono text-gray-900">000000000000000</dd>
             </div>
           </dl>
           <div className="mt-8 p-6 bg-gray-50">
