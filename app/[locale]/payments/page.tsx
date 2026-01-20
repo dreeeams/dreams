@@ -221,46 +221,13 @@ export default function PaymentsPage() {
               </dl>
             </div>
 
-            {/* Nequi */}
-            <div>
-              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                {t('nequi.title')}
-              </h3>
-              <dl className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.phoneNumber')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center">
-                    <span>+1 555 892 0875</span>
-                    <CopyButton text="+1 555 892 0875" fieldId="nequi-phone" />
-                  </dd>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900">Luis Fernando Fernandez</dd>
-                </div>
-              </dl>
-            </div>
-
             {/* BRE-B Account */}
             <div>
-              <h3 className="text-base font-medium text-gray-900 mb-2">{t('brebAccount.title')}</h3>
-              <p className="text-sm text-gray-500 mb-6">{t('brebAccount.subtitle')}</p>
+              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">{t('brebAccount.title')}</h3>
               <dl className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.accountNumber')}</dt>
-                  <dd className="font-mono text-gray-900">[BRE-B Account Number]</dd>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.brebKey')}</dt>
                   <dd className="font-mono text-gray-900">[BRE-B Key]</dd>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900">[Account Holder]</dd>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.idNumber')}</dt>
-                  <dd className="font-mono text-gray-900">[Tax ID]</dd>
                 </div>
               </dl>
             </div>
