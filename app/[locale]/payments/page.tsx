@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function PaymentsPage() {
   const t = useTranslations('payments');
-  const [activeTab, setActiveTab] = useState<'colombia' | 'usa' | 'crypto'>('colombia');
+  const [activeTab, setActiveTab] = useState<'colombia' | 'usa' | 'europe' | 'crypto'>('colombia');
 
   return (
     <div className="min-h-screen bg-white">
@@ -71,6 +71,27 @@ export default function PaymentsPage() {
                 />
               </div>
               <span>{t('tabs.usa')}</span>
+            </span>
+          </button>
+          <button
+            onClick={() => setActiveTab('europe')}
+            className={`px-6 py-3 text-sm font-medium transition-all border ${
+              activeTab === 'europe'
+                ? 'bg-black text-white border-black'
+                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+            }`}
+          >
+            <span className="flex items-center gap-3">
+              <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="https://flagcdn.com/w80/eu.png"
+                  alt="Europe"
+                  width={20}
+                  height={20}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span>{t('tabs.europe')}</span>
             </span>
           </button>
           <button
@@ -214,7 +235,7 @@ export default function PaymentsPage() {
 
         {/* USA Tab */}
         {activeTab === 'usa' && (
-          <section className="space-y-12">
+          <section>
             {/* Wise Account */}
             <div>
               <h3 className="text-base font-medium text-gray-900 mb-2">{t('wiseAccount.title')}</h3>
@@ -246,31 +267,36 @@ export default function PaymentsPage() {
                 </div>
               </dl>
             </div>
+          </section>
+        )}
 
-            {/* European Account */}
+        {/* Europe Tab */}
+        {activeTab === 'europe' && (
+          <section>
+            {/* European Wise Account */}
             <div>
-              <h3 className="text-base font-medium text-gray-900 mb-2">{t('international.europeanAccount.title')}</h3>
-              <p className="text-sm text-gray-500 mb-6">{t('international.europeanAccount.subtitle')}</p>
+              <h3 className="text-base font-medium text-gray-900 mb-2">{t('europeanAccount.title')}</h3>
+              <p className="text-sm text-gray-500 mb-6">{t('europeanAccount.subtitle')}</p>
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.bankName')}</dt>
-                  <dd className="font-medium text-gray-900">[Bank Name]</dd>
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.bankName')}</dt>
+                  <dd className="font-medium text-gray-900">Wise</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900">[Account Holder Name]</dd>
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.accountHolder')}</dt>
+                  <dd className="font-medium text-gray-900">LF DREAMS SAS</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.iban')}</dt>
-                  <dd className="font-mono text-gray-900">[IBAN]</dd>
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.iban')}</dt>
+                  <dd className="font-mono text-gray-900">BE55 9675 2466 1444</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.bic')}</dt>
-                  <dd className="font-mono text-gray-900">[BIC/SWIFT]</dd>
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.bic')}</dt>
+                  <dd className="font-mono text-gray-900">TRWIBEB1XXX</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.bankAddress')}</dt>
-                  <dd className="text-sm text-gray-900">[Bank Address]</dd>
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.bankAddress')}</dt>
+                  <dd className="text-sm text-gray-900">Rue du Trône 100, 3rd floor, Brussels, 1050, Belgium</dd>
                 </div>
               </dl>
             </div>

@@ -366,6 +366,7 @@
     "tabs": {
       "colombia": "Colombia",
       "usa": "USA",
+      "europe": "Europa",
       "crypto": "Crypto"
     },
     "colombianPayments": {
@@ -412,17 +413,17 @@
       "bankName": "Banco",
       "bankAddress": "Dirección del Banco"
     },
+    "europeanAccount": {
+      "title": "Cuenta Bancaria Europea",
+      "subtitle": "Transferencias SEPA y SWIFT",
+      "bankName": "Banco",
+      "accountHolder": "Titular de la Cuenta",
+      "iban": "IBAN",
+      "bic": "BIC/SWIFT",
+      "bankAddress": "Dirección del Banco"
+    },
     "international": {
       "title": "Pagos Internacionales",
-      "europeanAccount": {
-        "title": "Cuenta Bancaria Europea",
-        "subtitle": "Transferencias SEPA y SWIFT",
-        "bankName": "Banco",
-        "accountHolder": "Titular de la Cuenta",
-        "iban": "IBAN",
-        "bic": "BIC/SWIFT",
-        "bankAddress": "Dirección del Banco"
-      },
       "crypto": {
         "title": "Criptomonedas",
         "subtitle": "Pagos en blockchain",
