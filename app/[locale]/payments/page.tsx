@@ -56,10 +56,10 @@ export default function PaymentsPage() {
       {/* Tabs - Outside Header */}
       <div className="max-w-3xl mx-auto px-6 py-8">
         <div className="-mx-6 px-6">
-          <div className="flex flex-wrap gap-1 sm:gap-2 md:gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-2 md:gap-3">
             <button
               onClick={() => setActiveTab('colombia')}
-              className={`px-2 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+              className={`px-3 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
                 activeTab === 'colombia'
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
@@ -80,7 +80,7 @@ export default function PaymentsPage() {
             </button>
             <button
               onClick={() => setActiveTab('usa')}
-              className={`px-2 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+              className={`px-3 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
                 activeTab === 'usa'
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
@@ -101,7 +101,7 @@ export default function PaymentsPage() {
             </button>
             <button
               onClick={() => setActiveTab('europe')}
-              className={`px-2 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+              className={`px-3 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
                 activeTab === 'europe'
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
@@ -122,7 +122,7 @@ export default function PaymentsPage() {
             </button>
             <button
               onClick={() => setActiveTab('crypto')}
-              className={`px-2 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+              className={`px-3 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
                 activeTab === 'crypto'
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
