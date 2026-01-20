@@ -75,11 +75,11 @@ export default function ContactForm() {
       className="w-full max-w-3xl mx-auto"
     >
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Name Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Name Row - 2 columns on mobile */}
+        <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-900 mb-2">
-              {t('firstName')} <span className="text-red-500">*</span>
+              {t('firstName')} <span className="text-gray-400">*</span>
             </label>
             <input
               type="text"
@@ -88,7 +88,7 @@ export default function ContactForm() {
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900"
             />
           </div>
           <div>
@@ -101,7 +101,7 @@ export default function ContactForm() {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900"
             />
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function ContactForm() {
         {/* Email */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('email')} <span className="text-red-500">*</span>
+            {t('email')} <span className="text-gray-400">*</span>
           </label>
           <input
             type="email"
@@ -119,14 +119,14 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             placeholder="ejemplo@dreeeams.com"
-            className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
         {/* Phone */}
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('phone')} <span className="text-red-500">*</span>
+            {t('phone')} <span className="text-gray-400">*</span>
           </label>
           <input
             type="tel"
@@ -136,14 +136,14 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             placeholder="+57"
-            className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
         {/* Company Name */}
         <div>
           <label htmlFor="companyName" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('companyName')} <span className="text-red-500">*</span>
+            {t('companyName')} <span className="text-gray-400">*</span>
           </label>
           <input
             type="text"
@@ -153,14 +153,14 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             placeholder={t('companyNamePlaceholder')}
-            className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
           />
         </div>
 
         {/* Website */}
         <div>
           <label htmlFor="website" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('website')} <span className="text-red-500">*</span>
+            {t('website')} <span className="text-gray-400">*</span>
           </label>
           <input
             type="url"
@@ -170,34 +170,8 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             placeholder={t('websitePlaceholder')}
-            className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
           />
-        </div>
-
-        {/* Project Type */}
-        <div>
-          <label htmlFor="projectType" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('projectType')} <span className="text-red-500">*</span>
-          </label>
-          <select
-            id="projectType"
-            name="projectType"
-            value={formData.projectType}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900 appearance-none cursor-pointer"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'right 1rem center',
-            }}
-          >
-            <option value="">{t('projectTypePlaceholder')}</option>
-            <option value="web">{t('projectTypeWeb')}</option>
-            <option value="mobile">{t('projectTypeMobile')}</option>
-            <option value="both">{t('projectTypeBoth')}</option>
-            <option value="other">{t('projectTypeOther')}</option>
-          </select>
         </div>
 
         {/* Project Details */}
@@ -212,14 +186,14 @@ export default function ContactForm() {
             onChange={handleChange}
             rows={5}
             placeholder={t('projectDetailsPlaceholder')}
-            className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400 resize-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400 resize-none"
           />
         </div>
 
         {/* How Did You Hear */}
         <div>
           <label htmlFor="howDidYouHear" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('howDidYouHear')} <span className="text-red-500">*</span>
+            {t('howDidYouHear')} <span className="text-gray-400">*</span>
           </label>
           <select
             id="howDidYouHear"
@@ -227,7 +201,7 @@ export default function ContactForm() {
             value={formData.howDidYouHear}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black focus:outline-none transition-colors bg-white text-gray-900 appearance-none cursor-pointer"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-black focus:ring-1 focus:ring-black focus:outline-none transition-colors bg-white text-gray-900 appearance-none cursor-pointer"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
               backgroundRepeat: 'no-repeat',
@@ -236,8 +210,16 @@ export default function ContactForm() {
           >
             <option value="">{t('howDidYouHearPlaceholder')}</option>
             <option value="google">{t('howDidYouHearGoogle')}</option>
-            <option value="social">{t('howDidYouHearSocial')}</option>
+            <option value="instagram">{t('howDidYouHearInstagram')}</option>
+            <option value="facebook">{t('howDidYouHearFacebook')}</option>
+            <option value="linkedin">{t('howDidYouHearLinkedIn')}</option>
+            <option value="twitter">{t('howDidYouHearTwitter')}</option>
+            <option value="tiktok">{t('howDidYouHearTikTok')}</option>
+            <option value="youtube">{t('howDidYouHearYouTube')}</option>
             <option value="referral">{t('howDidYouHearReferral')}</option>
+            <option value="event">{t('howDidYouHearEvent')}</option>
+            <option value="blog">{t('howDidYouHearBlog')}</option>
+            <option value="advertisement">{t('howDidYouHearAdvertisement')}</option>
             <option value="other">{t('howDidYouHearOther')}</option>
           </select>
         </div>
