@@ -2,23 +2,36 @@
 
 import { useEffect } from 'react';
 
+const SW_VERSION = 'v2'; // Increment this to force SW update
+
 export default function ServiceWorkerRegister() {
   useEffect(() => {
     if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      // First, unregister any existing service workers to force update
-      navigator.serviceWorker.getRegistrations().then((registrations) => {
-        registrations.forEach((registration) => {
-          registration.unregister();
-        });
-      });
+      const currentVersion = localStorage.getItem('sw-version');
 
-      // Then register the new service worker
+      // Only unregister if version changed
+      if (currentVersion && currentVersion !== SW_VERSION) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          registrations.forEach((registration) => {
+            registration.unregister();
+          });
+          localStorage.setItem('sw-version', SW_VERSION);
+          // Reload after unregistering old SW
+          window.location.reload();
+          return;
+        });
+      }
+
+      // Register the service worker
       navigator.serviceWorker
         .register('/sw.js')
         .then((registration) => {
           console.log('Service Worker registered:', registration);
 
-          // Force update check on page load
+          // Store current version
+          localStorage.setItem('sw-version', SW_VERSION);
+
+          // Force update check
           registration.update();
 
           // Listen for updates
@@ -27,8 +40,9 @@ export default function ServiceWorkerRegister() {
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // New service worker available, reload page
-                  console.log('New Service Worker available, reloading...');
+                  console.log('New Service Worker available');
+                  // Update version and reload
+                  localStorage.setItem('sw-version', SW_VERSION);
                   window.location.reload();
                 }
               });
