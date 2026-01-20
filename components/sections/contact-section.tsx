@@ -38,7 +38,7 @@ export default function ContactSection() {
             className="mb-12 text-center"
           >
             <div className="flex items-center justify-center mb-8">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center whitespace-nowrap">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center leading-tight">
                 {t('title')}
               </h2>
             </div>
