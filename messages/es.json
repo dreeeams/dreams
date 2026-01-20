@@ -363,22 +363,49 @@
     "lastUpdated": "Última Actualización: Enero 2026",
     "backToHome": "Volver al Inicio",
     "intro": "Gracias por confiar en Dream Studio. A continuación encontrarás las diferentes opciones para realizar tu pago de forma segura y conveniente.",
-    "bankTransfer": {
-      "title": "Transferencia Bancaria (Colombia)",
+    "colombianPayments": {
+      "title": "Pagos en Colombia",
+      "subtitle": "Transferencias bancarias y pagos móviles"
+    },
+    "bankTransfer1": {
+      "title": "Cuenta Bancaria 1 - Bold CF",
       "bankName": "Banco",
-      "accountType": "Tipo de Cuenta",
-      "savingsAccount": "Cuenta de Ahorros",
       "accountNumber": "Número de Cuenta",
       "accountHolder": "Titular",
       "idNumber": "NIT",
-      "brebKey": "Llave BRE-B",
       "important": "Importante",
-      "importantText": "Por favor envía el comprobante de pago después de realizar la transferencia para confirmar tu pago y agilizar el proceso."
+      "importantText": "Por favor envía el comprobante de pago después de realizar la transferencia."
+    },
+    "bankTransfer2": {
+      "title": "Cuenta Bancaria 2",
+      "bankName": "Banco",
+      "accountType": "Tipo de Cuenta",
+      "accountNumber": "Número de Cuenta",
+      "accountHolder": "Titular",
+      "idNumber": "NIT"
+    },
+    "brebAccount": {
+      "title": "Cuenta BRE-B",
+      "subtitle": "Sistema de pagos electrónicos",
+      "accountNumber": "Número de Cuenta",
+      "brebKey": "Llave BRE-B",
+      "accountHolder": "Titular",
+      "idNumber": "NIT"
     },
     "nequi": {
       "title": "Nequi",
       "phoneNumber": "Número de Teléfono",
       "accountHolder": "Titular"
+    },
+    "wiseAccount": {
+      "title": "Cuenta en Estados Unidos - Wise",
+      "subtitle": "Para pagos internacionales",
+      "accountHolder": "Titular",
+      "accountNumber": "Número de Cuenta",
+      "routingNumber": "Routing Number",
+      "swiftCode": "Código SWIFT",
+      "bankName": "Banco",
+      "bankAddress": "Dirección del Banco"
     },
     "international": {
       "title": "Pagos Internacionales",
@@ -386,13 +413,13 @@
         "title": "PayPal",
         "email": "Correo"
       },
-      "wise": {
-        "title": "Wise (TransferWise)",
-        "description": "Aceptamos pagos internacionales a través de Wise. Contáctanos para obtener los detalles de la cuenta."
-      },
       "crypto": {
         "title": "Criptomonedas",
-        "description": "Aceptamos pagos en USDT, USDC, BTC y ETH. Contáctanos para obtener la dirección de la wallet."
+        "subtitle": "Pagos en blockchain",
+        "network": "Red",
+        "address": "Dirección de Wallet",
+        "ethereumNetwork": "Red Ethereum (ERC20)",
+        "bitcoinNetwork": "Red Bitcoin"
       }
     },
     "confirmation": {

@@ -363,22 +363,49 @@
     "lastUpdated": "Last Updated: January 2026",
     "backToHome": "Back to Home",
     "intro": "Thank you for trusting Dream Studio. Below you'll find different options to make your payment securely and conveniently.",
-    "bankTransfer": {
-      "title": "Bank Transfer (Colombia)",
+    "colombianPayments": {
+      "title": "Colombian Payments",
+      "subtitle": "Bank transfers and mobile payments"
+    },
+    "bankTransfer1": {
+      "title": "Bank Account 1 - Bold CF",
       "bankName": "Bank",
-      "accountType": "Account Type",
-      "savingsAccount": "Savings Account",
       "accountNumber": "Account Number",
       "accountHolder": "Account Holder",
       "idNumber": "Tax ID",
-      "brebKey": "BRE-B Key",
       "important": "Important",
-      "importantText": "Please send the payment receipt after making the transfer to confirm your payment and speed up the process."
+      "importantText": "Please send the payment receipt after making the transfer."
+    },
+    "bankTransfer2": {
+      "title": "Bank Account 2",
+      "bankName": "Bank",
+      "accountType": "Account Type",
+      "accountNumber": "Account Number",
+      "accountHolder": "Account Holder",
+      "idNumber": "Tax ID"
+    },
+    "brebAccount": {
+      "title": "BRE-B Account",
+      "subtitle": "Electronic payment system",
+      "accountNumber": "Account Number",
+      "brebKey": "BRE-B Key",
+      "accountHolder": "Account Holder",
+      "idNumber": "Tax ID"
     },
     "nequi": {
       "title": "Nequi",
       "phoneNumber": "Phone Number",
       "accountHolder": "Account Holder"
+    },
+    "wiseAccount": {
+      "title": "United States Account - Wise",
+      "subtitle": "For international payments",
+      "accountHolder": "Account Holder",
+      "accountNumber": "Account Number",
+      "routingNumber": "Routing Number",
+      "swiftCode": "SWIFT Code",
+      "bankName": "Bank",
+      "bankAddress": "Bank Address"
     },
     "international": {
       "title": "International Payments",
@@ -386,13 +413,13 @@
         "title": "PayPal",
         "email": "Email"
       },
-      "wise": {
-        "title": "Wise (TransferWise)",
-        "description": "We accept international payments through Wise. Contact us to get the account details."
-      },
       "crypto": {
         "title": "Cryptocurrency",
-        "description": "We accept payments in USDT, USDC, BTC, and ETH. Contact us to get the wallet address."
+        "subtitle": "Blockchain payments",
+        "network": "Network",
+        "address": "Wallet Address",
+        "ethereumNetwork": "Ethereum Network (ERC20)",
+        "bitcoinNetwork": "Bitcoin Network"
       }
     },
     "confirmation": {
