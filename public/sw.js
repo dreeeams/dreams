@@ -1,5 +1,5 @@
 // Service Worker for offline caching
-const CACHE_NAME = 'dream-studio-v2';
+const CACHE_NAME = 'dream-studio-v3';
 const urlsToCache = [
   '/',
   '/fonts/Monigue-Regular.otf',
