@@ -2,8 +2,9 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Bitcoin, Circle } from 'lucide-react';
+import { Circle } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function PaymentsPage() {
   const t = useTranslations('payments');
@@ -38,8 +39,14 @@ export default function PaymentsPage() {
                 : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
             }`}
           >
-            <span className="flex items-center gap-2">
-              <span>🇨🇴</span>
+            <span className="flex items-center gap-3">
+              <Image
+                src="https://flagcdn.com/w80/co.png"
+                alt="Colombia"
+                width={24}
+                height={16}
+                className="rounded"
+              />
               <span>{t('tabs.colombia')}</span>
             </span>
           </button>
@@ -51,8 +58,14 @@ export default function PaymentsPage() {
                 : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
             }`}
           >
-            <span className="flex items-center gap-2">
-              <span>🇺🇸</span>
+            <span className="flex items-center gap-3">
+              <Image
+                src="https://flagcdn.com/w80/us.png"
+                alt="USA"
+                width={24}
+                height={16}
+                className="rounded"
+              />
               <span>{t('tabs.usa')}</span>
             </span>
           </button>
@@ -64,8 +77,14 @@ export default function PaymentsPage() {
                 : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
             }`}
           >
-            <span className="flex items-center gap-2">
-              <span>₿</span>
+            <span className="flex items-center gap-3">
+              <Image
+                src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
+                alt="Crypto"
+                width={20}
+                height={20}
+                className="rounded-full"
+              />
               <span>{t('tabs.crypto')}</span>
             </span>
           </button>
@@ -250,10 +269,13 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L4 12L12 16L20 12L12 2Z" fill="#374151" stroke="#374151" strokeWidth="0.5"/>
-                        <path d="M12 17L4 13L12 22L20 13L12 17Z" fill="#6B7280" stroke="#6B7280" strokeWidth="0.5"/>
-                      </svg>
+                      <Image
+                        src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png"
+                        alt="Ethereum"
+                        width={40}
+                        height={40}
+                        className="rounded-full"
+                      />
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">Ethereum (ETH)</div>
@@ -273,10 +295,13 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="#F7931A" strokeWidth="1.5" fill="none"/>
-                        <path d="M13.5 8.5V7H10.5V8.5H9V10.5H10.5V15.5H9V17H15V15.5H13.5V10.5H15V8.5H13.5Z" fill="#F7931A"/>
-                      </svg>
+                      <Image
+                        src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
+                        alt="Bitcoin"
+                        width={40}
+                        height={40}
+                        className="rounded-full"
+                      />
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">Bitcoin (BTC)</div>
@@ -296,10 +321,13 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="#26A17B" strokeWidth="1.5" fill="none"/>
-                        <path d="M13.5 9.5V8H10.5V9.5H9V11H10.5V15.5H9V17H15V15.5H13.5V11H15V9.5H13.5Z" fill="#26A17B"/>
-                      </svg>
+                      <Image
+                        src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdt.png"
+                        alt="Tether"
+                        width={40}
+                        height={40}
+                        className="rounded-full"
+                      />
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">Tether (USDT)</div>
@@ -319,10 +347,13 @@ export default function PaymentsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 flex items-center justify-center">
-                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="#2775CA" strokeWidth="1.5" fill="none"/>
-                        <path d="M13 15H11V14C11 13.7 11.2 13.5 11.5 13.5H12.5C12.8 13.5 13 13.3 13 13V11C13 10.7 12.8 10.5 12.5 10.5H11V9H13C13.6 9 14 9.4 14 10V13C14 13.6 13.6 14 13 14V15Z" fill="#2775CA"/>
-                      </svg>
+                      <Image
+                        src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdc.png"
+                        alt="USD Coin"
+                        width={40}
+                        height={40}
+                        className="rounded-full"
+                      />
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">USD Coin (USDC)</div>
