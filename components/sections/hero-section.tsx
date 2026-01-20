@@ -3,7 +3,6 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { InfiniteGrid } from '@/components/ui/the-infinite-grid';
 
 type CodeLine = {
   text: string;
@@ -84,7 +83,7 @@ export default function HeroSection() {
   }, [currentLineIndex, codeLines, loaderComplete]);
 
   return (
-    <InfiniteGrid className="bg-background-light">
+    <div className="bg-background-light w-full h-full">
       <section className="w-full h-full flex items-center justify-center px-6 md:px-12">
         <div className="max-w-7xl w-full mx-auto">
         {/* SEO H1 - Visually hidden but available for screen readers and SEO */}
@@ -178,6 +177,6 @@ export default function HeroSection() {
         </div>
         </div>
       </section>
-    </InfiniteGrid>
+    </div>
   );
 }
