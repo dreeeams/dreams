@@ -40,11 +40,34 @@ export default function PaymentsPage() {
       <header className="border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 py-16">
           <Link href="/" className="inline-flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-              <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <svg
+              width="24"
+              height="28"
+              viewBox="0 0 97 114"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-auto"
+              role="img"
+              aria-labelledby="logo-title-payments"
+            >
+              <title id="logo-title-payments">Dream Studio Logo</title>
+              <g filter="url(#filter0_d_payments)">
+                <path d="M47.9849 11.0323V52.6452L38.4484 47.2258C21.5161 37.5484 11.0064 19.5484 11.0064 0H4V47.6129C4 63.0968 12.9527 77.4194 27.1602 84.1936L48.1796 94.2581V52.6452L57.7161 58.0645C74.6484 67.7419 85.1581 85.7419 85.1581 105.29H92.1645V57.6774C92.1645 42.1935 83.2118 27.871 69.0043 21.0968L47.9849 11.0323Z" fill="currentColor" className="text-black"/>
+              </g>
+              <defs>
+                <filter id="filter0_d_payments" x="0" y="0" width="96.1645" height="113.29" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                  <feOffset dy="4"/>
+                  <feGaussianBlur stdDeviation="2"/>
+                  <feComposite in2="hardAlpha" operator="out"/>
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_payments"/>
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_payments" result="shape"/>
+                </filter>
+              </defs>
             </svg>
-            <span className="text-sm font-medium text-gray-900">dreeeams</span>
+            <span className="text-lg font-logo">DREEEAMS</span>
           </Link>
           <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 mb-3">
             {t('title')}
