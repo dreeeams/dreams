@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import Navigation from '@/components/navigation';
 import HeroSection from '@/components/sections/hero-section';
-import MarqueeSection from '@/components/sections/marquee-section';
 import ServicesSection from '@/components/sections/services-section';
 import FooterSection from '@/components/sections/footer-section';
 import SkipToContent from '@/components/skip-to-content';
@@ -41,7 +40,6 @@ export default function HomePage() {
         {/* Content that scrolls over hero */}
         <div className="relative z-10" style={{ marginTop: '100vh' }}>
           <ServicesSection />
-          <MarqueeSection />
           <PortfolioSection />
           <ContactSection />
           <FAQSection />
