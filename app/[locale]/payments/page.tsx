@@ -40,13 +40,15 @@ export default function PaymentsPage() {
             }`}
           >
             <span className="flex items-center gap-3">
-              <Image
-                src="https://flagcdn.com/w80/co.png"
-                alt="Colombia"
-                width={20}
-                height={20}
-                className="rounded-full object-cover"
-              />
+              <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="https://flagcdn.com/w80/co.png"
+                  alt="Colombia"
+                  width={20}
+                  height={20}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <span>{t('tabs.colombia')}</span>
             </span>
           </button>
@@ -59,13 +61,15 @@ export default function PaymentsPage() {
             }`}
           >
             <span className="flex items-center gap-3">
-              <Image
-                src="https://flagcdn.com/w80/us.png"
-                alt="USA"
-                width={20}
-                height={20}
-                className="rounded-full object-cover"
-              />
+              <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="https://flagcdn.com/w80/us.png"
+                  alt="USA"
+                  width={20}
+                  height={20}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <span>{t('tabs.usa')}</span>
             </span>
           </button>
@@ -78,13 +82,15 @@ export default function PaymentsPage() {
             }`}
           >
             <span className="flex items-center gap-3">
-              <Image
-                src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
-                alt="Crypto"
-                width={20}
-                height={20}
-                className="rounded-full"
-              />
+              <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
+                  alt="Crypto"
+                  width={20}
+                  height={20}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <span>{t('tabs.crypto')}</span>
             </span>
           </button>
