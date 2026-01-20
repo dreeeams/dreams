@@ -52,23 +52,36 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
     try {
       // Transform form data to API format
       let whatsappNumber = formData.phone.trim();
-      // Ensure phone number has country code
+      // Ensure phone number has country code if not empty
       if (whatsappNumber && !whatsappNumber.startsWith('+')) {
         whatsappNumber = `+57${whatsappNumber}`;
       }
 
-      const apiData = {
+      const apiData: any = {
         fullName: `${formData.firstName}${formData.lastName ? ' ' + formData.lastName : ''}`.trim(),
         email: formData.email,
-        whatsapp: whatsappNumber,
         company: formData.companyName,
-        websiteUrl: formData.websiteUrl,
         need: formData.projectType || 'General Inquiry',
-        summary: formData.projectDetails,
-        heardFrom: formData.howDidYouHear,
         acceptTerms: true,
         website: formData.website, // Honeypot (should be empty)
       };
+
+      // Add optional fields only if they have values
+      if (whatsappNumber) {
+        apiData.whatsapp = whatsappNumber;
+      }
+
+      if (formData.websiteUrl) {
+        apiData.websiteUrl = formData.websiteUrl;
+      }
+
+      if (formData.projectDetails) {
+        apiData.summary = formData.projectDetails;
+      }
+
+      if (formData.howDidYouHear) {
+        apiData.heardFrom = formData.howDidYouHear;
+      }
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -166,7 +179,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         {/* Phone */}
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('phone')} <span className="text-gray-400">*</span>
+            {t('phone')}
           </label>
           <input
             type="tel"
@@ -174,7 +187,6 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            required
             placeholder="+57"
             className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
           />
@@ -200,7 +212,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         {/* Website */}
         <div>
           <label htmlFor="websiteUrl" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('website')} <span className="text-gray-400">*</span>
+            {t('website')}
           </label>
           <input
             type="url"
@@ -208,7 +220,6 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
             name="websiteUrl"
             value={formData.websiteUrl}
             onChange={handleChange}
-            required
             placeholder={t('websitePlaceholder')}
             className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 placeholder:text-gray-400"
           />
@@ -245,14 +256,13 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         {/* How Did You Hear */}
         <div>
           <label htmlFor="howDidYouHear" className="block text-sm font-medium text-gray-900 mb-2">
-            {t('howDidYouHear')} <span className="text-gray-400">*</span>
+            {t('howDidYouHear')}
           </label>
           <select
             id="howDidYouHear"
             name="howDidYouHear"
             value={formData.howDidYouHear}
             onChange={handleChange}
-            required
             className="w-full px-0 py-3 border-0 border-b-2 border-black/20 focus:border-black focus:outline-none transition-all duration-300 bg-transparent text-gray-900 appearance-none cursor-pointer pr-8"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
