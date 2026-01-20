@@ -491,28 +491,6 @@ export default function PaymentsPage() {
           </div>
         </section>
 
-        {/* Support */}
-        <section className="mt-20">
-          <h2 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">
-            {t('support.title')}
-          </h2>
-          <p className="text-gray-600 mb-6">{t('support.description')}</p>
-          <div className="space-y-4">
-            <div>
-              <span className="text-sm text-gray-500">{t('support.email')}</span>
-              <a href="mailto:info@dreeeams.com" className="block mt-1 text-gray-900 hover:text-brand transition-colors">
-                info@dreeeams.com
-              </a>
-            </div>
-            <div>
-              <span className="text-sm text-gray-500">{t('support.whatsapp')}</span>
-              <a href="https://wa.me/15558920875" target="_blank" rel="noopener noreferrer" className="block mt-1 text-gray-900 hover:text-brand transition-colors">
-                +1 555 892 0875
-              </a>
-            </div>
-          </div>
-        </section>
-
         {/* Footer Link */}
         <div className="pt-12 border-t border-gray-200 mt-20">
           <Link href="/" className="text-sm text-gray-500 hover:text-black transition-colors">
