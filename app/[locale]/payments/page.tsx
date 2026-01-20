@@ -222,27 +222,27 @@ export default function PaymentsPage() {
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.bankName')}</dt>
-                  <dd className="font-medium text-gray-900">Wise</dd>
+                  <dd className="font-medium text-gray-900">Wise US Inc</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900">[Account Holder Name]</dd>
+                  <dd className="font-medium text-gray-900">LF DREAMS SAS</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountNumber')}</dt>
-                  <dd className="font-mono text-gray-900">[Account Number]</dd>
+                  <dd className="font-mono text-gray-900">863066497361982</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.routingNumber')}</dt>
-                  <dd className="font-mono text-gray-900">[Routing Number]</dd>
+                  <dd className="font-mono text-gray-900">084009519</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.swiftCode')}</dt>
-                  <dd className="font-mono text-gray-900">[SWIFT Code]</dd>
+                  <dd className="font-mono text-gray-900">TRWIUS35XXX</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.bankAddress')}</dt>
-                  <dd className="text-sm text-gray-900">[Bank Address]</dd>
+                  <dd className="text-sm text-gray-900">108 W 13th St, Wilmington, DE, 19801, United States</dd>
                 </div>
               </dl>
             </div>
