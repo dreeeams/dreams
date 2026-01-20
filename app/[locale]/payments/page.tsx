@@ -78,27 +78,19 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
           <dl className="space-y-5">
             <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-gray-100">
               <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.bankName')}</dt>
-              <dd className="font-medium text-gray-900">Bancolombia</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.accountType')}</dt>
-              <dd className="font-medium text-gray-900">{t('bankTransfer.savingsAccount')}</dd>
+              <dd className="font-medium text-gray-900">Bold CF - Depósito Electrónico</dd>
             </div>
             <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-gray-100">
               <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.accountNumber')}</dt>
-              <dd className="font-mono text-gray-900">000-000000-00</dd>
+              <dd className="font-mono text-gray-900">1700-1386-5009</dd>
             </div>
             <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-gray-100">
               <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.accountHolder')}</dt>
-              <dd className="font-medium text-gray-900">LF DREAMS S.A.S.</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.idNumber')}</dt>
-              <dd className="font-mono text-gray-900">902.022.315-1</dd>
+              <dd className="font-medium text-gray-900">LF DREAMS SAS</dd>
             </div>
             <div className="flex flex-col sm:flex-row sm:justify-between py-3">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.brebKey')}</dt>
-              <dd className="font-mono text-gray-900">000000000000000</dd>
+              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer.idNumber')}</dt>
+              <dd className="font-mono text-gray-900">902022315</dd>
             </div>
           </dl>
           <div className="mt-8 p-6 bg-gray-50">
@@ -151,8 +143,25 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
 
             {/* Crypto */}
             <div>
-              <h3 className="text-base font-medium text-gray-900 mb-3">{t('international.crypto.title')}</h3>
-              <p className="text-sm text-gray-600">{t('international.crypto.description')}</p>
+              <h3 className="text-base font-medium text-gray-900 mb-4">{t('international.crypto.title')}</h3>
+              <dl className="space-y-3">
+                <div>
+                  <dt className="text-xs text-gray-500 mb-1">ETH</dt>
+                  <dd className="font-mono text-xs text-gray-900 break-all">0xD36e81f28b10A847af00153b359De90b5156FAEF</dd>
+                </div>
+                <div>
+                  <dt className="text-xs text-gray-500 mb-1">BTC</dt>
+                  <dd className="font-mono text-xs text-gray-900 break-all">bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44</dd>
+                </div>
+                <div>
+                  <dt className="text-xs text-gray-500 mb-1">USDT (ERC20)</dt>
+                  <dd className="font-mono text-xs text-gray-900 break-all">0xD36e81f28b10A847af00153b359De90b5156FAEF</dd>
+                </div>
+                <div>
+                  <dt className="text-xs text-gray-500 mb-1">USDC (ERC20)</dt>
+                  <dd className="font-mono text-xs text-gray-900 break-all">0xD36e81f28b10A847af00153b359De90b5156FAEF</dd>
+                </div>
+              </dl>
             </div>
           </div>
         </section>
