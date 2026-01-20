@@ -15,7 +15,6 @@ export default function PaymentsPage() {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedField(fieldId);
-      setTimeout(() => setCopiedField(null), 2000);
     } catch (err) {
       console.error('Failed to copy:', err);
     }
@@ -28,7 +27,7 @@ export default function PaymentsPage() {
       aria-label="Copy to clipboard"
     >
       {copiedField === fieldId ? (
-        <Check className="w-4 h-4 text-green-600" />
+        <Check className="w-4 h-4 text-black" />
       ) : (
         <Copy className="w-4 h-4 text-gray-400 hover:text-gray-600" />
       )}
@@ -40,11 +39,12 @@ export default function PaymentsPage() {
       {/* Minimal Header */}
       <header className="border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 py-16">
-          <Link href="/" className="inline-flex items-center text-sm text-gray-500 hover:text-black mb-8 transition-colors">
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <Link href="/" className="inline-flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+              <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             </svg>
-            {t('backToHome')}
+            <span className="text-sm font-medium text-gray-900">dreeeams</span>
           </Link>
           <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 mb-3">
             {t('title')}
@@ -54,7 +54,7 @@ export default function PaymentsPage() {
       </header>
 
       {/* Tabs - Outside Header */}
-      <div className="max-w-3xl mx-auto px-6 py-8">
+      <div className="max-w-3xl mx-auto px-6 py-4">
         <div className="-mx-6 px-6">
           <div className="flex flex-wrap gap-2 sm:gap-2 md:gap-3">
             <button
@@ -146,7 +146,7 @@ export default function PaymentsPage() {
       </div>
 
       {/* Content */}
-      <main className="max-w-3xl mx-auto px-6 py-20">
+      <main className="max-w-3xl mx-auto px-6 py-8">
         {/* Introduction */}
         <section className="mb-20">
           <p className="text-lg text-gray-600 leading-relaxed">
@@ -182,7 +182,7 @@ export default function PaymentsPage() {
                   <dd className="font-medium text-gray-900">Bold CF</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountType')}</dt>
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Tipo de Cuenta</dt>
                   <dd className="font-medium text-gray-900">Depósito Electrónico</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
