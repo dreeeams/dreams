@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { Building2, Smartphone, Globe, CheckCircle, Mail, MessageCircle } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -44,153 +45,187 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
   const t = await getTranslations({ locale, namespace: 'payments' });
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <div className="border-b-4 border-black bg-brand">
-        <div className="max-w-4xl mx-auto px-6 py-12">
-          <Link href="/" className="inline-block mb-6 text-white hover:underline">
-            ← {t('backToHome')}
+    <div className="min-h-screen bg-gray-50">
+      {/* Simple Header */}
+      <div className="bg-white border-b">
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          <Link href="/" className="inline-flex items-center text-sm text-gray-600 hover:text-black mb-6">
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            {t('backToHome')}
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
             {t('title')}
           </h1>
-          <p className="text-white/90">{t('lastUpdated')}</p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="prose prose-lg max-w-none">
-          {/* Introduction */}
-          <section className="mb-12">
-            <p className="text-gray-700 leading-relaxed text-lg mb-6">
-              {t('intro')}
-            </p>
-          </section>
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        {/* Introduction */}
+        <p className="text-lg text-gray-600 mb-12 max-w-3xl">
+          {t('intro')}
+        </p>
 
+        {/* Payment Methods Grid */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {/* Bank Transfer */}
-          <section className="mb-12 bg-gray-50 p-8 border-2 border-black">
-            <h2 className="text-2xl font-bold mb-6 border-l-4 border-brand pl-4">
-              {t('bankTransfer.title')}
-            </h2>
-            <div className="space-y-4">
-              <div className="grid grid-cols-[140px_1fr] gap-2">
-                <span className="font-bold text-gray-900">{t('bankTransfer.bankName')}:</span>
-                <span className="text-gray-700">Bancolombia</span>
+          <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 bg-black rounded-lg">
+                <Building2 className="w-6 h-6 text-white" />
               </div>
-              <div className="grid grid-cols-[140px_1fr] gap-2">
-                <span className="font-bold text-gray-900">{t('bankTransfer.accountType')}:</span>
-                <span className="text-gray-700">{t('bankTransfer.savingsAccount')}</span>
-              </div>
-              <div className="grid grid-cols-[140px_1fr] gap-2">
-                <span className="font-bold text-gray-900">{t('bankTransfer.accountNumber')}:</span>
-                <span className="text-gray-700 font-mono text-lg">000-000000-00</span>
-              </div>
-              <div className="grid grid-cols-[140px_1fr] gap-2">
-                <span className="font-bold text-gray-900">{t('bankTransfer.accountHolder')}:</span>
-                <span className="text-gray-700">LF DREAMS S.A.S.</span>
-              </div>
-              <div className="grid grid-cols-[140px_1fr] gap-2">
-                <span className="font-bold text-gray-900">{t('bankTransfer.idNumber')}:</span>
-                <span className="text-gray-700 font-mono">902.022.315-1</span>
+              <div>
+                <h2 className="text-xl font-bold text-gray-900">{t('bankTransfer.title')}</h2>
               </div>
             </div>
-            <div className="mt-6 p-4 bg-white border-l-4 border-brand">
-              <p className="text-sm text-gray-600 font-semibold mb-2">{t('bankTransfer.important')}:</p>
-              <p className="text-sm text-gray-700">{t('bankTransfer.importantText')}</p>
+            <div className="space-y-3 text-sm">
+              <div className="flex justify-between py-2 border-b border-gray-100">
+                <span className="text-gray-600">{t('bankTransfer.bankName')}</span>
+                <span className="font-medium text-gray-900">Bancolombia</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-gray-100">
+                <span className="text-gray-600">{t('bankTransfer.accountType')}</span>
+                <span className="font-medium text-gray-900">{t('bankTransfer.savingsAccount')}</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-gray-100">
+                <span className="text-gray-600">{t('bankTransfer.accountNumber')}</span>
+                <span className="font-mono font-medium text-gray-900">000-000000-00</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-gray-100">
+                <span className="text-gray-600">{t('bankTransfer.accountHolder')}</span>
+                <span className="font-medium text-gray-900">LF DREAMS S.A.S.</span>
+              </div>
+              <div className="flex justify-between py-2">
+                <span className="text-gray-600">{t('bankTransfer.idNumber')}</span>
+                <span className="font-mono font-medium text-gray-900">902.022.315-1</span>
+              </div>
             </div>
-          </section>
+            <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+              <p className="text-sm text-blue-900">
+                <strong className="font-semibold">{t('bankTransfer.important')}:</strong> {t('bankTransfer.importantText')}
+              </p>
+            </div>
+          </div>
 
           {/* Nequi */}
-          <section className="mb-12 bg-gray-50 p-8 border-2 border-black">
-            <h2 className="text-2xl font-bold mb-6 border-l-4 border-brand pl-4">
-              {t('nequi.title')}
-            </h2>
-            <div className="space-y-4">
-              <div className="grid grid-cols-[140px_1fr] gap-2">
-                <span className="font-bold text-gray-900">{t('nequi.phoneNumber')}:</span>
-                <span className="text-gray-700 font-mono text-lg">+57 300 000 0000</span>
+          <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 bg-purple-600 rounded-lg">
+                <Smartphone className="w-6 h-6 text-white" />
               </div>
-              <div className="grid grid-cols-[140px_1fr] gap-2">
-                <span className="font-bold text-gray-900">{t('nequi.accountHolder')}:</span>
-                <span className="text-gray-700">Luis Fernando Fernandez</span>
-              </div>
-            </div>
-          </section>
-
-          {/* International Payments */}
-          <section className="mb-12 bg-gray-50 p-8 border-2 border-black">
-            <h2 className="text-2xl font-bold mb-6 border-l-4 border-brand pl-4">
-              {t('international.title')}
-            </h2>
-            <div className="space-y-6">
               <div>
-                <h3 className="font-bold text-lg mb-3">{t('international.paypal.title')}</h3>
-                <div className="space-y-2">
-                  <div className="grid grid-cols-[140px_1fr] gap-2">
-                    <span className="font-bold text-gray-900">{t('international.paypal.email')}:</span>
-                    <span className="text-gray-700">info@dreeeams.com</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-lg mb-3">{t('international.wise.title')}</h3>
-                <p className="text-gray-700">{t('international.wise.description')}</p>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-lg mb-3">{t('international.crypto.title')}</h3>
-                <p className="text-gray-700">{t('international.crypto.description')}</p>
+                <h2 className="text-xl font-bold text-gray-900">{t('nequi.title')}</h2>
               </div>
             </div>
-          </section>
-
-          {/* Payment Confirmation */}
-          <section className="mb-12 bg-brand/10 p-8 border-2 border-black">
-            <h2 className="text-2xl font-bold mb-6 border-l-4 border-brand pl-4">
-              {t('confirmation.title')}
-            </h2>
-            <div className="space-y-4 text-gray-700">
-              <p>{t('confirmation.description')}</p>
-              <div className="space-y-2">
-                <p className="font-semibold">{t('confirmation.sendTo')}:</p>
-                <ul className="list-disc pl-6 space-y-1">
-                  <li><strong>{t('confirmation.email')}:</strong> <a href="mailto:info@dreeeams.com" className="text-brand hover:underline">info@dreeeams.com</a></li>
-                  <li><strong>{t('confirmation.whatsapp')}:</strong> <a href="https://wa.me/573000000000" className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">+57 300 000 0000</a></li>
-                </ul>
+            <div className="space-y-3 text-sm">
+              <div className="flex justify-between py-2 border-b border-gray-100">
+                <span className="text-gray-600">{t('nequi.phoneNumber')}</span>
+                <span className="font-mono font-medium text-gray-900">+57 300 000 0000</span>
               </div>
-              <div className="mt-4 p-4 bg-white border-l-4 border-brand">
-                <p className="text-sm font-semibold mb-2">{t('confirmation.include')}:</p>
-                <ul className="list-disc pl-6 space-y-1 text-sm">
-                  <li>{t('confirmation.item1')}</li>
-                  <li>{t('confirmation.item2')}</li>
-                  <li>{t('confirmation.item3')}</li>
-                </ul>
+              <div className="flex justify-between py-2">
+                <span className="text-gray-600">{t('nequi.accountHolder')}</span>
+                <span className="font-medium text-gray-900">Luis Fernando Fernandez</span>
               </div>
             </div>
-          </section>
-
-          {/* Support */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 border-l-4 border-brand pl-4">
-              {t('support.title')}
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              {t('support.description')}
-            </p>
-            <div className="space-y-2 text-gray-700">
-              <p><strong>{t('support.email')}:</strong> <a href="mailto:info@dreeeams.com" className="text-brand hover:underline">info@dreeeams.com</a></p>
-              <p><strong>{t('support.whatsapp')}:</strong> <a href="https://wa.me/573000000000" className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">+57 300 000 0000</a></p>
-            </div>
-          </section>
+          </div>
         </div>
 
-        {/* Back to top */}
-        <div className="mt-12 text-center">
-          <Link href="/" className="inline-block bg-black text-white border-2 border-black px-8 py-3 font-bold hover:bg-brand hover:border-brand transition-colors">
-            {t('backToHome')}
-          </Link>
+        {/* International Payments */}
+        <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200 mb-12">
+          <div className="flex items-start gap-4 mb-6">
+            <div className="p-3 bg-green-600 rounded-lg">
+              <Globe className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-900">{t('international.title')}</h2>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* PayPal */}
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-2">{t('international.paypal.title')}</h3>
+              <p className="text-sm text-gray-600 break-all">info@dreeeams.com</p>
+            </div>
+
+            {/* Wise */}
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-2">{t('international.wise.title')}</h3>
+              <p className="text-sm text-gray-600">{t('international.wise.description')}</p>
+            </div>
+
+            {/* Crypto */}
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-2">{t('international.crypto.title')}</h3>
+              <p className="text-sm text-gray-600">{t('international.crypto.description')}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Payment Confirmation */}
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-8 border border-blue-200 mb-12">
+          <div className="flex items-start gap-4 mb-6">
+            <div className="p-3 bg-blue-600 rounded-lg">
+              <CheckCircle className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-900">{t('confirmation.title')}</h2>
+              <p className="text-gray-600 mt-2">{t('confirmation.description')}</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <a href="mailto:info@dreeeams.com" className="flex items-center gap-3 p-4 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+              <Mail className="w-5 h-5 text-gray-600" />
+              <div>
+                <p className="text-sm font-medium text-gray-900">{t('confirmation.email')}</p>
+                <p className="text-sm text-gray-600">info@dreeeams.com</p>
+              </div>
+            </a>
+            <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-lg hover:bg-gray-50 transition-colors">
+              <MessageCircle className="w-5 h-5 text-gray-600" />
+              <div>
+                <p className="text-sm font-medium text-gray-900">{t('confirmation.whatsapp')}</p>
+                <p className="text-sm text-gray-600">+57 300 000 0000</p>
+              </div>
+            </a>
+          </div>
+
+          <div className="bg-white rounded-lg p-4">
+            <p className="text-sm font-semibold text-gray-900 mb-2">{t('confirmation.include')}:</p>
+            <ul className="space-y-1 text-sm text-gray-600">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 mt-0.5">•</span>
+                <span>{t('confirmation.item1')}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 mt-0.5">•</span>
+                <span>{t('confirmation.item2')}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 mt-0.5">•</span>
+                <span>{t('confirmation.item3')}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Support Section */}
+        <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+          <h2 className="text-xl font-bold text-gray-900 mb-2">{t('support.title')}</h2>
+          <p className="text-gray-600 mb-6">{t('support.description')}</p>
+          <div className="flex flex-wrap gap-4">
+            <a href="mailto:info@dreeeams.com" className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
+              <Mail className="w-4 h-4" />
+              <span className="font-medium">info@dreeeams.com</span>
+            </a>
+            <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+              <MessageCircle className="w-4 h-4" />
+              <span className="font-medium">WhatsApp</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
