@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { Bitcoin, Circle } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -249,13 +250,18 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
               <div className="p-4 border border-gray-200 hover:border-gray-300 transition-colors">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">Ξ</span>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center">
+                      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L4 12L12 16L20 12L12 2Z" fill="#627EEA" />
+                        <path d="M12 17L4 13L12 22L20 13L12 17Z" fill="#627EEA" fillOpacity="0.6" />
+                      </svg>
+                    </div>
                     <div>
                       <div className="font-medium text-gray-900">Ethereum (ETH)</div>
                       <div className="text-xs text-gray-500">{t('international.crypto.ethereumNetwork')}</div>
                     </div>
                   </div>
-                  <span className="text-lg">🌐</span>
+                  <Circle className="w-5 h-5 text-gray-400" />
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
@@ -267,13 +273,15 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
               <div className="p-4 border border-gray-200 hover:border-gray-300 transition-colors">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">₿</span>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center">
+                      <Bitcoin className="w-6 h-6 text-orange-500" />
+                    </div>
                     <div>
                       <div className="font-medium text-gray-900">Bitcoin (BTC)</div>
                       <div className="text-xs text-gray-500">{t('international.crypto.bitcoinNetwork')}</div>
                     </div>
                   </div>
-                  <span className="text-lg">🌐</span>
+                  <Circle className="w-5 h-5 text-gray-400" />
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
@@ -285,13 +293,18 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
               <div className="p-4 border border-gray-200 hover:border-gray-300 transition-colors">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">💵</span>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+                      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" fill="#26A17B" />
+                        <path d="M13.5 9.5V8H10.5V9.5H9V11H10.5V15.5H9V17H15V15.5H13.5V11H15V9.5H13.5Z" fill="white" />
+                      </svg>
+                    </div>
                     <div>
                       <div className="font-medium text-gray-900">Tether (USDT)</div>
                       <div className="text-xs text-gray-500">{t('international.crypto.ethereumNetwork')}</div>
                     </div>
                   </div>
-                  <span className="text-lg">🌐</span>
+                  <Circle className="w-5 h-5 text-gray-400" />
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
@@ -303,13 +316,18 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
               <div className="p-4 border border-gray-200 hover:border-gray-300 transition-colors">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">💵</span>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
+                      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" fill="#2775CA" />
+                        <path d="M12 6C8.686 6 6 8.686 6 12C6 15.314 8.686 18 12 18C15.314 18 18 15.314 18 12C18 8.686 15.314 6 12 6ZM13.5 15H10.5V14C10.5 13.724 10.724 13.5 11 13.5H13C13.276 13.5 13.5 13.276 13.5 13V11C13.5 10.724 13.276 10.5 13 10.5H10.5V9H13.5C14.328 9 15 9.672 15 10.5V13.5C15 14.328 14.328 15 13.5 15Z" fill="white" />
+                      </svg>
+                    </div>
                     <div>
                       <div className="font-medium text-gray-900">USD Coin (USDC)</div>
                       <div className="text-xs text-gray-500">{t('international.crypto.ethereumNetwork')}</div>
                     </div>
                   </div>
-                  <span className="text-lg">🌐</span>
+                  <Circle className="w-5 h-5 text-gray-400" />
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
