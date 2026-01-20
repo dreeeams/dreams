@@ -198,7 +198,7 @@ export default function PaymentsPage() {
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.phoneNumber')}</dt>
-                  <dd className="font-mono text-gray-900">+57 300 000 0000</dd>
+                  <dd className="font-mono text-gray-900">+1 555 892 0875</dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.accountHolder')}</dt>
@@ -434,8 +434,8 @@ export default function PaymentsPage() {
             </div>
             <div>
               <span className="text-sm text-gray-500">{t('confirmation.whatsapp')}</span>
-              <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" className="block mt-1 text-gray-900 hover:text-brand transition-colors">
-                +57 300 000 0000
+              <a href="https://wa.me/15558920875" target="_blank" rel="noopener noreferrer" className="block mt-1 text-gray-900 hover:text-brand transition-colors">
+                +1 555 892 0875
               </a>
             </div>
           </div>
@@ -474,8 +474,8 @@ export default function PaymentsPage() {
             </div>
             <div>
               <span className="text-sm text-gray-500">{t('support.whatsapp')}</span>
-              <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" className="block mt-1 text-gray-900 hover:text-brand transition-colors">
-                +57 300 000 0000
+              <a href="https://wa.me/15558920875" target="_blank" rel="noopener noreferrer" className="block mt-1 text-gray-900 hover:text-brand transition-colors">
+                +1 555 892 0875
               </a>
             </div>
           </div>

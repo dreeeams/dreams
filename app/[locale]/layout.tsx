@@ -178,7 +178,7 @@ export default async function LocaleLayout({
       ? 'Agencia de desarrollo web y móvil profesional especializada en React, Next.js y React Native. Creamos aplicaciones web personalizadas, apps móviles y soluciones SaaS escalables.'
       : 'Professional web and mobile development agency specializing in React, Next.js, and React Native. We create custom web applications, mobile apps, and scalable SaaS solutions.',
     email: 'info@dreeeams.com',
-    telephone: '+1-XXX-XXX-XXXX',
+    telephone: '+15558920875',
     foundingDate: '2024',
     priceRange: '$$',
     areaServed: {
