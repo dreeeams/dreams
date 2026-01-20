@@ -13,7 +13,6 @@ import WebVitalsReporter from '@/components/web-vitals-reporter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import ScrollToTop from '@/components/scroll-to-top';
 import DisableZoomOnInput from '@/components/disable-zoom-on-input';
-import Chatwoot from '@/components/chatwoot';
 import type { Metadata } from 'next';
 import '../globals.css';
 import ConsoleFilter from '@/components/console-filter';
@@ -334,7 +333,6 @@ export default async function LocaleLayout({
               <PageLoader />
               {children}
               <ScrollToTop />
-              <Chatwoot />
               <Analytics />
               <SpeedInsights />
               <WebVitalsReporter />
