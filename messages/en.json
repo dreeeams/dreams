@@ -179,6 +179,8 @@
     "subtitle": "Takes less than 30 seconds. Schedule the meeting in seconds.",
     "noSpam": "",
     "scheduleButton": "SCHEDULE MEETING",
+    "scheduleCall": "Schedule a Meeting",
+    "callDescription": "Schedule a 30-minute call to talk about your project",
     "form": {
       "step": "Step",
       "of": "of",
@@ -249,8 +251,6 @@
       "submit": "Send",
       "successTitle": "Perfect",
       "successMessage": "We received your information and will get back to you soon.",
-      "scheduleCall": "Schedule a Meeting",
-      "callDescription": "Schedule a 30-minute call to talk about your project",
       "heardFrom": "How did you hear about us? (optional)",
       "heardFromOptions": {
         "select": "Select an option",

@@ -179,6 +179,8 @@
     "subtitle": "Toma menos de 30 segundos. Cuadra la reunion en segundos.",
     "noSpam": "",
     "scheduleButton": "AGENDAR REUNION",
+    "scheduleCall": "Agendar una Reunión",
+    "callDescription": "Agenda una llamada de 30 minutos para hablar sobre tu proyecto",
     "form": {
       "step": "Paso",
       "of": "de",
@@ -249,8 +251,6 @@
       "submit": "Enviar",
       "successTitle": "Perfecto",
       "successMessage": "Recibimos tu información y te contactaremos pronto.",
-      "scheduleCall": "Agendar una Reunión",
-      "callDescription": "Agenda una llamada de 30 minutos para hablar sobre tu proyecto",
       "heardFrom": "¿Cómo te enteraste de nosotros? (opcional)",
       "heardFromOptions": {
         "select": "Selecciona una opción",
