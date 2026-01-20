@@ -12,40 +12,64 @@ export default function ContactSection() {
   useEffect(() => {
     // Detectar si estamos en localhost
     const hostname = window.location.hostname;
-    setIsLocalhost(hostname === 'localhost' || hostname === '127.0.0.1');
+    const isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
+    setIsLocalhost(isLocal);
+
+    console.log('🔍 Hostname:', hostname);
+    console.log('🔍 Is localhost?', isLocal);
 
     // Inicializar Cal.com inline embed si NO estamos en localhost
-    if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+    if (!isLocal) {
+      console.log('📅 Loading Cal.com embed...');
+
       // Cargar el script de Cal.com
       const script = document.createElement('script');
       script.src = 'https://app.cal.com/embed/embed.js';
       script.async = true;
-      document.head.appendChild(script);
 
       script.onload = () => {
+        console.log('✅ Cal.com script loaded');
+
         // @ts-ignore
         if (window.Cal) {
-          // @ts-ignore
-          window.Cal('init', 'dream-studio-call', { origin: 'https://app.cal.com' });
+          console.log('✅ Cal object found');
 
-          // @ts-ignore
-          window.Cal.ns['dream-studio-call']('inline', {
-            elementOrSelector: '#dream-studio-cal-inline',
-            config: { layout: 'month_view' },
-            calLink: 'dream-studio-sa/dream-studio-discovery-call',
-          });
+          try {
+            // @ts-ignore
+            window.Cal('init', 'dream-studio-call', { origin: 'https://app.cal.com' });
+            console.log('✅ Cal initialized');
 
-          // @ts-ignore
-          window.Cal.ns['dream-studio-call']('ui', {
-            cssVarsPerTheme: {
-              light: { 'cal-brand': '#000000' },
-              dark: { 'cal-brand': '#000000' }
-            },
-            hideEventTypeDetails: false,
-            layout: 'month_view'
-          });
+            // @ts-ignore
+            window.Cal.ns['dream-studio-call']('inline', {
+              elementOrSelector: '#dream-studio-cal-inline',
+              config: { layout: 'month_view' },
+              calLink: 'dream-studio-sa/dream-studio-discovery-call',
+            });
+            console.log('✅ Cal inline configured');
+
+            // @ts-ignore
+            window.Cal.ns['dream-studio-call']('ui', {
+              cssVarsPerTheme: {
+                light: { 'cal-brand': '#000000' },
+                dark: { 'cal-brand': '#000000' }
+              },
+              hideEventTypeDetails: false,
+              layout: 'month_view'
+            });
+            console.log('✅ Cal UI configured');
+          } catch (error) {
+            console.error('❌ Error configuring Cal.com:', error);
+          }
+        } else {
+          console.error('❌ Cal object not found');
         }
       };
+
+      script.onerror = () => {
+        console.error('❌ Error loading Cal.com script');
+      };
+
+      document.head.appendChild(script);
     }
   }, []);
 
