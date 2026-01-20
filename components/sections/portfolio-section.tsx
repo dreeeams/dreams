@@ -269,7 +269,7 @@ export default function PortfolioSection() {
                   )}
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold font-pixel">
+                <h3 className="text-xl md:text-2xl font-bold font-nostalgic">
                   {project.titleKey}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">

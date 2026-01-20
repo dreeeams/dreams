@@ -59,18 +59,6 @@ const chaos16 = localFont({
   display: 'swap',
 });
 
-const pixelFont = localFont({
-  src: [
-    {
-      path: '../../public/fonts/thatthatnewpixelfamilytest-square.otf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-pixel',
-  display: 'swap',
-});
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -328,7 +316,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} ${chaos16.variable} ${pixelFont.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} ${chaos16.variable} antialiased`}
       >
         <a href="#main-content" className="skip-to-main">
           {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}

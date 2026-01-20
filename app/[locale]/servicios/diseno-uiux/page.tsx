@@ -165,7 +165,7 @@ export default function DisenoUIUXPage() {
                   className="bg-white border-2 border-black p-8 hover:bg-black hover:text-white transition-colors group"
                 >
                   <div className="text-4xl mb-4">{tool.icon}</div>
-                  <h3 className="text-xl font-bold mb-2 font-pixel">
+                  <h3 className="text-xl font-bold mb-2 font-nostalgic">
                     {t(`tools.items.${tool.key}.title`)}
                   </h3>
                   <p className="text-sm opacity-70">
