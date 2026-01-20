@@ -1,48 +1,13 @@
-import { getTranslations } from 'next-intl/server';
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import { Bitcoin, Circle } from 'lucide-react';
+import { useState } from 'react';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreeeams.com';
-
-  const metadata = {
-    en: {
-      title: 'Payment Instructions | Dream Studio',
-      description: 'Learn how to make payments for our services.',
-    },
-    es: {
-      title: 'Instrucciones de Pago | Dream Studio',
-      description: 'Aprende cómo realizar pagos por nuestros servicios.',
-    },
-  };
-
-  const meta = locale === 'es' ? metadata.es : metadata.en;
-
-  return {
-    title: meta.title,
-    description: meta.description,
-    alternates: {
-      canonical: `${baseUrl}/${locale}/payments`,
-      languages: {
-        en: `${baseUrl}/en/payments`,
-        es: `${baseUrl}/es/payments`,
-      },
-    },
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      url: `${baseUrl}/${locale}/payments`,
-      type: 'website',
-      locale: locale === 'es' ? 'es_ES' : 'en_US',
-    },
-  };
-}
-
-export default async function PaymentsPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'payments' });
+export default function PaymentsPage() {
+  const t = useTranslations('payments');
+  const [activeTab, setActiveTab] = useState<'colombia' | 'usa' | 'crypto'>('colombia');
 
   return (
     <div className="min-h-screen bg-white">
@@ -60,6 +25,60 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
           </h1>
           <p className="text-sm text-gray-500">{t('lastUpdated')}</p>
         </div>
+
+        {/* Tabs */}
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="flex gap-1 border-b border-gray-200">
+            <button
+              onClick={() => setActiveTab('colombia')}
+              className={`px-6 py-3 text-sm font-medium transition-colors relative ${
+                activeTab === 'colombia'
+                  ? 'text-gray-900'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <span>🇨🇴</span>
+                <span>{t('tabs.colombia')}</span>
+              </span>
+              {activeTab === 'colombia' && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
+              )}
+            </button>
+            <button
+              onClick={() => setActiveTab('usa')}
+              className={`px-6 py-3 text-sm font-medium transition-colors relative ${
+                activeTab === 'usa'
+                  ? 'text-gray-900'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <span>🇺🇸</span>
+                <span>{t('tabs.usa')}</span>
+              </span>
+              {activeTab === 'usa' && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
+              )}
+            </button>
+            <button
+              onClick={() => setActiveTab('crypto')}
+              className={`px-6 py-3 text-sm font-medium transition-colors relative ${
+                activeTab === 'crypto'
+                  ? 'text-gray-900'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <span>₿</span>
+                <span>{t('tabs.crypto')}</span>
+              </span>
+              {activeTab === 'crypto' && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900" />
+              )}
+            </button>
+          </div>
+        </div>
       </header>
 
       {/* Content */}
@@ -71,176 +90,165 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
           </p>
         </section>
 
-        {/* Colombian Payments */}
-        <section className="mb-20">
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl">🇨🇴</span>
-              <h2 className="text-2xl font-light text-gray-900">{t('colombianPayments.title')}</h2>
+        {/* Colombia Tab */}
+        {activeTab === 'colombia' && (
+          <section className="space-y-12">
+            {/* Bank Account 1 - Bold CF */}
+            <div>
+              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                {t('bankTransfer1.title')}
+              </h3>
+              <dl className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.bankName')}</dt>
+                  <dd className="font-medium text-gray-900">Bold CF - Depósito Electrónico</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountNumber')}</dt>
+                  <dd className="font-mono text-gray-900">1700-1386-5009</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountHolder')}</dt>
+                  <dd className="font-medium text-gray-900">LF DREAMS SAS</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.idNumber')}</dt>
+                  <dd className="font-mono text-gray-900">902022315</dd>
+                </div>
+              </dl>
+              <div className="mt-6 p-4 bg-gray-50">
+                <p className="text-xs text-gray-600">
+                  <span className="font-medium text-gray-900">{t('bankTransfer1.important')}:</span>{' '}
+                  {t('bankTransfer1.importantText')}
+                </p>
+              </div>
             </div>
-            <p className="text-sm text-gray-500 ml-11">{t('colombianPayments.subtitle')}</p>
-          </div>
 
-          {/* Bank Account 1 - Bold CF */}
-          <div className="mb-12">
-            <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-              {t('bankTransfer1.title')}
-            </h3>
-            <dl className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.bankName')}</dt>
-                <dd className="font-medium text-gray-900">Bold CF - Depósito Electrónico</dd>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountNumber')}</dt>
-                <dd className="font-mono text-gray-900">1700-1386-5009</dd>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountHolder')}</dt>
-                <dd className="font-medium text-gray-900">LF DREAMS SAS</dd>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.idNumber')}</dt>
-                <dd className="font-mono text-gray-900">902022315</dd>
-              </div>
-            </dl>
-            <div className="mt-6 p-4 bg-gray-50">
-              <p className="text-xs text-gray-600">
-                <span className="font-medium text-gray-900">{t('bankTransfer1.important')}:</span>{' '}
-                {t('bankTransfer1.importantText')}
-              </p>
+            {/* Bank Account 2 - Placeholder */}
+            <div>
+              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                {t('bankTransfer2.title')}
+              </h3>
+              <dl className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.bankName')}</dt>
+                  <dd className="font-medium text-gray-900">[Bank Name]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountType')}</dt>
+                  <dd className="font-medium text-gray-900">[Account Type]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountNumber')}</dt>
+                  <dd className="font-mono text-gray-900">[Account Number]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountHolder')}</dt>
+                  <dd className="font-medium text-gray-900">[Account Holder]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.idNumber')}</dt>
+                  <dd className="font-mono text-gray-900">[Tax ID]</dd>
+                </div>
+              </dl>
             </div>
-          </div>
 
-          {/* Bank Account 2 - Placeholder */}
-          <div className="mb-12">
-            <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-              {t('bankTransfer2.title')}
-            </h3>
-            <dl className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.bankName')}</dt>
-                <dd className="font-medium text-gray-900">[Bank Name]</dd>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountType')}</dt>
-                <dd className="font-medium text-gray-900">[Account Type]</dd>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountNumber')}</dt>
-                <dd className="font-mono text-gray-900">[Account Number]</dd>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.accountHolder')}</dt>
-                <dd className="font-medium text-gray-900">[Account Holder]</dd>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer2.idNumber')}</dt>
-                <dd className="font-mono text-gray-900">[Tax ID]</dd>
-              </div>
-            </dl>
-          </div>
+            {/* Nequi */}
+            <div>
+              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                {t('nequi.title')}
+              </h3>
+              <dl className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.phoneNumber')}</dt>
+                  <dd className="font-mono text-gray-900">+57 300 000 0000</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.accountHolder')}</dt>
+                  <dd className="font-medium text-gray-900">Luis Fernando Fernandez</dd>
+                </div>
+              </dl>
+            </div>
 
-          {/* Nequi */}
-          <div className="mb-12">
-            <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-              {t('nequi.title')}
-            </h3>
-            <dl className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.phoneNumber')}</dt>
-                <dd className="font-mono text-gray-900">+57 300 000 0000</dd>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('nequi.accountHolder')}</dt>
-                <dd className="font-medium text-gray-900">Luis Fernando Fernandez</dd>
-              </div>
-            </dl>
-          </div>
-        </section>
+            {/* BRE-B Account */}
+            <div>
+              <h3 className="text-base font-medium text-gray-900 mb-2">{t('brebAccount.title')}</h3>
+              <p className="text-sm text-gray-500 mb-6">{t('brebAccount.subtitle')}</p>
+              <dl className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.accountNumber')}</dt>
+                  <dd className="font-mono text-gray-900">[BRE-B Account Number]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.brebKey')}</dt>
+                  <dd className="font-mono text-gray-900">[BRE-B Key]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.accountHolder')}</dt>
+                  <dd className="font-medium text-gray-900">[Account Holder]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.idNumber')}</dt>
+                  <dd className="font-mono text-gray-900">[Tax ID]</dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+        )}
 
-        {/* BRE-B Account */}
-        <section className="mb-20">
-          <div className="mb-8">
-            <h2 className="text-2xl font-light text-gray-900 mb-2">{t('brebAccount.title')}</h2>
-            <p className="text-sm text-gray-500">{t('brebAccount.subtitle')}</p>
-          </div>
-          <dl className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.accountNumber')}</dt>
-              <dd className="font-mono text-gray-900">[BRE-B Account Number]</dd>
+        {/* USA Tab */}
+        {activeTab === 'usa' && (
+          <section className="space-y-12">
+            {/* Wise Account */}
+            <div>
+              <h3 className="text-base font-medium text-gray-900 mb-2">{t('wiseAccount.title')}</h3>
+              <p className="text-sm text-gray-500 mb-6">{t('wiseAccount.subtitle')}</p>
+              <dl className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.bankName')}</dt>
+                  <dd className="font-medium text-gray-900">Wise</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountHolder')}</dt>
+                  <dd className="font-medium text-gray-900">[Account Holder Name]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountNumber')}</dt>
+                  <dd className="font-mono text-gray-900">[Account Number]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.routingNumber')}</dt>
+                  <dd className="font-mono text-gray-900">[Routing Number]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.swiftCode')}</dt>
+                  <dd className="font-mono text-gray-900">[SWIFT Code]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.bankAddress')}</dt>
+                  <dd className="text-sm text-gray-900">[Bank Address]</dd>
+                </div>
+              </dl>
             </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.brebKey')}</dt>
-              <dd className="font-mono text-gray-900">[BRE-B Key]</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.accountHolder')}</dt>
-              <dd className="font-medium text-gray-900">[Account Holder]</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.idNumber')}</dt>
-              <dd className="font-mono text-gray-900">[Tax ID]</dd>
-            </div>
-          </dl>
-        </section>
 
-        {/* US Wise Account */}
-        <section className="mb-20">
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl">🇺🇸</span>
-              <h2 className="text-2xl font-light text-gray-900">{t('wiseAccount.title')}</h2>
+            {/* PayPal */}
+            <div>
+              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                {t('international.paypal.title')}
+              </h3>
+              <dl>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.paypal.email')}</dt>
+                  <dd className="text-gray-900">info@dreeeams.com</dd>
+                </div>
+              </dl>
             </div>
-            <p className="text-sm text-gray-500 ml-11">{t('wiseAccount.subtitle')}</p>
-          </div>
-          <dl className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.bankName')}</dt>
-              <dd className="font-medium text-gray-900">Wise</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountHolder')}</dt>
-              <dd className="font-medium text-gray-900">[Account Holder Name]</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountNumber')}</dt>
-              <dd className="font-mono text-gray-900">[Account Number]</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.routingNumber')}</dt>
-              <dd className="font-mono text-gray-900">[Routing Number]</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.swiftCode')}</dt>
-              <dd className="font-mono text-gray-900">[SWIFT Code]</dd>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between py-2">
-              <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.bankAddress')}</dt>
-              <dd className="text-sm text-gray-900">[Bank Address]</dd>
-            </div>
-          </dl>
-        </section>
+          </section>
+        )}
 
-        {/* International - PayPal */}
-        <section className="mb-20">
-          <h2 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">
-            {t('international.title')}
-          </h2>
-          <div className="mb-12">
-            <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-              {t('international.paypal.title')}
-            </h3>
-            <dl>
-              <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.paypal.email')}</dt>
-                <dd className="text-gray-900">info@dreeeams.com</dd>
-              </div>
-            </dl>
-          </div>
-
-          {/* Crypto */}
-          <div>
+        {/* Crypto Tab */}
+        {activeTab === 'crypto' && (
+          <section>
             <div className="mb-6">
               <h3 className="text-base font-medium text-gray-900 mb-1">{t('international.crypto.title')}</h3>
               <p className="text-sm text-gray-500">{t('international.crypto.subtitle')}</p>
@@ -348,11 +356,11 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Payment Confirmation */}
-        <section className="mb-20">
+        <section className="mt-20">
           <h2 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">
             {t('confirmation.title')}
           </h2>
@@ -393,7 +401,7 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
         </section>
 
         {/* Support */}
-        <section className="mb-20">
+        <section className="mt-20">
           <h2 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">
             {t('support.title')}
           </h2>
@@ -415,7 +423,7 @@ export default async function PaymentsPage({ params }: { params: Promise<{ local
         </section>
 
         {/* Footer Link */}
-        <div className="pt-12 border-t border-gray-200">
+        <div className="pt-12 border-t border-gray-200 mt-20">
           <Link href="/" className="text-sm text-gray-500 hover:text-black transition-colors">
             ← {t('backToHome')}
           </Link>

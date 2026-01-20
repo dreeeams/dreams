@@ -363,6 +363,11 @@
     "lastUpdated": "Last Updated: January 2026",
     "backToHome": "Back to Home",
     "intro": "Thank you for trusting Dream Studio. Below you'll find different options to make your payment securely and conveniently.",
+    "tabs": {
+      "colombia": "Colombia",
+      "usa": "USA",
+      "crypto": "Crypto"
+    },
     "colombianPayments": {
       "title": "Colombian Payments",
       "subtitle": "Bank transfers and mobile payments"
