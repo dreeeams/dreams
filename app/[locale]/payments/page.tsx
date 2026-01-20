@@ -55,11 +55,11 @@ export default function PaymentsPage() {
 
       {/* Tabs - Outside Header */}
       <div className="max-w-3xl mx-auto px-6 py-8">
-        <div className="overflow-x-auto -mx-6 px-6">
-          <div className="flex gap-2 sm:gap-3 min-w-max">
+        <div className="-mx-6 px-6">
+          <div className="flex flex-wrap gap-1 sm:gap-2 md:gap-3">
             <button
               onClick={() => setActiveTab('colombia')}
-              className={`px-4 sm:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+              className={`px-2 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
                 activeTab === 'colombia'
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
@@ -80,7 +80,7 @@ export default function PaymentsPage() {
             </button>
             <button
               onClick={() => setActiveTab('usa')}
-              className={`px-4 sm:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+              className={`px-2 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
                 activeTab === 'usa'
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
@@ -101,7 +101,7 @@ export default function PaymentsPage() {
             </button>
             <button
               onClick={() => setActiveTab('europe')}
-              className={`px-4 sm:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+              className={`px-2 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
                 activeTab === 'europe'
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
@@ -122,7 +122,7 @@ export default function PaymentsPage() {
             </button>
             <button
               onClick={() => setActiveTab('crypto')}
-              className={`px-4 sm:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+              className={`px-2 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
                 activeTab === 'crypto'
                   ? 'bg-black text-white border-black'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
@@ -163,7 +163,7 @@ export default function PaymentsPage() {
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.brebKey')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
                     <span>@bold902022315</span>
                     <CopyButton text="@bold902022315" fieldId="breb-key" />
                   </dd>
@@ -187,21 +187,21 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountNumber')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
                     <span>1700-1386-5009</span>
                     <CopyButton text="1700-1386-5009" fieldId="bold-account" />
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-medium text-gray-900 flex items-center justify-between">
                     <span>LF DREAMS SAS</span>
                     <CopyButton text="LF DREAMS SAS" fieldId="bold-holder" />
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.idNumber')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
                     <span>902022315</span>
                     <CopyButton text="902022315" fieldId="bold-nit" />
                   </dd>
@@ -231,28 +231,28 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-medium text-gray-900 flex items-center justify-between">
                     <span>LF DREAMS SAS</span>
                     <CopyButton text="LF DREAMS SAS" fieldId="wise-usa-holder" />
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.accountNumber')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
                     <span>863066497361982</span>
                     <CopyButton text="863066497361982" fieldId="wise-account-number" />
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.routingNumber')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
                     <span>084009519</span>
                     <CopyButton text="084009519" fieldId="wise-routing" />
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('wiseAccount.swiftCode')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
                     <span>TRWIUS35XXX</span>
                     <CopyButton text="TRWIUS35XXX" fieldId="wise-swift" />
                   </dd>
@@ -280,21 +280,21 @@ export default function PaymentsPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.accountHolder')}</dt>
-                  <dd className="font-medium text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-medium text-gray-900 flex items-center justify-between">
                     <span>LF DREAMS SAS</span>
                     <CopyButton text="LF DREAMS SAS" fieldId="europe-holder" />
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.iban')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
                     <span>BE55 9675 2466 1444</span>
                     <CopyButton text="BE55 9675 2466 1444" fieldId="europe-iban" />
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('europeanAccount.bic')}</dt>
-                  <dd className="font-mono text-gray-900 flex items-center justify-end sm:justify-start">
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
                     <span>TRWIBEB1XXX</span>
                     <CopyButton text="TRWIBEB1XXX" fieldId="europe-bic" />
                   </dd>
@@ -338,7 +338,7 @@ export default function PaymentsPage() {
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-end sm:justify-start">
+                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-between">
                     <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
                     <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="eth-address" />
                   </p>
@@ -367,7 +367,7 @@ export default function PaymentsPage() {
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-end sm:justify-start">
+                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-between">
                     <span>bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44</span>
                     <CopyButton text="bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44" fieldId="btc-address" />
                   </p>
@@ -396,7 +396,7 @@ export default function PaymentsPage() {
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-end sm:justify-start">
+                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-between">
                     <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
                     <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdt-address" />
                   </p>
@@ -425,7 +425,7 @@ export default function PaymentsPage() {
                 </div>
                 <div className="bg-gray-50 p-3">
                   <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-end sm:justify-start">
+                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-between">
                     <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
                     <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdc-address" />
                   </p>
