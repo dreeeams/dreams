@@ -419,7 +419,44 @@ export async function POST(request: NextRequest) {
       logger.log('⚠️ Resend not configured');
     }
 
-    // 10. Log success
+    // 10. Send to Zapier webhook
+    const zapierWebhookUrl = process.env.ZAPIER_WEBHOOK_URL || 'https://hooks.zapier.com/hooks/catch/26067874/uqb7bzv/';
+
+    try {
+      logger.log('🔗 Sending to Zapier webhook');
+
+      const zapierData = {
+        firstName: contactData.fullName.split(' ')[0] || contactData.fullName,
+        lastName: contactData.fullName.split(' ').slice(1).join(' ') || '',
+        fullName: contactData.fullName,
+        email: contactData.email,
+        phone: contactData.whatsapp || '',
+        companyName: contactData.company,
+        websiteUrl: contactData.websiteUrl || '',
+        projectType: contactData.need,
+        projectDetails: contactData.summary || '',
+        howDidYouHear: contactData.heardFrom || '',
+        submittedAt: contactData.submittedAt,
+      };
+
+      const zapierResponse = await fetch(zapierWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(zapierData),
+      });
+
+      if (zapierResponse.ok) {
+        logger.log('✅ Zapier webhook called successfully');
+      } else {
+        logger.error('❌ Zapier webhook failed:', await zapierResponse.text());
+      }
+    } catch (error) {
+      logger.error('❌ Failed to send to Zapier:', error);
+    }
+
+    // 11. Log success
     logger.log('✅ Contact form submission successful:', {
       email: contactData.email,
       company: contactData.company,

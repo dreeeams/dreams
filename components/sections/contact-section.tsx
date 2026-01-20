@@ -7,7 +7,7 @@ import ContactForm from '@/components/contact-form';
 export default function ContactSection() {
   const t = useTranslations('contact');
 
-  const handleFormSuccess = async (data: {
+  const handleFormSuccess = (data: {
     firstName: string;
     lastName: string;
     email: string;
@@ -18,36 +18,8 @@ export default function ContactSection() {
     projectDetails: string;
     howDidYouHear: string;
   }) => {
-    // Send data to Zapier webhook
-    try {
-      const fullName = `${data.firstName}${data.lastName ? ' ' + data.lastName : ''}`.trim();
-
-      const zapierData = {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        fullName: fullName,
-        email: data.email,
-        phone: data.phone,
-        companyName: data.companyName,
-        websiteUrl: data.websiteUrl,
-        projectType: data.projectType,
-        projectDetails: data.projectDetails,
-        howDidYouHear: data.howDidYouHear,
-        submittedAt: new Date().toISOString(),
-      };
-
-      await fetch('https://hooks.zapier.com/hooks/catch/26067874/uqb7bzv/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(zapierData),
-      });
-
-      console.log('Data sent to Zapier successfully');
-    } catch (error) {
-      console.error('Failed to send data to Zapier:', error);
-    }
+    // Form successfully submitted - webhook is now called from backend
+    console.log('Form submitted successfully');
   };
 
   return (
