@@ -144,30 +144,17 @@ export default function PortfolioSection() {
                   </div>
                 ) : project.isMockup ? (
                   <div className="absolute inset-0 flex items-center justify-center p-8 bg-gradient-to-br from-blue-600 to-purple-600">
-                    {/* Phone Mockup with Real GIF */}
+                    {/* Phone Mockup */}
                     <div className="relative h-full aspect-[9/19.5]">
                       {/* Phone Frame */}
                       <div className="absolute inset-0 bg-black rounded-[1.8rem] shadow-2xl p-2">
-                        {/* Screen with Video */}
+                        {/* Screen */}
                         <div className="w-full h-full bg-black rounded-[1.4rem] overflow-hidden relative">
-                          {/* Video Content - fallback to GIF if video not available */}
-                          <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
+                          <img
+                            src="/images/hunt-tickets-poster.jpg"
+                            alt="Hunt Tickets App Demo"
                             className="w-full h-full object-cover"
-                            poster="/images/hunt-tickets-poster.jpg"
-                          >
-                            <source src="/images/hunt-tickets-app.webm" type="video/webm" />
-                            <source src="/images/hunt-tickets-app.mp4" type="video/mp4" />
-                            {/* Fallback to GIF for browsers that don't support video */}
-                            <img
-                              src="/images/hunt-tickets-app.gif"
-                              alt="Hunt Tickets App Demo"
-                              className="w-full h-full object-cover"
-                            />
-                          </video>
+                          />
                         </div>
                       </div>
                     </div>
