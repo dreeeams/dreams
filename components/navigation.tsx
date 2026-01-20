@@ -258,7 +258,7 @@ export default function Navigation() {
         initial={false}
         animate={{ opacity: isVisible ? 0 : 1 }}
         transition={{ duration: 0.2 }}
-        className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-4 py-2 text-xs sm:text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+        className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
         style={{ pointerEvents: isVisible ? 'none' : 'auto' }}
       >
         {t('getStarted')} →
