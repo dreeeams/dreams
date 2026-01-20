@@ -247,15 +247,30 @@ export default function PaymentsPage() {
               </dl>
             </div>
 
-            {/* PayPal */}
+            {/* European Account */}
             <div>
-              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                {t('international.paypal.title')}
-              </h3>
-              <dl>
+              <h3 className="text-base font-medium text-gray-900 mb-2">{t('international.europeanAccount.title')}</h3>
+              <p className="text-sm text-gray-500 mb-6">{t('international.europeanAccount.subtitle')}</p>
+              <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
-                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.paypal.email')}</dt>
-                  <dd className="text-gray-900">info@dreeeams.com</dd>
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.bankName')}</dt>
+                  <dd className="font-medium text-gray-900">[Bank Name]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.accountHolder')}</dt>
+                  <dd className="font-medium text-gray-900">[Account Holder Name]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.iban')}</dt>
+                  <dd className="font-mono text-gray-900">[IBAN]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.bic')}</dt>
+                  <dd className="font-mono text-gray-900">[BIC/SWIFT]</dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.europeanAccount.bankAddress')}</dt>
+                  <dd className="text-sm text-gray-900">[Bank Address]</dd>
                 </div>
               </dl>
             </div>

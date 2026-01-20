@@ -414,9 +414,14 @@
     },
     "international": {
       "title": "Pagos Internacionales",
-      "paypal": {
-        "title": "PayPal",
-        "email": "Correo"
+      "europeanAccount": {
+        "title": "Cuenta Bancaria Europea",
+        "subtitle": "Transferencias SEPA y SWIFT",
+        "bankName": "Banco",
+        "accountHolder": "Titular de la Cuenta",
+        "iban": "IBAN",
+        "bic": "BIC/SWIFT",
+        "bankAddress": "Dirección del Banco"
       },
       "crypto": {
         "title": "Criptomonedas",
