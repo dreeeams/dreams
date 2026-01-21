@@ -212,15 +212,7 @@ export default function PaymentsPage() {
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.bankName')}</dt>
                   <dd className="font-medium text-gray-900 flex items-center justify-between">
                     <span>Bold CF</span>
-                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#00D4AA] flex items-center justify-center ml-3">
-                      <Image
-                        src="https://assets-global.website-files.com/6581752c3e7e1c4c9c8c91d5/65830af8bb1e28668e32d35f_Bold%20logo.svg"
-                        alt="Bold"
-                        width={32}
-                        height={32}
-                        className="w-6 h-6 object-contain"
-                      />
-                    </div>
+                    <div className="w-8 h-8 rounded-full flex-shrink-0 ml-3" style={{background: 'linear-gradient(180deg, #FF0000 0%, #001F3F 100%)'}}></div>
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
@@ -273,13 +265,9 @@ export default function PaymentsPage() {
                   <dd className="font-medium text-gray-900 flex items-center justify-between">
                     <span>Wise US Inc</span>
                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center ml-3">
-                      <Image
-                        src="https://wise.com/public-resources/assets/logos/brand/wise-icon.svg"
-                        alt="Wise"
-                        width={32}
-                        height={32}
-                        className="w-6 h-6 object-contain"
-                      />
+                      <svg width="20" height="20" viewBox="0 0 86 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M55.6947 82.7221H38.9351L63.3792 15.2158H31.9092L38.9351 27.4963L27.9571 40.1446H45.6682L40.9843 52.9399L0 52.8664L22.8341 25.805L9.0019 1.31738H85.1155L55.6947 82.7221Z" fill="#163300"/>
+                      </svg>
                     </div>
                   </dd>
                 </div>
@@ -333,13 +321,9 @@ export default function PaymentsPage() {
                   <dd className="font-medium text-gray-900 flex items-center justify-between">
                     <span>Wise</span>
                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center ml-3">
-                      <Image
-                        src="https://wise.com/public-resources/assets/logos/brand/wise-icon.svg"
-                        alt="Wise"
-                        width={32}
-                        height={32}
-                        className="w-6 h-6 object-contain"
-                      />
+                      <svg width="20" height="20" viewBox="0 0 86 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M55.6947 82.7221H38.9351L63.3792 15.2158H31.9092L38.9351 27.4963L27.9571 40.1446H45.6682L40.9843 52.9399L0 52.8664L22.8341 25.805L9.0019 1.31738H85.1155L55.6947 82.7221Z" fill="#163300"/>
+                      </svg>
                     </div>
                   </dd>
                 </div>
