@@ -190,7 +190,18 @@ export default function PaymentsPage() {
             <div className="space-y-12">
             {/* BRE-B Account */}
             <div>
-              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">{t('brebAccount.title')}</h3>
+              <div className="flex items-center justify-between mb-6 pb-2 border-b border-gray-200">
+                <h3 className="text-base font-medium text-gray-900">{t('brebAccount.title')}</h3>
+                <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center">
+                  <Image
+                    src="https://contactopuro.com/wp-content/uploads/2023/12/cropped-bold_icono.png"
+                    alt="Bold"
+                    width={32}
+                    height={32}
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+              </div>
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('brebAccount.brebKey')}</dt>
@@ -204,9 +215,20 @@ export default function PaymentsPage() {
 
             {/* Bank Account 1 - Bold CF */}
             <div>
-              <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                Deposito Ordinario
-              </h3>
+              <div className="flex items-center justify-between mb-6 pb-2 border-b border-gray-200">
+                <h3 className="text-base font-medium text-gray-900">
+                  Deposito Ordinario
+                </h3>
+                <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center">
+                  <Image
+                    src="https://contactopuro.com/wp-content/uploads/2023/12/cropped-bold_icono.png"
+                    alt="Bold"
+                    width={32}
+                    height={32}
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+              </div>
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.bankName')}</dt>
@@ -254,7 +276,20 @@ export default function PaymentsPage() {
           <section>
             {/* Wise Account */}
             <div>
-              <h3 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">{t('wiseAccount.title')}</h3>
+              <div className="flex items-center justify-between mb-8 pb-3 border-b border-gray-200">
+                <div>
+                  <h3 className="text-2xl font-light text-gray-900">{t('wiseAccount.title')}</h3>
+                </div>
+                <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center">
+                  <Image
+                    src="https://logowik.com/content/uploads/images/wise8189.logowik.com.webp"
+                    alt="Wise"
+                    width={40}
+                    height={40}
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+              </div>
               <p className="text-sm text-gray-500 mb-6">{t('wiseAccount.subtitle')}</p>
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
@@ -303,7 +338,20 @@ export default function PaymentsPage() {
           <section>
             {/* European Wise Account */}
             <div>
-              <h3 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">{t('europeanAccount.title')}</h3>
+              <div className="flex items-center justify-between mb-8 pb-3 border-b border-gray-200">
+                <div>
+                  <h3 className="text-2xl font-light text-gray-900">{t('europeanAccount.title')}</h3>
+                </div>
+                <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center">
+                  <Image
+                    src="https://logowik.com/content/uploads/images/wise8189.logowik.com.webp"
+                    alt="Wise"
+                    width={40}
+                    height={40}
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+              </div>
               <p className="text-sm text-gray-500 mb-6">{t('europeanAccount.subtitle')}</p>
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
