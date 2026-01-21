@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { Circle, Copy, Check } from 'lucide-react';
+import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -214,7 +214,7 @@ export default function PaymentsPage() {
                     <span>Bold CF</span>
                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#00D4AA] flex items-center justify-center ml-3">
                       <Image
-                        src="https://cdn.worldvectorlogo.com/logos/bold-1.svg"
+                        src="https://assets-global.website-files.com/6581752c3e7e1c4c9c8c91d5/65830af8bb1e28668e32d35f_Bold%20logo.svg"
                         alt="Bold"
                         width={32}
                         height={32}
@@ -274,7 +274,7 @@ export default function PaymentsPage() {
                     <span>Wise US Inc</span>
                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center ml-3">
                       <Image
-                        src="https://cdn.worldvectorlogo.com/logos/wise-2.svg"
+                        src="https://wise.com/public-resources/assets/logos/brand/wise-icon.svg"
                         alt="Wise"
                         width={32}
                         height={32}
@@ -334,7 +334,7 @@ export default function PaymentsPage() {
                     <span>Wise</span>
                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center ml-3">
                       <Image
-                        src="https://cdn.worldvectorlogo.com/logos/wise-2.svg"
+                        src="https://wise.com/public-resources/assets/logos/brand/wise-icon.svg"
                         alt="Wise"
                         width={32}
                         height={32}
@@ -376,125 +376,137 @@ export default function PaymentsPage() {
         {/* Crypto Tab */}
         {activeTab === 'crypto' && (
           <section>
-            <div className="mb-6">
-              <h3 className="text-base font-medium text-gray-900 mb-1">{t('international.crypto.title')}</h3>
-              <p className="text-sm text-gray-500">{t('international.crypto.subtitle')}</p>
+            <div className="mb-12">
+              <h3 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">{t('international.crypto.title')}</h3>
+              <p className="text-sm text-gray-500 mb-6">{t('international.crypto.subtitle')}</p>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-12">
               {/* Ethereum */}
-              <div className="p-4 border border-gray-200 hover:border-gray-300 transition-colors">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 flex items-center justify-center">
-                      <Image
-                        src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png"
-                        alt="Ethereum"
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-900">Ethereum (ETH)</div>
-                      <div className="text-xs text-gray-500">{t('international.crypto.ethereumNetwork')}</div>
-                    </div>
+              <div>
+                <dl className="space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Cryptocurrency</dt>
+                    <dd className="font-medium text-gray-900 flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <Image
+                          src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png"
+                          alt="Ethereum"
+                          width={20}
+                          height={20}
+                          className="rounded-full"
+                        />
+                        Ethereum (ETH)
+                      </span>
+                    </dd>
                   </div>
-                  <Circle className="w-5 h-5 text-gray-400" />
-                </div>
-                <div className="bg-gray-50 p-3">
-                  <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-between">
-                    <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
-                    <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="eth-address" />
-                  </p>
-                </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Network</dt>
+                    <dd className="font-medium text-gray-900">{t('international.crypto.ethereumNetwork')}</dd>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.crypto.address')}</dt>
+                    <dd className="font-mono text-gray-900 flex items-center justify-between">
+                      <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                      <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="eth-address" />
+                    </dd>
+                  </div>
+                </dl>
               </div>
 
               {/* Bitcoin */}
-              <div className="p-4 border border-gray-200 hover:border-gray-300 transition-colors">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 flex items-center justify-center">
-                      <Image
-                        src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
-                        alt="Bitcoin"
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-900">Bitcoin (BTC)</div>
-                      <div className="text-xs text-gray-500">{t('international.crypto.bitcoinNetwork')}</div>
-                    </div>
+              <div>
+                <dl className="space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Cryptocurrency</dt>
+                    <dd className="font-medium text-gray-900 flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <Image
+                          src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
+                          alt="Bitcoin"
+                          width={20}
+                          height={20}
+                          className="rounded-full"
+                        />
+                        Bitcoin (BTC)
+                      </span>
+                    </dd>
                   </div>
-                  <Circle className="w-5 h-5 text-gray-400" />
-                </div>
-                <div className="bg-gray-50 p-3">
-                  <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-between">
-                    <span>bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44</span>
-                    <CopyButton text="bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44" fieldId="btc-address" />
-                  </p>
-                </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Network</dt>
+                    <dd className="font-medium text-gray-900">{t('international.crypto.bitcoinNetwork')}</dd>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.crypto.address')}</dt>
+                    <dd className="font-mono text-gray-900 flex items-center justify-between">
+                      <span>bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44</span>
+                      <CopyButton text="bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44" fieldId="btc-address" />
+                    </dd>
+                  </div>
+                </dl>
               </div>
 
               {/* USDT */}
-              <div className="p-4 border border-gray-200 hover:border-gray-300 transition-colors">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 flex items-center justify-center">
-                      <Image
-                        src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdt.png"
-                        alt="Tether"
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-900">Tether (USDT)</div>
-                      <div className="text-xs text-gray-500">{t('international.crypto.ethereumNetwork')}</div>
-                    </div>
+              <div>
+                <dl className="space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Cryptocurrency</dt>
+                    <dd className="font-medium text-gray-900 flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <Image
+                          src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdt.png"
+                          alt="Tether"
+                          width={20}
+                          height={20}
+                          className="rounded-full"
+                        />
+                        Tether (USDT)
+                      </span>
+                    </dd>
                   </div>
-                  <Circle className="w-5 h-5 text-gray-400" />
-                </div>
-                <div className="bg-gray-50 p-3">
-                  <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-between">
-                    <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
-                    <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdt-address" />
-                  </p>
-                </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Network</dt>
+                    <dd className="font-medium text-gray-900">{t('international.crypto.ethereumNetwork')}</dd>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.crypto.address')}</dt>
+                    <dd className="font-mono text-gray-900 flex items-center justify-between">
+                      <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                      <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdt-address" />
+                    </dd>
+                  </div>
+                </dl>
               </div>
 
               {/* USDC */}
-              <div className="p-4 border border-gray-200 hover:border-gray-300 transition-colors">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 flex items-center justify-center">
-                      <Image
-                        src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdc.png"
-                        alt="USD Coin"
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                      />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-900">USD Coin (USDC)</div>
-                      <div className="text-xs text-gray-500">{t('international.crypto.ethereumNetwork')}</div>
-                    </div>
+              <div>
+                <dl className="space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Cryptocurrency</dt>
+                    <dd className="font-medium text-gray-900 flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <Image
+                          src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdc.png"
+                          alt="USD Coin"
+                          width={20}
+                          height={20}
+                          className="rounded-full"
+                        />
+                        USD Coin (USDC)
+                      </span>
+                    </dd>
                   </div>
-                  <Circle className="w-5 h-5 text-gray-400" />
-                </div>
-                <div className="bg-gray-50 p-3">
-                  <p className="text-xs text-gray-500 mb-1">{t('international.crypto.address')}</p>
-                  <p className="font-mono text-xs text-gray-900 break-all flex items-center justify-between">
-                    <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
-                    <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdc-address" />
-                  </p>
-                </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Network</dt>
+                    <dd className="font-medium text-gray-900">{t('international.crypto.ethereumNetwork')}</dd>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                    <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.crypto.address')}</dt>
+                    <dd className="font-mono text-gray-900 flex items-center justify-between">
+                      <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                      <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdc-address" />
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
           </section>
