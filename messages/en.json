@@ -26,22 +26,22 @@
     },
     "terminal": {
       "init": "> dreamstudio.init()",
-      "loading": "> Loading creative engine...",
-      "initializing": "> Initializing design systems...",
-      "compiling": "> Compiling ideas into reality...",
+      "loading": "> Loading growth engine...",
+      "initializing": "> Initializing conversion systems...",
+      "compiling": "> Compiling sales strategies...",
       "constStudio": "const",
-      "studio": " studio ",
+      "studio": " results ",
       "equals": "= '{'",
       "name": "  name",
       "nameValue": "\"DREAM STUDIO\"",
       "mission": "  mission",
-      "missionValue": "\"Transform ideas into digital products\"",
-      "output": "  output",
-      "outputValue": "\"Beautiful, functional, scalable\"",
+      "missionValue": "\"Boost your sales with technology that converts\"",
+      "output": "  results",
+      "outputValue": "\"More customers, more revenue, proven ROI\"",
       "status": "  status",
-      "statusValue": "\"READY TO BUILD\"",
+      "statusValue": "\"READY TO DELIVER RESULTS\"",
       "closeBrace": "'};'",
-      "ready": "> System ready. Let's create something amazing."
+      "ready": "> System ready. Let's grow your business."
     }
   },
   "services": {
