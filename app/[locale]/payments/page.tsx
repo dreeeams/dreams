@@ -212,9 +212,9 @@ export default function PaymentsPage() {
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.bankName')}</dt>
                   <dd className="font-medium text-gray-900 flex items-center justify-between">
                     <span>Bold CF</span>
-                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center ml-3">
+                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#00D4AA] flex items-center justify-center ml-3">
                       <Image
-                        src="https://contactopuro.com/wp-content/uploads/2023/12/cropped-bold_icono.png"
+                        src="https://cdn.worldvectorlogo.com/logos/bold-1.svg"
                         alt="Bold"
                         width={32}
                         height={32}
@@ -274,7 +274,7 @@ export default function PaymentsPage() {
                     <span>Wise US Inc</span>
                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center ml-3">
                       <Image
-                        src="https://logowik.com/content/uploads/images/wise8189.logowik.com.webp"
+                        src="https://cdn.worldvectorlogo.com/logos/wise-2.svg"
                         alt="Wise"
                         width={32}
                         height={32}
@@ -334,7 +334,7 @@ export default function PaymentsPage() {
                     <span>Wise</span>
                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center ml-3">
                       <Image
-                        src="https://logowik.com/content/uploads/images/wise8189.logowik.com.webp"
+                        src="https://cdn.worldvectorlogo.com/logos/wise-2.svg"
                         alt="Wise"
                         width={32}
                         height={32}
