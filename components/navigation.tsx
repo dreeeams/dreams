@@ -81,7 +81,7 @@ export default function Navigation() {
         className="fixed top-0 left-0 right-0 z-50 bg-background-light/80 backdrop-blur-sm border-b border-black/10"
         onMouseLeave={() => setIsServicesOpen(false)}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
+        <div className="max-w-7xl mx-auto py-4 sm:py-5">
           <div className="flex items-center justify-between">
             {/* Left Side - Logo */}
             <Link href="/">
@@ -192,7 +192,7 @@ export default function Navigation() {
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               className="overflow-hidden bg-white/90 backdrop-blur-md border-t border-black/5"
             >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 text-right">
+              <div className="max-w-7xl mx-auto py-3 text-right">
                 <div className="inline-flex flex-wrap gap-1 justify-end">
                   {services.map((service, index) => (
                     <m.div
@@ -235,7 +235,7 @@ export default function Navigation() {
         <m.a
           href="#contact"
           whileTap={{ scale: 0.98 }}
-          className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+          className="block fixed top-4 sm:top-5 right-[calc((100vw-80rem)/2)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
         >
           {t('getStarted')} →
         </m.a>

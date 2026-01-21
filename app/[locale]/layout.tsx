@@ -12,6 +12,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import ScrollToTop from '@/components/scroll-to-top';
 import DisableZoomOnInput from '@/components/disable-zoom-on-input';
 import MotionProvider from '@/components/providers/motion-provider';
+import PageLoader from '@/components/page-loader';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../globals.css';
@@ -331,6 +332,7 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             <MotionProvider>
+              <PageLoader />
               <DisableZoomOnInput />
               <ErrorBoundary>
                 {children}
