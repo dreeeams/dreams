@@ -387,7 +387,8 @@ export default function PaymentsPage() {
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                     <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Cryptocurrency</dt>
                     <dd className="font-medium text-gray-900 flex items-center justify-between">
-                      <span className="flex items-center gap-2">
+                      <span>Ethereum (ETH)</span>
+                      <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center ml-3">
                         <Image
                           src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png"
                           alt="Ethereum"
@@ -395,8 +396,7 @@ export default function PaymentsPage() {
                           height={20}
                           className="rounded-full"
                         />
-                        Ethereum (ETH)
-                      </span>
+                      </div>
                     </dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
@@ -406,7 +406,7 @@ export default function PaymentsPage() {
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                     <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.crypto.address')}</dt>
                     <dd className="font-mono text-gray-900 flex items-center justify-between">
-                      <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                      <span className="truncate break-all mr-2">0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
                       <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="eth-address" />
                     </dd>
                   </div>
@@ -419,7 +419,8 @@ export default function PaymentsPage() {
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                     <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Cryptocurrency</dt>
                     <dd className="font-medium text-gray-900 flex items-center justify-between">
-                      <span className="flex items-center gap-2">
+                      <span>Bitcoin (BTC)</span>
+                      <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center ml-3">
                         <Image
                           src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
                           alt="Bitcoin"
@@ -427,8 +428,7 @@ export default function PaymentsPage() {
                           height={20}
                           className="rounded-full"
                         />
-                        Bitcoin (BTC)
-                      </span>
+                      </div>
                     </dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
@@ -438,7 +438,7 @@ export default function PaymentsPage() {
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                     <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.crypto.address')}</dt>
                     <dd className="font-mono text-gray-900 flex items-center justify-between">
-                      <span>bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44</span>
+                      <span className="truncate break-all mr-2">bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44</span>
                       <CopyButton text="bc1qcehlyz0es7cavgtzl938c93j89mcy0hu5rda44" fieldId="btc-address" />
                     </dd>
                   </div>
@@ -451,7 +451,8 @@ export default function PaymentsPage() {
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                     <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Cryptocurrency</dt>
                     <dd className="font-medium text-gray-900 flex items-center justify-between">
-                      <span className="flex items-center gap-2">
+                      <span>Tether (USDT)</span>
+                      <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center ml-3">
                         <Image
                           src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdt.png"
                           alt="Tether"
@@ -459,8 +460,7 @@ export default function PaymentsPage() {
                           height={20}
                           className="rounded-full"
                         />
-                        Tether (USDT)
-                      </span>
+                      </div>
                     </dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
@@ -470,7 +470,7 @@ export default function PaymentsPage() {
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                     <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.crypto.address')}</dt>
                     <dd className="font-mono text-gray-900 flex items-center justify-between">
-                      <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                      <span className="truncate break-all mr-2">0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
                       <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdt-address" />
                     </dd>
                   </div>
@@ -483,7 +483,8 @@ export default function PaymentsPage() {
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
                     <dt className="text-sm text-gray-500 mb-1 sm:mb-0">Cryptocurrency</dt>
                     <dd className="font-medium text-gray-900 flex items-center justify-between">
-                      <span className="flex items-center gap-2">
+                      <span>USD Coin (USDC)</span>
+                      <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-white border border-gray-200 flex items-center justify-center ml-3">
                         <Image
                           src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdc.png"
                           alt="USD Coin"
@@ -491,8 +492,7 @@ export default function PaymentsPage() {
                           height={20}
                           className="rounded-full"
                         />
-                        USD Coin (USDC)
-                      </span>
+                      </div>
                     </dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
@@ -502,7 +502,7 @@ export default function PaymentsPage() {
                   <div className="flex flex-col sm:flex-row sm:justify-between py-2">
                     <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('international.crypto.address')}</dt>
                     <dd className="font-mono text-gray-900 flex items-center justify-between">
-                      <span>0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
+                      <span className="truncate break-all mr-2">0xD36e81f28b10A847af00153b359De90b5156FAEF</span>
                       <CopyButton text="0xD36e81f28b10A847af00153b359De90b5156FAEF" fieldId="usdc-address" />
                     </dd>
                   </div>
