@@ -180,7 +180,14 @@ export default function PaymentsPage() {
 
         {/* Colombia Tab */}
         {activeTab === 'colombia' && (
-          <section className="space-y-12">
+          <section>
+            {/* Colombia Account Header */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">{t('colombianPayments.title')}</h3>
+              <p className="text-sm text-gray-500 mb-6">{t('colombianPayments.subtitle')}</p>
+            </div>
+
+            <div className="space-y-12">
             {/* BRE-B Account */}
             <div>
               <h3 className="text-base font-medium text-gray-900 mb-6 pb-2 border-b border-gray-200">{t('brebAccount.title')}</h3>
@@ -237,6 +244,7 @@ export default function PaymentsPage() {
                   {t('bankTransfer1.importantText')}
                 </p>
               </div>
+            </div>
             </div>
           </section>
         )}
