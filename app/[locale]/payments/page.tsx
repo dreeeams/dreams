@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { Circle, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 export default function PaymentsPage() {
   const t = useTranslations('payments');
+  const locale = useLocale();
   const [activeTab, setActiveTab] = useState<'colombia' | 'usa' | 'europe' | 'crypto'>('colombia');
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
@@ -499,11 +500,17 @@ export default function PaymentsPage() {
           </div>
         </section>
 
-        {/* Footer Link */}
+        {/* Footer Links */}
         <div className="pt-12 border-t border-gray-200 mt-20">
-          <Link href="/" className="text-sm text-gray-500 hover:text-black transition-colors">
-            ← {t('backToHome')}
-          </Link>
+          <div className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
+            <Link href={`/${locale}/terms`} className="hover:text-black transition-colors">
+              {locale === 'es' ? 'Términos y Condiciones' : 'Terms & Conditions'}
+            </Link>
+            <span className="text-gray-300">•</span>
+            <Link href={`/${locale}/privacy`} className="hover:text-black transition-colors">
+              {locale === 'es' ? 'Política de Privacidad' : 'Privacy Policy'}
+            </Link>
+          </div>
         </div>
       </main>
     </div>
