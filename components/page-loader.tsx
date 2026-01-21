@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, createContext, useContext } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 type LoaderContextType = {
   isLoading: boolean;
@@ -73,27 +74,14 @@ export default function PageLoader() {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-center mb-12"
             >
-              <svg
-                width="48"
-                height="56"
-                viewBox="0 0 97 114"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="mb-4"
-                role="img"
-                aria-labelledby="loader-logo-title"
-              >
-                <title id="loader-logo-title">Dream Studio Loading</title>
-                <motion.path
-                  d="M47.9849 11.0323V52.6452L38.4484 47.2258C21.5161 37.5484 11.0064 19.5484 11.0064 0H4V47.6129C4 63.0968 12.9527 77.4194 27.1602 84.1936L48.1796 94.2581V52.6452L57.7161 58.0645C74.6484 67.7419 85.1581 85.7419 85.1581 105.29H92.1645V57.6774C92.1645 42.1935 83.2118 27.871 69.0043 21.0968L47.9849 11.0323Z"
-                  fill="currentColor"
-                  className="text-black"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
-                />
-              </svg>
-              <div className="text-2xl font-logo" aria-label="Dreeeams">DREEEAMS</div>
+              <Image
+                src="/dreeeams-logo.png"
+                alt="Dreeeams"
+                width={200}
+                height={52}
+                className="h-auto w-auto max-w-[250px]"
+                priority
+              />
             </motion.div>
 
             {/* Terminal Message */}

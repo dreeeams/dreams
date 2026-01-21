@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function FooterSection() {
   const tFooter = useTranslations('contact.footer');
@@ -13,7 +14,13 @@ export default function FooterSection() {
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h2 className="text-3xl font-logo mb-3">DREEEAMS</h2>
+            <Image
+              src="/dreeeams-logo.png"
+              alt="Dreeeams"
+              width={200}
+              height={52}
+              className="h-auto w-auto max-w-[180px] mb-3 brightness-0 invert"
+            />
             <p className="text-sm text-gray-400 max-w-xs">
               {tFooter('tagline')}
             </p>
