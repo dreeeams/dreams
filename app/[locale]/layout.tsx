@@ -12,6 +12,7 @@ import WebVitalsReporter from '@/components/web-vitals-reporter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import ScrollToTop from '@/components/scroll-to-top';
 import DisableZoomOnInput from '@/components/disable-zoom-on-input';
+import PageLoader from '@/components/page-loader';
 import type { Metadata } from 'next';
 import '../globals.css';
 import ConsoleFilter from '@/components/console-filter';
@@ -326,6 +327,7 @@ export default async function LocaleLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
+            <PageLoader />
             <ConsoleFilter />
             <DisableZoomOnInput />
             <ErrorBoundary>
