@@ -212,7 +212,15 @@ export default function PaymentsPage() {
                   <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('bankTransfer1.bankName')}</dt>
                   <dd className="font-medium text-gray-900 flex items-center justify-between">
                     <span>Bold CF</span>
-                    <div className="w-8 h-8 rounded-full flex-shrink-0 ml-3" style={{background: 'linear-gradient(180deg, #FF0000 0%, #001F3F 100%)'}}></div>
+                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-white flex items-center justify-center ml-3">
+                      <Image
+                        src="https://play-lh.googleusercontent.com/uHNioz39OaPeU1Va-hufzR-lQQBX-RmtaNBB50-DR_c4pvodAtp_ul_mUSc0vbeKaOU"
+                        alt="Bold"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
@@ -376,8 +384,8 @@ export default function PaymentsPage() {
                         <Image
                           src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png"
                           alt="Ethereum"
-                          width={20}
-                          height={20}
+                          width={32}
+                          height={32}
                           className="rounded-full"
                         />
                       </div>
@@ -408,8 +416,8 @@ export default function PaymentsPage() {
                         <Image
                           src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png"
                           alt="Bitcoin"
-                          width={20}
-                          height={20}
+                          width={32}
+                          height={32}
                           className="rounded-full"
                         />
                       </div>
@@ -440,8 +448,8 @@ export default function PaymentsPage() {
                         <Image
                           src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdt.png"
                           alt="Tether"
-                          width={20}
-                          height={20}
+                          width={32}
+                          height={32}
                           className="rounded-full"
                         />
                       </div>
@@ -472,8 +480,8 @@ export default function PaymentsPage() {
                         <Image
                           src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/usdc.png"
                           alt="USD Coin"
-                          width={20}
-                          height={20}
+                          width={32}
+                          height={32}
                           className="rounded-full"
                         />
                       </div>
