@@ -10,12 +10,12 @@ export default function PaymentsPage() {
   const t = useTranslations('payments');
   const locale = useLocale();
   const [activeTab, setActiveTab] = useState<'colombia' | 'usa' | 'europe' | 'crypto'>('colombia');
-  const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [copiedFields, setCopiedFields] = useState<Set<string>>(new Set());
 
   const copyToClipboard = async (text: string, fieldId: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      setCopiedField(fieldId);
+      setCopiedFields(prev => new Set(prev).add(fieldId));
     } catch (err) {
       console.error('Failed to copy:', err);
     }
@@ -27,7 +27,7 @@ export default function PaymentsPage() {
       className="ml-2 p-1.5 hover:bg-gray-100 rounded transition-colors"
       aria-label="Copy to clipboard"
     >
-      {copiedField === fieldId ? (
+      {copiedFields.has(fieldId) ? (
         <Check className="w-4 h-4 text-black" />
       ) : (
         <Copy className="w-4 h-4 text-gray-400 hover:text-gray-600" />
@@ -246,7 +246,7 @@ export default function PaymentsPage() {
           <section>
             {/* Wise Account */}
             <div>
-              <h3 className="text-base font-medium text-gray-900 mb-2">{t('wiseAccount.title')}</h3>
+              <h3 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">{t('wiseAccount.title')}</h3>
               <p className="text-sm text-gray-500 mb-6">{t('wiseAccount.subtitle')}</p>
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
@@ -295,7 +295,7 @@ export default function PaymentsPage() {
           <section>
             {/* European Wise Account */}
             <div>
-              <h3 className="text-base font-medium text-gray-900 mb-2">{t('europeanAccount.title')}</h3>
+              <h3 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">{t('europeanAccount.title')}</h3>
               <p className="text-sm text-gray-500 mb-6">{t('europeanAccount.subtitle')}</p>
               <dl className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
