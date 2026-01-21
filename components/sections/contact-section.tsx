@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
@@ -38,7 +38,7 @@ export default function ContactSection() {
       <div className="py-12 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -52,7 +52,7 @@ export default function ContactSection() {
             </div>
             <p className="text-lg md:text-xl mb-4">{t('subtitle')}</p>
             <p className="text-sm text-gray-600">{t('noSpam')}</p>
-          </motion.div>
+          </m.div>
 
           {/* Conditional rendering: Form in localhost, Button in production */}
           {isLocalhost ? (
@@ -60,14 +60,14 @@ export default function ContactSection() {
             <ContactForm onSuccess={handleFormSuccess} />
           ) : (
             // Mostrar botón para agendar en producción
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="w-full max-w-3xl mx-auto text-center"
             >
-              <motion.a
+              <m.a
                 href="https://cal.com/luis-fernandez-ezzzmp/30min?overlayCalendar=true"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -77,12 +77,12 @@ export default function ContactSection() {
               >
                 <Calendar className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
                 <span>{t('scheduleCall') || 'Agendar una Reunión'}</span>
-              </motion.a>
+              </m.a>
 
               <p className="text-sm text-gray-600 mt-6">
                 {t('callDescription') || 'Agenda una llamada de 30 minutos para hablar sobre tu proyecto'}
               </p>
-            </motion.div>
+            </m.div>
           )}
         </div>
       </div>

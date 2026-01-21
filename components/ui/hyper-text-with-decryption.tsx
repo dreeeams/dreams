@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 // --- Configuration ---
 const SCRAMBLE_SPEED = 10; // Faster for a snappier feel
@@ -86,7 +86,7 @@ const Word = ({
   };
 
   return (
-    <motion.span
+    <m.span
       className={`
         relative inline-block font-mono font-medium whitespace-nowrap
         ${isHighlightable ? "cursor-pointer" : "cursor-default"}
@@ -110,7 +110,7 @@ const Word = ({
       {/* Background Pill (Only Visible on Hover) */}
       <AnimatePresence>
         {isHovered && (
-          <motion.span
+          <m.span
             className="absolute -inset-2 rounded-lg bg-black z-[-1]"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -132,13 +132,13 @@ const Word = ({
       <AnimatePresence>
         {isHovered && (
           <>
-            <motion.span
+            <m.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
               className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full z-20"
             />
-            <motion.span
+            <m.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
@@ -147,7 +147,7 @@ const Word = ({
           </>
         )}
       </AnimatePresence>
-    </motion.span>
+    </m.span>
   );
 };
 

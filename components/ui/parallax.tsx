@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 import { useRef, ReactNode } from 'react';
 
 interface ParallaxProps {
@@ -20,9 +20,9 @@ export function ParallaxY({ children, speed = 0.5, className = '' }: ParallaxPro
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={{ y }}>
+      <m.div style={{ y }}>
         {children}
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -39,9 +39,9 @@ export function ParallaxScale({ children, speed = 0.2, className = '' }: Paralla
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={{ scale, opacity }}>
+      <m.div style={{ scale, opacity }}>
         {children}
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -57,9 +57,9 @@ export function ParallaxRotate({ children, speed = 10, className = '' }: Paralla
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={{ rotate }}>
+      <m.div style={{ rotate }}>
         {children}
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -75,9 +75,9 @@ export function ParallaxOpacity({ children, className = '' }: Omit<ParallaxProps
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={{ opacity }}>
+      <m.div style={{ opacity }}>
         {children}
-      </motion.div>
+      </m.div>
     </div>
   );
 }

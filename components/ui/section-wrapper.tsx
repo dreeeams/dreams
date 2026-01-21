@@ -1,8 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ReactNode, useState } from 'react';
-import { Skeleton, SkeletonText } from './skeleton';
+import { Skeleton, SkeletonText } from '@/components/skeleton';
 
 interface SectionWrapperProps {
   children: ReactNode;
@@ -63,7 +63,7 @@ export function SectionWrapper({
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: '-100px' }}
@@ -72,6 +72,6 @@ export function SectionWrapper({
       className={className}
     >
       {hasViewed ? children : renderSkeleton()}
-    </motion.div>
+    </m.div>
   );
 }

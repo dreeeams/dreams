@@ -1,9 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { LazyIframe } from '@/components/ui/lazy-iframe';
-import { analytics } from '@/lib/analytics';
 import { SplitText } from '@/components/ui/animated-text';
 
 type Project = {
@@ -101,7 +100,7 @@ export default function PortfolioSection() {
     <section id="work" className="relative z-10 py-24 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -116,12 +115,12 @@ export default function PortfolioSection() {
           <p className="text-center text-sm max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <motion.div
+            <m.div
               key={project.titleKey}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -130,14 +129,14 @@ export default function PortfolioSection() {
               className="group cursor-pointer"
             >
               {/* Project Image Placeholder */}
-              <motion.div
+              <m.div
                 className={`${project.isMockup || project.isIcon ? 'aspect-[4/3]' : 'aspect-[4/3]'} ${project.color} relative mb-4 border-2 border-black overflow-hidden`}
               >
                 {project.isIcon ? (
                   <div className="absolute inset-0 bg-white overflow-hidden">
                     {/* Simple Icon Display */}
                     <img
-                      src="/images/hunt-tickets-icon.png"
+                      src="/images/hunt-tickets-icon.svg"
                       alt="Hunt Tickets App Icon"
                       className="w-full h-full object-cover"
                     />
@@ -165,6 +164,7 @@ export default function PortfolioSection() {
                     title={project.titleKey}
                     className="absolute inset-0 w-full h-full pointer-events-none border-0"
                     mobileView={project.mobileView}
+                    delay={index * 300}
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -182,7 +182,7 @@ export default function PortfolioSection() {
 
                 {/* Hover Overlay */}
                 {!project.isMockup && !project.isIcon && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.2 }}
@@ -194,16 +194,16 @@ export default function PortfolioSection() {
                       rel="noopener noreferrer"
                       onClick={() => {
                         if (project.url) {
-                          analytics.projectLinkClicked(project.titleKey, project.url);
+                          window.open(`https://${project.url}`, '_blank');
                         }
                       }}
                       className="text-white font-bold border-2 border-white px-8 py-4 pointer-events-auto hover:bg-white hover:text-black transition-colors"
                     >
                       {tButtons('viewProject')} →
                     </a>
-                  </motion.div>
+                  </m.div>
                 )}
-              </motion.div>
+              </m.div>
 
               {/* Project Info */}
               <div className="space-y-3">
@@ -282,7 +282,6 @@ export default function PortfolioSection() {
                     href={`https://${project.url}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => analytics.projectLinkClicked(project.titleKey, project.url!)}
                     className="text-xs font-bold text-brand hover:underline flex items-center gap-1"
                   >
                     {project.url} →
@@ -301,7 +300,7 @@ export default function PortfolioSection() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

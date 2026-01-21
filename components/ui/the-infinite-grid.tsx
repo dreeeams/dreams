@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { cn } from "@/lib/utils";
 import {
-  motion,
+  m,
   useMotionValue,
   useTransform,
   useMotionTemplate,
@@ -55,12 +55,12 @@ export const InfiniteGrid = ({ className, children }: InfiniteGridProps) => {
       </div>
 
       {/* Interactive grid layer - reveals on mouse move */}
-      <motion.div
+      <m.div
         className="absolute inset-0 z-0 opacity-40"
         style={{ maskImage, WebkitMaskImage: maskImage }}
       >
         <GridPattern offsetX={gridOffsetX} offsetY={gridOffsetY} />
-      </motion.div>
+      </m.div>
 
       {/* Gradient orbs */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -81,7 +81,7 @@ const GridPattern = ({ offsetX, offsetY }: { offsetX: any, offsetY: any }) => {
   return (
     <svg className="w-full h-full">
       <defs>
-        <motion.pattern
+        <m.pattern
           id="grid-pattern"
           width="40"
           height="40"
@@ -96,7 +96,7 @@ const GridPattern = ({ offsetX, offsetY }: { offsetX: any, offsetY: any }) => {
             strokeWidth="1"
             className="text-gray-400"
           />
-        </motion.pattern>
+        </m.pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#grid-pattern)" />
     </svg>

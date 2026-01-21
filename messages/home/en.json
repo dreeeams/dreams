@@ -1,0 +1,274 @@
+{
+  "hero": {
+    "title": "We build digital products that people love",
+    "subtitle": "Custom web & mobile development with cutting-edge design",
+    "cta": "Start Your Project",
+    "buttons": {
+      "startProject": "START PROJECT",
+      "viewWork": "VIEW WORK",
+      "scrollDown": "SCROLL_DOWN"
+    },
+    "terminal": {
+      "init": "> dreamstudio.init()",
+      "loading": "> Loading growth engine...",
+      "initializing": "> Initializing conversion systems...",
+      "compiling": "> Compiling sales strategies...",
+      "constStudio": "const",
+      "studio": " results ",
+      "equals": "= '{'",
+      "name": "  name",
+      "nameValue": "\"DREAM STUDIO\"",
+      "mission": "  mission",
+      "missionValue": "\"Building digital products that don't just look good—they perform\"",
+      "output": "  delivery",
+      "outputValue": "\"3-6 month MVP delivery | 90% client retention | Real ROI\"",
+      "status": "  status",
+      "statusValue": "\"READY TO SHIP FAST\"",
+      "closeBrace": "'};'",
+      "ready": "> System ready. Let's grow your business."
+    }
+  },
+  "services": {
+    "title": "What We Do",
+    "techStack": {
+      "title": "Technologies & Tools We Use:",
+      "andMore": "And many more..."
+    },
+    "webDev": {
+      "title": "Digital Experiences",
+      "description": "Web apps that convert visitors into customers. Avg. 40% faster load times, mobile-first design, SEO-optimized from day one. Built with React, Next.js, and modern frameworks for scalability."
+    },
+    "mobileDev": {
+      "title": "Mobile Applications",
+      "description": "Native iOS/Android apps your users won't delete. 4.3+ star avg. rating across our portfolio, 30K+ downloads, intuitive UX, built for scale with React Native and native development."
+    },
+    "uiux": {
+      "title": "Product Design",
+      "description": "Interfaces that solve problems, not create them. User-tested, data-driven, designed for conversions. From wireframes to high-fidelity prototypes, we craft experiences users love."
+    },
+    "consulting": {
+      "title": "Backend & APIs",
+      "description": "Rock-solid infrastructure. 99.9% uptime, sub-100ms response times, enterprise-grade security. We build REST and GraphQL APIs, optimize databases, implement auth systems—scalable from MVP to millions of users."
+    }
+  },
+  "socialProof": {
+    "title": "Trusted by Companies, Loved by Users",
+    "metrics": {
+      "tickets": {
+        "value": "90K+",
+        "label": "Tickets Sold"
+      },
+      "visits": {
+        "value": "105K+",
+        "label": "Platform Visits"
+      },
+      "downloads": {
+        "value": "30K+",
+        "label": "App Downloads"
+      },
+      "rating": {
+        "value": "4.3★",
+        "label": "Average Rating"
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "Real projects, real results. See how we've helped companies transform their digital presence.",
+    "buttons": {
+      "viewProject": "VIEW PROJECT",
+      "viewAllProjects": "VIEW ALL PROJECTS",
+      "backToHome": "BACK TO HOME"
+    },
+    "allProjects": {
+      "title": "All Projects",
+      "subtitle": "Explore our complete portfolio of digital products and experiences",
+      "filters": {
+        "search": "Search projects...",
+        "all": "All Projects",
+        "sortBy": "Sort by",
+        "newest": "Newest First",
+        "oldest": "Oldest First",
+        "nameAZ": "Name (A-Z)",
+        "nameZA": "Name (Z-A)"
+      },
+      "noResults": "No projects found matching your criteria"
+    },
+    "labels": {
+      "webApp": "WEB APP",
+      "mobileApp": "MOBILE APP",
+      "appStore": "App Store",
+      "reviews": "reviews",
+      "downloads": "downloads",
+      "ticketsSold": "tickets sold"
+    },
+    "projects": {
+      "huntRho": {
+        "description": "Modern ticketing and event management platform with real-time updates and analytics"
+      },
+      "perroNegro": {
+        "description": "Event ticketing platform for Perro Negro with real-time ticket sales and management",
+        "metrics": {
+          "visitors": "90,000+",
+          "visitorsLabel": "Unique Visitors",
+          "visits": "105,000+",
+          "visitsLabel": "Total Visits",
+          "bounceRate": "92%",
+          "bounceRateLabel": "Bounce Rate"
+        }
+      },
+      "mariaHelena": {
+        "description": "Ticketing platform for María Helena Amador events with seamless booking experience"
+      },
+      "amazonasToures": {
+        "description": "Tourism and travel agency platform showcasing amazing Amazon tours and experiences"
+      },
+      "kuenta": {
+        "description": "Modern payment and transaction platform with seamless user experience and secure payment processing"
+      },
+      "huntTickets": {
+        "description": "Modern ticketing and event management mobile application with real-time updates and analytics"
+      }
+    }
+  },
+  "process": {
+    "title": "Our Process",
+    "discover": {
+      "title": "Discover",
+      "description": "We start by deeply understanding your business, users, and goals. We research, analyze, and define the strategy that will guide the entire project."
+    },
+    "design": {
+      "title": "Design",
+      "description": "We create prototypes and designs that bring your vision to life. Every detail is carefully crafted to ensure an exceptional user experience."
+    },
+    "develop": {
+      "title": "Develop",
+      "description": "We build your product with clean code, best practices, and modern technologies. Quality, performance, and scalability are our priorities."
+    },
+    "deliver": {
+      "title": "Deliver",
+      "description": "We launch your project successfully and provide ongoing support. Your success is our success, and we're here for the long term."
+    }
+  },
+  "team": {
+    "title": "Meet Our Team",
+    "subtitle": "Talented people behind great products"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": {
+      "q1": {
+        "question": "How long does a typical project take?",
+        "answer": "Project timelines vary based on complexity. A simple website can take 4-6 weeks, while a full mobile app typically takes 3-6 months. We'll provide a detailed timeline during our initial consultation."
+      },
+      "q2": {
+        "question": "What is your pricing model?",
+        "answer": "We offer flexible pricing models including fixed-price and time & materials. Pricing depends on project scope, complexity, and timeline. Contact us for a personalized quote tailored to your needs."
+      },
+      "q3": {
+        "question": "Do you provide ongoing support?",
+        "answer": "Yes! We offer comprehensive maintenance packages that include bug fixes, updates, security patches, performance optimization, and feature enhancements. Your success is our priority."
+      },
+      "q4": {
+        "question": "Can you work with our existing team?",
+        "answer": "Absolutely! We collaborate seamlessly with in-house teams, providing expertise where needed. We integrate smoothly into your workflow and complement your existing resources."
+      },
+      "q5": {
+        "question": "What technologies do you specialize in?",
+        "answer": "We specialize in modern web and mobile technologies including React, Next.js, React Native, Node.js, TypeScript, PostgreSQL, and leading cloud platforms like Vercel and Supabase."
+      }
+    }
+  },
+  "contactForm": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "companyName": "Company Name",
+    "companyNamePlaceholder": "Company name, brand name, etc...",
+    "website": "Website",
+    "websitePlaceholder": "dreeeams.com or social media link",
+    "projectType": "What do you want to create?",
+    "projectTypePlaceholder": "Select project type",
+    "projectTypeWeb": "Website / Web App",
+    "projectTypeMobile": "Mobile App",
+    "projectTypeBoth": "Web + Mobile",
+    "projectTypeOther": "Other",
+    "projectDetails": "Tell us about your project",
+    "projectDetailsPlaceholder": "Describe your project in detail: what problem you want to solve, key features, target audience, technical requirements, etc.",
+    "howDidYouHear": "How did you hear about us?",
+    "howDidYouHearPlaceholder": "Select an option",
+    "howDidYouHearGoogle": "Google Search",
+    "howDidYouHearInstagram": "Instagram",
+    "howDidYouHearFacebook": "Facebook",
+    "howDidYouHearLinkedIn": "LinkedIn",
+    "howDidYouHearTwitter": "Twitter / X",
+    "howDidYouHearTikTok": "TikTok",
+    "howDidYouHearYouTube": "YouTube",
+    "howDidYouHearReferral": "Friend or Colleague Referral",
+    "howDidYouHearEvent": "Event or Conference",
+    "howDidYouHearBlog": "Blog or Article",
+    "howDidYouHearAdvertisement": "Online Advertisement",
+    "howDidYouHearOther": "Other",
+    "termsText": "By continuing, you accept our",
+    "termsLink": "Terms",
+    "and": "and",
+    "privacyLink": "Privacy Policy",
+    "back": "Back",
+    "confirm": "Confirm",
+    "submitting": "Sending...",
+    "successMessage": "Thank you! We'll contact you soon.",
+    "errorMessage": "Something went wrong. Please try again."
+  },
+  "features": {
+    "title": "Features",
+    "typography": {
+      "title": "Typography",
+      "description": "Beautiful, responsive type that scales perfectly."
+    },
+    "speed": {
+      "title": "Speed",
+      "description": "Blazing fast performance."
+    },
+    "layouts": {
+      "title": "Layouts",
+      "description": "Flexible grids that adapt."
+    },
+    "speedNetwork": {
+      "title": "Global Network",
+      "description": "Lightning-fast performance worldwide."
+    },
+    "security": {
+      "title": "Security First",
+      "description": "Enterprise-grade encryption built-in."
+    },
+    "mobile": {
+      "title": "Mobile Ready",
+      "description": "Optimized for all devices and screen sizes."
+    },
+    "speedIndicator": {
+      "loadTime": "Load Time"
+    }
+  },
+  "contact": {
+    "title": "Let's Build Something Amazing Together",
+    "subtitle": "Ready to bring your digital vision to life? Schedule a free consultation and let's discuss your project.",
+    "noSpam": "No spam, no sales pressure. Just a conversation about your goals.",
+    "scheduleCall": "Schedule a Meeting",
+    "callDescription": "Schedule a 30-minute call to talk about your project",
+    "footer": {
+      "tagline": "Building digital experiences since 2024",
+      "quickLinks": "Quick Links",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "about": "About",
+      "contact": "Contact",
+      "legal": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "rights": "All rights reserved",
+      "madeWith": "Made with"
+    }
+  }
+}

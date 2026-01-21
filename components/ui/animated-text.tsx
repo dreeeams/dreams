@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface AnimatedTextProps {
@@ -44,7 +44,7 @@ export function SplitText({ text, className = '', delay = 0, duration = 0.5, sta
   };
 
   return (
-    <motion.span
+    <m.span
       style={{ display: 'inline-flex', overflow: 'hidden', flexWrap: 'wrap' }}
       variants={container}
       initial="hidden"
@@ -53,36 +53,36 @@ export function SplitText({ text, className = '', delay = 0, duration = 0.5, sta
       className={className}
     >
       {letters.map((letter, index) => (
-        <motion.span
+        <m.span
           variants={child}
           key={index}
           style={{ display: 'inline-block' }}
         >
           {letter === ' ' ? '\u00A0' : letter}
-        </motion.span>
+        </m.span>
       ))}
-    </motion.span>
+    </m.span>
   );
 }
 
 export function RevealText({ text, className = '', delay = 0 }: AnimatedTextProps) {
   return (
-    <motion.div
+    <m.div
       className={`overflow-hidden ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay, duration: 0.5 }}
     >
-      <motion.div
+      <m.div
         initial={{ y: '100%' }}
         whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: delay + 0.1, duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
       >
         {text}
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 }
 
@@ -90,7 +90,7 @@ export function ScrambleText({ text, className = '' }: AnimatedTextProps) {
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   return (
-    <motion.span
+    <m.span
       className={className}
       initial="hidden"
       whileInView="visible"
@@ -120,6 +120,6 @@ export function ScrambleText({ text, className = '' }: AnimatedTextProps) {
       }}
     >
       {text}
-    </motion.span>
+    </m.span>
   );
 }

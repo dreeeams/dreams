@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 const teamMembers = [
@@ -17,7 +17,7 @@ export default function TeamSection() {
     <section id="team" className="py-24 px-6 md:px-12 bg-surface-light-1">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -28,12 +28,12 @@ export default function TeamSection() {
           <h2 className="text-5xl md:text-7xl font-nostalgic">THE PEOPLE</h2>
           <h2 className="text-5xl md:text-7xl italic font-nostalgic">BEHIND YOUR</h2>
           <h2 className="text-5xl md:text-7xl font-nostalgic">SUCCESS</h2>
-        </motion.div>
+        </m.div>
 
         {/* Team Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member, index) => (
-            <motion.div
+            <m.div
               key={member.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export default function TeamSection() {
               className="group cursor-pointer"
             >
               {/* Card Image */}
-              <motion.div
+              <m.div
                 whileHover={{ scale: 1.02 }}
                 className="aspect-[3/4] bg-white border-4 border-black relative overflow-hidden mb-4"
               >
@@ -52,22 +52,22 @@ export default function TeamSection() {
                 </div>
 
                 {/* Hover overlay */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   className="absolute inset-0 bg-black/20 flex items-center justify-center"
                 >
-                  <motion.div
+                  <m.div
                     initial={{ scale: 0 }}
                     whileHover={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                     className="w-12 h-12 rounded-full bg-brand border-2 border-white"
                   />
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
 
               {/* Card Info */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -83,8 +83,8 @@ export default function TeamSection() {
                     </span>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           ))}
         </div>
       </div>

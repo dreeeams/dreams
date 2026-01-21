@@ -1,0 +1,73 @@
+{
+  "terms": {
+    "meta": {
+      "title": "Términos de Servicio | Dream Studio",
+      "description": "Lee nuestros términos de servicio y comprende el acuerdo entre Dream Studio y nuestros clientes."
+    },
+    "title": "Términos de Servicio",
+    "lastUpdated": "Última Actualización",
+    "backToHome": "Volver al Inicio",
+    "sections": {
+      "introduction": {
+        "title": "Introducción",
+        "p1": "Estos Términos de Servicio rigen tu uso del sitio web y servicios de Dream Studio. Al acceder o usar nuestros servicios, aceptas estar sujeto a estos términos."
+      },
+      "services": {
+        "title": "Nuestros Servicios",
+        "p1": "Dream Studio proporciona los siguientes servicios profesionales:",
+        "items": {
+          "web": "Desarrollo de aplicaciones web utilizando frameworks modernos",
+          "mobile": "Desarrollo de aplicaciones móviles para iOS y Android",
+          "design": "Servicios de diseño UI/UX y diseño de producto",
+          "backend": "Desarrollo backend e integración de APIs"
+        }
+      },
+      "projects": {
+        "title": "Términos del Proyecto",
+        "proposals": {
+          "title": "Propuestas y Contratos",
+          "desc": "Todos los proyectos comienzan con una propuesta detallada que describe el alcance, cronograma y costos. Se requiere un contrato firmado antes de comenzar el trabajo."
+        },
+        "timeline": {
+          "title": "Cronograma del Proyecto",
+          "desc": "Los cronogramas son estimaciones y pueden variar según la complejidad del proyecto y la capacidad de respuesta del cliente. Los retrasos causados por retroalimentación tardía del cliente pueden extender el cronograma."
+        },
+        "changes": {
+          "title": "Cambios de Alcance",
+          "desc": "Los cambios en el alcance del proyecto después de la firma del contrato pueden resultar en costos adicionales y ajustes de cronograma."
+        }
+      },
+      "payment": {
+        "title": "Términos de Pago",
+        "items": {
+          "deposit": "Se requiere un depósito (típicamente 50%) antes de comenzar el trabajo",
+          "milestones": "Los hitos de pago se describen en la propuesta del proyecto",
+          "late": "Los pagos tardíos pueden resultar en la suspensión del proyecto",
+          "refunds": "Los reembolsos se manejan caso por caso"
+        }
+      },
+      "ip": {
+        "title": "Propiedad Intelectual",
+        "p1": "Al completar el pago completo, todos los entregables y código personalizado se convierten en propiedad del cliente. Dream Studio se reserva el derecho de mostrar el proyecto en nuestro portafolio a menos que se acuerde lo contrario.",
+        "p2": "Retenemos la propiedad de cualquier código preexistente, frameworks o herramientas utilizadas en el proyecto. El cliente recibe una licencia para usar estos como parte de la solución entregada."
+      },
+      "warranties": {
+        "title": "Garantías y Soporte",
+        "p1": "Proporcionamos un período de garantía (típicamente 30-90 días) para correcciones de errores y problemas directamente relacionados con nuestro trabajo. Esto no cubre cambios en los requisitos del proyecto o servicios de terceros.",
+        "p2": "El mantenimiento y soporte continuo se puede acordar bajo un acuerdo separado."
+      },
+      "liability": {
+        "title": "Limitación de Responsabilidad",
+        "p1": "Dream Studio no es responsable de daños indirectos, incidentales o consecuentes. Nuestra responsabilidad total está limitada a la cantidad pagada por los servicios."
+      },
+      "termination": {
+        "title": "Terminación",
+        "p1": "Cualquiera de las partes puede terminar el acuerdo con notificación por escrito. El cliente es responsable del pago de todo el trabajo completado hasta la fecha de terminación."
+      },
+      "contact": {
+        "title": "Contáctanos",
+        "p1": "Si tienes preguntas sobre estos Términos de Servicio, contáctanos en:"
+      }
+    }
+  }
+}

@@ -40,8 +40,6 @@ const config: Config = {
         sans: ['var(--font-geist-sans)', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
         nostalgic: ['var(--font-nostalgic)', 'sans-serif'],
-        logo: ['var(--font-logo)', 'sans-serif'],
-        pixel: ['var(--font-pixel)', 'monospace'],
       },
     },
   },

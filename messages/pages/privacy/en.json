@@ -1,0 +1,75 @@
+{
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy | Dream Studio",
+      "description": "Learn how Dream Studio collects, uses, and protects your personal information."
+    },
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "backToHome": "Back to Home",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "p1": "At Dream Studio, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.",
+        "p2": "Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services."
+      },
+      "collect": {
+        "title": "Information We Collect",
+        "intro": "We collect information that you provide directly to us when you:",
+        "items": {
+          "name": {
+            "title": "Contact Information",
+            "desc": "Name, email address, phone number, and company name"
+          },
+          "email": {
+            "title": "Communication Data",
+            "desc": "Any information you provide when contacting us"
+          },
+          "phone": {
+            "title": "Project Details",
+            "desc": "Information about your project requirements and needs"
+          },
+          "company": {
+            "title": "Company Information",
+            "desc": "Business name, website, and industry"
+          },
+          "technical": {
+            "title": "Technical Data",
+            "desc": "IP address, browser type, device information, and usage analytics"
+          }
+        }
+      },
+      "usage": {
+        "title": "How We Use Your Information",
+        "items": {
+          "respond": "Respond to your inquiries and provide customer service",
+          "services": "Provide, maintain, and improve our services",
+          "improve": "Understand how you use our website to improve user experience",
+          "communication": "Send you updates, marketing communications (with your consent)"
+        }
+      },
+      "storage": {
+        "title": "Data Storage and Security",
+        "p1": "We implement appropriate technical and organizational security measures to protect your personal information. Your data is stored securely using industry-standard encryption and security protocols.",
+        "p2": "We use Twenty CRM to manage contact information and Vercel for analytics. These third-party services have their own privacy policies governing the use of your information."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "items": {
+          "access": "Access and receive a copy of your personal data",
+          "correct": "Correct any inaccurate or incomplete information",
+          "delete": "Request deletion of your personal data",
+          "opt": "Opt-out of marketing communications at any time"
+        }
+      },
+      "cookies": {
+        "title": "Cookies and Tracking",
+        "p1": "We use cookies and similar tracking technologies to track activity on our website and improve user experience. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "p1": "If you have questions about this Privacy Policy or want to exercise your rights, please contact us at:"
+      }
+    }
+  }
+}

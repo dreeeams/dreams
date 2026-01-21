@@ -5,7 +5,7 @@ interface SkeletonProps {
   variant?: 'text' | 'circular' | 'rectangular';
 }
 
-export default function Skeleton({ className, variant = 'rectangular' }: SkeletonProps) {
+export function Skeleton({ className, variant = 'rectangular' }: SkeletonProps) {
   return (
     <div
       className={cn(
@@ -49,6 +49,20 @@ export function SkeletonProjectCard() {
           <Skeleton className="h-6 w-24" />
         </div>
       </div>
+    </div>
+  );
+}
+
+export function SkeletonText({ lines = 3, className = '' }: { lines?: number; className?: string }) {
+  return (
+    <div className={cn('space-y-3', className)}>
+      {Array.from({ length: lines }).map((_, i) => (
+        <Skeleton
+          key={i}
+          variant="text"
+          className={i === lines - 1 ? 'w-3/4' : 'w-full'}
+        />
+      ))}
     </div>
   );
 }

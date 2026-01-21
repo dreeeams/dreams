@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -134,7 +134,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -315,43 +315,43 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-end">
-          <motion.button
+          <m.button
             type="button"
             whileTap={{ scale: 0.98 }}
             className="px-8 py-3 text-sm font-medium text-gray-700 border-2 border-gray-200 hover:border-black hover:bg-gray-50 transition-all duration-200"
           >
             {t('back')}
-          </motion.button>
-          <motion.button
+          </m.button>
+          <m.button
             type="submit"
             disabled={isSubmitting}
             whileTap={{ scale: 0.98 }}
             className="px-8 py-3 text-sm font-medium text-white bg-black hover:bg-gray-800 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? t('submitting') : t('confirm')}
-          </motion.button>
+          </m.button>
         </div>
 
         {/* Status Messages */}
         {submitStatus === 'success' && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="p-4 bg-green-50 border-2 border-green-500 text-green-800 text-sm"
           >
             {t('successMessage')}
-          </motion.div>
+          </m.div>
         )}
         {submitStatus === 'error' && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="p-4 bg-red-50 border-2 border-red-500 text-red-800 text-sm"
           >
             {t('errorMessage')}
-          </motion.div>
+          </m.div>
         )}
       </form>
-    </motion.div>
+    </m.div>
   );
 }

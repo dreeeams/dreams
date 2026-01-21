@@ -1,17 +1,36 @@
 'use client';
 
-import { useState } from 'react';
-import { Skeleton } from './skeleton';
+import { useState, useEffect } from 'react';
+import { Skeleton } from '@/components/skeleton';
 
 interface LazyIframeProps {
   src: string;
   title: string;
   className?: string;
   mobileView?: boolean;
+  delay?: number; // Delay in milliseconds before loading iframe
 }
 
-export function LazyIframe({ src, title, className = '', mobileView = false }: LazyIframeProps) {
+export function LazyIframe({ src, title, className = '', mobileView = false, delay = 0 }: LazyIframeProps) {
   const [isLoading, setIsLoading] = useState(true);
+  const [shouldLoad, setShouldLoad] = useState(delay === 0);
+
+  useEffect(() => {
+    if (delay > 0) {
+      const timer = setTimeout(() => {
+        setShouldLoad(true);
+      }, delay);
+      return () => clearTimeout(timer);
+    }
+  }, [delay]);
+
+  if (!shouldLoad) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+        <Skeleton className="w-full h-full" />
+      </div>
+    );
+  }
 
   return (
     <>

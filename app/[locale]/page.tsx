@@ -1,12 +1,15 @@
 import dynamic from 'next/dynamic';
 import Navigation from '@/components/navigation';
 import HeroSection from '@/components/sections/hero-section';
-import ServicesSection from '@/components/sections/services-section';
+import SocialProofSection from '@/components/sections/social-proof-section';
 import FooterSection from '@/components/sections/footer-section';
 import SkipToContent from '@/components/skip-to-content';
 import { SkeletonProjectCard } from '@/components/skeleton';
 
 // Lazy load below-the-fold sections for better initial load performance
+const ServicesSection = dynamic(() => import('@/components/sections/services-section'), {
+  loading: () => <div className="min-h-screen bg-white" />,
+});
 const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-section'), {
   loading: () => (
     <div className="py-24 px-6 md:px-12 bg-white">
@@ -40,6 +43,7 @@ export default function HomePage() {
         {/* Content that scrolls over hero */}
         <div className="relative z-10" style={{ marginTop: '100vh' }}>
           <ServicesSection />
+          <SocialProofSection />
           <PortfolioSection />
           <ContactSection />
           <FAQSection />

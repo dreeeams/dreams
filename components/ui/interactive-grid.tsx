@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 export function InteractiveGrid() {
@@ -37,7 +37,7 @@ export function InteractiveGrid() {
           const opacity = Math.max(0, 1 - distance / maxDistance);
 
           return (
-            <motion.div
+            <m.div
               key={cell}
               className="border border-brand"
               animate={{
@@ -62,7 +62,7 @@ export function AnimatedBackground() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
       {/* Animated gradient orbs */}
-      <motion.div
+      <m.div
         className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand/5 rounded-full blur-3xl"
         animate={{
           x: [0, 100, 0],
@@ -75,7 +75,7 @@ export function AnimatedBackground() {
           ease: "easeInOut"
         }}
       />
-      <motion.div
+      <m.div
         className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"
         animate={{
           x: [0, -100, 0],
@@ -88,7 +88,7 @@ export function AnimatedBackground() {
           ease: "easeInOut"
         }}
       />
-      <motion.div
+      <m.div
         className="absolute top-1/2 right-1/3 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"
         animate={{
           x: [0, 50, 0],

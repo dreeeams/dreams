@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 export default function CTASection() {
@@ -22,7 +22,7 @@ export default function CTASection() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="border-4 border-white dark:border-black p-12 md:p-20 bg-black dark:bg-white">
           {/* Main heading with animation */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -38,10 +38,10 @@ export default function CTASection() {
             <h2 className="text-6xl md:text-8xl lg:text-9xl font-nostalgic text-white dark:text-black leading-none">
               TOGETHER?
             </h2>
-          </motion.div>
+          </m.div>
 
           {/* Description */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -50,37 +50,37 @@ export default function CTASection() {
           >
             Let's transform your vision into a powerful digital reality.
             Get in touch and start building something extraordinary.
-          </motion.p>
+          </m.p>
 
           {/* CTA Buttons */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <motion.a
+            <m.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-12 py-6 bg-brand text-white border-4 border-brand font-bold text-lg hover:bg-white hover:text-brand hover:border-white transition-all duration-300"
             >
               START YOUR PROJECT
-            </motion.a>
+            </m.a>
 
-            <motion.a
+            <m.a
               href="#work"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-12 py-6 bg-transparent text-white dark:text-black border-4 border-white dark:border-black font-bold text-lg hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-all duration-300"
             >
               VIEW OUR WORK
-            </motion.a>
-          </motion.div>
+            </m.a>
+          </m.div>
 
           {/* Stats grid */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -93,7 +93,7 @@ export default function CTASection() {
               { value: '5+', label: 'YEARS' },
               { value: '24/7', label: 'SUPPORT' }
             ].map((stat, index) => (
-              <motion.div
+              <m.div
                 key={stat.label}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -111,9 +111,9 @@ export default function CTASection() {
                 <div className="text-sm font-bold text-white dark:text-black">
                   {stat.label}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </div>
 

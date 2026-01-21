@@ -35,11 +35,11 @@
       "name": "  nombre",
       "nameValue": "\"DREAM STUDIO\"",
       "mission": "  mision",
-      "missionValue": "\"Aumentar tus ventas con tecnología que convierte\"",
-      "output": "  resultados",
-      "outputValue": "\"Más clientes, más ingresos, ROI comprobado\"",
+      "missionValue": "\"Construimos productos digitales que no solo se ven bien—funcionan\"",
+      "output": "  entrega",
+      "outputValue": "\"Entrega MVP 3-6 meses | 90% retención clientes | ROI real\"",
       "status": "  estado",
-      "statusValue": "\"LISTO PARA GENERAR RESULTADOS\"",
+      "statusValue": "\"LISTO PARA ENVIAR RÁPIDO\"",
       "closeBrace": "'};'",
       "ready": "> Sistema listo. Hagamos crecer tu negocio."
     }
@@ -52,19 +52,40 @@
     },
     "webDev": {
       "title": "Experiencias Digitales",
-      "description": "Plataformas web modernas construidas con las ultimas tecnologias. Desde sitios corporativos hasta aplicaciones web complejas, creamos soluciones digitales escalables que generan resultados reales para tu negocio."
+      "description": "Apps web que convierten visitantes en clientes. 40% más rápido en promedio, diseño mobile-first, optimizado para SEO desde el día uno. Construido con React, Next.js y frameworks modernos para escalabilidad."
     },
     "mobileDev": {
       "title": "Aplicaciones Moviles",
-      "description": "Apps nativas y multiplataforma para iOS y Android. Diseñamos experiencias intuitivas que los usuarios aman, con arquitecturas robustas que escalan con tu crecimiento."
+      "description": "Apps nativas iOS/Android que tus usuarios no borrarán. 4.3+ estrellas promedio en portfolio, 30K+ descargas, UX intuitiva, construidas para escalar con React Native y desarrollo nativo."
     },
     "uiux": {
       "title": "Diseño de Producto",
-      "description": "Diseño centrado en el usuario que combina estetica con funcionalidad. Creamos interfaces que no solo son hermosas, sino que resuelven problemas reales y entregan experiencias excepcionales."
+      "description": "Interfaces que resuelven problemas, no los crean. Probadas con usuarios, basadas en datos, diseñadas para conversiones. Desde wireframes hasta prototipos de alta fidelidad, creamos experiencias que los usuarios aman."
     },
     "consulting": {
       "title": "Backend & APIs",
-      "description": "Soluciones robustas del lado del servidor y APIs escalables. Construimos APIs REST y GraphQL seguras, diseñamos arquitecturas de bases de datos eficientes, implementamos sistemas de autenticación y creamos microservicios que impulsan tus aplicaciones."
+      "description": "Infraestructura sólida como roca. 99.9% uptime, respuestas sub-100ms, seguridad nivel empresarial. Construimos APIs REST y GraphQL, optimizamos bases de datos, implementamos sistemas de auth—escalable desde MVP hasta millones de usuarios."
+    }
+  },
+  "socialProof": {
+    "title": "Empresas Confían, Usuarios Aman",
+    "metrics": {
+      "tickets": {
+        "value": "90K+",
+        "label": "Tickets Vendidos"
+      },
+      "visits": {
+        "value": "105K+",
+        "label": "Visitas a Plataformas"
+      },
+      "downloads": {
+        "value": "30K+",
+        "label": "Descargas de Apps"
+      },
+      "rating": {
+        "value": "4.3★",
+        "label": "Calificación Promedio"
+      }
     }
   },
   "portfolio": {
@@ -175,8 +196,8 @@
     }
   },
   "contact": {
-    "title": "Hablanos de tu proyecto",
-    "subtitle": "Toma menos de 30 segundos. Cuadra la reunion en segundos.",
+    "title": "Construyamos Algo Extraordinario",
+    "subtitle": "Llamada estratégica de 30 min. Sin presión, solo consejo honesto. ⚡ Respuesta en 24h | 📅 Presupuesto gratis",
     "noSpam": "",
     "scheduleButton": "AGENDAR REUNION",
     "scheduleCall": "Agendar una Reunión",

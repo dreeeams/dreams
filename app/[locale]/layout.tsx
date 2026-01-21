@@ -8,14 +8,13 @@ import { locales } from '@/i18n/config';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import WebVitalsReporter from '@/components/web-vitals-reporter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import ScrollToTop from '@/components/scroll-to-top';
 import DisableZoomOnInput from '@/components/disable-zoom-on-input';
-import PageLoader from '@/components/page-loader';
+import MotionProvider from '@/components/providers/motion-provider';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import '../globals.css';
-import ConsoleFilter from '@/components/console-filter';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -282,27 +281,31 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-7RHVN0C6WY"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-7RHVN0C6WY');
-            `,
-          }}
-        />
         {/* Umami Analytics */}
         <script
           defer
           src="https://analytics.dreeeams.com/script.js"
           data-website-id="247f3db2-3f01-4be3-ab41-9f3e6d9a0767"
         />
+        {/* Preload critical assets */}
+        <link
+          rel="preload"
+          href="/fonts/ZTHoky-Regular.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/CHAOS16.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+        {/* DNS prefetch for external services */}
+        <link rel="dns-prefetch" href="https://cal.com" />
+        <link rel="preconnect" href="https://va.vercel-scripts.com" />
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         {/* Schema.org structured data */}
         <script
           type="application/ld+json"
@@ -327,18 +330,31 @@ export default async function LocaleLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
-            <PageLoader />
-            <ConsoleFilter />
-            <DisableZoomOnInput />
-            <ErrorBoundary>
-              {children}
-              <ScrollToTop />
-              <Analytics />
-              <SpeedInsights />
-              <WebVitalsReporter />
-            </ErrorBoundary>
+            <MotionProvider>
+              <DisableZoomOnInput />
+              <ErrorBoundary>
+                {children}
+                <ScrollToTop />
+                <Analytics />
+                <SpeedInsights />
+              </ErrorBoundary>
+            </MotionProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
+
+        {/* Google Analytics - loaded after page is interactive */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-7RHVN0C6WY"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7RHVN0C6WY');
+          `}
+        </Script>
       </body>
     </html>
   );

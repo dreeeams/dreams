@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { m } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -92,7 +92,7 @@ export default function HeroSection() {
         </h1>
 
         {/* Terminal Window */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -131,39 +131,39 @@ export default function HeroSection() {
             ))}
             {!isTypingComplete && <span className="animate-pulse text-white">▊</span>}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* CTA Buttons */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isTypingComplete ? 1 : 0, y: isTypingComplete ? 0 : 20 }}
           transition={{ duration: 0.6 }}
           className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6"
         >
-          <motion.a
+          <m.a
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-6 sm:px-12 py-3 sm:py-5 bg-brand text-white border-2 border-black font-bold text-xs sm:text-base hover:bg-black hover:border-brand transition-colors cursor-pointer"
           >
             {tButtons('startProject')}
-          </motion.a>
-          <motion.a
+          </m.a>
+          <m.a
             href="#work"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-6 sm:px-12 py-3 sm:py-5 bg-transparent text-black border-2 border-black font-bold text-xs sm:text-base hover:bg-black hover:text-white transition-colors cursor-pointer"
           >
             {tButtons('viewWork')}
-          </motion.a>
-        </motion.div>
+          </m.a>
+        </m.div>
 
         {/* Scroll Indicator */}
         <div
           className="mt-12 sm:mt-16 flex justify-center"
           style={{ opacity: isTypingComplete ? 1 : 0 }}
         >
-          <motion.a
+          <m.a
             href="#services"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -173,7 +173,7 @@ export default function HeroSection() {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
               <path d="M12 5v14M19 12l-7 7-7-7" />
             </svg>
-          </motion.a>
+          </m.a>
         </div>
         </div>
       </section>

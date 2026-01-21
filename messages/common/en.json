@@ -1,0 +1,37 @@
+{
+  "loader": {
+    "messages": {
+      "init": "> Initializing Dream Studio...",
+      "loading": "> Loading creative engine...",
+      "compiling": "> Compiling design systems...",
+      "preparing": "> Preparing experience...",
+      "almostReady": "> Almost ready..."
+    }
+  },
+  "nav": {
+    "services": "Services",
+    "work": "Portfolio",
+    "team": "Team",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  },
+  "contact": {
+    "footer": {
+      "tagline": "Building digital experiences since 2024",
+      "quickLinks": "Quick Links",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "about": "About",
+      "contact": "Contact",
+      "legal": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "rights": "All rights reserved",
+      "madeWith": "Built with"
+    }
+  }
+}

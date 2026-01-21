@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const svgs = [
   <svg key="1" width="399" height="398" viewBox="0 0 399 398" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-16 md:h-20 lg:h-24 w-auto">
@@ -34,7 +34,7 @@ const svgs = [
 export default function MarqueeSection() {
   return (
     <section className="relative z-10 w-full py-12 sm:py-16 md:py-20 bg-black border-y-2 sm:border-y-3 md:border-y-4 border-black overflow-hidden">
-      <motion.div
+      <m.div
         className="flex gap-12 md:gap-16 lg:gap-20"
         animate={{
           x: [0, -2000],
@@ -54,7 +54,7 @@ export default function MarqueeSection() {
             {svgs}
           </div>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

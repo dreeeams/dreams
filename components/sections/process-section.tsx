@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 const processSteps = [
@@ -17,7 +17,7 @@ export default function ProcessSection() {
     <section id="process" className="py-24 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -39,12 +39,12 @@ export default function ProcessSection() {
               <h3 className="text-2xl italic font-nostalgic">WITH YOU</h3>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Process Steps */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {processSteps.map((step, index) => (
-            <motion.div
+            <m.div
               key={step.number}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -54,13 +54,13 @@ export default function ProcessSection() {
               className="border-4 border-black dark:border-white bg-white dark:bg-black p-8 relative group cursor-pointer"
             >
               {/* Step Number */}
-              <motion.div
+              <m.div
                 className="absolute -top-6 -left-6 w-16 h-16 bg-brand border-4 border-black dark:border-white flex items-center justify-center"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
                 <span className="text-white font-bold text-xl">{step.number}</span>
-              </motion.div>
+              </m.div>
 
               {/* Icon */}
               <div className="text-5xl mb-4">{step.iconKey}</div>
@@ -75,20 +75,20 @@ export default function ProcessSection() {
 
               {/* Decorative Arrow */}
               {index < processSteps.length - 1 && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 0.2 }}
                   className="hidden md:block absolute -right-10 top-1/2 transform -translate-y-1/2 text-6xl"
                 >
                   →
-                </motion.div>
+                </m.div>
               )}
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Timeline Visualization */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -104,7 +104,7 @@ export default function ProcessSection() {
             {/* Timeline Points */}
             <div className="grid grid-cols-4 gap-4 relative">
               {['Week 1-2', 'Week 3-4', 'Week 5-8', 'Week 9+'].map((week, i) => (
-                <motion.div
+                <m.div
                   key={week}
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -112,24 +112,24 @@ export default function ProcessSection() {
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                   className="text-center"
                 >
-                  <motion.div
+                  <m.div
                     whileHover={{ scale: 1.2, rotate: 180 }}
                     className="w-12 h-12 bg-brand border-4 border-black dark:border-white rounded-full mx-auto mb-3 flex items-center justify-center"
                   >
                     <span className="text-white font-bold text-sm">{i + 1}</span>
-                  </motion.div>
+                  </m.div>
                   <p className="text-xs font-medium">{week}</p>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
                     {t(`${['discover', 'design', 'develop', 'deliver'][i]}.title`)}
                   </p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Collaboration Note */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -140,7 +140,7 @@ export default function ProcessSection() {
             "WE BELIEVE IN TRANSPARENT COMMUNICATION AND COLLABORATIVE DEVELOPMENT.
             YOU'LL BE INVOLVED EVERY STEP OF THE WAY."
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
@@ -56,7 +56,7 @@ export default function FAQSection() {
     <section className="relative z-10 py-24 px-6 md:px-12 bg-white" itemScope itemType="https://schema.org/FAQPage">
       <div className="max-w-4xl mx-auto">
         {/* FAQ Title */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -66,12 +66,12 @@ export default function FAQSection() {
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center">
             {t('title')}
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* FAQ List */}
         <div className="space-y-0">
           {faqs.map((faqKey, index) => (
-            <motion.div
+            <m.div
               key={faqKey}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ export default function FAQSection() {
                 </div>
               </button>
 
-              <motion.div
+              <m.div
                 initial={false}
                 animate={{
                   height: activeIndex === index ? 'auto' : 0,
@@ -116,8 +116,8 @@ export default function FAQSection() {
                     {t(`questions.${faqKey}.answer`)}
                   </p>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           ))}
 
           {/* Bottom border */}

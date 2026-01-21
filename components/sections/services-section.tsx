@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { SplitText } from '@/components/ui/animated-text';
 import BentoGrid from '@/components/ui/bento-grid-01';
@@ -35,7 +35,7 @@ export default function ServicesSection() {
     <section id="services" className="relative z-10 py-24 px-6 md:px-12 bg-surface-light-1">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -47,12 +47,12 @@ export default function ServicesSection() {
               {t('title')}
             </h2>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Services Grid - Minimalista con Números */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-20 md:gap-y-24 mb-24">
           {services.map((service, index) => (
-            <motion.div
+            <m.div
               key={service.titleKey}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export default function ServicesSection() {
 
               {/* Línea decorativa */}
               <div className="mt-6 h-1 w-20 bg-black group-hover:w-40 transition-all duration-500" />
-            </motion.div>
+            </m.div>
           ))}
         </div>
 

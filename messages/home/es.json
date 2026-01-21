@@ -1,0 +1,274 @@
+{
+  "hero": {
+    "title": "Construimos productos digitales que la gente ama",
+    "subtitle": "Desarrollo web y movil personalizado con diseño de vanguardia",
+    "cta": "Inicia Tu Proyecto",
+    "buttons": {
+      "startProject": "INICIAR PROYECTO",
+      "viewWork": "VER PROYECTOS",
+      "scrollDown": "DESPLAZAR_ABAJO"
+    },
+    "terminal": {
+      "init": "> dreamstudio.init()",
+      "loading": "> Cargando motor de crecimiento...",
+      "initializing": "> Inicializando sistemas de conversión...",
+      "compiling": "> Compilando estrategias de ventas...",
+      "constStudio": "const",
+      "studio": " resultados ",
+      "equals": "= '{'",
+      "name": "  nombre",
+      "nameValue": "\"DREAM STUDIO\"",
+      "mission": "  mision",
+      "missionValue": "\"Construimos productos digitales que no solo se ven bien—funcionan\"",
+      "output": "  entrega",
+      "outputValue": "\"Entrega MVP 3-6 meses | 90% retención clientes | ROI real\"",
+      "status": "  estado",
+      "statusValue": "\"LISTO PARA ENVIAR RÁPIDO\"",
+      "closeBrace": "'};'",
+      "ready": "> Sistema listo. Hagamos crecer tu negocio."
+    }
+  },
+  "services": {
+    "title": "Lo Que Hacemos",
+    "techStack": {
+      "title": "Tecnologias y Herramientas Que Usamos:",
+      "andMore": "Y muchas mas..."
+    },
+    "webDev": {
+      "title": "Experiencias Digitales",
+      "description": "Apps web que convierten visitantes en clientes. 40% más rápido en promedio, diseño mobile-first, optimizado para SEO desde el día uno. Construido con React, Next.js y frameworks modernos para escalabilidad."
+    },
+    "mobileDev": {
+      "title": "Aplicaciones Moviles",
+      "description": "Apps nativas iOS/Android que tus usuarios no borrarán. 4.3+ estrellas promedio en portfolio, 30K+ descargas, UX intuitiva, construidas para escalar con React Native y desarrollo nativo."
+    },
+    "uiux": {
+      "title": "Diseño de Producto",
+      "description": "Interfaces que resuelven problemas, no los crean. Probadas con usuarios, basadas en datos, diseñadas para conversiones. Desde wireframes hasta prototipos de alta fidelidad, creamos experiencias que los usuarios aman."
+    },
+    "consulting": {
+      "title": "Backend & APIs",
+      "description": "Infraestructura sólida como roca. 99.9% uptime, respuestas sub-100ms, seguridad nivel empresarial. Construimos APIs REST y GraphQL, optimizamos bases de datos, implementamos sistemas de auth—escalable desde MVP hasta millones de usuarios."
+    }
+  },
+  "socialProof": {
+    "title": "Empresas Confían, Usuarios Aman",
+    "metrics": {
+      "tickets": {
+        "value": "90K+",
+        "label": "Tickets Vendidos"
+      },
+      "visits": {
+        "value": "105K+",
+        "label": "Visitas a Plataformas"
+      },
+      "downloads": {
+        "value": "30K+",
+        "label": "Descargas de Apps"
+      },
+      "rating": {
+        "value": "4.3★",
+        "label": "Calificación Promedio"
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Nuestro Trabajo",
+    "subtitle": "Proyectos reales, resultados reales. Mira como hemos ayudado a empresas a transformar su presencia digital.",
+    "buttons": {
+      "viewProject": "VER PROYECTO",
+      "viewAllProjects": "VER TODOS LOS PROYECTOS",
+      "backToHome": "VOLVER AL INICIO"
+    },
+    "allProjects": {
+      "title": "Todos Los Proyectos",
+      "subtitle": "Explora nuestro portafolio completo de productos y experiencias digitales",
+      "filters": {
+        "search": "Buscar proyectos...",
+        "all": "Todos Los Proyectos",
+        "sortBy": "Ordenar por",
+        "newest": "Más Recientes",
+        "oldest": "Más Antiguos",
+        "nameAZ": "Nombre (A-Z)",
+        "nameZA": "Nombre (Z-A)"
+      },
+      "noResults": "No se encontraron proyectos que coincidan con tus criterios"
+    },
+    "labels": {
+      "webApp": "APLICACION WEB",
+      "mobileApp": "APP MOVIL",
+      "appStore": "App Store",
+      "reviews": "reseñas",
+      "downloads": "descargas",
+      "ticketsSold": "tickets vendidos"
+    },
+    "projects": {
+      "huntRho": {
+        "description": "Plataforma moderna de tickets y gestion de eventos con actualizaciones en tiempo real y analiticas"
+      },
+      "perroNegro": {
+        "description": "Plataforma de venta de tickets para eventos de Perro Negro con ventas y gestion en tiempo real",
+        "metrics": {
+          "visitors": "90.000+",
+          "visitorsLabel": "Visitantes únicos",
+          "visits": "105.000+",
+          "visitsLabel": "Visitas totales",
+          "bounceRate": "92%",
+          "bounceRateLabel": "Bounce Rate"
+        }
+      },
+      "mariaHelena": {
+        "description": "Plataforma de venta de tickets para eventos de Maria Helena Amador con experiencia de reserva perfecta"
+      },
+      "amazonasToures": {
+        "description": "Plataforma de agencia de viajes y turismo mostrando increibles tours del Amazonas y experiencias"
+      },
+      "kuenta": {
+        "description": "Plataforma moderna de pagos y transacciones con experiencia de usuario fluida y procesamiento de pagos seguro"
+      },
+      "huntTickets": {
+        "description": "Aplicacion movil moderna de tickets y gestion de eventos con actualizaciones en tiempo real y analiticas"
+      }
+    }
+  },
+  "process": {
+    "title": "Nuestro Proceso",
+    "discover": {
+      "title": "Descubrir",
+      "description": "Comenzamos entendiendo profundamente tu negocio, usuarios y objetivos. Investigamos, analizamos y definimos la estrategia que guiara todo el proyecto."
+    },
+    "design": {
+      "title": "Diseñar",
+      "description": "Creamos prototipos y diseños que dan vida a tu vision. Cada detalle es cuidadosamente trabajado para garantizar una experiencia de usuario excepcional."
+    },
+    "develop": {
+      "title": "Desarrollar",
+      "description": "Construimos tu producto con codigo limpio, mejores practicas y tecnologias modernas. Calidad, rendimiento y escalabilidad son nuestras prioridades."
+    },
+    "deliver": {
+      "title": "Entregar",
+      "description": "Lanzamos tu proyecto con exito y brindamos soporte continuo. Tu exito es nuestro exito, y estamos aqui a largo plazo."
+    }
+  },
+  "team": {
+    "title": "Conoce Nuestro Equipo",
+    "subtitle": "Gente talentosa detras de grandes productos"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "questions": {
+      "q1": {
+        "question": "¿Cuánto tiempo toma un proyecto típico?",
+        "answer": "Los tiempos de proyecto varían según la complejidad. Un sitio web simple puede tomar 4-6 semanas, mientras que una aplicación móvil completa típicamente toma 3-6 meses. Te proporcionaremos un cronograma detallado durante nuestra consulta inicial."
+      },
+      "q2": {
+        "question": "¿Cuál es su modelo de precios?",
+        "answer": "Ofrecemos modelos de precios flexibles incluyendo precio fijo y tiempo y materiales. Los precios dependen del alcance del proyecto, complejidad y cronograma. Contáctanos para una cotización personalizada adaptada a tus necesidades."
+      },
+      "q3": {
+        "question": "¿Proporcionan soporte continuo?",
+        "answer": "¡Sí! Ofrecemos paquetes de mantenimiento integral que incluyen corrección de errores, actualizaciones, parches de seguridad, optimización de rendimiento y mejoras de funcionalidades. Tu éxito es nuestra prioridad."
+      },
+      "q4": {
+        "question": "¿Pueden trabajar con nuestro equipo existente?",
+        "answer": "¡Por supuesto! Colaboramos perfectamente con equipos internos, proporcionando experiencia donde se necesita. Nos integramos sin problemas en tu flujo de trabajo y complementamos tus recursos existentes."
+      },
+      "q5": {
+        "question": "¿En qué tecnologías se especializan?",
+        "answer": "Nos especializamos en tecnologías web y móviles modernas incluyendo React, Next.js, React Native, Node.js, TypeScript, PostgreSQL, y plataformas cloud líderes como Vercel y Supabase."
+      }
+    }
+  },
+  "contactForm": {
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electrónico",
+    "phone": "# de Teléfono",
+    "companyName": "Nombre de la Empresa",
+    "companyNamePlaceholder": "Razón Social, Nombre de marca, etc...",
+    "website": "Página Web",
+    "websitePlaceholder": "dreeeams.com o link de redes sociales",
+    "projectType": "¿Qué deseas crear?",
+    "projectTypePlaceholder": "Selecciona el tipo de proyecto",
+    "projectTypeWeb": "Sitio Web / Aplicación Web",
+    "projectTypeMobile": "Aplicación Móvil",
+    "projectTypeBoth": "Web + Móvil",
+    "projectTypeOther": "Otro",
+    "projectDetails": "Cuéntanos sobre tu proyecto",
+    "projectDetailsPlaceholder": "Describe tu proyecto en detalle: qué problema quieres resolver, funcionalidades claves, audiencia objetivo, requisitos técnicos, etc.",
+    "howDidYouHear": "¿Cómo te enteraste de nosotros?",
+    "howDidYouHearPlaceholder": "Selecciona una opción",
+    "howDidYouHearGoogle": "Búsqueda de Google",
+    "howDidYouHearInstagram": "Instagram",
+    "howDidYouHearFacebook": "Facebook",
+    "howDidYouHearLinkedIn": "LinkedIn",
+    "howDidYouHearTwitter": "Twitter / X",
+    "howDidYouHearTikTok": "TikTok",
+    "howDidYouHearYouTube": "YouTube",
+    "howDidYouHearReferral": "Referido por Amigo o Colega",
+    "howDidYouHearEvent": "Evento o Conferencia",
+    "howDidYouHearBlog": "Blog o Artículo",
+    "howDidYouHearAdvertisement": "Publicidad Online",
+    "howDidYouHearOther": "Otro",
+    "termsText": "Al continuar, aceptas nuestros",
+    "termsLink": "Términos",
+    "and": "y",
+    "privacyLink": "Política de Privacidad",
+    "back": "Atrás",
+    "confirm": "Confirmar",
+    "submitting": "Enviando...",
+    "successMessage": "¡Gracias! Te contactaremos pronto.",
+    "errorMessage": "Algo salió mal. Por favor intenta de nuevo."
+  },
+  "features": {
+    "title": "Características",
+    "typography": {
+      "title": "Tipografía",
+      "description": "Tipo hermoso y responsive que escala perfectamente."
+    },
+    "speed": {
+      "title": "Velocidad",
+      "description": "Rendimiento ultrarrápido."
+    },
+    "layouts": {
+      "title": "Diseños",
+      "description": "Grillas flexibles que se adaptan."
+    },
+    "speedNetwork": {
+      "title": "Red Global",
+      "description": "Rendimiento ultrarrápido en todo el mundo."
+    },
+    "security": {
+      "title": "Seguridad Primero",
+      "description": "Encriptación de nivel empresarial integrada."
+    },
+    "mobile": {
+      "title": "Móvil Listo",
+      "description": "Optimizado para todos los dispositivos y tamaños de pantalla."
+    },
+    "speedIndicator": {
+      "loadTime": "Tiempo de Carga"
+    }
+  },
+  "contact": {
+    "title": "Construyamos Algo Increíble Juntos",
+    "subtitle": "¿Listo para dar vida a tu visión digital? Agenda una consulta gratuita y hablemos sobre tu proyecto.",
+    "noSpam": "Sin spam, sin presión de ventas. Solo una conversación sobre tus objetivos.",
+    "scheduleCall": "Agendar una Reunión",
+    "callDescription": "Agenda una llamada de 30 minutos para hablar sobre tu proyecto",
+    "footer": {
+      "tagline": "Construyendo experiencias digitales desde 2024",
+      "quickLinks": "Enlaces Rápidos",
+      "services": "Servicios",
+      "portfolio": "Portafolio",
+      "about": "Acerca de",
+      "contact": "Contacto",
+      "legal": "Legal",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "cookies": "Política de Cookies",
+      "rights": "Todos los derechos reservados",
+      "madeWith": "Construido con"
+    }
+  }
+}

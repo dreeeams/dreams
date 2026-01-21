@@ -1,0 +1,73 @@
+{
+  "terms": {
+    "meta": {
+      "title": "Terms of Service | Dream Studio",
+      "description": "Read our terms of service and understand the agreement between Dream Studio and our clients."
+    },
+    "title": "Terms of Service",
+    "lastUpdated": "Last Updated",
+    "backToHome": "Back to Home",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "p1": "These Terms of Service govern your use of Dream Studio's website and services. By accessing or using our services, you agree to be bound by these terms."
+      },
+      "services": {
+        "title": "Our Services",
+        "p1": "Dream Studio provides the following professional services:",
+        "items": {
+          "web": "Web application development using modern frameworks",
+          "mobile": "Mobile application development for iOS and Android",
+          "design": "UI/UX design and product design services",
+          "backend": "Backend development and API integration"
+        }
+      },
+      "projects": {
+        "title": "Project Terms",
+        "proposals": {
+          "title": "Proposals and Contracts",
+          "desc": "All projects begin with a detailed proposal outlining scope, timeline, and costs. A signed contract is required before work begins."
+        },
+        "timeline": {
+          "title": "Project Timeline",
+          "desc": "Timelines are estimates and may vary based on project complexity and client responsiveness. Delays caused by late client feedback may extend the timeline."
+        },
+        "changes": {
+          "title": "Scope Changes",
+          "desc": "Changes to project scope after contract signing may result in additional costs and timeline adjustments."
+        }
+      },
+      "payment": {
+        "title": "Payment Terms",
+        "items": {
+          "deposit": "A deposit (typically 50%) is required before work begins",
+          "milestones": "Payment milestones are outlined in the project proposal",
+          "late": "Late payments may result in project suspension",
+          "refunds": "Refunds are handled on a case-by-case basis"
+        }
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "p1": "Upon full payment, all deliverables and custom code become the property of the client. Dream Studio retains the right to showcase the project in our portfolio unless otherwise agreed.",
+        "p2": "We retain ownership of any pre-existing code, frameworks, or tools used in the project. The client receives a license to use these as part of the delivered solution."
+      },
+      "warranties": {
+        "title": "Warranties and Support",
+        "p1": "We provide a warranty period (typically 30-90 days) for bug fixes and issues directly related to our work. This does not cover changes to project requirements or third-party services.",
+        "p2": "Ongoing maintenance and support can be arranged under a separate agreement."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "p1": "Dream Studio is not liable for indirect, incidental, or consequential damages. Our total liability is limited to the amount paid for services."
+      },
+      "termination": {
+        "title": "Termination",
+        "p1": "Either party may terminate the agreement with written notice. The client is responsible for payment for all work completed up to the termination date."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "p1": "If you have questions about these Terms of Service, please contact us at:"
+      }
+    }
+  }
+}

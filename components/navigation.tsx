@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -74,7 +74,7 @@ export default function Navigation() {
   return (
     <>
       {/* Main Navigation - Hides on scroll */}
-      <motion.nav
+      <m.nav
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -85,7 +85,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between">
             {/* Left Side - Logo */}
             <Link href="/">
-              <motion.div
+              <m.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center cursor-pointer"
               >
@@ -97,13 +97,13 @@ export default function Navigation() {
                   className="h-auto w-auto max-w-[100px] sm:max-w-[110px] md:max-w-[120px]"
                   priority
                 />
-              </motion.div>
+              </m.div>
             </Link>
 
             {/* Right Side - Navigation & Controls */}
             <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-foreground-light ml-auto">
               {/* Language Toggle */}
-              <motion.button
+              <m.button
                 onClick={toggleLanguage}
                 whileTap={{ scale: 0.98 }}
                 className="px-4 py-2 hover:bg-black border border-black/10 hover:border-black transition-all duration-200 flex items-center justify-center group"
@@ -117,7 +117,7 @@ export default function Navigation() {
                     <marker id="us-a" markerHeight="30" markerWidth="30">
                       <path fill="#fff" d="m14 0 9 27L0 10h28L5 27z"/>
                     </marker>
-                    <path fill="none" marker-mid="url(#us-a)" d="m0 0 16 11h61 61 61 61 60L47 37h61 61 60 61L16 63h61 61 61 61 60L47 89h61 61 60 61L16 115h61 61 61 61 60L47 141h61 61 60 61L16 166h61 61 61 61 60L47 192h61 61 60 61L16 218h61 61 61 61 60z"/>
+                    <path fill="none" markerMid="url(#us-a)" d="m0 0 16 11h61 61 61 61 60L47 37h61 61 60 61L16 63h61 61 61 61 60L47 89h61 61 60 61L16 115h61 61 61 61 60L47 141h61 61 60 61L16 166h61 61 61 61 60L47 192h61 61 60 61L16 218h61 61 61 61 60z"/>
                   </svg>
                 ) : (
                   <svg className="w-7 h-5" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
@@ -126,58 +126,58 @@ export default function Navigation() {
                     <rect width="900" height="150" y="450" fill="#CE1126"/>
                   </svg>
                 )}
-              </motion.button>
+              </m.button>
 
               {/* Desktop Menu Items */}
               {/* Services with Dropdown - Only in Development */}
-              <motion.a
+              <m.a
                 whileTap={{ scale: 0.98 }}
                 href="#services"
                 onMouseEnter={() => isDevelopment && setIsServicesOpen(true)}
                 className="md:block hidden px-4 py-2 text-sm font-medium text-foreground-light hover:text-white hover:bg-black border border-black/10 hover:border-black transition-all duration-200"
               >
                 {t('services')}
-              </motion.a>
+              </m.a>
 
-              <motion.a
+              <m.a
                 whileTap={{ scale: 0.98 }}
                 href="#work"
                 className="md:block hidden px-4 py-2 text-sm font-medium text-foreground-light hover:text-white hover:bg-black border border-black/10 hover:border-black transition-all duration-200"
               >
                 {t('work')}
-              </motion.a>
+              </m.a>
 
               {/* Contact Button - Visible when header is visible - Desktop only */}
               {isVisible && (
-                <motion.a
+                <m.a
                   whileTap={{ scale: 0.98 }}
                   href="#contact"
                   className="hidden sm:block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
                 >
                   {t('getStarted')} →
-                </motion.a>
+                </m.a>
               )}
 
               {/* Mobile Menu Button */}
-              <motion.button
+              <m.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 whileTap={{ scale: 0.98 }}
                 className="sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border border-black/10 hover:border-black hover:bg-black group transition-all duration-200"
                 aria-label="Toggle menu"
               >
-                <motion.span
+                <m.span
                   animate={isMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                   className="w-5 h-0.5 bg-black group-hover:bg-white transition-colors"
                 />
-                <motion.span
+                <m.span
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
                   className="w-5 h-0.5 bg-black group-hover:bg-white transition-colors"
                 />
-                <motion.span
+                <m.span
                   animate={isMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
                   className="w-5 h-0.5 bg-black group-hover:bg-white transition-colors"
                 />
-              </motion.button>
+              </m.button>
             </div>
           </div>
         </div>
@@ -185,7 +185,7 @@ export default function Navigation() {
         {/* Services Dropdown - Expands below nav - Only in Development */}
         <AnimatePresence>
           {isDevelopment && isServicesOpen && (
-            <motion.div
+            <m.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -195,7 +195,7 @@ export default function Navigation() {
               <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 text-right">
                 <div className="inline-flex flex-wrap gap-1 justify-end">
                   {services.map((service, index) => (
-                    <motion.div
+                    <m.div
                       key={service.href}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -207,11 +207,11 @@ export default function Navigation() {
                       >
                         {service.name}
                       </Link>
-                    </motion.div>
+                    </m.div>
                   ))}
 
                   {/* Ver Todos Button */}
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: services.length * 0.03 }}
@@ -222,29 +222,29 @@ export default function Navigation() {
                     >
                       Ver todos →
                     </Link>
-                  </motion.div>
+                  </m.div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </m.nav>
 
       {/* Fixed Contact Button - Visible when header is hidden */}
       {!isVisible && (
-        <motion.a
+        <m.a
           href="#contact"
           whileTap={{ scale: 0.98 }}
           className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
         >
           {t('getStarted')} →
-        </motion.a>
+        </m.a>
       )}
 
       {/* Full Screen Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
+          <m.div
             initial={{ y: '-100%' }}
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
@@ -252,7 +252,7 @@ export default function Navigation() {
             className="fixed inset-0 z-[60] bg-background-light sm:hidden"
           >
             {/* Close Button */}
-            <motion.button
+            <m.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -264,11 +264,11 @@ export default function Navigation() {
                 <span className="absolute top-1/2 left-0 w-full h-0.5 bg-black group-hover:bg-white rotate-45 transform -translate-y-1/2" />
                 <span className="absolute top-1/2 left-0 w-full h-0.5 bg-black group-hover:bg-white -rotate-45 transform -translate-y-1/2" />
               </div>
-            </motion.button>
+            </m.button>
 
             <div className="h-full flex flex-col items-center justify-center px-8">
               {/* Logo */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -281,12 +281,12 @@ export default function Navigation() {
                   height={52}
                   className="h-auto w-auto max-w-[200px]"
                 />
-              </motion.div>
+              </m.div>
 
               {/* Menu Items */}
               <nav className="flex flex-col items-center gap-8 mb-12">
                 {menuItems.map((item, index) => (
-                  <motion.button
+                  <m.button
                     key={item.href}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -295,12 +295,12 @@ export default function Navigation() {
                     className="text-4xl font-nostalgic hover:text-brand transition-colors"
                   >
                     [ {item.label.toUpperCase()} ]
-                  </motion.button>
+                  </m.button>
                 ))}
               </nav>
 
               {/* Bottom Section */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
@@ -310,9 +310,9 @@ export default function Navigation() {
                   <span className="text-gray-600 font-logo">DREEEAMS</span>
                   <span className="text-gray-600">2024</span>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

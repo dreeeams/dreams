@@ -35,11 +35,11 @@
       "name": "  name",
       "nameValue": "\"DREAM STUDIO\"",
       "mission": "  mission",
-      "missionValue": "\"Boost your sales with technology that converts\"",
-      "output": "  results",
-      "outputValue": "\"More customers, more revenue, proven ROI\"",
+      "missionValue": "\"Building digital products that don't just look good—they perform\"",
+      "output": "  delivery",
+      "outputValue": "\"3-6 month MVP delivery | 90% client retention | Real ROI\"",
       "status": "  status",
-      "statusValue": "\"READY TO DELIVER RESULTS\"",
+      "statusValue": "\"READY TO SHIP FAST\"",
       "closeBrace": "'};'",
       "ready": "> System ready. Let's grow your business."
     }
@@ -52,19 +52,40 @@
     },
     "webDev": {
       "title": "Digital Experiences",
-      "description": "Modern web platforms built with the latest technologies. From corporate websites to complex web applications, we create scalable digital solutions that drive real business results."
+      "description": "Web apps that convert visitors into customers. Avg. 40% faster load times, mobile-first design, SEO-optimized from day one. Built with React, Next.js, and modern frameworks for scalability."
     },
     "mobileDev": {
       "title": "Mobile Applications",
-      "description": "Native and cross-platform mobile apps for iOS and Android. We design intuitive experiences that users love, with robust architectures that scale with your growth."
+      "description": "Native iOS/Android apps your users won't delete. 4.3+ star avg. rating across our portfolio, 30K+ downloads, intuitive UX, built for scale with React Native and native development."
     },
     "uiux": {
       "title": "Product Design",
-      "description": "User-centered design that combines aesthetics with functionality. We create interfaces that are not only beautiful but solve real problems and deliver exceptional user experiences."
+      "description": "Interfaces that solve problems, not create them. User-tested, data-driven, designed for conversions. From wireframes to high-fidelity prototypes, we craft experiences users love."
     },
     "consulting": {
       "title": "Backend & APIs",
-      "description": "Robust server-side solutions and scalable APIs. We build secure REST and GraphQL APIs, design efficient database architectures, implement authentication systems, and create microservices that power your applications."
+      "description": "Rock-solid infrastructure. 99.9% uptime, sub-100ms response times, enterprise-grade security. We build REST and GraphQL APIs, optimize databases, implement auth systems—scalable from MVP to millions of users."
+    }
+  },
+  "socialProof": {
+    "title": "Trusted by Companies, Loved by Users",
+    "metrics": {
+      "tickets": {
+        "value": "90K+",
+        "label": "Tickets Sold"
+      },
+      "visits": {
+        "value": "105K+",
+        "label": "Platform Visits"
+      },
+      "downloads": {
+        "value": "30K+",
+        "label": "App Downloads"
+      },
+      "rating": {
+        "value": "4.3★",
+        "label": "Average Rating"
+      }
     }
   },
   "portfolio": {
@@ -175,8 +196,8 @@
     }
   },
   "contact": {
-    "title": "Tell us about your project",
-    "subtitle": "Takes less than 30 seconds. Schedule the meeting in seconds.",
+    "title": "Let's Build Something Remarkable",
+    "subtitle": "30-minute strategy call. No pitch, no pressure. Just honest advice. ⚡ 24-hour response | 📅 Free estimate",
     "noSpam": "",
     "scheduleButton": "SCHEDULE MEETING",
     "scheduleCall": "Schedule a Meeting",
