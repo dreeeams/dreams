@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
 import { locales } from './config';
-import { getMessagesForPath } from './loader';
+import { loadMessages } from './loader';
 
 /**
  * OPTIMIZED i18n request configuration for next-intl
@@ -37,10 +37,16 @@ export default getRequestConfig(async ({ requestLocale }) => {
     notFound();
   }
 
-  // Load only the messages for the required namespaces
-  // Note: We use '/' as default since next-intl doesn't expose pathname in getRequestConfig
-  // The loader will fallback to common + home namespaces for unmapped routes
-  const messages = await getMessagesForPath(locale as 'en' | 'es', '/');
+  // Load all namespaces to ensure all pages work correctly
+  // This slightly reduces the optimization benefit but ensures reliability
+  const messages = await loadMessages(locale as 'en' | 'es', [
+    'common',
+    'home',
+    'pages/payments',
+    'pages/privacy',
+    'pages/terms',
+    'pages/uiux-design',
+  ]);
 
   return {
     locale,

@@ -94,7 +94,7 @@ export default function Navigation() {
                   alt="Dreeeams"
                   width={200}
                   height={52}
-                  className="h-auto w-auto max-w-[100px] sm:max-w-[110px] md:max-w-[120px]"
+                  className="h-auto w-auto max-w-[70px] sm:max-w-[75px] md:max-w-[80px]"
                   priority
                 />
               </m.div>
