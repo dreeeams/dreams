@@ -47,7 +47,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
       <div className="min-h-screen bg-white">
         {/* Minimal Header */}
         <header className="border-b border-gray-200">
-          <div className="max-w-3xl mx-auto px-6 py-16">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-16 w-full">
             <Link href="/" className="inline-flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
               <svg
                 width="24"
@@ -86,7 +86,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
         </header>
 
         {/* Content */}
-        <div className="max-w-3xl mx-auto px-6 py-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 w-full">
           {/* Company Info */}
           <section className="mb-12">
             <h2 className="text-2xl font-light mb-6 pb-3 border-b border-gray-200">INFORMACIÓN DE LA COMPAÑÍA</h2>
@@ -589,7 +589,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
     <div className="min-h-screen bg-white">
       {/* Minimal Header */}
       <header className="border-b border-gray-200">
-        <div className="max-w-3xl mx-auto px-6 py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-16 w-full">
           <Link href="/" className="inline-flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
             <svg
               width="24"
@@ -627,7 +627,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
         </div>
       </header>
 
-      <div className="max-w-3xl mx-auto px-6 py-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 w-full">
         <p className="text-gray-600 leading-relaxed mb-4">
           For detailed terms and conditions information, please refer to our Spanish terms page
           or contact us at{' '}
