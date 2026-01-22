@@ -22,11 +22,9 @@ export default function ContactSection() {
           >
             <div className="flex items-center justify-center mb-8">
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center leading-tight" style={{ letterSpacing: '-0.04em' }}>
-                {t('title')}
+                Let's Start
               </h2>
             </div>
-            <p className="text-lg md:text-xl mb-4">{t('subtitle')}</p>
-            <p className="text-sm text-gray-600">{t('noSpam')}</p>
           </m.div>
 
           {/* Botón para agendar reunión */}
@@ -48,10 +46,6 @@ export default function ContactSection() {
                 <Calendar className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
                 <span>{t('scheduleCall') || 'Agendar una Reunión'}</span>
               </m.a>
-
-              <p className="text-sm text-gray-600 mt-6">
-                {t('callDescription') || 'Agenda una llamada de 30 minutos para hablar sobre tu proyecto'}
-              </p>
             </m.div>
         </div>
       </div>
