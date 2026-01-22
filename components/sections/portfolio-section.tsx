@@ -130,18 +130,9 @@ export default function PortfolioSection() {
             >
               {/* Project Image Placeholder */}
               <m.div
-                className={`${project.isMockup || project.isIcon ? 'aspect-[4/3]' : 'aspect-[4/3]'} ${project.color} relative mb-4 border-2 border-black overflow-hidden`}
+                className={`aspect-[4/3] ${project.color} relative mb-4 border-2 border-black overflow-hidden`}
               >
-                {project.isIcon ? (
-                  <div className="absolute inset-0 bg-white overflow-hidden">
-                    {/* Simple Icon Display */}
-                    <img
-                      src="/images/hunt-tickets-icon.svg"
-                      alt="Hunt Tickets App Icon"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ) : project.isMockup ? (
+                {project.isMockup ? (
                   <div className="absolute inset-0 flex items-center justify-center bg-white">
                     <img
                       src="https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/hunt_mockup.png"
