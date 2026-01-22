@@ -116,7 +116,7 @@ export default function Navigation() {
                 whileTap={{ scale: 0.98 }}
                 className={`px-4 py-2 border transition-all duration-200 flex items-center justify-center group ${
                   isAtTop
-                    ? 'border-white brightness-0 invert hover:bg-white hover:brightness-100 hover:invert-0'
+                    ? 'border-white hover:bg-white'
                     : 'border-black/10 hover:border-black hover:bg-black'
                 }`}
                 aria-label="Toggle language"
