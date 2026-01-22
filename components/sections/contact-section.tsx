@@ -22,7 +22,7 @@ export default function ContactSection() {
           >
             <div className="flex items-center justify-center mb-8">
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center leading-tight" style={{ letterSpacing: '-0.04em' }}>
-                Let's Start
+                {t('title')}
               </h2>
             </div>
             <p className="text-lg md:text-xl mb-4">{t('subtitle')}</p>
