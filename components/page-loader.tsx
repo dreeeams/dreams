@@ -63,9 +63,9 @@ export default function PageLoader() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="absolute bottom-0 left-1/2 w-[280vw] sm:w-[220vw] md:w-[180vw] lg:w-[160vw] max-w-[4000px]"
+            className="absolute bottom-0 left-0 right-0 w-[280vw] sm:w-[220vw] md:w-[180vw] lg:w-[160vw] max-w-[4000px] mx-auto"
             style={{
-              transform: 'translateX(-50%) translateY(35%)',
+              transform: 'translateY(35%)',
               opacity: 0.85
             }}
           >
