@@ -22,6 +22,9 @@ const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-s
     </div>
   ),
 });
+const FeaturesSection = dynamic(() => import('@/components/sections/features-section'), {
+  loading: () => <div className="min-h-[50vh] bg-surface-light-1" />,
+});
 const FAQSection = dynamic(() => import('@/components/sections/faq-section'), {
   loading: () => <div className="min-h-[50vh] bg-white" />,
 });
@@ -45,6 +48,7 @@ export default function HomePage() {
           <ServicesSection />
           <SocialProofSection />
           <PortfolioSection />
+          <FeaturesSection />
           <ContactSection />
           <FAQSection />
           <FooterSection />

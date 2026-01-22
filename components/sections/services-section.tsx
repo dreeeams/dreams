@@ -3,7 +3,6 @@
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import BentoGrid from '@/components/ui/bento-grid-01';
 
 export default function ServicesSection() {
   const t = useTranslations('services');
@@ -48,7 +47,7 @@ export default function ServicesSection() {
         </m.div>
 
         {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <m.div
               key={service.titleKey}
@@ -100,11 +99,6 @@ export default function ServicesSection() {
               </div>
             </m.div>
           ))}
-        </div>
-
-        {/* Features Section */}
-        <div className="mt-24">
-          <BentoGrid />
         </div>
       </div>
     </section>
