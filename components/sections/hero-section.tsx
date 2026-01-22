@@ -3,6 +3,7 @@
 import { m } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 type CodeLine = {
   text: string;
@@ -90,6 +91,24 @@ export default function HeroSection() {
         <h1 className="sr-only">
           Dream Studio - Professional Web Development Agency | Custom Mobile App Development | React & Next.js Experts
         </h1>
+
+        {/* Hero Banner GIF */}
+        <m.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8 sm:mb-12 w-full"
+        >
+          <Image
+            src="https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/hero_banner.gif"
+            alt="Dream Studio Hero Banner"
+            width={1920}
+            height={400}
+            className="w-full h-auto border-2 border-black shadow-2xl"
+            priority
+            unoptimized
+          />
+        </m.div>
 
         {/* Terminal Window */}
         <m.div
