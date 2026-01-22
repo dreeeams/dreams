@@ -95,7 +95,7 @@ export default function Navigation() {
             <Link href="/">
               <m.div
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center cursor-pointer"
+                className={`flex items-center cursor-pointer ${isAtTop ? 'mix-blend-difference' : ''}`}
               >
                 <Image
                   src="/dreeeams-logo.png"
@@ -114,7 +114,11 @@ export default function Navigation() {
               <m.button
                 onClick={toggleLanguage}
                 whileTap={{ scale: 0.98 }}
-                className="px-4 py-2 hover:bg-black border border-black/10 hover:border-black transition-all duration-200 flex items-center justify-center group"
+                className={`px-4 py-2 hover:bg-black border transition-all duration-200 flex items-center justify-center group ${
+                  isAtTop
+                    ? 'mix-blend-difference border-white'
+                    : 'border-black/10 hover:border-black'
+                }`}
                 aria-label="Toggle language"
               >
                 {locale === 'en' ? (
@@ -142,7 +146,11 @@ export default function Navigation() {
                 whileTap={{ scale: 0.98 }}
                 href="#services"
                 onMouseEnter={() => isDevelopment && setIsServicesOpen(true)}
-                className="md:block hidden px-4 py-2 text-sm font-medium text-foreground-light hover:text-white hover:bg-black border border-black/10 hover:border-black transition-all duration-200"
+                className={`md:block hidden px-4 py-2 text-sm font-medium hover:text-white hover:bg-black border transition-all duration-200 ${
+                  isAtTop
+                    ? 'mix-blend-difference text-white border-white'
+                    : 'text-foreground-light border-black/10 hover:border-black'
+                }`}
               >
                 {t('services')}
               </m.a>
@@ -150,7 +158,11 @@ export default function Navigation() {
               <m.a
                 whileTap={{ scale: 0.98 }}
                 href="#work"
-                className="md:block hidden px-4 py-2 text-sm font-medium text-foreground-light hover:text-white hover:bg-black border border-black/10 hover:border-black transition-all duration-200"
+                className={`md:block hidden px-4 py-2 text-sm font-medium hover:text-white hover:bg-black border transition-all duration-200 ${
+                  isAtTop
+                    ? 'mix-blend-difference text-white border-white'
+                    : 'text-foreground-light border-black/10 hover:border-black'
+                }`}
               >
                 {t('work')}
               </m.a>
@@ -160,7 +172,11 @@ export default function Navigation() {
                 <m.a
                   whileTap={{ scale: 0.98 }}
                   href="#contact"
-                  className="hidden sm:block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+                  className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-all duration-200 ${
+                    isAtTop
+                      ? 'mix-blend-difference text-white bg-white border-white hover:bg-gray-200'
+                      : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
+                  }`}
                 >
                   {t('getStarted')} →
                 </m.a>
@@ -170,20 +186,30 @@ export default function Navigation() {
               <m.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 whileTap={{ scale: 0.98 }}
-                className="sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border border-black/10 hover:border-black hover:bg-black group transition-all duration-200"
+                className={`sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border hover:bg-black group transition-all duration-200 ${
+                  isAtTop
+                    ? 'mix-blend-difference border-white'
+                    : 'border-black/10 hover:border-black'
+                }`}
                 aria-label="Toggle menu"
               >
                 <m.span
                   animate={isMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-                  className="w-5 h-0.5 bg-black group-hover:bg-white transition-colors"
+                  className={`w-5 h-0.5 group-hover:bg-white transition-colors ${
+                    isAtTop ? 'bg-white' : 'bg-black'
+                  }`}
                 />
                 <m.span
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  className="w-5 h-0.5 bg-black group-hover:bg-white transition-colors"
+                  className={`w-5 h-0.5 group-hover:bg-white transition-colors ${
+                    isAtTop ? 'bg-white' : 'bg-black'
+                  }`}
                 />
                 <m.span
                   animate={isMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-                  className="w-5 h-0.5 bg-black group-hover:bg-white transition-colors"
+                  className={`w-5 h-0.5 group-hover:bg-white transition-colors ${
+                    isAtTop ? 'bg-white' : 'bg-black'
+                  }`}
                 />
               </m.button>
             </div>
