@@ -36,20 +36,34 @@
       "andMore": "Y muchas mas..."
     },
     "webDev": {
-      "title": "Experiencias Digitales",
-      "description": "Apps web que convierten visitantes en clientes. 40% más rápido en promedio, diseño mobile-first, optimizado para SEO desde el día uno. Construido con React, Next.js y frameworks modernos para escalabilidad."
+      "title": "Design & Dev",
+      "description": "Creatividad y funcionalidad al frente",
+      "features": [
+        "Interfaces Visuales Innovadoras",
+        "Personalización UI Avanzada",
+        "Identidad de Marca",
+        "Experiencia de Usuario Intuitiva"
+      ]
     },
     "mobileDev": {
-      "title": "Aplicaciones Moviles",
-      "description": "Apps nativas iOS/Android que tus usuarios no borrarán. 4.3+ estrellas promedio en portfolio, 30K+ descargas, UX intuitiva, construidas para escalar con React Native y desarrollo nativo."
+      "title": "Backend & APIs",
+      "description": "El motor principal de tu proyecto",
+      "features": [
+        "Rendimientos sin Interrupciones",
+        "Arquitectura Escalable",
+        "Integraciones Personalizadas",
+        "Ciberseguridad"
+      ]
     },
     "uiux": {
-      "title": "Diseño de Producto",
-      "description": "Interfaces que resuelven problemas, no los crean. Probadas con usuarios, basadas en datos, diseñadas para conversiones. Desde wireframes hasta prototipos de alta fidelidad, creamos experiencias que los usuarios aman."
-    },
-    "consulting": {
-      "title": "Backend & APIs",
-      "description": "Infraestructura sólida como roca. 99.9% uptime, respuestas sub-100ms, seguridad nivel empresarial. Construimos APIs REST y GraphQL, optimizamos bases de datos, implementamos sistemas de auth—escalable desde MVP hasta millones de usuarios."
+      "title": "AI & Eficiencia",
+      "description": "Soluciones inteligentes para optimizar tu negocio",
+      "features": [
+        "Automatizaciones Inteligentes",
+        "Consultorías en Eficiencia AI",
+        "Optimización de Recursos con AI",
+        "Chatbot y Agentes"
+      ]
     }
   },
   "socialProof": {

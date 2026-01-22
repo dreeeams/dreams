@@ -36,20 +36,34 @@
       "andMore": "And many more..."
     },
     "webDev": {
-      "title": "Digital Experiences",
-      "description": "Web apps that convert visitors into customers. Avg. 40% faster load times, mobile-first design, SEO-optimized from day one. Built with React, Next.js, and modern frameworks for scalability."
+      "title": "Design & Dev",
+      "description": "Creativity and functionality upfront",
+      "features": [
+        "Innovative Visual Interfaces",
+        "Advanced UI Customization",
+        "Brand Identity",
+        "Intuitive User Experience"
+      ]
     },
     "mobileDev": {
-      "title": "Mobile Applications",
-      "description": "Native iOS/Android apps your users won't delete. 4.3+ star avg. rating across our portfolio, 30K+ downloads, intuitive UX, built for scale with React Native and native development."
+      "title": "Backend & APIs",
+      "description": "The main engine of your project",
+      "features": [
+        "Uninterrupted Performance",
+        "Scalable Architecture",
+        "Custom Integrations",
+        "Cybersecurity"
+      ]
     },
     "uiux": {
-      "title": "Product Design",
-      "description": "Interfaces that solve problems, not create them. User-tested, data-driven, designed for conversions. From wireframes to high-fidelity prototypes, we craft experiences users love."
-    },
-    "consulting": {
-      "title": "Backend & APIs",
-      "description": "Rock-solid infrastructure. 99.9% uptime, sub-100ms response times, enterprise-grade security. We build REST and GraphQL APIs, optimize databases, implement auth systems—scalable from MVP to millions of users."
+      "title": "AI & Efficiency",
+      "description": "Intelligent solutions to optimize your business",
+      "features": [
+        "Intelligent Automations",
+        "AI Efficiency Consulting",
+        "Resource Optimization with AI",
+        "Chatbot and Agents"
+      ]
     }
   },
   "socialProof": {

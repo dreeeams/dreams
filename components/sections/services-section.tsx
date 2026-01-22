@@ -75,13 +75,8 @@ export default function ServicesSection() {
 
               {/* Content */}
               <div className="relative h-full flex flex-col justify-end p-8 text-white z-10">
-                {/* Número */}
-                <div className="text-white/40 text-5xl md:text-6xl font-mono font-bold mb-4">
-                  [{service.number}]
-                </div>
-
                 {/* Título */}
-                <h3 className="text-3xl md:text-4xl font-bold mb-4 font-nostalgic tracking-tight">
+                <h3 className="text-3xl md:text-4xl font-bold mb-3 font-nostalgic tracking-tight">
                   {t(service.titleKey)}
                 </h3>
 
@@ -89,6 +84,16 @@ export default function ServicesSection() {
                 <p className="text-base md:text-lg leading-relaxed text-white/90 mb-6">
                   {t(service.descriptionKey)}
                 </p>
+
+                {/* Features List */}
+                <ul className="space-y-2 mb-6">
+                  {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
+                    <li key={idx} className="flex items-start text-sm md:text-base text-white/90">
+                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
 
                 {/* Línea decorativa */}
                 <div className="h-1 w-20 bg-white group-hover:w-40 transition-all duration-500" />
