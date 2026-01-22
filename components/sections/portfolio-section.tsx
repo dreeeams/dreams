@@ -126,7 +126,11 @@ export default function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="group cursor-pointer"
+              className={`group cursor-pointer ${
+                (project.titleKey === 'HUNT RHO' || project.titleKey === 'KUENTA')
+                  ? 'md:hidden'
+                  : ''
+              }`}
             >
               {/* Project Image Placeholder */}
               <m.div
