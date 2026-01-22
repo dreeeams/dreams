@@ -2,7 +2,6 @@
 
 import { m, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, createContext, useContext } from 'react';
-import Image from 'next/image';
 
 type LoaderContextType = {
   isLoading: boolean;
@@ -47,37 +46,36 @@ export default function PageLoader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[9999] bg-black flex items-end justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-black overflow-hidden"
         >
           {/* Loading Percentage - Top Right Corner */}
           <m.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="absolute top-8 right-8 text-white font-mono text-6xl md:text-8xl font-bold z-10"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="absolute top-8 right-8 text-white font-mono text-7xl md:text-9xl font-bold"
           >
             {Math.round(progress)}%
           </m.div>
 
           {/* Giant Logo - Bottom Center, Partially Cut Off */}
           <m.div
-            initial={{ scale: 0.8, opacity: 0, y: 100 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="absolute bottom-0 left-1/2 -translate-x-1/2"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200vw] max-w-[3000px]"
             style={{
-              width: '180vw',
-              maxWidth: '2500px',
-              transform: 'translateX(-50%) translateY(40%)'
+              transform: 'translateX(-50%) translateY(35%)'
             }}
           >
-            <Image
+            <img
               src="/logo.svg"
-              alt="Dreeeams"
-              width={2780}
-              height={730}
-              className="w-full h-auto brightness-0 invert opacity-90"
-              priority
+              alt="Logo"
+              className="w-full h-auto"
+              style={{
+                filter: 'brightness(0) invert(1)',
+                opacity: 0.9
+              }}
             />
           </m.div>
         </m.div>
