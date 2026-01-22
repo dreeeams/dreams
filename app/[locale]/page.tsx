@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import Navigation from '@/components/navigation';
 import HeroSection from '@/components/sections/hero-section';
-import SocialProofSection from '@/components/sections/social-proof-section';
 import FooterSection from '@/components/sections/footer-section';
 import SkipToContent from '@/components/skip-to-content';
 import { SkeletonProjectCard } from '@/components/skeleton';
@@ -46,7 +45,6 @@ export default function HomePage() {
         {/* Content that scrolls over hero */}
         <div className="relative z-10" style={{ marginTop: '100vh' }}>
           <ServicesSection />
-          <SocialProofSection />
           <PortfolioSection />
           <FeaturesSection />
           <ContactSection />
