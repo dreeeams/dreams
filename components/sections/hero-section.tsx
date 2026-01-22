@@ -21,24 +21,17 @@ export default function HeroSection() {
         unoptimized
       />
 
-      {/* Scroll Indicator */}
-      <m.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-      >
-        <span className="text-white font-nostalgic text-sm tracking-wider">
-          [ SCROLL ]
-        </span>
-        <m.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2"
+      {/* Hero Title with Blend Mode */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <m.h2
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-nostalgic text-white mix-blend-difference px-8 text-center leading-tight"
         >
-          <m.div className="w-1.5 h-1.5 bg-white rounded-full" />
-        </m.div>
-      </m.div>
+          [ DREEEAMS ]
+        </m.h2>
+      </div>
     </div>
   );
 }
