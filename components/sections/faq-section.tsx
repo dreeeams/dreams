@@ -63,7 +63,7 @@ export default function FAQSection() {
           transition={{ duration: 0.8 }}
           className="flex items-center justify-center mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center" style={{ letterSpacing: '-0.04em' }}>
             {t('title')}
           </h2>
         </m.div>
