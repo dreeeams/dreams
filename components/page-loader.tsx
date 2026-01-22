@@ -16,7 +16,7 @@ export default function PageLoader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress
+    // Simulate loading progress with smooth animation
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -28,11 +28,11 @@ export default function PageLoader() {
           }, 500);
           return 100;
         }
-        // Faster initial progress, slower at the end
-        const increment = prev < 60 ? Math.random() * 15 + 5 : Math.random() * 5 + 2;
+        // Smooth increments - smaller steps for fluid animation
+        const increment = prev < 60 ? Math.random() * 3 + 1 : Math.random() * 1.5 + 0.5;
         return Math.min(prev + increment, 100);
       });
-    }, 200);
+    }, 50);
 
     return () => {
       clearInterval(progressInterval);
@@ -63,7 +63,7 @@ export default function PageLoader() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="absolute bottom-0 left-0 right-0 w-[240vw] sm:w-[200vw] md:w-[170vw] lg:w-[150vw] max-w-[4000px] mx-auto"
+            className="absolute bottom-0 left-0 right-0 w-[180vw] sm:w-[160vw] md:w-[140vw] lg:w-[120vw] max-w-[4000px] mx-auto"
             style={{
               transform: 'translateY(35%)',
               opacity: 0.85
