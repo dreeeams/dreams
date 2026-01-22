@@ -44,11 +44,8 @@ export default function FooterSection() {
             </div>
 
             <div className="space-y-3">
-              <Link href="/privacy" className="block text-sm text-gray-400 hover:text-white transition-colors">
-                {tFooter('privacy')}
-              </Link>
-              <Link href="/terms" className="block text-sm text-gray-400 hover:text-white transition-colors">
-                {tFooter('terms')}
+              <Link href="/legal" className="block text-sm text-gray-400 hover:text-white transition-colors">
+                Legal
               </Link>
             </div>
 
