@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Navigation() {
   const t = useTranslations('nav');
@@ -14,7 +14,7 @@ export default function Navigation() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
   const [isAtTop, setIsAtTop] = useState(true);
 
   // Handle scroll behavior - hide on scroll down, show on scroll up
@@ -26,20 +26,20 @@ export default function Navigation() {
       setIsAtTop(currentScrollY === 0);
 
       // Show navbar when scrolling up, hide when scrolling down
-      if (currentScrollY < lastScrollY) {
+      if (currentScrollY < lastScrollY.current) {
         // Scrolling up
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         // Scrolling down and past 100px threshold
         setIsVisible(false);
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const toggleLanguage = () => {
     const newLocale = locale === 'en' ? 'es' : 'en';
