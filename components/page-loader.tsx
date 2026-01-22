@@ -16,7 +16,7 @@ export default function PageLoader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress with smooth animation
+    // Simulate loading progress with smooth animation (1.5s max)
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -25,11 +25,11 @@ export default function PageLoader() {
             setIsLoading(false);
             // Dispatch custom event when loading completes
             window.dispatchEvent(new Event('loaderComplete'));
-          }, 500);
+          }, 300);
           return 100;
         }
-        // Smooth increments - smaller steps for fluid animation
-        const increment = prev < 60 ? Math.random() * 3 + 1 : Math.random() * 1.5 + 0.5;
+        // Calculated to reach 100% in ~1.5 seconds (30 intervals of 50ms)
+        const increment = prev < 70 ? Math.random() * 2 + 3 : Math.random() * 1 + 2;
         return Math.min(prev + increment, 100);
       });
     }, 50);
