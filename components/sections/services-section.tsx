@@ -2,7 +2,7 @@
 
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { SplitText } from '@/components/ui/animated-text';
+import Image from 'next/image';
 import BentoGrid from '@/components/ui/bento-grid-01';
 
 export default function ServicesSection() {
@@ -13,21 +13,19 @@ export default function ServicesSection() {
       number: '01',
       titleKey: 'webDev.title',
       descriptionKey: 'webDev.description',
+      image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1200&h=800&fit=crop&q=80',
     },
     {
       number: '02',
       titleKey: 'mobileDev.title',
       descriptionKey: 'mobileDev.description',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop&q=80',
     },
     {
       number: '03',
       titleKey: 'uiux.title',
       descriptionKey: 'uiux.description',
-    },
-    {
-      number: '04',
-      titleKey: 'consulting.title',
-      descriptionKey: 'consulting.description',
+      image: 'https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=1200&h=800&fit=crop&q=80',
     },
   ];
 
@@ -49,8 +47,8 @@ export default function ServicesSection() {
           </div>
         </m.div>
 
-        {/* Services Grid - Minimalista con Números */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-20 md:gap-y-24 mb-24">
+        {/* Services Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {services.map((service, index) => (
             <m.div
               key={service.titleKey}
@@ -59,27 +57,42 @@ export default function ServicesSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{
                 duration: 0.5,
-                delay: index * 0.05
+                delay: index * 0.1
               }}
-              className="group"
+              className="group relative h-[500px] overflow-hidden"
             >
-              {/* Número */}
-              <div className="text-brand text-6xl md:text-7xl font-mono font-bold mb-4 opacity-40">
-                [{service.number}]
+              {/* Background Image */}
+              <Image
+                src={service.image}
+                alt={t(service.titleKey)}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-500" />
+
+              {/* Content */}
+              <div className="relative h-full flex flex-col justify-end p-8 text-white z-10">
+                {/* Número */}
+                <div className="text-white/40 text-5xl md:text-6xl font-mono font-bold mb-4">
+                  [{service.number}]
+                </div>
+
+                {/* Título */}
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 font-nostalgic tracking-tight">
+                  {t(service.titleKey)}
+                </h3>
+
+                {/* Descripción */}
+                <p className="text-base md:text-lg leading-relaxed text-white/90 mb-6">
+                  {t(service.descriptionKey)}
+                </p>
+
+                {/* Línea decorativa */}
+                <div className="h-1 w-20 bg-white group-hover:w-40 transition-all duration-500" />
               </div>
-
-              {/* Título */}
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 font-nostalgic tracking-tight">
-                {t(service.titleKey)}
-              </h3>
-
-              {/* Descripción */}
-              <p className="text-base md:text-lg leading-relaxed text-foreground-light/70">
-                {t(service.descriptionKey)}
-              </p>
-
-              {/* Línea decorativa */}
-              <div className="mt-6 h-1 w-20 bg-black group-hover:w-40 transition-all duration-500" />
             </m.div>
           ))}
         </div>

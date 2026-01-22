@@ -63,7 +63,6 @@ export default function Navigation() {
 
   const menuItems = [
     { label: t('services'), href: '#services' },
-    { label: t('work'), href: '#work' },
     { label: t('getStarted'), href: '#contact' },
   ];
 
@@ -153,18 +152,6 @@ export default function Navigation() {
                 }`}
               >
                 {t('services')}
-              </m.a>
-
-              <m.a
-                whileTap={{ scale: 0.98 }}
-                href="#work"
-                className={`md:block hidden px-4 py-2 text-sm font-medium border transition-all duration-200 ${
-                  isAtTop
-                    ? 'text-white border-white hover:bg-white hover:text-black'
-                    : 'text-foreground-light border-black/10 hover:border-black hover:text-white hover:bg-black'
-                }`}
-              >
-                {t('work')}
               </m.a>
 
               {/* Contact Button - Visible when header is visible - Desktop only */}
