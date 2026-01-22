@@ -50,6 +50,7 @@ export default function Navigation() {
 
   const menuItems = [
     { label: t('services'), href: '#services' },
+    { label: 'Portfolio', href: '#work' },
     { label: t('getStarted'), href: '#contact' },
   ];
 
@@ -230,7 +231,7 @@ export default function Navigation() {
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[60] bg-background-light sm:hidden"
+            className="fixed inset-0 z-[60] bg-black sm:hidden"
           >
             {/* Close Button */}
             <m.button
@@ -238,12 +239,12 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-4 right-4 px-4 py-3 flex items-center justify-center border border-black/10 hover:border-black hover:bg-black group transition-all duration-200"
+              className="absolute top-4 right-4 px-4 py-3 flex items-center justify-center border border-white/20 hover:border-white hover:bg-white group transition-all duration-200"
               aria-label="Close menu"
             >
               <div className="relative w-6 h-6">
-                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-black group-hover:bg-white rotate-45 transform -translate-y-1/2" />
-                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-black group-hover:bg-white -rotate-45 transform -translate-y-1/2" />
+                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white group-hover:bg-black rotate-45 transform -translate-y-1/2" />
+                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white group-hover:bg-black -rotate-45 transform -translate-y-1/2" />
               </div>
             </m.button>
 
@@ -253,7 +254,7 @@ export default function Navigation() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="mb-12"
+                className="mb-12 brightness-0 invert"
               >
                 <Image
                   src="/dreeeams-logo.png"
@@ -273,7 +274,7 @@ export default function Navigation() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
                     onClick={() => handleMenuClick(item.href)}
-                    className="text-4xl font-nostalgic hover:text-brand transition-colors"
+                    className="text-4xl font-nostalgic text-white hover:text-brand transition-colors"
                   >
                     [ {item.label.toUpperCase()} ]
                   </m.button>
@@ -288,8 +289,8 @@ export default function Navigation() {
                 className="absolute bottom-12 left-0 right-0 px-8"
               >
                 <div className="flex items-center justify-between text-sm font-mono">
-                  <span className="text-gray-600 font-logo">DREEEAMS</span>
-                  <span className="text-gray-600">2024</span>
+                  <span className="text-gray-400 font-logo">DREEEAMS</span>
+                  <span className="text-gray-400">2024</span>
                 </div>
               </m.div>
             </div>
