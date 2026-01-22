@@ -90,7 +90,7 @@ export default function FAQSection() {
                   <span className="text-4xl md:text-5xl font-mono font-bold text-brand opacity-40 group-hover:opacity-100 transition-opacity">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-xl md:text-2xl font-bold group-hover:text-brand transition-colors" itemProp="name">
+                  <span className="text-xl md:text-2xl font-nostalgic group-hover:text-brand transition-colors" itemProp="name">
                     {t(`questions.${faqKey}.question`)}
                   </span>
                 </div>
