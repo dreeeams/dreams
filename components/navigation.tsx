@@ -1,6 +1,6 @@
 'use client';
 
-import { m, AnimatePresence } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -13,13 +13,9 @@ export default function Navigation() {
   const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
-
-  // Only show services dropdown in development
-  const isDevelopment = process.env.NODE_ENV === 'development';
 
   // Handle scroll behavior - hide on scroll down, show on scroll up
   useEffect(() => {
@@ -44,15 +40,6 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
-
-  const services = [
-    { name: 'Diseño UI/UX', href: `/${locale}/servicios/diseno-uiux` },
-    { name: 'Innovación Digital', href: `/${locale}/servicios/innovacion-digital` },
-    { name: 'API & Backend', href: `/${locale}/servicios/api-backend` },
-    { name: 'Desarrollo Software', href: `/${locale}/servicios/desarrollo-software` },
-    { name: 'Seguridad', href: `/${locale}/servicios/seguridad-ciberseguridad` },
-    { name: 'IA Empresas', href: `/${locale}/servicios/ai-empresas` },
-  ];
 
   const toggleLanguage = () => {
     const newLocale = locale === 'en' ? 'es' : 'en';
@@ -86,7 +73,6 @@ export default function Navigation() {
             ? 'bg-transparent border-b border-transparent'
             : 'bg-background-light/80 backdrop-blur-sm border-b border-black/10'
         }`}
-        onMouseLeave={() => setIsServicesOpen(false)}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex items-center justify-between">
@@ -151,11 +137,9 @@ export default function Navigation() {
               </m.button>
 
               {/* Desktop Menu Items */}
-              {/* Services with Dropdown - Only in Development */}
               <m.a
                 whileTap={{ scale: 0.98 }}
                 href="#services"
-                onMouseEnter={() => isDevelopment && setIsServicesOpen(true)}
                 className={`md:block hidden px-4 py-2 text-sm font-medium border transition-all duration-200 ${
                   isAtTop
                     ? 'text-white border-white/60 hover:bg-white hover:text-black'
@@ -213,53 +197,6 @@ export default function Navigation() {
             </div>
           </div>
         </div>
-
-        {/* Services Dropdown - Expands below nav - Only in Development */}
-        <AnimatePresence>
-          {isDevelopment && isServicesOpen && (
-            <m.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2, ease: 'easeInOut' }}
-              className="overflow-hidden bg-white/90 backdrop-blur-md border-t border-black/5"
-            >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 text-right">
-                <div className="inline-flex flex-wrap gap-1 justify-end">
-                  {services.map((service, index) => (
-                    <m.div
-                      key={service.href}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.03 }}
-                    >
-                      <Link
-                        href={service.href}
-                        className="inline-block px-4 py-2 text-sm font-medium text-foreground-light hover:text-white hover:bg-black border border-black/10 hover:border-black transition-all duration-200"
-                      >
-                        {service.name}
-                      </Link>
-                    </m.div>
-                  ))}
-
-                  {/* Ver Todos Button */}
-                  <m.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: services.length * 0.03 }}
-                  >
-                    <Link
-                      href="#services"
-                      className="inline-block px-4 py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
-                    >
-                      Ver todos →
-                    </Link>
-                  </m.div>
-                </div>
-              </div>
-            </m.div>
-          )}
-        </AnimatePresence>
       </m.nav>
 
       {/* Fixed Contact Button - Visible when header is hidden */}
