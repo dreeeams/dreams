@@ -31,12 +31,16 @@ type Project = {
 
 const projects: Project[] = [
   {
-    titleKey: 'HUNT RHO',
-    categoryKey: 'webApp',
-    descriptionKey: 'huntRho',
-    tags: ['Next.js', 'TypeScript', 'Vercel'],
-    color: 'bg-brand',
-    url: 'hunt-rho.vercel.app',
+    titleKey: 'HUNT TICKETS',
+    categoryKey: 'mobileApp',
+    descriptionKey: 'huntTickets',
+    tags: ['React Native', 'TypeScript', 'Firebase'],
+    color: 'bg-white',
+    isMockup: true,
+    rating: { stars: 4.3, reviews: 250 },
+    appStore: true,
+    downloads: 5000,
+    ticketsSold: 30000,
   },
   {
     titleKey: 'PERRO NEGRO',
@@ -52,6 +56,14 @@ const projects: Project[] = [
     },
   },
   {
+    titleKey: 'AMAZONAS TOURES',
+    categoryKey: 'webApp',
+    descriptionKey: 'amazonasToures',
+    tags: ['Next.js', 'Tailwind', 'Supabase'],
+    color: 'bg-white border-4 border-black',
+    url: 'www.amazonas-toures.com',
+  },
+  {
     titleKey: 'MARÍA HELENA AMADOR',
     categoryKey: 'webApp',
     descriptionKey: 'mariaHelena',
@@ -61,12 +73,12 @@ const projects: Project[] = [
     mobileView: true,
   },
   {
-    titleKey: 'AMAZONAS TOURES',
+    titleKey: 'HUNT RHO',
     categoryKey: 'webApp',
-    descriptionKey: 'amazonasToures',
-    tags: ['Next.js', 'Tailwind', 'Supabase'],
-    color: 'bg-white border-4 border-black',
-    url: 'www.amazonas-toures.com',
+    descriptionKey: 'huntRho',
+    tags: ['Next.js', 'TypeScript', 'Vercel'],
+    color: 'bg-brand',
+    url: 'hunt-rho.vercel.app',
   },
   {
     titleKey: 'KUENTA',
@@ -75,18 +87,6 @@ const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Vercel'],
     color: 'bg-gradient-to-br from-purple-600 to-pink-600',
     url: 'paga-dreamstudio.vercel.app',
-  },
-  {
-    titleKey: 'HUNT TICKETS',
-    categoryKey: 'mobileApp',
-    descriptionKey: 'huntTickets',
-    tags: ['React Native', 'TypeScript', 'Firebase'],
-    color: 'bg-white',
-    isMockup: true,
-    rating: { stars: 4.3, reviews: 250 },
-    appStore: true,
-    downloads: 5000,
-    ticketsSold: 30000,
   },
 ];
 
@@ -119,18 +119,22 @@ export default function PortfolioSection() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {projects
+            .filter((project) => {
+              // Only show Hunt Rho and Kuenta in development
+              if (process.env.NODE_ENV === 'production') {
+                return project.titleKey !== 'HUNT RHO' && project.titleKey !== 'KUENTA';
+              }
+              return true;
+            })
+            .map((project, index) => (
             <m.div
               key={project.titleKey}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className={`group cursor-pointer ${
-                (project.titleKey === 'HUNT RHO' || project.titleKey === 'KUENTA')
-                  ? 'md:hidden'
-                  : ''
-              }`}
+              className="group cursor-pointer"
             >
               {/* Project Image Placeholder */}
               <m.div
