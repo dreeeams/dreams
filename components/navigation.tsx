@@ -150,19 +150,26 @@ export default function Navigation() {
               </m.a>
 
               {/* Contact Button - Visible when header is visible - Desktop only */}
-              {isVisible && (
-                <m.a
-                  whileTap={{ scale: 0.98 }}
-                  href="#contact"
-                  className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-all duration-200 ${
-                    isAtTop
-                      ? 'text-black bg-white border-white/60 hover:bg-gray-200'
-                      : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
-                  }`}
-                >
-                  {t('getStarted')} →
-                </m.a>
-              )}
+              <AnimatePresence>
+                {isVisible && (
+                  <m.a
+                    initial={{ y: 100, rotateX: 90, opacity: 0 }}
+                    animate={{ y: 0, rotateX: 0, opacity: 1 }}
+                    exit={{ y: 100, rotateX: 90, opacity: 0 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    whileTap={{ scale: 0.98 }}
+                    href="#contact"
+                    className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-all duration-200 ${
+                      isAtTop
+                        ? 'text-black bg-white border-white/60 hover:bg-gray-200'
+                        : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
+                    }`}
+                    style={{ transformOrigin: 'bottom' }}
+                  >
+                    {t('getStarted')} →
+                  </m.a>
+                )}
+              </AnimatePresence>
 
               {/* Mobile Menu Button */}
               <m.button
@@ -200,15 +207,22 @@ export default function Navigation() {
       </m.nav>
 
       {/* Fixed Contact Button - Visible when header is hidden */}
-      {!isVisible && (
-        <m.a
-          href="#contact"
-          whileTap={{ scale: 0.98 }}
-          className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
-        >
-          {t('getStarted')} →
-        </m.a>
-      )}
+      <AnimatePresence>
+        {!isVisible && (
+          <m.a
+            initial={{ y: 100, rotateX: 90, opacity: 0 }}
+            animate={{ y: 0, rotateX: 0, opacity: 1 }}
+            exit={{ y: 100, rotateX: 90, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            href="#contact"
+            whileTap={{ scale: 0.98 }}
+            className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+            style={{ transformOrigin: 'bottom' }}
+          >
+            {t('getStarted')} →
+          </m.a>
+        )}
+      </AnimatePresence>
 
       {/* Full Screen Mobile Menu */}
       <AnimatePresence>
