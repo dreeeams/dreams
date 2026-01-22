@@ -19,7 +19,7 @@ export default function ServicesSection() {
       number: '02',
       titleKey: 'mobileDev.title',
       descriptionKey: 'mobileDev.description',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop&q=80',
+      image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/green_gradient.jpeg',
     },
     {
       number: '03',
@@ -59,7 +59,7 @@ export default function ServicesSection() {
                 duration: 0.5,
                 delay: index * 0.1
               }}
-              className="group relative h-[500px] overflow-hidden"
+              className="group relative h-[600px] overflow-hidden"
             >
               {/* Background Image */}
               <Image
@@ -71,7 +71,7 @@ export default function ServicesSection() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-500" />
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-all duration-500" />
 
               {/* Content */}
               <div className="relative h-full flex flex-col justify-end p-8 text-white z-10">
