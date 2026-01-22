@@ -140,7 +140,7 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
     <div className="min-h-screen bg-white">
       {/* Minimal Header */}
       <header className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16 w-full">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 w-full">
           <Link href={`/${locale}`} className="inline-flex items-center mb-8 hover:opacity-80 transition-opacity">
             <Image
               src="/dreeeams-logo.png"
