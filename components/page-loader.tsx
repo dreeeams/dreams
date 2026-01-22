@@ -64,7 +64,7 @@ export default function PageLoader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[9999] bg-background-light flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
         >
           <div className="max-w-md w-full px-8">
             {/* Logo */}
@@ -79,7 +79,7 @@ export default function PageLoader() {
                 alt="Dreeeams"
                 width={200}
                 height={52}
-                className="h-auto w-auto max-w-[250px]"
+                className="h-auto w-auto max-w-[250px] brightness-0 invert"
                 priority
               />
             </m.div>
@@ -90,16 +90,16 @@ export default function PageLoader() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              className="font-mono text-sm text-gray-600 mb-6 h-6"
+              className="font-mono text-sm text-gray-400 mb-6 h-6"
             >
               {loadingMessages[messageIndex]}
             </m.div>
 
             {/* Progress Bar */}
             <div className="relative">
-              <div className="w-full h-1 bg-gray-200 border border-black">
+              <div className="w-full h-1 bg-gray-800 border border-white">
                 <m.div
-                  className="h-full bg-black"
+                  className="h-full bg-white"
                   initial={{ width: '0%' }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -109,7 +109,7 @@ export default function PageLoader() {
 
             {/* Percentage Counter */}
             <m.div
-              className="mt-4 text-center font-mono text-2xl font-bold"
+              className="mt-4 text-center font-mono text-2xl font-bold text-white"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
