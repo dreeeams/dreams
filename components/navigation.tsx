@@ -82,7 +82,7 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 isolate transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isAtTop
             ? 'bg-transparent border-b border-transparent'
             : 'bg-background-light/80 backdrop-blur-sm border-b border-black/10'
@@ -95,7 +95,7 @@ export default function Navigation() {
             <Link href="/">
               <m.div
                 whileHover={{ scale: 1.05 }}
-                className={`flex items-center cursor-pointer ${isAtTop ? 'mix-blend-difference' : ''}`}
+                className={`flex items-center cursor-pointer ${isAtTop ? 'brightness-0 invert' : ''}`}
               >
                 <Image
                   src="/dreeeams-logo.png"
@@ -114,10 +114,10 @@ export default function Navigation() {
               <m.button
                 onClick={toggleLanguage}
                 whileTap={{ scale: 0.98 }}
-                className={`px-4 py-2 hover:bg-black border transition-all duration-200 flex items-center justify-center group ${
+                className={`px-4 py-2 border transition-all duration-200 flex items-center justify-center group ${
                   isAtTop
-                    ? 'mix-blend-difference border-white'
-                    : 'border-black/10 hover:border-black'
+                    ? 'border-white brightness-0 invert hover:bg-white hover:brightness-100 hover:invert-0'
+                    : 'border-black/10 hover:border-black hover:bg-black'
                 }`}
                 aria-label="Toggle language"
               >
@@ -146,10 +146,10 @@ export default function Navigation() {
                 whileTap={{ scale: 0.98 }}
                 href="#services"
                 onMouseEnter={() => isDevelopment && setIsServicesOpen(true)}
-                className={`md:block hidden px-4 py-2 text-sm font-medium hover:text-white hover:bg-black border transition-all duration-200 ${
+                className={`md:block hidden px-4 py-2 text-sm font-medium border transition-all duration-200 ${
                   isAtTop
-                    ? 'mix-blend-difference text-white border-white'
-                    : 'text-foreground-light border-black/10 hover:border-black'
+                    ? 'text-white border-white hover:bg-white hover:text-black'
+                    : 'text-foreground-light border-black/10 hover:border-black hover:text-white hover:bg-black'
                 }`}
               >
                 {t('services')}
@@ -158,10 +158,10 @@ export default function Navigation() {
               <m.a
                 whileTap={{ scale: 0.98 }}
                 href="#work"
-                className={`md:block hidden px-4 py-2 text-sm font-medium hover:text-white hover:bg-black border transition-all duration-200 ${
+                className={`md:block hidden px-4 py-2 text-sm font-medium border transition-all duration-200 ${
                   isAtTop
-                    ? 'mix-blend-difference text-white border-white'
-                    : 'text-foreground-light border-black/10 hover:border-black'
+                    ? 'text-white border-white hover:bg-white hover:text-black'
+                    : 'text-foreground-light border-black/10 hover:border-black hover:text-white hover:bg-black'
                 }`}
               >
                 {t('work')}
@@ -174,7 +174,7 @@ export default function Navigation() {
                   href="#contact"
                   className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-all duration-200 ${
                     isAtTop
-                      ? 'mix-blend-difference text-white bg-white border-white hover:bg-gray-200'
+                      ? 'text-black bg-white border-white hover:bg-gray-200'
                       : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
                   }`}
                 >
@@ -186,29 +186,29 @@ export default function Navigation() {
               <m.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 whileTap={{ scale: 0.98 }}
-                className={`sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border hover:bg-black group transition-all duration-200 ${
+                className={`sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border transition-all duration-200 group ${
                   isAtTop
-                    ? 'mix-blend-difference border-white'
-                    : 'border-black/10 hover:border-black'
+                    ? 'border-white hover:bg-white'
+                    : 'border-black/10 hover:border-black hover:bg-black'
                 }`}
                 aria-label="Toggle menu"
               >
                 <m.span
                   animate={isMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-                  className={`w-5 h-0.5 group-hover:bg-white transition-colors ${
-                    isAtTop ? 'bg-white' : 'bg-black'
+                  className={`w-5 h-0.5 transition-colors ${
+                    isAtTop ? 'bg-white group-hover:bg-black' : 'bg-black group-hover:bg-white'
                   }`}
                 />
                 <m.span
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  className={`w-5 h-0.5 group-hover:bg-white transition-colors ${
-                    isAtTop ? 'bg-white' : 'bg-black'
+                  className={`w-5 h-0.5 transition-colors ${
+                    isAtTop ? 'bg-white group-hover:bg-black' : 'bg-black group-hover:bg-white'
                   }`}
                 />
                 <m.span
                   animate={isMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-                  className={`w-5 h-0.5 group-hover:bg-white transition-colors ${
-                    isAtTop ? 'bg-white' : 'bg-black'
+                  className={`w-5 h-0.5 transition-colors ${
+                    isAtTop ? 'bg-white group-hover:bg-black' : 'bg-black group-hover:bg-white'
                   }`}
                 />
               </m.button>
