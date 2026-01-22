@@ -82,7 +82,7 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 isolate transition-all duration-300 ${
           isAtTop
             ? 'bg-transparent border-b border-transparent'
             : 'bg-background-light/80 backdrop-blur-sm border-b border-black/10'
