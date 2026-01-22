@@ -70,19 +70,19 @@ export default function ServicesSection() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-all duration-500" />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-500" />
 
               {/* Content */}
               <div className="relative h-full flex flex-col p-8 text-white z-10">
                 {/* Top Section - Número y Título pegados arriba */}
                 <div className="mb-auto">
                   {/* Subtítulo (Número) */}
-                  <p className="text-sm md:text-base text-white/70 mb-2">
+                  <p className="text-sm md:text-base text-white/70 mb-2" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)' }}>
                     {service.number}
                   </p>
 
                   {/* Título */}
-                  <h3 className="text-3xl md:text-4xl font-bold font-nostalgic tracking-tight">
+                  <h3 className="text-3xl md:text-4xl font-bold font-nostalgic tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.7)' }}>
                     {t(service.titleKey)}
                   </h3>
                 </div>
@@ -90,14 +90,14 @@ export default function ServicesSection() {
                 {/* Bottom Section - Descripción y Features abajo */}
                 <div className="mt-auto">
                   {/* Descripción */}
-                  <p className="text-base md:text-lg leading-relaxed text-white/90 mb-6 font-nostalgic">
+                  <p className="text-base md:text-lg leading-relaxed text-white/90 mb-6 font-nostalgic" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)' }}>
                     {t(service.descriptionKey)}
                   </p>
 
                   {/* Features List */}
                   <ul className="space-y-2 mb-6 font-nostalgic">
                     {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
-                      <li key={idx} className="flex items-start text-sm md:text-base text-white/90">
+                      <li key={idx} className="flex items-start text-sm md:text-base text-white/90" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)' }}>
                         <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white flex-shrink-0" />
                         {feature}
                       </li>
@@ -105,7 +105,7 @@ export default function ServicesSection() {
                   </ul>
 
                   {/* Línea decorativa */}
-                  <div className="h-1 w-20 bg-white group-hover:w-40 transition-all duration-500" />
+                  <div className="h-1 w-20 bg-white group-hover:w-40 transition-all duration-500" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.6)' }} />
                 </div>
               </div>
             </m.div>
