@@ -16,6 +16,7 @@ export default function Navigation() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   // Only show services dropdown in development
   const isDevelopment = process.env.NODE_ENV === 'development';
@@ -24,6 +25,9 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+
+      // Check if at top of page
+      setIsAtTop(currentScrollY === 0);
 
       // Show navbar when scrolling up, hide when scrolling down
       if (currentScrollY < lastScrollY) {
@@ -78,7 +82,11 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background-light/80 backdrop-blur-sm border-b border-black/10"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isAtTop
+            ? 'bg-transparent border-b border-transparent'
+            : 'bg-background-light/80 backdrop-blur-sm border-b border-black/10'
+        }`}
         onMouseLeave={() => setIsServicesOpen(false)}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
