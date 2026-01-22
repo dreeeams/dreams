@@ -2,35 +2,10 @@
 
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { useState, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
-import ContactForm from '@/components/contact-form';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
-  const [isLocalhost, setIsLocalhost] = useState(false);
-
-  useEffect(() => {
-    // Detectar si estamos en localhost
-    const hostname = window.location.hostname;
-    const isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
-    setIsLocalhost(isLocal);
-  }, []);
-
-  const handleFormSuccess = (data: {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    companyName: string;
-    websiteUrl: string;
-    projectType: string;
-    projectDetails: string;
-    howDidYouHear: string;
-  }) => {
-    // Form successfully submitted - webhook is now called from backend
-    console.log('Form submitted successfully');
-  };
 
   return (
     <section id="contact" className="relative z-10 bg-background-light pt-12">
@@ -54,13 +29,8 @@ export default function ContactSection() {
             <p className="text-sm text-gray-600">{t('noSpam')}</p>
           </m.div>
 
-          {/* Conditional rendering: Form in localhost, Button in production */}
-          {isLocalhost ? (
-            // Mostrar formulario en localhost
-            <ContactForm onSuccess={handleFormSuccess} />
-          ) : (
-            // Mostrar botón para agendar en producción
-            <m.div
+          {/* Botón para agendar reunión */}
+          <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -83,7 +53,6 @@ export default function ContactSection() {
                 {t('callDescription') || 'Agenda una llamada de 30 minutos para hablar sobre tu proyecto'}
               </p>
             </m.div>
-          )}
         </div>
       </div>
     </section>

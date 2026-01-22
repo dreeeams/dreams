@@ -69,7 +69,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Título */}
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 font-sans tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 font-nostalgic tracking-tight">
                 {t(service.titleKey)}
               </h3>
 
