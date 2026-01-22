@@ -113,9 +113,9 @@ export default function Navigation() {
               <m.button
                 onClick={toggleLanguage}
                 whileTap={{ scale: 0.98 }}
-                className={`px-4 py-2 border transition-all duration-200 flex items-center justify-center group ${
+                className={`px-4 py-2 border transition-all duration-200 flex items-center justify-center gap-2 group ${
                   isAtTop
-                    ? 'border-white hover:bg-white'
+                    ? 'border-white/60 hover:bg-white'
                     : 'border-black/10 hover:border-black hover:bg-black'
                 }`}
                 aria-label="Toggle language"
@@ -137,6 +137,17 @@ export default function Navigation() {
                     <rect width="900" height="150" y="450" fill="#CE1126"/>
                   </svg>
                 )}
+                {/* Chevron Down Icon */}
+                <svg
+                  className={`w-3 h-3 transition-colors ${
+                    isAtTop ? 'text-white group-hover:text-black' : 'text-black group-hover:text-white'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </m.button>
 
               {/* Desktop Menu Items */}
@@ -147,7 +158,7 @@ export default function Navigation() {
                 onMouseEnter={() => isDevelopment && setIsServicesOpen(true)}
                 className={`md:block hidden px-4 py-2 text-sm font-medium border transition-all duration-200 ${
                   isAtTop
-                    ? 'text-white border-white hover:bg-white hover:text-black'
+                    ? 'text-white border-white/60 hover:bg-white hover:text-black'
                     : 'text-foreground-light border-black/10 hover:border-black hover:text-white hover:bg-black'
                 }`}
               >
@@ -161,7 +172,7 @@ export default function Navigation() {
                   href="#contact"
                   className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-all duration-200 ${
                     isAtTop
-                      ? 'text-black bg-white border-white hover:bg-gray-200'
+                      ? 'text-black bg-white border-white/60 hover:bg-gray-200'
                       : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
                   }`}
                 >
@@ -175,7 +186,7 @@ export default function Navigation() {
                 whileTap={{ scale: 0.98 }}
                 className={`sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border transition-all duration-200 group ${
                   isAtTop
-                    ? 'border-white hover:bg-white'
+                    ? 'border-white/60 hover:bg-white'
                     : 'border-black/10 hover:border-black hover:bg-black'
                 }`}
                 aria-label="Toggle menu"
