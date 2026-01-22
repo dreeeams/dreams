@@ -2,8 +2,11 @@
 
 import Image from 'next/image';
 import { m } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 export default function HeroSection() {
+  const t = useTranslations('hero');
+
   return (
     <div className="relative w-full h-screen">
       {/* SEO H1 - Visually hidden but available for screen readers and SEO */}
@@ -27,9 +30,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-nostalgic text-white mix-blend-difference px-8 text-center leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-nostalgic text-white mix-blend-difference px-8 text-center leading-tight tracking-wider"
         >
-          [ DREEEAMS ]
+          {t('tagline')}
         </m.h2>
       </div>
     </div>
