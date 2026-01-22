@@ -2,7 +2,6 @@
 
 import { m, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, createContext, useContext } from 'react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 type LoaderContextType = {
@@ -14,18 +13,8 @@ const LoaderContext = createContext<LoaderContextType>({ isLoading: true });
 export const useLoader = () => useContext(LoaderContext);
 
 export default function PageLoader() {
-  const t = useTranslations('loader.messages');
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [messageIndex, setMessageIndex] = useState(0);
-
-  const loadingMessages = [
-    t('init'),
-    t('loading'),
-    t('compiling'),
-    t('preparing'),
-    t('almostReady'),
-  ];
 
   useEffect(() => {
     // Simulate loading progress
@@ -46,14 +35,8 @@ export default function PageLoader() {
       });
     }, 200);
 
-    // Change messages
-    const messageInterval = setInterval(() => {
-      setMessageIndex((prev) => (prev + 1) % loadingMessages.length);
-    }, 800);
-
     return () => {
       clearInterval(progressInterval);
-      clearInterval(messageInterval);
     };
   }, []);
 
@@ -64,59 +47,39 @@ export default function PageLoader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-black flex items-end justify-center overflow-hidden"
         >
-          <div className="max-w-md w-full px-8">
-            {/* Logo */}
-            <m.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col items-center mb-12"
-            >
-              <Image
-                src="/dreeeams-logo.png"
-                alt="Dreeeams"
-                width={200}
-                height={52}
-                className="h-auto w-auto max-w-[250px] brightness-0 invert"
-                priority
-              />
-            </m.div>
+          {/* Giant Logo - Partially Cut Off */}
+          <m.div
+            initial={{ scale: 0.8, opacity: 0, y: 100 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2"
+            style={{
+              width: '150vw',
+              maxWidth: '2000px',
+              transform: 'translateX(-50%) translateY(30%)'
+            }}
+          >
+            <Image
+              src="/dreeeams-logo.png"
+              alt="Dreeeams"
+              width={2000}
+              height={520}
+              className="w-full h-auto brightness-0 invert opacity-90"
+              priority
+            />
+          </m.div>
 
-            {/* Terminal Message */}
-            <m.div
-              key={messageIndex}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              className="font-mono text-sm text-gray-400 mb-6 h-6"
-            >
-              {loadingMessages[messageIndex]}
-            </m.div>
-
-            {/* Progress Bar */}
-            <div className="relative">
-              <div className="w-full h-1 bg-gray-800 border border-white">
-                <m.div
-                  className="h-full bg-white"
-                  initial={{ width: '0%' }}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
-                />
-              </div>
-            </div>
-
-            {/* Percentage Counter */}
-            <m.div
-              className="mt-4 text-center font-mono text-2xl font-bold text-white"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              {Math.round(progress)}%
-            </m.div>
-          </div>
+          {/* Loading Percentage - Bottom Right Corner */}
+          <m.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="absolute bottom-8 right-8 text-white font-mono text-6xl md:text-8xl font-bold z-10"
+          >
+            {Math.round(progress)}%
+          </m.div>
         </m.div>
       )}
     </AnimatePresence>
