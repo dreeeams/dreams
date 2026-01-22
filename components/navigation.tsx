@@ -153,10 +153,10 @@ export default function Navigation() {
               <AnimatePresence>
                 {isVisible && (
                   <m.a
-                    initial={{ y: 100, rotateX: 90, opacity: 0 }}
-                    animate={{ y: 0, rotateX: 0, opacity: 1 }}
-                    exit={{ y: 100, rotateX: 90, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
                     whileTap={{ scale: 0.98 }}
                     href="#contact"
                     className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-all duration-200 ${
@@ -164,7 +164,6 @@ export default function Navigation() {
                         ? 'text-black bg-white border-white/60 hover:bg-gray-200'
                         : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
                     }`}
-                    style={{ transformOrigin: 'bottom' }}
                   >
                     {t('getStarted')} →
                   </m.a>
@@ -210,14 +209,13 @@ export default function Navigation() {
       <AnimatePresence>
         {!isVisible && (
           <m.a
-            initial={{ y: 100, rotateX: 90, opacity: 0 }}
-            animate={{ y: 0, rotateX: 0, opacity: 1 }}
-            exit={{ y: 100, rotateX: 90, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             href="#contact"
             whileTap={{ scale: 0.98 }}
             className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
-            style={{ transformOrigin: 'bottom' }}
           >
             {t('getStarted')} →
           </m.a>
