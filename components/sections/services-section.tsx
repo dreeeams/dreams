@@ -73,29 +73,40 @@ export default function ServicesSection() {
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-all duration-500" />
 
               {/* Content */}
-              <div className="relative h-full flex flex-col justify-end p-8 text-white z-10">
-                {/* Título */}
-                <h3 className="text-3xl md:text-4xl font-bold mb-3 font-nostalgic tracking-tight">
-                  {t(service.titleKey)}
-                </h3>
+              <div className="relative h-full flex flex-col p-8 text-white z-10">
+                {/* Top Section - Número y Título pegados arriba */}
+                <div className="mb-auto">
+                  {/* Subtítulo (Número) */}
+                  <p className="text-sm md:text-base text-white/70 mb-2">
+                    {service.number}
+                  </p>
 
-                {/* Descripción */}
-                <p className="text-base md:text-lg leading-relaxed text-white/90 mb-6">
-                  {t(service.descriptionKey)}
-                </p>
+                  {/* Título */}
+                  <h3 className="text-3xl md:text-4xl font-bold font-nostalgic tracking-tight">
+                    {t(service.titleKey)}
+                  </h3>
+                </div>
 
-                {/* Features List */}
-                <ul className="space-y-2 mb-6">
-                  {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
-                    <li key={idx} className="flex items-start text-sm md:text-base text-white/90">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                {/* Bottom Section - Descripción y Features abajo */}
+                <div className="mt-auto">
+                  {/* Descripción */}
+                  <p className="text-base md:text-lg leading-relaxed text-white/90 mb-6 font-nostalgic">
+                    {t(service.descriptionKey)}
+                  </p>
 
-                {/* Línea decorativa */}
-                <div className="h-1 w-20 bg-white group-hover:w-40 transition-all duration-500" />
+                  {/* Features List */}
+                  <ul className="space-y-2 mb-6 font-nostalgic">
+                    {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
+                      <li key={idx} className="flex items-start text-sm md:text-base text-white/90">
+                        <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Línea decorativa */}
+                  <div className="h-1 w-20 bg-white group-hover:w-40 transition-all duration-500" />
+                </div>
               </div>
             </m.div>
           ))}
