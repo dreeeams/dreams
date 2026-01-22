@@ -67,7 +67,7 @@ export default function Navigation() {
       <m.nav
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        transition={{ duration: isVisible ? 0.3 : 0, ease: 'easeInOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isAtTop
             ? 'bg-transparent border-b border-transparent'
