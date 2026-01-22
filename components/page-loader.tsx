@@ -53,7 +53,7 @@ export default function PageLoader() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="absolute top-8 right-8 md:top-12 md:right-12 text-white font-mono text-7xl md:text-9xl font-bold z-20"
+            className="absolute top-6 right-6 sm:top-8 sm:right-8 md:top-12 md:right-12 text-white font-mono text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bold z-20"
           >
             {Math.round(progress)}%
           </m.div>
@@ -63,9 +63,9 @@ export default function PageLoader() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="absolute bottom-0 left-1/2 w-[250vw] md:w-[200vw] max-w-[4000px]"
+            className="absolute bottom-0 left-1/2 w-[280vw] sm:w-[220vw] md:w-[180vw] lg:w-[160vw] max-w-[4000px]"
             style={{
-              transform: 'translateX(-50%) translateY(30%)',
+              transform: 'translateX(-50%) translateY(35%)',
               opacity: 0.85
             }}
           >
