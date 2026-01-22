@@ -25,6 +25,7 @@ export default function ContactSection() {
                 Let's Start
               </h2>
             </div>
+            <p className="text-lg md:text-xl mb-4">{t('subtitle')}</p>
           </m.div>
 
           {/* Botón para agendar reunión */}
