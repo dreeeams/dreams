@@ -7,6 +7,7 @@
     "tabs": {
       "colombia": "Colombia",
       "usa": "USA",
+      "uk": "Reino Unido",
       "europe": "Europa",
       "crypto": "Crypto"
     },
@@ -53,6 +54,19 @@
       "swiftCode": "Código SWIFT",
       "bankName": "Banco",
       "bankAddress": "Dirección del Banco"
+    },
+    "ukAccount": {
+      "title": "Cuenta en Reino Unido",
+      "subtitle": "Para pagos desde el Reino Unido y transferencias internacionales",
+      "bankName": "Banco",
+      "accountHolder": "Titular de la Cuenta",
+      "accountNumber": "Número de Cuenta",
+      "sortCode": "Sort Code",
+      "iban": "IBAN",
+      "swiftCode": "SWIFT/BIC",
+      "bankAddress": "Dirección del Banco",
+      "note": "Nota",
+      "noteText": "Usa el Sort Code y Número de Cuenta para transferencias domésticas en Reino Unido. Usa IBAN y SWIFT para transferencias internacionales."
     },
     "europeanAccount": {
       "title": "Cuenta Bancaria Europea",

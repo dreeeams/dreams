@@ -7,6 +7,7 @@
     "tabs": {
       "colombia": "Colombia",
       "usa": "USA",
+      "uk": "United Kingdom",
       "europe": "Europe",
       "crypto": "Crypto"
     },
@@ -53,6 +54,19 @@
       "swiftCode": "SWIFT Code",
       "bankName": "Bank",
       "bankAddress": "Bank Address"
+    },
+    "ukAccount": {
+      "title": "United Kingdom Account",
+      "subtitle": "For payments from the UK and international transfers",
+      "bankName": "Bank Name",
+      "accountHolder": "Account Holder",
+      "accountNumber": "Account Number",
+      "sortCode": "Sort Code",
+      "iban": "IBAN",
+      "swiftCode": "SWIFT/BIC",
+      "bankAddress": "Bank Address",
+      "note": "Note",
+      "noteText": "Use the Sort Code and Account Number for domestic UK transfers. Use IBAN and SWIFT for international transfers."
     },
     "europeanAccount": {
       "title": "European Bank Account",

@@ -9,7 +9,7 @@ import Image from 'next/image';
 export default function PaymentsPage() {
   const t = useTranslations('payments');
   const locale = useLocale();
-  const [activeTab, setActiveTab] = useState<'colombia' | 'usa' | 'europe' | 'crypto'>('colombia');
+  const [activeTab, setActiveTab] = useState<'colombia' | 'usa' | 'uk' | 'europe' | 'crypto'>('colombia');
   const [copiedFields, setCopiedFields] = useState<Set<string>>(new Set());
 
   const copyToClipboard = async (text: string, fieldId: string) => {
@@ -100,6 +100,27 @@ export default function PaymentsPage() {
                   />
                 </div>
                 <span>{t('tabs.usa')}</span>
+              </span>
+            </button>
+            <button
+              onClick={() => setActiveTab('uk')}
+              className={`px-3 sm:px-4 md:px-6 py-3 text-sm font-medium transition-all border whitespace-nowrap ${
+                activeTab === 'uk'
+                  ? 'bg-black text-white border-black'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+              }`}
+            >
+              <span className="flex items-center gap-2 sm:gap-3">
+                <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src="https://flagcdn.com/w80/gb.png"
+                    alt="United Kingdom"
+                    width={20}
+                    height={20}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span>{t('tabs.uk')}</span>
               </span>
             </button>
             <button
@@ -293,6 +314,75 @@ export default function PaymentsPage() {
                   <dd className="text-sm text-gray-900">108 W 13th St, Wilmington, DE, 19801, United States</dd>
                 </div>
               </dl>
+            </div>
+          </section>
+        )}
+
+        {/* UK Tab */}
+        {activeTab === 'uk' && (
+          <section>
+            {/* UK Wise Account */}
+            <div>
+              <h3 className="text-2xl font-light text-gray-900 mb-8 pb-3 border-b border-gray-200">{t('ukAccount.title')}</h3>
+              <p className="text-sm text-gray-500 mb-6">{t('ukAccount.subtitle')}</p>
+              <dl className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('ukAccount.bankName')}</dt>
+                  <dd className="font-medium text-gray-900 flex items-center justify-between">
+                    <span>Wise Payments Limited</span>
+                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-[#9FE870] flex items-center justify-center ml-3">
+                      <svg width="20" height="20" viewBox="0 0 86 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M55.6947 82.7221H38.9351L63.3792 15.2158H31.9092L38.9351 27.4963L27.9571 40.1446H45.6682L40.9843 52.9399L0 52.8664L22.8341 25.805L9.0019 1.31738H85.1155L55.6947 82.7221Z" fill="#163300"/>
+                      </svg>
+                    </div>
+                  </dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('ukAccount.accountHolder')}</dt>
+                  <dd className="font-medium text-gray-900 flex items-center justify-between">
+                    <span>LF DREAMS SAS</span>
+                    <CopyButton text="LF DREAMS SAS" fieldId="wise-uk-holder" />
+                  </dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('ukAccount.accountNumber')}</dt>
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
+                    <span>46375693</span>
+                    <CopyButton text="46375693" fieldId="uk-account-number" />
+                  </dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('ukAccount.sortCode')}</dt>
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
+                    <span>60-84-64</span>
+                    <CopyButton text="608464" fieldId="uk-sort-code" />
+                  </dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('ukAccount.iban')}</dt>
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
+                    <span>GB47 TRWI 6084 6446 3756 93</span>
+                    <CopyButton text="GB47TRWI60846446375693" fieldId="uk-iban" />
+                  </dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('ukAccount.swiftCode')}</dt>
+                  <dd className="font-mono text-gray-900 flex items-center justify-between">
+                    <span>TRWIGB2LXXX</span>
+                    <CopyButton text="TRWIGB2LXXX" fieldId="uk-swift" />
+                  </dd>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2">
+                  <dt className="text-sm text-gray-500 mb-1 sm:mb-0">{t('ukAccount.bankAddress')}</dt>
+                  <dd className="text-sm text-gray-900">Worship Square, 65 Clifton Street, London, EC2A 4JE, United Kingdom</dd>
+                </div>
+              </dl>
+              <div className="mt-6 p-4 bg-gray-50">
+                <p className="text-xs text-gray-600">
+                  <span className="font-medium text-gray-900">{t('ukAccount.note')}:</span>{' '}
+                  {t('ukAccount.noteText')}
+                </p>
+              </div>
             </div>
           </section>
         )}
