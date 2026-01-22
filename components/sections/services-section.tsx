@@ -13,7 +13,7 @@ export default function ServicesSection() {
       number: '01',
       titleKey: 'webDev.title',
       descriptionKey: 'webDev.description',
-      image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1200&h=800&fit=crop&q=80',
+      image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/red_gradient.jpeg',
     },
     {
       number: '02',
@@ -25,7 +25,7 @@ export default function ServicesSection() {
       number: '03',
       titleKey: 'uiux.title',
       descriptionKey: 'uiux.description',
-      image: 'https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=1200&h=800&fit=crop&q=80',
+      image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/blue_gradient.jpeg',
     },
   ];
 
