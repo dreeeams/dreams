@@ -277,18 +277,6 @@ export default function PortfolioSection() {
                     {project.url} →
                   </a>
                 )}
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs border border-black px-2 py-1 hover:bg-black hover:text-white transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </m.div>
           ))}
