@@ -66,13 +66,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const metadata = {
     en: {
-      title: 'Dream Studio - Professional Web Development Agency | Mobile App Development',
-      description: 'Leading web development agency specializing in custom web applications, mobile apps, and SaaS solutions. Expert React, Next.js, and React Native developers. Get a free consultation today.',
+      title: 'Dream Studio - Web & Mobile App Development Agency',
+      description: 'Expert web development agency. Custom web apps, mobile apps, and SaaS solutions with React, Next.js & React Native. Fast delivery, proven results.',
       keywords: 'web development agency, mobile app development company, custom web development, professional web developers, react development agency, nextjs development, react native developers, web application development, mobile application development, software development company, web design agency, app development services, saas development, ecommerce development, ui ux design agency, frontend development, backend development, full stack developers, web development services, app development agency, digital agency, technology consulting, startup development, mvp development, web app development, progressive web apps, responsive web design, api development, cloud development, agile development, software consulting',
     },
     es: {
-      title: 'Dream Studio - Agencia de Desarrollo Web Profesional | Desarrollo de Apps',
-      description: 'Agencia líder en desarrollo web especializada en aplicaciones web personalizadas, apps móviles y soluciones SaaS. Expertos en React, Next.js y React Native. Consulta gratis hoy.',
+      title: 'Dream Studio - Agencia Desarrollo Web y Apps Móviles',
+      description: 'Agencia experta en desarrollo web. Apps web, móviles y SaaS con React, Next.js y React Native. Entrega rápida y resultados comprobados.',
       keywords: 'agencia desarrollo web, empresa desarrollo aplicaciones móviles, desarrollo web personalizado, desarrolladores web profesionales, agencia desarrollo react, desarrollo nextjs, desarrolladores react native, desarrollo aplicaciones web, desarrollo aplicaciones móviles, empresa desarrollo software, agencia diseño web, servicios desarrollo apps, desarrollo saas, desarrollo ecommerce, agencia diseño ui ux, desarrollo frontend, desarrollo backend, desarrolladores full stack, servicios desarrollo web, agencia desarrollo apps, agencia digital, consultoría tecnológica, desarrollo startups, desarrollo mvp, desarrollo web app, aplicaciones web progresivas, diseño web responsive, desarrollo api, desarrollo cloud, desarrollo ágil, consultoría software',
     },
   };
@@ -124,10 +124,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@dreamstudio',
+      creator: '@dreamstudio',
       title: meta.title,
       description: meta.description,
-      images: ['/og-image.png'],
-      creator: '@dreamstudio',
+      images: {
+        url: '/og-image.png',
+        alt: 'Dream Studio - Professional Web & Mobile App Development Agency',
+      },
     },
     robots: {
       index: true,

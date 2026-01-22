@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
+import SocialLinks from '@/components/social-links';
 
 export default function FooterSection() {
   const tFooter = useTranslations('contact.footer');
@@ -27,6 +28,9 @@ export default function FooterSection() {
             <p className="text-xs text-gray-500 mt-3">
               Bogotá, Colombia
             </p>
+            <div className="mt-4">
+              <SocialLinks />
+            </div>
           </div>
 
           {/* Links */}

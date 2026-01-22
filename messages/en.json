@@ -16,6 +16,7 @@
     "getStarted": "Get Started"
   },
   "hero": {
+    "seoHeading": "Professional Web Development Agency - Custom Mobile App Development - React, Next.js & React Native Experts",
     "tagline": "ENGINEERING TOMORROW",
     "title": "We build digital products that people love",
     "subtitle": "Custom web & mobile development with cutting-edge design",
@@ -717,5 +718,15 @@
         "p1": "If you have questions about these Terms of Service, please contact us at:"
       }
     }
+  },
+  "seoContent": {
+    "heading": "Professional Web Development Agency - Custom Mobile App Development Solutions",
+    "paragraph1": "Dream Studio is a professional web development agency specializing in custom web applications, mobile app development, and cutting-edge SaaS solutions. Our expert team of React, Next.js, and React Native developers delivers high-performance digital products that drive real business results. As a leading web development agency, we combine technical excellence with exceptional design to create web applications and mobile apps that users love.",
+    "paragraph2": "Our web development agency serves startups, growing businesses, and enterprises looking to build scalable digital products. From custom web development projects to mobile app development for iOS and Android, we handle every aspect of your digital transformation. We specialize in React development, Next.js web applications, and React Native mobile apps, ensuring your product is built with modern, future-proof technologies that deliver exceptional performance and user experience.",
+    "whyChooseHeading": "Why Choose Our Web Development Agency",
+    "paragraph3": "As a professional web development agency, we pride ourselves on delivering projects that exceed expectations. Our custom web development approach means every web application and mobile app is tailored to your specific business needs. We don't use generic templates - our web developers create bespoke solutions that solve real problems. With expertise in React, Next.js, and React Native, our web development agency builds applications that are fast, scalable, and maintainable. We've helped companies achieve 40% faster load times, 90% client retention rates, and measurable ROI through our professional web development services.",
+    "paragraph4": "Our mobile app development services complement our web development expertise perfectly. Whether you need a native iOS app, Android application, or cross-platform React Native solution, our mobile app development team delivers apps with 4.3+ star ratings and thousands of downloads. We understand that mobile app development requires special attention to performance, user experience, and platform-specific best practices - and our agency excels in all these areas.",
+    "expertiseHeading": "Our Web Development & Mobile App Development Expertise",
+    "paragraph5": "Our web development agency offers comprehensive services including custom web application development, mobile app development, UI/UX design, backend development, API integration, and ongoing support. We work with modern technologies like React, Next.js, React Native, Node.js, TypeScript, and PostgreSQL to build enterprise-grade applications. Whether you need a landing page, SaaS platform, e-commerce site, or mobile app, our professional web developers deliver solutions that combine beautiful design with robust functionality. Contact our web development agency today for a free consultation and discover how we can transform your digital presence."
   }
 }

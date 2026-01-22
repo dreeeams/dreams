@@ -11,7 +11,7 @@ export default function HeroSection() {
     <div className="relative w-full h-screen">
       {/* SEO H1 - Visually hidden but available for screen readers and SEO */}
       <h1 className="sr-only">
-        Dream Studio - Professional Web Development Agency | Custom Mobile App Development | React & Next.js Experts
+        {t('seoHeading')}
       </h1>
 
       {/* Hero Banner GIF as Background */}

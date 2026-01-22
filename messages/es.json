@@ -16,6 +16,7 @@
     "getStarted": "Comenzar"
   },
   "hero": {
+    "seoHeading": "Agencia de Desarrollo Web Profesional - Desarrollo de Apps Móviles - Expertos en React, Next.js y React Native",
     "tagline": "CREANDO EL FUTURO",
     "title": "Construimos productos digitales que la gente ama",
     "subtitle": "Desarrollo web y movil personalizado con diseño de vanguardia",
@@ -717,5 +718,15 @@
         "p1": "Si tienes preguntas sobre estos Términos de Servicio, contáctanos en:"
       }
     }
+  },
+  "seoContent": {
+    "heading": "Agencia de Desarrollo Web Profesional - Soluciones de Desarrollo de Apps Móviles",
+    "paragraph1": "Dream Studio es una agencia de desarrollo web profesional especializada en aplicaciones web personalizadas, desarrollo de apps móviles y soluciones SaaS de vanguardia. Nuestro equipo experto de desarrolladores React, Next.js y React Native entrega productos digitales de alto rendimiento que generan resultados comerciales reales. Como agencia líder en desarrollo web, combinamos excelencia técnica con diseño excepcional para crear aplicaciones web y apps móviles que los usuarios adoran.",
+    "paragraph2": "Nuestra agencia de desarrollo web sirve a startups, empresas en crecimiento y corporaciones que buscan construir productos digitales escalables. Desde proyectos de desarrollo web personalizado hasta desarrollo de apps móviles para iOS y Android, manejamos cada aspecto de tu transformación digital. Nos especializamos en desarrollo React, aplicaciones web Next.js y apps móviles React Native, asegurando que tu producto esté construido con tecnologías modernas y preparadas para el futuro que ofrecen rendimiento excepcional y experiencia de usuario.",
+    "whyChooseHeading": "Por Qué Elegir Nuestra Agencia de Desarrollo Web",
+    "paragraph3": "Como agencia de desarrollo web profesional, nos enorgullecemos de entregar proyectos que superan las expectativas. Nuestro enfoque de desarrollo web personalizado significa que cada aplicación web y app móvil está adaptada a tus necesidades comerciales específicas. No usamos plantillas genéricas - nuestros desarrolladores web crean soluciones personalizadas que resuelven problemas reales. Con experiencia en React, Next.js y React Native, nuestra agencia de desarrollo web construye aplicaciones que son rápidas, escalables y mantenibles. Hemos ayudado a empresas a lograr tiempos de carga 40% más rápidos, tasas de retención de clientes del 90% y ROI medible a través de nuestros servicios profesionales de desarrollo web.",
+    "paragraph4": "Nuestros servicios de desarrollo de apps móviles complementan perfectamente nuestra experiencia en desarrollo web. Ya sea que necesites una app iOS nativa, aplicación Android o solución React Native multiplataforma, nuestro equipo de desarrollo de apps móviles entrega apps con calificaciones de 4.3+ estrellas y miles de descargas. Entendemos que el desarrollo de apps móviles requiere atención especial al rendimiento, experiencia de usuario y mejores prácticas específicas de la plataforma - y nuestra agencia sobresale en todas estas áreas.",
+    "expertiseHeading": "Nuestra Experiencia en Desarrollo Web y Apps Móviles",
+    "paragraph5": "Nuestra agencia de desarrollo web ofrece servicios integrales incluyendo desarrollo de aplicaciones web personalizadas, desarrollo de apps móviles, diseño UI/UX, desarrollo backend, integración de APIs y soporte continuo. Trabajamos con tecnologías modernas como React, Next.js, React Native, Node.js, TypeScript y PostgreSQL para construir aplicaciones de nivel empresarial. Ya sea que necesites una landing page, plataforma SaaS, sitio de comercio electrónico o app móvil, nuestros desarrolladores web profesionales entregan soluciones que combinan diseño hermoso con funcionalidad robusta. Contacta nuestra agencia de desarrollo web hoy para una consulta gratuita y descubre cómo podemos transformar tu presencia digital."
   }
 }
