@@ -82,7 +82,7 @@ const projects: Project[] = [
     descriptionKey: 'huntTickets',
     tags: ['React Native', 'TypeScript', 'Firebase'],
     color: 'bg-white',
-    isIcon: true,
+    isMockup: true,
     rating: { stars: 4.3, reviews: 250 },
     appStore: true,
     downloads: 5000,
@@ -142,21 +142,12 @@ export default function PortfolioSection() {
                     />
                   </div>
                 ) : project.isMockup ? (
-                  <div className="absolute inset-0 flex items-center justify-center p-8 bg-gradient-to-br from-blue-600 to-purple-600">
-                    {/* Phone Mockup */}
-                    <div className="relative h-full aspect-[9/19.5]">
-                      {/* Phone Frame */}
-                      <div className="absolute inset-0 bg-black rounded-[1.8rem] shadow-2xl p-2">
-                        {/* Screen */}
-                        <div className="w-full h-full bg-black rounded-[1.4rem] overflow-hidden relative">
-                          <img
-                            src="/images/hunt-tickets-poster.jpg"
-                            alt="Hunt Tickets App Demo"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
-                    </div>
+                  <div className="absolute inset-0 flex items-center justify-center bg-white">
+                    <img
+                      src="https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/hunt_mockup.png"
+                      alt="Hunt Tickets App Mockup"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ) : project.url ? (
                   <LazyIframe
