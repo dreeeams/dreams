@@ -41,9 +41,26 @@ const config: Config = {
         mono: ['var(--font-geist-mono)', 'monospace'],
         nostalgic: ['var(--font-nostalgic)', 'sans-serif'],
       },
+      letterSpacing: {
+        'nostalgic': '-0.04em',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addComponents }: any) {
+      addComponents({
+        '.heading-display': {
+          '@apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic tracking-nostalgic': {},
+        },
+        '.heading-xl': {
+          '@apply text-3xl md:text-4xl font-nostalgic tracking-nostalgic': {},
+        },
+        '.heading-lg': {
+          '@apply text-2xl font-nostalgic tracking-nostalgic': {},
+        },
+      })
+    }
+  ],
 };
 
 export default config;
