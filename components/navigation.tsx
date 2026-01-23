@@ -289,7 +289,7 @@ export default function Navigation() {
                 className="absolute bottom-12 left-0 right-0 px-8"
               >
                 <div className="flex items-center justify-between text-sm font-mono">
-                  <span className="text-gray-400 font-logo">DREEEAMS</span>
+                  <span className="text-gray-400 font-nostalgic">DREEEAMS</span>
                   <span className="text-gray-400">2024</span>
                 </div>
               </m.div>

@@ -45,18 +45,6 @@ const ztHoky = localFont({
   display: 'swap',
 });
 
-const chaos16 = localFont({
-  src: [
-    {
-      path: '../../public/fonts/CHAOS16.otf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-logo',
-  display: 'swap',
-});
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -300,13 +288,6 @@ export default async function LocaleLayout({
           type="font/otf"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preload"
-          href="/fonts/CHAOS16.otf"
-          as="font"
-          type="font/otf"
-          crossOrigin="anonymous"
-        />
         {/* DNS prefetch for external services */}
         <link rel="dns-prefetch" href="https://cal.com" />
         <link rel="preconnect" href="https://va.vercel-scripts.com" />
@@ -322,7 +303,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} ${chaos16.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} antialiased`}
       >
         <a href="#main-content" className="skip-to-main">
           {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
