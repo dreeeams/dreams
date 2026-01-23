@@ -10,9 +10,6 @@ import Script from 'next/script';
 const ServicesSection = dynamic(() => import('@/components/sections/services-section'), {
   loading: () => <div className="min-h-screen bg-white" />,
 });
-const SeoContentSection = dynamic(() => import('@/components/sections/seo-content-section'), {
-  loading: () => <div className="min-h-[40vh] bg-white" />,
-});
 const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-section'), {
   loading: () => (
     <div className="py-24 px-6 md:px-12 bg-white">
@@ -118,7 +115,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           {/* Content that scrolls over hero */}
           <div className="relative z-10" style={{ marginTop: '100vh' }}>
             <ServicesSection />
-            <SeoContentSection />
             <PortfolioSection />
             <FeaturesSection />
             <ContactSection />
