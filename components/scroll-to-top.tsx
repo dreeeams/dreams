@@ -1,25 +1,17 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
+import { useScrollPosition } from '@/lib/hooks';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const { scrollY } = useScrollPosition();
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      // Show button when page is scrolled down 400px
-      if (window.scrollY > 400) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+    // Show button when page is scrolled down 400px
+    setIsVisible(scrollY > 400);
+  }, [scrollY]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -37,7 +29,7 @@ export default function ScrollToTop() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 sm:bottom-8 left-6 sm:left-8 z-50 p-3 sm:p-3 bg-black text-white border border-black hover:bg-white hover:text-black transition-all duration-200 shadow-lg"
+          className="fixed bottom-6 sm:bottom-8 left-6 sm:left-8 z-50 p-3 sm:p-3 bg-black text-white border border-black hover:bg-white hover:text-black transition-fast shadow-lg"
           aria-label="Scroll to top"
         >
           <svg

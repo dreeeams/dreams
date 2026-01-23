@@ -6,6 +6,9 @@ import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import Logo from '@/components/logo';
+import { useScrollPosition } from '@/lib/hooks';
+import MobileMenu from '@/components/navigation/mobile-menu';
+import DesktopNav from '@/components/navigation/desktop-nav';
 
 export default function Navigation() {
   const t = useTranslations('nav');
@@ -15,15 +18,12 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
-  const [isAtTop, setIsAtTop] = useState(true);
+  const { isAtTop } = useScrollPosition();
 
   // Handle scroll behavior - hide on scroll down, show on scroll up
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Check if at top of page
-      setIsAtTop(currentScrollY === 0);
 
       // Show navbar when scrolling up, hide when scrolling down
       if (currentScrollY < lastScrollY.current) {
@@ -54,14 +54,6 @@ export default function Navigation() {
     { label: t('getStarted'), href: '#contact' },
   ];
 
-  const handleMenuClick = (href: string) => {
-    setIsMenuOpen(false);
-    // Small delay to allow animation to start before navigating
-    setTimeout(() => {
-      window.location.href = href;
-    }, 300);
-  };
-
   return (
     <>
       {/* Main Navigation - Hides on scroll */}
@@ -69,7 +61,7 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: isVisible ? 0.3 : 0, ease: 'easeInOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
           isAtTop
             ? 'bg-transparent border-b border-transparent'
             : 'bg-background-light/80 backdrop-blur-sm border-b border-black/10'
@@ -96,7 +88,7 @@ export default function Navigation() {
               <m.button
                 onClick={toggleLanguage}
                 whileTap={{ scale: 0.98 }}
-                className={`px-4 py-2 border transition-all duration-200 flex items-center justify-center gap-2 group ${
+                className={`px-4 py-2 border transition-fast flex items-center justify-center gap-2 group ${
                   isAtTop
                     ? 'border-overlay-border-medium hover:bg-white'
                     : 'border-black/10 hover:border-black hover:bg-black'
@@ -133,45 +125,19 @@ export default function Navigation() {
                 </svg>
               </m.button>
 
-              {/* Desktop Menu Items */}
-              <m.a
-                whileTap={{ scale: 0.98 }}
-                href="#services"
-                className={`md:block hidden px-4 py-2 text-sm font-medium border transition-all duration-200 ${
-                  isAtTop
-                    ? 'text-white border-overlay-border-medium hover:bg-white hover:text-black'
-                    : 'text-foreground-light border-black/10 hover:border-black hover:text-white hover:bg-black'
-                }`}
-              >
-                {t('services')}
-              </m.a>
-
-              {/* Contact Button - Visible when header is visible - Desktop only */}
-              <AnimatePresence>
-                {isVisible && (
-                  <m.a
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    whileTap={{ scale: 0.98 }}
-                    href="#contact"
-                    className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-all duration-200 ${
-                      isAtTop
-                        ? 'text-black bg-white border-overlay-border-medium hover:bg-gray-200'
-                        : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
-                    }`}
-                  >
-                    {t('getStarted')} →
-                  </m.a>
-                )}
-              </AnimatePresence>
+              {/* Desktop Navigation */}
+              <DesktopNav
+                isAtTop={isAtTop}
+                isVisible={isVisible}
+                servicesLabel={t('services')}
+                getStartedLabel={t('getStarted')}
+              />
 
               {/* Mobile Menu Button */}
               <m.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 whileTap={{ scale: 0.98 }}
-                className={`sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border transition-all duration-200 group ${
+                className={`sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border transition-fast group ${
                   isAtTop
                     ? 'border-overlay-border-medium hover:bg-white'
                     : 'border-black/10 hover:border-black hover:bg-black'
@@ -212,7 +178,7 @@ export default function Navigation() {
             transition={{ duration: 0.3 }}
             href="#contact"
             whileTap={{ scale: 0.98 }}
-            className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-all duration-200"
+            className="block fixed top-4 sm:top-5 right-4 sm:right-6 md:right-[calc((100vw-80rem)/2+1.5rem)] z-[60] px-5 py-2.5 sm:px-4 sm:py-2 text-sm font-medium text-white bg-black hover:bg-gray-800 border border-black hover:border-gray-800 transition-fast"
           >
             {t('getStarted')} →
           </m.a>
@@ -220,76 +186,11 @@ export default function Navigation() {
       </AnimatePresence>
 
       {/* Full Screen Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <m.div
-            initial={{ y: '-100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '-100%' }}
-            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[60] bg-black sm:hidden"
-          >
-            {/* Close Button */}
-            <m.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-4 right-4 px-4 py-3 flex items-center justify-center border border-overlay-border-medium hover:border-white hover:bg-white group transition-all duration-200"
-              aria-label="Close menu"
-            >
-              <div className="relative w-6 h-6">
-                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white group-hover:bg-black rotate-45 transform -translate-y-1/2" />
-                <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white group-hover:bg-black -rotate-45 transform -translate-y-1/2" />
-              </div>
-            </m.button>
-
-            <div className="h-full flex flex-col items-center justify-center px-8">
-              {/* Logo */}
-              <m.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="mb-12"
-              >
-                <Logo
-                  className="h-auto w-auto max-w-[200px]"
-                  fill="white"
-                />
-              </m.div>
-
-              {/* Menu Items */}
-              <nav className="flex flex-col items-center gap-8 mb-12">
-                {menuItems.map((item, index) => (
-                  <m.button
-                    key={item.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
-                    onClick={() => handleMenuClick(item.href)}
-                    className="text-4xl font-nostalgic text-white hover:text-brand transition-colors"
-                  >
-                    [ {item.label.toUpperCase()} ]
-                  </m.button>
-                ))}
-              </nav>
-
-              {/* Bottom Section */}
-              <m.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
-                className="absolute bottom-12 left-0 right-0 px-8"
-              >
-                <div className="flex items-center justify-between text-sm font-mono">
-                  <span className="text-gray-400 font-nostalgic">DREEEAMS</span>
-                  <span className="text-gray-400">2024</span>
-                </div>
-              </m.div>
-            </div>
-          </m.div>
-        )}
-      </AnimatePresence>
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+        menuItems={menuItems}
+      />
     </>
   );
 }

@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react"
 import { m, AnimatePresence } from "framer-motion"
 import { Lock, Smartphone } from "lucide-react"
 import { useTranslations } from 'next-intl'
+import { easing, transitions } from '@/lib/motion-presets'
+import BentoCard from '@/components/ui/bento-grid/bento-card'
 
 function TypeTester() {
   const [scale, setScale] = useState(1)
@@ -18,9 +20,9 @@ function TypeTester() {
   return (
     <div className="flex items-center justify-center h-full">
       <m.span
-        className="font-serif text-4xl sm:text-6xl md:text-8xl text-black group-hover:text-white font-medium transition-colors duration-300"
+        className="font-serif text-4xl sm:text-6xl md:text-8xl text-black group-hover:text-white font-medium transition-smooth"
         animate={{ scale }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ ...transitions.smooth }}
       >
         Aa
       </m.span>
@@ -45,14 +47,14 @@ function LayoutAnimation() {
       <m.div
         className={`grid ${layouts[layout]} gap-1 sm:gap-1.5 w-full max-w-[100px] sm:max-w-[140px] h-full`}
         layout
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ ...transitions.medium, ease: easing.smooth }}
       >
         {[1, 2, 3].map((i) => (
           <m.div
             key={i}
-            className="bg-black group-hover:bg-white h-4 sm:h-5 w-full border border-black group-hover:border-white transition-colors duration-300"
+            className="bg-black group-hover:bg-white h-4 sm:h-5 w-full border border-black group-hover:border-white transition-smooth"
             layout
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ ...transitions.medium, ease: easing.smooth }}
           />
         ))}
       </m.div>
@@ -75,7 +77,7 @@ function SpeedIndicator({ loadTimeText }: { loadTimeText: string }) {
           {loading ? (
             <m.div
               key="loader"
-              className="h-6 w-20 sm:h-8 sm:w-24 bg-black/10 group-hover:bg-overlay-bg-light border border-black group-hover:border-white transition-colors duration-300"
+              className="h-6 w-20 sm:h-8 sm:w-24 bg-black/10 group-hover:bg-overlay-bg-light border border-black group-hover:border-white transition-smooth"
               initial={{ opacity: 0.5 }}
               animate={{ opacity: [0.4, 0.7, 0.4] }}
               exit={{ opacity: 0, y: -20, position: 'absolute' }}
@@ -86,17 +88,17 @@ function SpeedIndicator({ loadTimeText }: { loadTimeText: string }) {
               key="text"
               initial={{ y: 20, opacity: 0, filter: "blur(5px)" }}
               animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-              className="text-2xl sm:text-3xl md:text-4xl font-sans font-medium text-white transition-colors duration-300"
+              className="text-2xl sm:text-3xl md:text-4xl font-sans font-medium text-white transition-smooth"
             >
               100ms
             </m.span>
           )}
         </AnimatePresence>
       </div>
-      <span className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-300 font-bold transition-colors duration-300">{loadTimeText}</span>
-      <div className="w-full max-w-[100px] sm:max-w-[120px] h-1.5 bg-overlay-bg-light group-hover:bg-overlay-bg-light overflow-hidden border border-white group-hover:border-white transition-colors duration-300">
+      <span className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-300 font-bold transition-smooth">{loadTimeText}</span>
+      <div className="w-full max-w-[100px] sm:max-w-[120px] h-1.5 bg-overlay-bg-light group-hover:bg-overlay-bg-light overflow-hidden border border-white group-hover:border-white transition-smooth">
         <m.div
-          className="h-full bg-white group-hover:bg-white transition-colors duration-300"
+          className="h-full bg-white group-hover:bg-white transition-smooth"
           initial={{ width: 0 }}
           animate={{ width: loading ? 0 : "100%" }}
           transition={{ type: "spring", stiffness: 100, damping: 15, mass: 1 }}
@@ -131,7 +133,7 @@ function SecurityBadge() {
       {shields.map((shield) => (
         <m.div
           key={shield.id}
-          className={`w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center border transition-colors duration-300 ${
+          className={`w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center border transition-smooth ${
             shield.active
               ? 'bg-black border-black group-hover:bg-white group-hover:border-white'
               : 'bg-white border-black group-hover:bg-black group-hover:border-white'
@@ -139,7 +141,7 @@ function SecurityBadge() {
           animate={{ scale: shield.active ? 1.1 : 1 }}
           transition={{ duration: 0.3 }}
         >
-          <Lock className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 ${
+          <Lock className={`w-4 h-4 sm:w-5 sm:h-5 transition-smooth ${
             shield.active
               ? 'text-white group-hover:text-black'
               : 'text-black group-hover:text-white'
@@ -198,7 +200,7 @@ export default function BentoGrid() {
 
           {/* 1. Typography */}
           <m.div
-            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-smooth cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -207,14 +209,14 @@ export default function BentoGrid() {
               <TypeTester />
             </div>
             <div className="mt-2 sm:mt-4">
-              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-colors duration-300">{t('typography.title')}</h3>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-colors duration-300">{t('typography.description')}</p>
+              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-smooth">{t('typography.title')}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-smooth">{t('typography.description')}</p>
             </div>
           </m.div>
 
           {/* 2. Speed */}
           <m.div
-            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-smooth cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -224,14 +226,14 @@ export default function BentoGrid() {
               <SpeedIndicator loadTimeText={t('speedIndicator.loadTime')} />
             </div>
             <div className="mt-2 sm:mt-4">
-              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-colors duration-300">{t('speed.title')}</h3>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-colors duration-300">{t('speed.description')}</p>
+              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-smooth">{t('speed.title')}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-smooth">{t('speed.description')}</p>
             </div>
           </m.div>
 
           {/* 3. Layouts */}
           <m.div
-            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-smooth cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -241,8 +243,8 @@ export default function BentoGrid() {
               <LayoutAnimation />
             </div>
             <div className="mt-2 sm:mt-4">
-              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-colors duration-300">{t('layouts.title')}</h3>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-colors duration-300">{t('layouts.description')}</p>
+              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-smooth">{t('layouts.title')}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-smooth">{t('layouts.description')}</p>
             </div>
           </m.div>
 
@@ -250,7 +252,7 @@ export default function BentoGrid() {
 
           {/* 4. Global Network */}
           <m.div
-            className="bg-gray-100 border border-black p-4 sm:p-6 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border border-black p-4 sm:p-6 flex flex-col overflow-hidden group hover:bg-black transition-smooth cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -262,16 +264,16 @@ export default function BentoGrid() {
               </div>
             </div>
             <div className="mt-auto">
-              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-colors duration-300">
+              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-smooth">
                 {t('speedNetwork.title')}
               </h3>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-colors duration-300">{t('speedNetwork.description')}</p>
+              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-smooth">{t('speedNetwork.description')}</p>
             </div>
           </m.div>
 
           {/* 5. Security */}
           <m.div
-            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-smooth cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -281,16 +283,16 @@ export default function BentoGrid() {
               <SecurityBadge />
             </div>
             <div className="mt-2 sm:mt-4">
-              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-colors duration-300">
+              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-smooth">
                 {t('security.title')}
               </h3>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-colors duration-300">{t('security.description')}</p>
+              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-smooth">{t('security.description')}</p>
             </div>
           </m.div>
 
           {/* 6. Mobile Ready */}
           <m.div
-            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-colors duration-300 cursor-pointer"
+            className="bg-gray-100 border border-black p-4 sm:p-8 flex flex-col overflow-hidden group hover:bg-black transition-smooth cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -319,7 +321,7 @@ export default function BentoGrid() {
                   y="8"
                   width="24"
                   height="48"
-                  className="fill-none stroke-black group-hover:stroke-white transition-colors duration-300"
+                  className="fill-none stroke-black group-hover:stroke-white transition-smooth"
                   strokeWidth="1"
                 />
                 {/* Screen */}
@@ -328,20 +330,20 @@ export default function BentoGrid() {
                   y="12"
                   width="20"
                   height="36"
-                  className="fill-black group-hover:fill-white transition-colors duration-300"
+                  className="fill-black group-hover:fill-white transition-smooth"
                 />
                 {/* Home button/indicator */}
                 <circle
                   cx="32"
                   cy="52"
                   r="2"
-                  className="fill-black group-hover:fill-white transition-colors duration-300"
+                  className="fill-black group-hover:fill-white transition-smooth"
                 />
               </m.svg>
             </div>
             <div className="mt-2 sm:mt-4">
-              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-colors duration-300">{t('mobile.title')}</h3>
-              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-colors duration-300">{t('mobile.description')}</p>
+              <h3 className="font-sans text-base sm:text-xl text-black font-light group-hover:text-white transition-smooth">{t('mobile.title')}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm mt-1 group-hover:text-gray-300 transition-smooth">{t('mobile.description')}</p>
             </div>
           </m.div>
 

@@ -23,7 +23,7 @@ export default function ServiceDetailPage({ serviceKey, features }: ServiceDetai
       <div className="fixed top-24 left-6 z-50">
         <Link
           href="/#services"
-          className="inline-flex items-center gap-2 px-4 py-2 border border-overlay-border-medium bg-black/50 backdrop-blur-sm hover:bg-overlay-bg-light transition-all duration-300"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-overlay-border-medium bg-black/50 backdrop-blur-sm hover:bg-overlay-bg-light transition-smooth"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm">Back</span>
@@ -65,7 +65,7 @@ export default function ServiceDetailPage({ serviceKey, features }: ServiceDetai
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="border border-overlay-border-light p-8 bg-overlay-bg-subtle backdrop-blur-sm hover:bg-overlay-bg-light transition-all duration-300"
+                className="border border-overlay-border-light p-8 bg-overlay-bg-subtle backdrop-blur-sm hover:bg-overlay-bg-light transition-smooth"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-3 bg-overlay-bg-light border border-overlay-border-medium">
@@ -108,7 +108,7 @@ export default function ServiceDetailPage({ serviceKey, features }: ServiceDetai
             </p>
             <a
               href="/#contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black hover:bg-white/90 transition-all duration-300 font-medium"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black hover:bg-white/90 transition-smooth font-medium"
             >
               {tCommon('scheduleCall')}
             </a>

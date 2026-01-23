@@ -63,7 +63,7 @@ const config: Config = {
     },
   },
   plugins: [
-    function({ addComponents }: PluginAPI) {
+    function({ addComponents, addUtilities }: PluginAPI) {
       addComponents({
         '.heading-display': {
           '@apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic tracking-nostalgic': {},
@@ -73,6 +73,15 @@ const config: Config = {
         },
         '.heading-lg': {
           '@apply text-2xl font-nostalgic tracking-nostalgic': {},
+        },
+      })
+
+      addUtilities({
+        '.transition-smooth': {
+          '@apply transition-all duration-300 ease-out': {},
+        },
+        '.transition-fast': {
+          '@apply transition-all duration-150 ease-out': {},
         },
       })
     }

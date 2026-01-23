@@ -3,6 +3,7 @@
 import { m, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, createContext, useContext } from 'react';
 import Logo from '@/components/logo';
+import { transitions } from '@/lib/motion-presets';
 
 type LoaderContextType = {
   isLoading: boolean;
@@ -44,16 +45,17 @@ export default function PageLoader() {
     <AnimatePresence>
       {isLoading && (
         <m.div
-          initial={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={transitions.medium}
           className="fixed inset-0 z-[9999] bg-black overflow-hidden flex items-center justify-center"
         >
           {/* Loading Percentage - Top Right Corner */}
           <m.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ delay: 0.2, ...transitions.medium }}
             className="absolute top-6 right-6 sm:top-8 sm:right-8 md:top-12 md:right-12 text-white font-mono text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bold z-20"
           >
             {Math.round(progress)}%
@@ -63,7 +65,7 @@ export default function PageLoader() {
           <m.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.3, ...transitions.smooth }}
             className="absolute bottom-0 left-0 right-0 w-[180vw] sm:w-[160vw] md:w-[140vw] lg:w-[120vw] max-w-[4000px] mx-auto"
             style={{
               transform: 'translateY(35%)',
