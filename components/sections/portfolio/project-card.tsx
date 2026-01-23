@@ -37,6 +37,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index, tButtons, tLabels, tProjects }: ProjectCardProps) {
+  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
+
   return (
     <m.div
       key={project.titleKey}
@@ -53,7 +55,7 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
         {project.isMockup ? (
           <div className="absolute inset-0 flex items-center justify-center bg-white">
             <Image
-              src="https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/hunt_mockup.png"
+              src={`${cdnUrl}/storage/v1/object/public/content/hunt_mockup.png`}
               alt="Hunt Tickets App Mockup"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

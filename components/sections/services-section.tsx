@@ -7,27 +7,28 @@ import Link from 'next/link';
 
 export default function ServicesSection() {
   const t = useTranslations('services');
+  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
 
   const services = [
     {
       number: '01',
       titleKey: 'webDev.title',
       descriptionKey: 'webDev.description',
-      image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/red_gradient.jpeg',
+      image: `${cdnUrl}/storage/v1/object/public/content/red_gradient.jpeg`,
       link: '/web-development',
     },
     {
       number: '02',
       titleKey: 'mobileDev.title',
       descriptionKey: 'mobileDev.description',
-      image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/green_gradient.jpeg',
+      image: `${cdnUrl}/storage/v1/object/public/content/green_gradient.jpeg`,
       link: '/mobile-development',
     },
     {
       number: '03',
       titleKey: 'uiux.title',
       descriptionKey: 'uiux.description',
-      image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/blue_gradient.jpeg',
+      image: `${cdnUrl}/storage/v1/object/public/content/blue_gradient.jpeg`,
       link: '/ai-solutions',
     },
   ];

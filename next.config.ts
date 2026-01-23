@@ -8,6 +8,10 @@ const bundleAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
+// Extract CDN hostname from environment variable
+const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL || '';
+const cdnHostname = cdnUrl ? new URL(cdnUrl).hostname : '';
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -27,11 +31,12 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
       },
-      // Active: Hero banner, service gradients, portfolio mockups
-      {
-        protocol: 'https',
-        hostname: 'eeyjhkhrdoouapuilwep.supabase.co',
-      },
+      // Active: CDN for hero banner, service gradients, portfolio mockups
+      // Configured via NEXT_PUBLIC_CDN_URL environment variable
+      ...(cdnHostname ? [{
+        protocol: 'https' as const,
+        hostname: cdnHostname,
+      }] : []),
     ],
   },
   experimental: {

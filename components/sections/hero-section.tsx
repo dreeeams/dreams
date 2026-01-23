@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 
 export default function HeroSection() {
   const t = useTranslations('hero');
+  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
 
   return (
     <div className="relative w-full h-screen">
@@ -16,7 +17,7 @@ export default function HeroSection() {
 
       {/* Hero Banner GIF as Background */}
       <Image
-        src="https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/hero_banner.gif"
+        src={`${cdnUrl}/storage/v1/object/public/content/hero_banner.gif`}
         alt="Dream Studio Hero Banner"
         fill
         className="object-cover"
