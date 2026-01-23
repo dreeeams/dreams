@@ -17,6 +17,8 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../globals.css';
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreamstudio.dev';
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -154,8 +156,6 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
-
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreamstudio.dev';
 
   // Schema.org structured data
   const organizationSchema = {

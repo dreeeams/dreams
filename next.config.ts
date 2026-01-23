@@ -45,15 +45,13 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion', 'next-intl', 'lucide-react'],
     webpackBuildWorker: true,
-    serverComponentsExternalPackages: ['@vercel/analytics'],
   },
+  serverExternalPackages: ['@vercel/analytics'],
   // Performance optimizations
   productionBrowserSourceMaps: false,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
-    emotion: true,
   },
-  swcMinify: true,
   async headers() {
     return [
       // Security headers for all routes
