@@ -1,32 +1,20 @@
 'use client';
 
-import { Twitter, Linkedin, Github, Instagram } from 'lucide-react';
+import { MessageCircle, Mail } from 'lucide-react';
 
 export default function SocialLinks() {
   const socialLinks = [
     {
-      name: 'Twitter',
-      href: 'https://twitter.com/dreamstudio',
-      icon: Twitter,
-      ariaLabel: 'Follow us on Twitter',
+      name: 'WhatsApp',
+      href: 'https://wa.me/573124567890',
+      icon: MessageCircle,
+      ariaLabel: 'Contact us on WhatsApp',
     },
     {
-      name: 'LinkedIn',
-      href: 'https://linkedin.com/company/dreamstudio',
-      icon: Linkedin,
-      ariaLabel: 'Connect with us on LinkedIn',
-    },
-    {
-      name: 'GitHub',
-      href: 'https://github.com/dreamstudio',
-      icon: Github,
-      ariaLabel: 'View our projects on GitHub',
-    },
-    {
-      name: 'Instagram',
-      href: 'https://instagram.com/dreamstudio',
-      icon: Instagram,
-      ariaLabel: 'Follow us on Instagram',
+      name: 'Email',
+      href: 'mailto:info@dreeeams.com',
+      icon: Mail,
+      ariaLabel: 'Send us an email',
     },
   ];
 
