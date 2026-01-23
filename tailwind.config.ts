@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import type { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   content: [
@@ -35,6 +36,21 @@ const config: Config = {
           2: 'rgb(var(--surface-dark-2) / <alpha-value>)',
           3: 'rgb(var(--surface-dark-3) / <alpha-value>)',
         },
+
+        // Semantic overlay colors (commonly used patterns)
+        'overlay': {
+          'border-light': 'rgba(255, 255, 255, 0.1)',
+          'border-medium': 'rgba(255, 255, 255, 0.2)',
+          'bg-subtle': 'rgba(255, 255, 255, 0.05)',
+          'bg-light': 'rgba(255, 255, 255, 0.1)',
+        },
+
+        // Semantic text colors
+        'text': {
+          'muted': 'rgba(255, 255, 255, 0.7)',
+          'secondary': 'rgba(255, 255, 255, 0.8)',
+          'tertiary': 'rgba(255, 255, 255, 0.9)',
+        },
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
@@ -47,7 +63,7 @@ const config: Config = {
     },
   },
   plugins: [
-    function({ addComponents }: any) {
+    function({ addComponents }: PluginAPI) {
       addComponents({
         '.heading-display': {
           '@apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic tracking-nostalgic': {},

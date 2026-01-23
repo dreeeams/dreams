@@ -63,7 +63,7 @@ export default function FAQSection() {
           transition={{ duration: 0.8 }}
           className="flex items-center justify-center mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center" style={{ letterSpacing: '-0.04em' }}>
+          <h2 className="heading-display text-center">
             {t('title')}
           </h2>
         </m.div>
@@ -85,6 +85,8 @@ export default function FAQSection() {
               <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                 className="w-full py-8 flex items-center justify-between text-left group"
+                aria-expanded={activeIndex === index}
+                aria-controls={`faq-answer-${index}`}
               >
                 <div className="flex items-center gap-6 flex-1">
                   <span className="text-4xl md:text-5xl font-mono font-bold text-brand opacity-40 group-hover:opacity-100 transition-opacity">
@@ -100,6 +102,7 @@ export default function FAQSection() {
               </button>
 
               <m.div
+                id={`faq-answer-${index}`}
                 initial={false}
                 animate={{
                   height: activeIndex === index ? 'auto' : 0,
