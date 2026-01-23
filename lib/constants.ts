@@ -29,7 +29,7 @@ export const SOCIAL_MEDIA = {
   INSTAGRAM: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://instagram.com/dreamstudio',
   LINKEDIN: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/company/dreamstudio',
   TWITTER: process.env.NEXT_PUBLIC_TWITTER_URL || 'https://x.com/dreamstudio',
-  EMAIL: process.env.NEXT_PUBLIC_EMAIL || 'contact@dreamstudio.dev',
+  EMAIL: process.env.NEXT_PUBLIC_EMAIL || 'contact@dreeeams.com',
   WHATSAPP: process.env.NEXT_PUBLIC_WHATSAPP || '',
 } as const;
 

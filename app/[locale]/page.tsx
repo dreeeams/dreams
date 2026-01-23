@@ -34,7 +34,7 @@ const ContactSection = dynamic(() => import('@/components/sections/contact-secti
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreamstudio.dev';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preview.dreeeams.com';
 
   // WebPage structured data for SEO
   const webPageSchema = {

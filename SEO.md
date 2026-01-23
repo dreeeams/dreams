@@ -60,7 +60,7 @@ All critical SEO elements are implemented and configured for optimal search engi
   "url": "https://dreeeams.com",
   "logo": "https://dreeeams.com/og-image.png",
   "description": "Web and mobile development agency...",
-  "email": "contact@dreamstudio.dev",
+  "email": "contact@dreeeams.com",
   "foundingDate": "2026",
   "contactPoint": {
     "@type": "ContactPoint",
@@ -471,7 +471,7 @@ For SEO-related questions or issues:
 - See DEPLOYMENT.md for production issues
 
 **Content Strategy:**
-- Email: contact@dreamstudio.dev
+- Email: contact@dreeeams.com
 
 ---
 
