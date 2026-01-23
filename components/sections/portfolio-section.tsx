@@ -60,7 +60,7 @@ const projects: Project[] = [
     categoryKey: 'webApp',
     descriptionKey: 'amazonasToures',
     tags: ['Next.js', 'Tailwind', 'Supabase'],
-    color: 'bg-white border-4 border-black',
+    color: 'bg-white',
     url: 'www.amazonas-toures.com',
   },
   {
