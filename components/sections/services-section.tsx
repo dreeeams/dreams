@@ -81,7 +81,7 @@ export default function ServicesSection() {
                 {/* Top Section - Número y Título pegados arriba */}
                 <div className="mb-auto">
                   {/* Subtítulo (Número) */}
-                  <p className="text-sm md:text-base text-white/70 mb-2">
+                  <p className="text-sm md:text-base text-muted mb-2">
                     {service.number}
                   </p>
 
@@ -94,14 +94,14 @@ export default function ServicesSection() {
                 {/* Bottom Section - Descripción y Features abajo */}
                 <div className="mt-auto">
                   {/* Descripción */}
-                  <p className="text-base md:text-lg leading-relaxed text-white/90 mb-6 font-nostalgic">
+                  <p className="text-base md:text-lg leading-relaxed text-tertiary mb-6 font-nostalgic">
                     {t(service.descriptionKey)}
                   </p>
 
                   {/* Features List */}
                   <ul className="space-y-2 mb-6 font-nostalgic">
                     {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
-                      <li key={idx} className="flex items-start text-sm md:text-base text-white/90">
+                      <li key={idx} className="flex items-start text-sm md:text-base text-tertiary">
                         <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white flex-shrink-0" />
                         {feature}
                       </li>

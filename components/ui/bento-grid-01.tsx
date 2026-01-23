@@ -75,7 +75,7 @@ function SpeedIndicator({ loadTimeText }: { loadTimeText: string }) {
           {loading ? (
             <m.div
               key="loader"
-              className="h-6 w-20 sm:h-8 sm:w-24 bg-black/10 group-hover:bg-white/10 border border-black group-hover:border-white transition-colors duration-300"
+              className="h-6 w-20 sm:h-8 sm:w-24 bg-black/10 group-hover:bg-overlay-bg-light border border-black group-hover:border-white transition-colors duration-300"
               initial={{ opacity: 0.5 }}
               animate={{ opacity: [0.4, 0.7, 0.4] }}
               exit={{ opacity: 0, y: -20, position: 'absolute' }}
@@ -94,7 +94,7 @@ function SpeedIndicator({ loadTimeText }: { loadTimeText: string }) {
         </AnimatePresence>
       </div>
       <span className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-300 font-bold transition-colors duration-300">{loadTimeText}</span>
-      <div className="w-full max-w-[100px] sm:max-w-[120px] h-1.5 bg-white/20 group-hover:bg-white/10 overflow-hidden border border-white group-hover:border-white transition-colors duration-300">
+      <div className="w-full max-w-[100px] sm:max-w-[120px] h-1.5 bg-overlay-bg-light group-hover:bg-overlay-bg-light overflow-hidden border border-white group-hover:border-white transition-colors duration-300">
         <m.div
           className="h-full bg-white group-hover:bg-white transition-colors duration-300"
           initial={{ width: 0 }}
@@ -161,7 +161,7 @@ function GlobalNetwork() {
       {pulses.map((pulse) => (
         <m.div
           key={pulse}
-          className="absolute w-12 h-12 sm:w-16 sm:h-16 border border-black/10 group-hover:border-white/10 rounded-full"
+          className="absolute w-12 h-12 sm:w-16 sm:h-16 border border-black/10 group-hover:border-overlay-border-light rounded-full"
           initial={{ scale: 1, opacity: 0.5 }}
           animate={{ scale: 2.5, opacity: 0 }}
           transition={{

@@ -2,25 +2,22 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import Image from 'next/image';
 import SocialLinks from '@/components/social-links';
+import Logo from '@/components/logo';
 
 export default function FooterSection() {
   const tFooter = useTranslations('contact.footer');
 
   return (
-    <footer className="bg-black text-white border-t border-white/10 py-16 px-6 md:px-12">
+    <footer className="bg-black text-white border-t border-overlay-border-light py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Main Content */}
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Image
-              src="/dreeeams-logo.png"
-              alt="Dreeeams"
-              width={200}
-              height={52}
-              className="h-auto w-auto max-w-[180px] mb-3 brightness-0 invert"
+            <Logo
+              className="h-auto w-auto max-w-[180px] mb-3"
+              fill="white"
             />
             <p className="text-sm text-gray-400 max-w-xs">
               {tFooter('tagline')}
@@ -65,7 +62,7 @@ export default function FooterSection() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 pt-8">
+        <div className="border-t border-overlay-border-light pt-8">
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} Dream Studio. {tFooter('rights')}.
           </p>

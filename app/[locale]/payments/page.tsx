@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
+import Logo from '@/components/logo';
 
 export default function PaymentsPage() {
   const t = useTranslations('payments');
@@ -41,12 +42,9 @@ export default function PaymentsPage() {
       <header className="border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 pb-8" style={{ paddingTop: '5.5rem' }}>
           <Link href="/" className="inline-flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
-            <Image
-              src="/dreeeams-logo.png"
-              alt="Dreeeams"
-              width={200}
-              height={52}
+            <Logo
               className="h-8 w-auto"
+              fill="currentColor"
             />
           </Link>
           <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 mb-3">

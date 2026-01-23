@@ -4,8 +4,8 @@ import { m, AnimatePresence } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
+import Logo from '@/components/logo';
 
 export default function Navigation() {
   const t = useTranslations('nav');
@@ -81,15 +81,11 @@ export default function Navigation() {
             <Link href="/">
               <m.div
                 whileHover={{ scale: 1.05 }}
-                className={`flex items-center cursor-pointer ${isAtTop ? 'brightness-0 invert' : ''}`}
+                className="flex items-center cursor-pointer"
               >
-                <Image
-                  src="/dreeeams-logo.png"
-                  alt="Dreeeams"
-                  width={200}
-                  height={52}
+                <Logo
                   className="h-auto w-auto max-w-[70px] sm:max-w-[75px] md:max-w-[80px]"
-                  priority
+                  fill={isAtTop ? 'white' : 'currentColor'}
                 />
               </m.div>
             </Link>
@@ -102,7 +98,7 @@ export default function Navigation() {
                 whileTap={{ scale: 0.98 }}
                 className={`px-4 py-2 border transition-all duration-200 flex items-center justify-center gap-2 group ${
                   isAtTop
-                    ? 'border-white/60 hover:bg-white'
+                    ? 'border-overlay-border-medium hover:bg-white'
                     : 'border-black/10 hover:border-black hover:bg-black'
                 }`}
                 aria-label="Toggle language"
@@ -143,7 +139,7 @@ export default function Navigation() {
                 href="#services"
                 className={`md:block hidden px-4 py-2 text-sm font-medium border transition-all duration-200 ${
                   isAtTop
-                    ? 'text-white border-white/60 hover:bg-white hover:text-black'
+                    ? 'text-white border-overlay-border-medium hover:bg-white hover:text-black'
                     : 'text-foreground-light border-black/10 hover:border-black hover:text-white hover:bg-black'
                 }`}
               >
@@ -162,7 +158,7 @@ export default function Navigation() {
                     href="#contact"
                     className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-all duration-200 ${
                       isAtTop
-                        ? 'text-black bg-white border-white/60 hover:bg-gray-200'
+                        ? 'text-black bg-white border-overlay-border-medium hover:bg-gray-200'
                         : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
                     }`}
                   >
@@ -177,7 +173,7 @@ export default function Navigation() {
                 whileTap={{ scale: 0.98 }}
                 className={`sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border transition-all duration-200 group ${
                   isAtTop
-                    ? 'border-white/60 hover:bg-white'
+                    ? 'border-overlay-border-medium hover:bg-white'
                     : 'border-black/10 hover:border-black hover:bg-black'
                 }`}
                 aria-label="Toggle menu"
@@ -239,7 +235,7 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-4 right-4 px-4 py-3 flex items-center justify-center border border-white/20 hover:border-white hover:bg-white group transition-all duration-200"
+              className="absolute top-4 right-4 px-4 py-3 flex items-center justify-center border border-overlay-border-medium hover:border-white hover:bg-white group transition-all duration-200"
               aria-label="Close menu"
             >
               <div className="relative w-6 h-6">
@@ -254,14 +250,11 @@ export default function Navigation() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="mb-12 brightness-0 invert"
+                className="mb-12"
               >
-                <Image
-                  src="/dreeeams-logo.png"
-                  alt="Dreeeams"
-                  width={200}
-                  height={52}
+                <Logo
                   className="h-auto w-auto max-w-[200px]"
+                  fill="white"
                 />
               </m.div>
 
