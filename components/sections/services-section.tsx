@@ -3,6 +3,7 @@
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ServicesSection() {
   const t = useTranslations('services');
@@ -13,18 +14,21 @@ export default function ServicesSection() {
       titleKey: 'webDev.title',
       descriptionKey: 'webDev.description',
       image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/red_gradient.jpeg',
+      link: '/web-development',
     },
     {
       number: '02',
       titleKey: 'mobileDev.title',
       descriptionKey: 'mobileDev.description',
       image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/green_gradient.jpeg',
+      link: '/mobile-development',
     },
     {
       number: '03',
       titleKey: 'uiux.title',
       descriptionKey: 'uiux.description',
       image: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/blue_gradient.jpeg',
+      link: '/ai-solutions',
     },
   ];
 
@@ -49,17 +53,17 @@ export default function ServicesSection() {
         {/* Services Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <m.div
-              key={service.titleKey}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1
-              }}
-              className="group relative h-[600px] overflow-hidden"
-            >
+            <Link key={service.titleKey} href={service.link}>
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1
+                }}
+                className="group relative h-[600px] overflow-hidden cursor-pointer"
+              >
               {/* Background Image */}
               <Image
                 src={service.image}
@@ -108,7 +112,8 @@ export default function ServicesSection() {
                   <div className="h-1 w-20 bg-white group-hover:w-40 transition-all duration-500" />
                 </div>
               </div>
-            </m.div>
+              </m.div>
+            </Link>
           ))}
         </div>
       </div>

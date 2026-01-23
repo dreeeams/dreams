@@ -43,7 +43,39 @@
         "Advanced UI Customization",
         "Brand Identity",
         "Intuitive User Experience"
-      ]
+      ],
+      "metaDescription": "Professional web design and development services. We create beautiful, high-performance websites and web applications that drive results.",
+      "intro": {
+        "heading": "Custom Web Development That Drives Results",
+        "paragraph1": "We create stunning websites and web applications that combine beautiful design with powerful functionality. Our team specializes in modern web technologies like React, Next.js, and TypeScript to build fast, scalable, and maintainable solutions.",
+        "paragraph2": "From landing pages to complex SaaS platforms, we deliver web experiences that engage users and drive conversions. Every project is custom-built to match your brand identity and business goals."
+      },
+      "features": {
+        "design": {
+          "title": "UI/UX Design",
+          "description": "We create intuitive, visually stunning interfaces that users love. Our design process focuses on user research, prototyping, and iterative testing to ensure the perfect user experience."
+        },
+        "development": {
+          "title": "Modern Development",
+          "description": "Built with cutting-edge technologies like React, Next.js, and TypeScript. We write clean, maintainable code that scales with your business and stands the test of time."
+        },
+        "performance": {
+          "title": "Blazing Fast Performance",
+          "description": "Optimized for speed and performance. We implement best practices for code splitting, lazy loading, and caching to ensure your website loads instantly."
+        },
+        "ux": {
+          "title": "User-Centered Design",
+          "description": "Every design decision is backed by user research and testing. We create experiences that not only look great but solve real user problems."
+        }
+      },
+      "technologies": {
+        "heading": "Technologies We Use",
+        "list": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel", "Supabase", "PostgreSQL"]
+      },
+      "cta": {
+        "heading": "Ready to Build Your Website?",
+        "description": "Let's discuss your project and create a custom web solution that exceeds your expectations."
+      }
     },
     "mobileDev": {
       "title": "Backend & APIs",
@@ -53,7 +85,39 @@
         "Scalable Architecture",
         "Custom Integrations",
         "Cybersecurity"
-      ]
+      ],
+      "metaDescription": "Robust backend development and API services. We build scalable, secure backend systems that power your applications.",
+      "intro": {
+        "heading": "Backend Infrastructure That Scales",
+        "paragraph1": "We build robust backend systems and APIs that form the backbone of your digital products. Our expertise spans from RESTful APIs to GraphQL, microservices architecture, and real-time data processing.",
+        "paragraph2": "Security, performance, and scalability are at the core of everything we build. We use industry best practices and modern technologies to ensure your backend can handle any load."
+      },
+      "features": {
+        "apis": {
+          "title": "RESTful & GraphQL APIs",
+          "description": "We design and build robust APIs that power your applications. Clean, well-documented, and built to scale with your business needs."
+        },
+        "database": {
+          "title": "Database Design",
+          "description": "Optimized database architecture using PostgreSQL, MongoDB, or Redis. We ensure data integrity, performance, and efficient queries at scale."
+        },
+        "security": {
+          "title": "Enterprise Security",
+          "description": "Bank-level security with encryption, authentication, authorization, and regular security audits. Your data and your users' data are always protected."
+        },
+        "scalability": {
+          "title": "Built to Scale",
+          "description": "Architectured to grow with your business. From startup to enterprise, our backend solutions scale effortlessly to handle millions of requests."
+        }
+      },
+      "technologies": {
+        "heading": "Technologies We Use",
+        "list": ["Node.js", "PostgreSQL", "Redis", "GraphQL", "Docker", "AWS", "Supabase", "Prisma"]
+      },
+      "cta": {
+        "heading": "Need a Robust Backend?",
+        "description": "Let's build a backend system that powers your business growth and handles any scale."
+      }
     },
     "uiux": {
       "title": "AI & Efficiency",
@@ -63,7 +127,39 @@
         "AI Efficiency Consulting",
         "Resource Optimization with AI",
         "Chatbot and Agents"
-      ]
+      ],
+      "metaDescription": "AI-powered solutions and automation services. We help businesses leverage artificial intelligence to increase efficiency and reduce costs.",
+      "intro": {
+        "heading": "AI Solutions That Transform Your Business",
+        "paragraph1": "We help businesses leverage the power of AI to automate processes, reduce costs, and unlock new opportunities. From intelligent chatbots to custom AI models, we build solutions that solve real business problems.",
+        "paragraph2": "Our AI consulting services help you identify the best opportunities for AI implementation in your organization. We guide you through the entire process, from strategy to deployment."
+      },
+      "features": {
+        "ai": {
+          "title": "Custom AI Models",
+          "description": "We develop custom AI solutions tailored to your specific business needs. From natural language processing to computer vision, we leverage cutting-edge AI technologies."
+        },
+        "automation": {
+          "title": "Process Automation",
+          "description": "Automate repetitive tasks and workflows with intelligent automation. Save time, reduce errors, and let your team focus on high-value work."
+        },
+        "optimization": {
+          "title": "Business Optimization",
+          "description": "Use AI to optimize your operations, reduce costs, and increase efficiency. We help you make data-driven decisions with predictive analytics and insights."
+        },
+        "chatbots": {
+          "title": "AI Chatbots & Agents",
+          "description": "Intelligent chatbots that understand context and provide real value. Available 24/7 to support your customers and automate customer service."
+        }
+      },
+      "technologies": {
+        "heading": "Technologies We Use",
+        "list": ["OpenAI", "Anthropic Claude", "LangChain", "Python", "TensorFlow", "Pinecone", "Supabase Vector", "Vercel AI SDK"]
+      },
+      "cta": {
+        "heading": "Ready to Leverage AI?",
+        "description": "Let's explore how AI can transform your business and give you a competitive advantage."
+      }
     }
   },
   "socialProof": {
