@@ -20,23 +20,23 @@ export default function WebDevelopmentPage() {
   const features = [
     {
       icon: Palette,
-      titleKey: 'features.design.title',
-      descKey: 'features.design.description',
+      titleKey: 'detailFeatures.design.title',
+      descKey: 'detailFeatures.design.description',
     },
     {
       icon: Code2,
-      titleKey: 'features.development.title',
-      descKey: 'features.development.description',
+      titleKey: 'detailFeatures.development.title',
+      descKey: 'detailFeatures.development.description',
     },
     {
       icon: Zap,
-      titleKey: 'features.performance.title',
-      descKey: 'features.performance.description',
+      titleKey: 'detailFeatures.performance.title',
+      descKey: 'detailFeatures.performance.description',
     },
     {
       icon: Users,
-      titleKey: 'features.ux.title',
-      descKey: 'features.ux.description',
+      titleKey: 'detailFeatures.ux.title',
+      descKey: 'detailFeatures.ux.description',
     },
   ];
 

@@ -20,23 +20,23 @@ export default function AISolutionsPage() {
   const features = [
     {
       icon: Brain,
-      titleKey: 'features.ai.title',
-      descKey: 'features.ai.description',
+      titleKey: 'detailFeatures.ai.title',
+      descKey: 'detailFeatures.ai.description',
     },
     {
       icon: Workflow,
-      titleKey: 'features.automation.title',
-      descKey: 'features.automation.description',
+      titleKey: 'detailFeatures.automation.title',
+      descKey: 'detailFeatures.automation.description',
     },
     {
       icon: TrendingUp,
-      titleKey: 'features.optimization.title',
-      descKey: 'features.optimization.description',
+      titleKey: 'detailFeatures.optimization.title',
+      descKey: 'detailFeatures.optimization.description',
     },
     {
       icon: Bot,
-      titleKey: 'features.chatbots.title',
-      descKey: 'features.chatbots.description',
+      titleKey: 'detailFeatures.chatbots.title',
+      descKey: 'detailFeatures.chatbots.description',
     },
   ];
 

@@ -4,6 +4,7 @@
     "title": "Construimos productos digitales que la gente ama",
     "subtitle": "Desarrollo web y movil personalizado con diseño de vanguardia",
     "cta": "Inicia Tu Proyecto",
+    "seoHeading": "Agencia de Desarrollo Web Profesional - Desarrollo de Apps Móviles - Expertos en React, Next.js y React Native",
     "buttons": {
       "startProject": "INICIAR PROYECTO",
       "viewWork": "VER PROYECTOS",
@@ -50,7 +51,7 @@
         "paragraph1": "Creamos sitios web y aplicaciones web impresionantes que combinan diseño hermoso con funcionalidad potente. Nuestro equipo se especializa en tecnologías web modernas como React, Next.js y TypeScript para construir soluciones rápidas, escalables y mantenibles.",
         "paragraph2": "Desde páginas de aterrizaje hasta plataformas SaaS complejas, entregamos experiencias web que involucran a los usuarios y generan conversiones. Cada proyecto se construye a medida para coincidir con tu identidad de marca y objetivos comerciales."
       },
-      "features": {
+      "detailFeatures": {
         "design": {
           "title": "Diseño UI/UX",
           "description": "Creamos interfaces intuitivas y visualmente impresionantes que los usuarios aman. Nuestro proceso de diseño se enfoca en investigación de usuarios, prototipado y pruebas iterativas para garantizar la experiencia de usuario perfecta."
@@ -92,7 +93,7 @@
         "paragraph1": "Construimos sistemas backend robustos y APIs que forman la columna vertebral de tus productos digitales. Nuestra experiencia abarca desde APIs RESTful hasta GraphQL, arquitectura de microservicios y procesamiento de datos en tiempo real.",
         "paragraph2": "La seguridad, el rendimiento y la escalabilidad están en el núcleo de todo lo que construimos. Usamos las mejores prácticas de la industria y tecnologías modernas para garantizar que tu backend pueda manejar cualquier carga."
       },
-      "features": {
+      "detailFeatures": {
         "apis": {
           "title": "APIs RESTful y GraphQL",
           "description": "Diseñamos y construimos APIs robustas que impulsan tus aplicaciones. Limpias, bien documentadas y construidas para escalar con las necesidades de tu negocio."
@@ -134,7 +135,7 @@
         "paragraph1": "Ayudamos a las empresas a aprovechar el poder de la IA para automatizar procesos, reducir costos y desbloquear nuevas oportunidades. Desde chatbots inteligentes hasta modelos de IA personalizados, construimos soluciones que resuelven problemas comerciales reales.",
         "paragraph2": "Nuestros servicios de consultoría en IA te ayudan a identificar las mejores oportunidades para la implementación de IA en tu organización. Te guiamos a través de todo el proceso, desde la estrategia hasta la implementación."
       },
-      "features": {
+      "detailFeatures": {
         "ai": {
           "title": "Modelos de IA Personalizados",
           "description": "Desarrollamos soluciones de IA personalizadas adaptadas a tus necesidades comerciales específicas. Desde procesamiento de lenguaje natural hasta visión por computadora, aprovechamos tecnologías de IA de vanguardia."

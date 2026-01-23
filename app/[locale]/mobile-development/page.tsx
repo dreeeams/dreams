@@ -20,23 +20,23 @@ export default function MobileDevelopmentPage() {
   const features = [
     {
       icon: Server,
-      titleKey: 'features.apis.title',
-      descKey: 'features.apis.description',
+      titleKey: 'detailFeatures.apis.title',
+      descKey: 'detailFeatures.apis.description',
     },
     {
       icon: Database,
-      titleKey: 'features.database.title',
-      descKey: 'features.database.description',
+      titleKey: 'detailFeatures.database.title',
+      descKey: 'detailFeatures.database.description',
     },
     {
       icon: Shield,
-      titleKey: 'features.security.title',
-      descKey: 'features.security.description',
+      titleKey: 'detailFeatures.security.title',
+      descKey: 'detailFeatures.security.description',
     },
     {
       icon: Cpu,
-      titleKey: 'features.scalability.title',
-      descKey: 'features.scalability.description',
+      titleKey: 'detailFeatures.scalability.title',
+      descKey: 'detailFeatures.scalability.description',
     },
   ];
 

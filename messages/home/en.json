@@ -4,6 +4,7 @@
     "title": "We build digital products that people love",
     "subtitle": "Custom web & mobile development with cutting-edge design",
     "cta": "Start Your Project",
+    "seoHeading": "Professional Web Development Agency - Custom Mobile App Development - React, Next.js & React Native Experts",
     "buttons": {
       "startProject": "START PROJECT",
       "viewWork": "VIEW WORK",
@@ -50,7 +51,7 @@
         "paragraph1": "We create stunning websites and web applications that combine beautiful design with powerful functionality. Our team specializes in modern web technologies like React, Next.js, and TypeScript to build fast, scalable, and maintainable solutions.",
         "paragraph2": "From landing pages to complex SaaS platforms, we deliver web experiences that engage users and drive conversions. Every project is custom-built to match your brand identity and business goals."
       },
-      "features": {
+      "detailFeatures": {
         "design": {
           "title": "UI/UX Design",
           "description": "We create intuitive, visually stunning interfaces that users love. Our design process focuses on user research, prototyping, and iterative testing to ensure the perfect user experience."
@@ -92,7 +93,7 @@
         "paragraph1": "We build robust backend systems and APIs that form the backbone of your digital products. Our expertise spans from RESTful APIs to GraphQL, microservices architecture, and real-time data processing.",
         "paragraph2": "Security, performance, and scalability are at the core of everything we build. We use industry best practices and modern technologies to ensure your backend can handle any load."
       },
-      "features": {
+      "detailFeatures": {
         "apis": {
           "title": "RESTful & GraphQL APIs",
           "description": "We design and build robust APIs that power your applications. Clean, well-documented, and built to scale with your business needs."
@@ -134,7 +135,7 @@
         "paragraph1": "We help businesses leverage the power of AI to automate processes, reduce costs, and unlock new opportunities. From intelligent chatbots to custom AI models, we build solutions that solve real business problems.",
         "paragraph2": "Our AI consulting services help you identify the best opportunities for AI implementation in your organization. We guide you through the entire process, from strategy to deployment."
       },
-      "features": {
+      "detailFeatures": {
         "ai": {
           "title": "Custom AI Models",
           "description": "We develop custom AI solutions tailored to your specific business needs. From natural language processing to computer vision, we leverage cutting-edge AI technologies."
