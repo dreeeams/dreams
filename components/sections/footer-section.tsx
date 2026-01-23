@@ -15,10 +15,12 @@ export default function FooterSection() {
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Logo
-              className="h-auto w-auto max-w-[180px] mb-3"
-              fill="white"
-            />
+            <Link href="/" aria-label="Dream Studio Home">
+              <Logo
+                className="h-auto w-auto max-w-[180px] mb-3"
+                fill="white"
+              />
+            </Link>
             <p className="text-sm text-gray-400 max-w-xs">
               {tFooter('tagline')}
             </p>
