@@ -20,6 +20,9 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       // Active: Payment page flag icons
       {
@@ -40,13 +43,17 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ['framer-motion', 'next-intl'],
+    optimizePackageImports: ['framer-motion', 'next-intl', 'lucide-react'],
+    webpackBuildWorker: true,
+    serverComponentsExternalPackages: ['@vercel/analytics'],
   },
   // Performance optimizations
   productionBrowserSourceMaps: false,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+    emotion: true,
   },
+  swcMinify: true,
   async headers() {
     return [
       // Security headers for all routes
@@ -123,6 +130,20 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=86400, must-revalidate',
+          },
+        ],
+      },
+      // Optimize image delivery
+      {
+        source: '/_next/image/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Vary',
+            value: 'Accept',
           },
         ],
       },

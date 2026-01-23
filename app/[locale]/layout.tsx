@@ -21,7 +21,7 @@ const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
   display: 'swap',
-  preload: true,
+  preload: false,
   fallback: ['system-ui', 'arial'],
 });
 
@@ -29,7 +29,7 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
   display: 'swap',
-  preload: true,
+  preload: false,
   fallback: ['ui-monospace', 'monospace'],
 });
 
@@ -66,7 +66,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 
   const meta = locale === 'es' ? metadata.es : metadata.en;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreamstudio.dev';
 
   return {
     title: meta.title,
@@ -87,10 +86,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     metadataBase: new URL(baseUrl),
     alternates: {
-      canonical: `/${locale}`,
+      canonical: `${baseUrl}/${locale}`,
       languages: {
-        es: '/es',
-        en: '/en',
+        es: `${baseUrl}/es`,
+        en: `${baseUrl}/en`,
       },
     },
     openGraph: {
@@ -156,7 +155,7 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreeeams.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreamstudio.dev';
 
   // Schema.org structured data
   const organizationSchema = {
@@ -274,9 +273,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* Umami Analytics */}
+        {/* Umami Analytics - non-blocking */}
         <script
-          defer
+          async
           src="https://analytics.dreeeams.com/script.js"
           data-website-id="247f3db2-3f01-4be3-ab41-9f3e6d9a0767"
         />
@@ -329,10 +328,10 @@ export default async function LocaleLayout({
           </ThemeProvider>
         </NextIntlClientProvider>
 
-        {/* Google Analytics - loaded after page is interactive */}
+        {/* Google Analytics - loaded lazily */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7RHVN0C6WY"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`

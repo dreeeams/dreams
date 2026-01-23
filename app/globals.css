@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    /* Brand Colors - Urban Asphalt */
-    --color-accent: 120 120 120; /* Urban Asphalt - rgb(120, 120, 120) #787878 */
-    --color-accent-hover: 96 96 96; /* Darker gray for hover - #606060 */
+    /* Brand Colors - Improved Contrast */
+    --color-accent: 90 90 90; /* Darker gray for better contrast - rgb(90, 90, 90) #5A5A5A */
+    --color-accent-hover: 60 60 60; /* Even darker for hover - #3C3C3C */
 
     /* Base Colors */
     --color-primary: 30 30 30; /* Dark gray for text - #1E1E1E */
@@ -93,7 +93,7 @@
 
   /* Accessibility: Focus visible for keyboard navigation */
   *:focus-visible {
-    outline: 3px solid #787878;
+    outline: 3px solid #5A5A5A;
     outline-offset: 2px;
   }
 
