@@ -6,18 +6,22 @@ import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import { locales } from '@/i18n/config';
 import { ThemeProvider } from '@/components/providers/theme-provider';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ErrorBoundary } from '@/components/error-boundary';
 import ScrollToTop from '@/components/scroll-to-top';
 import DisableZoomOnInput from '@/components/disable-zoom-on-input';
 import MotionProvider from '@/components/providers/motion-provider';
 import PageLoader from '@/components/page-loader';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import '../globals.css';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preview.dreeeams.com';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -76,11 +80,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     authors: [{ name: 'Dream Studio' }],
     creator: 'Dream Studio',
     publisher: 'Dream Studio',
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      maximumScale: 5,
-    },
     formatDetection: {
       email: false,
       address: false,
@@ -273,20 +272,6 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* Umami Analytics - non-blocking */}
-        <script
-          async
-          src="https://analytics.dreeeams.com/script.js"
-          data-website-id="247f3db2-3f01-4be3-ab41-9f3e6d9a0767"
-        />
-        {/* Preload critical assets */}
-        <link
-          rel="preload"
-          href="/fonts/ZTHoky-Regular.otf"
-          as="font"
-          type="font/otf"
-          crossOrigin="anonymous"
-        />
         {/* DNS prefetch for external services */}
         <link rel="dns-prefetch" href="https://cal.com" />
         <link rel="preconnect" href="https://va.vercel-scripts.com" />
@@ -321,8 +306,6 @@ export default async function LocaleLayout({
               <ErrorBoundary>
                 {children}
                 <ScrollToTop />
-                <Analytics />
-                <SpeedInsights />
               </ErrorBoundary>
             </MotionProvider>
           </ThemeProvider>
