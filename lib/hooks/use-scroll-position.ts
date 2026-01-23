@@ -5,10 +5,19 @@ export function useScrollPosition() {
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      setIsAtTop(currentScrollY < 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          setScrollY(currentScrollY);
+          setIsAtTop(currentScrollY < 50);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
     };
 
     handleScroll(); // Initial call

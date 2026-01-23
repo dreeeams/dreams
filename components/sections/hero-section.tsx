@@ -20,6 +20,7 @@ export default function HeroSection() {
         src={`${cdnUrl}/storage/v1/object/public/content/hero_banner.gif`}
         alt="Dream Studio Hero Banner"
         fill
+        sizes="100vw"
         className="object-cover"
         priority
         unoptimized
