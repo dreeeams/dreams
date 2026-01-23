@@ -17,58 +17,17 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.jsdelivr.net',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.ctfassets.net',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.worldvectorlogo.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'http2.mlstatic.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'imgmp.mlstatic.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'logowik.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'contactopuro.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'ui.shadcn.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-      },
+      // Active: Payment page flag icons
       {
         protocol: 'https',
         hostname: 'flagcdn.com',
       },
+      // Active: Payment page cryptocurrency icons
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
       },
-      {
-        protocol: 'https',
-        hostname: 'play-lh.googleusercontent.com',
-      },
+      // Active: Hero banner, service gradients, portfolio mockups
       {
         protocol: 'https',
         hostname: 'eeyjhkhrdoouapuilwep.supabase.co',
