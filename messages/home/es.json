@@ -30,6 +30,10 @@
       "ready": "> Sistema listo. Hagamos crecer tu negocio."
     }
   },
+  "manifesto": {
+    "weAre": "Somos",
+    "description": "— un estudio creativo que cultiva marcas audaces, sitios web hermosos e ideas que se niegan a ser ordinarias."
+  },
   "services": {
     "title": "Lo Que Hacemos",
     "techStack": {

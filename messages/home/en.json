@@ -30,6 +30,10 @@
       "ready": "> System ready. Let's grow your business."
     }
   },
+  "manifesto": {
+    "weAre": "We're",
+    "description": "— a creative studio cultivating bold brands, beautiful websites, and ideas that refuse to be ordinary."
+  },
   "services": {
     "title": "What We Do",
     "techStack": {
