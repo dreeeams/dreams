@@ -42,10 +42,13 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="mb-20 text-center"
         >
-          <div className="flex items-center justify-center mb-8">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center" style={{ letterSpacing: '-0.04em' }}>
+          <p className="text-sm md:text-base font-mono tracking-widest text-gray-500 mb-4 uppercase">
+            {t('subtitle')}
+          </p>
+          <div className="flex items-center justify-center">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic max-w-5xl mx-auto leading-tight" style={{ letterSpacing: '-0.04em' }}>
               {t('title')}
             </h2>
           </div>
