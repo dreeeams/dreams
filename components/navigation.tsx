@@ -20,6 +20,11 @@ export default function Navigation() {
   const lastScrollY = useRef(0);
   const { isAtTop } = useScrollPosition();
 
+  // Force scroll to top on locale change to prevent jumping
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [locale]);
+
   // Handle scroll behavior - hide on scroll down, show on scroll up
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +50,7 @@ export default function Navigation() {
     const newLocale = locale === 'en' ? 'es' : 'en';
     // Remove current locale from pathname and add new locale
     const pathWithoutLocale = pathname.replace(`/${locale}`, '');
+    
     router.push(`/${newLocale}${pathWithoutLocale}`);
   };
 
