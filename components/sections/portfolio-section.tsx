@@ -52,7 +52,6 @@ const projects: Project[] = [
     metrics: {
       visitors: 'visitors',
       visits: 'visits',
-      bounceRate: 'bounceRate',
     },
   },
   {
