@@ -48,7 +48,7 @@ export default function ServicesSection() {
             {t('subtitle')}
           </p>
           <div className="flex items-center justify-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic max-w-5xl mx-auto leading-tight" style={{ letterSpacing: '-0.04em' }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-nostalgic max-w-4xl mx-auto leading-tight" style={{ letterSpacing: '-0.02em' }}>
               {t('title')}
             </h2>
           </div>
