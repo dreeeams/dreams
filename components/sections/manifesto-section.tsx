@@ -9,7 +9,7 @@ export default function ManifestoSection() {
 
   return (
     <section className="relative z-10 py-24 md:py-32 px-6 md:px-12 bg-white border-y border-black/5">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-4xl mx-auto text-center">
         <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

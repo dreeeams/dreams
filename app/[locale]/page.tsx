@@ -23,9 +23,6 @@ const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-s
     </div>
   ),
 });
-const FeaturesSection = dynamic(() => import('@/components/sections/features-section'), {
-  loading: () => <div className="min-h-[50vh] bg-surface-light-1" />,
-});
 const FAQSection = dynamic(() => import('@/components/sections/faq-section'), {
   loading: () => <div className="min-h-[50vh] bg-white" />,
 });
@@ -115,10 +112,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
           {/* Content that scrolls over hero */}
           <div className="relative z-10" style={{ marginTop: '100vh' }}>
-            <ManifestoSection />
             <ServicesSection />
             <PortfolioSection />
-            <FeaturesSection />
+            <ManifestoSection />
             <ContactSection />
             <FAQSection />
             <FooterSection />
