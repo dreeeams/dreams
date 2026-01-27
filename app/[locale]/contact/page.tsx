@@ -34,18 +34,18 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const t = await getTranslations('contact');
 
   return (
-    <div className="min-h-screen bg-surface-light-1">
+    <div className="min-h-screen bg-black">
       <Navigation />
       <main id="main-content" className="pt-24">
         <div className="max-w-4xl mx-auto px-6 py-12">
           <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-nostalgic mb-4">
+            <h1 className="text-4xl md:text-5xl font-nostalgic mb-4 text-white">
               {t('title')}
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-300">
               {t('subtitle')}
             </p>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-gray-400 mt-2">
               {t('directContact')}
             </p>
           </div>

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import StepOne from './step-one';
 import StepTwo from './step-two';
-import StepThree from './step-three';
 
 export interface FormData {
   projectType: 'new-project' | 'other';
