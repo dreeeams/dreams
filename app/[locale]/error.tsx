@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useEffect } from 'react';
 
 export default function Error({
@@ -18,7 +18,7 @@ export default function Error({
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-background-light">
       <div className="max-w-2xl w-full text-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -58,25 +58,25 @@ export default function Error({
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
+              <m.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={reset}
                 className="bg-black text-white px-8 py-4 border-2 border-black font-bold hover:bg-brand hover:border-brand transition-colors"
               >
                 TRY AGAIN
-              </motion.button>
-              <motion.a
+              </m.button>
+              <m.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/"
                 className="bg-white text-black px-8 py-4 border-2 border-black font-bold hover:bg-gray-100 transition-colors inline-block"
               >
                 GO HOME
-              </motion.a>
+              </m.a>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );
