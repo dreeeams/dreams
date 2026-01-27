@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import Logo from '@/components/logo';
+import LegalHeader from '@/components/legal-header';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -139,20 +139,7 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
   return (
     <div className="min-h-screen bg-white">
       {/* Minimal Header */}
-      <header className="border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 w-full">
-          <Link href={`/${locale}`} className="inline-flex items-center mb-8 hover:opacity-80 transition-opacity">
-            <Logo
-              className="h-auto w-auto max-w-[120px]"
-              fill="currentColor"
-            />
-          </Link>
-          <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 mb-3">
-            {t.title}
-          </h1>
-          <p className="text-sm text-gray-500">{t.lastUpdated}</p>
-        </div>
-      </header>
+      <LegalHeader locale={locale} title={t.title} lastUpdated={t.lastUpdated} />
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 w-full">

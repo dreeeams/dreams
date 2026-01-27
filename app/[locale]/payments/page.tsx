@@ -6,6 +6,7 @@ import { Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 import Logo from '@/components/logo';
+import LanguageSelector from '@/components/language-selector';
 
 export default function PaymentsPage() {
   const t = useTranslations('payments');
@@ -41,12 +42,15 @@ export default function PaymentsPage() {
       {/* Minimal Header */}
       <header className="border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 pb-8" style={{ paddingTop: '5.5rem' }}>
-          <Link href="/" className="inline-flex items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
-            <Logo
-              className="h-8 w-auto"
-              fill="currentColor"
-            />
-          </Link>
+          <div className="flex items-center justify-between mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Logo
+                className="h-8 w-auto"
+                fill="currentColor"
+              />
+            </Link>
+            <LanguageSelector variant="dark" />
+          </div>
           <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 mb-3">
             {t('title')}
           </h1>
