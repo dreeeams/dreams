@@ -173,7 +173,7 @@ Cantidad: ${item.quantity} | Precio: ${formatCurrency(item.rate)} | Subtotal: ${
 
 Subtotal: ${formatCurrency(subtotal)}
 ${discount > 0 ? `Descuento (${discount}%): -${formatCurrency(discountAmount)}` : ''}
-IVA (${tax}%): ${formatCurrency(taxAmount)}
+IVA (${formData.tax}%): ${formatCurrency(taxAmount)}
 
 TOTAL: ${formatCurrency(total)} ${currency}
 

@@ -4,9 +4,16 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import SocialLinks from '@/components/social-links';
 import Logo from '@/components/logo';
+import { useState, useEffect } from 'react';
+import { isLocalhost } from '@/lib/localhost';
 
 export default function FooterSection() {
   const tFooter = useTranslations('contact.footer');
+  const [showAdminLink, setShowAdminLink] = useState(false);
+
+  useEffect(() => {
+    setShowAdminLink(isLocalhost());
+  }, []);
 
   return (
     <footer className="bg-black text-white border-t border-overlay-border-light py-16 px-6 md:px-12">
@@ -68,13 +75,15 @@ export default function FooterSection() {
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} Dream Studio. {tFooter('rights')}.
           </p>
-          <Link
-            href="/admin/login"
-            className="text-xs text-gray-500 hover:text-gray-300 transition-colors opacity-50 hover:opacity-100"
-            title="Admin Login"
-          >
-            ●
-          </Link>
+          {showAdminLink && (
+            <Link
+              href="/admin/login"
+              className="text-xs text-gray-500 hover:text-gray-300 transition-colors opacity-50 hover:opacity-100"
+              title="Admin Login"
+            >
+              ●
+            </Link>
+          )}
         </div>
       </div>
     </footer>

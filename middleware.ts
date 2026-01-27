@@ -8,10 +8,29 @@ const intlMiddleware = createMiddleware({
   localePrefix: 'as-needed',
 });
 
+function isLocalhost(request: NextRequest): boolean {
+  const hostname = request.headers.get('host') || '';
+  return hostname.startsWith('localhost') ||
+         hostname.startsWith('127.0.0.1') ||
+         hostname.startsWith('[::1]');
+}
+
 export default function middleware(request: NextRequest) {
-  // Skip middleware for admin routes
-  if (request.nextUrl.pathname.startsWith('/admin')) {
+  const pathname = request.nextUrl.pathname;
+
+  // Protect admin routes - localhost only
+  if (pathname.startsWith('/admin')) {
+    if (!isLocalhost(request)) {
+      return NextResponse.redirect(new URL('/', request.url));
+    }
     return NextResponse.next();
+  }
+
+  // Protect contact routes - localhost only
+  if (pathname.includes('/contact')) {
+    if (!isLocalhost(request)) {
+      return NextResponse.redirect(new URL('/', request.url));
+    }
   }
 
   // HTTPS Enforcement in production

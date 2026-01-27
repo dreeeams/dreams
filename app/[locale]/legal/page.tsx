@@ -81,7 +81,7 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       },
       footer: {
         home: 'Home',
-        legal: 'Legal',
+        payments: 'Payment Information',
       },
     },
     es: {
@@ -129,7 +129,7 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       },
       footer: {
         home: 'Inicio',
-        legal: 'Legal',
+        payments: 'Información de Pago',
       },
     },
   };
@@ -299,11 +299,11 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
         <div className="pt-12 border-t border-gray-200 mt-12">
           <div className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
             <Link href={`/${locale}`} className="hover:text-black transition-colors">
-              {t.footer.home}
+              {locale === 'es' ? 'Inicio' : 'Home'}
             </Link>
             <span className="text-gray-300">•</span>
-            <Link href={`/${locale}/legal`} className="hover:text-black transition-colors">
-              {t.footer.legal}
+            <Link href="/payments" className="hover:text-black transition-colors">
+              Payments
             </Link>
           </div>
         </div>

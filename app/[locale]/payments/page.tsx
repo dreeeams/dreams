@@ -625,8 +625,8 @@ export default function PaymentsPage() {
               {locale === 'es' ? 'Inicio' : 'Home'}
             </Link>
             <span className="text-gray-300">•</span>
-            <Link href={`/${locale}/payments`} className="hover:text-black transition-colors">
-              {locale === 'es' ? 'Pagos' : 'Payments'}
+            <Link href={`/${locale}/legal`} className="hover:text-black transition-colors">
+              Legal
             </Link>
           </div>
         </div>

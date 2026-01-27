@@ -2,6 +2,7 @@
 
 import { Card } from '@/components/ui/card';
 import Logo from '@/components/logo';
+import Link from 'next/link';
 import { Building2, Mail, Phone, MapPin, CreditCard } from 'lucide-react';
 
 export default function PaymentsPage() {
@@ -129,6 +130,19 @@ export default function PaymentsPage() {
           <div className="text-center text-xs text-gray-500 pt-4">
             <p>Para cualquier consulta, no dude en contactarnos</p>
             <p className="mt-1">Dream Studio © {new Date().getFullYear()}</p>
+          </div>
+
+          {/* Footer Links */}
+          <div className="pt-6 mt-6 border-t border-gray-200">
+            <div className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
+              <Link href="/es" className="hover:text-black transition-colors">
+                Inicio
+              </Link>
+              <span className="text-gray-300">•</span>
+              <Link href="/es/legal" className="hover:text-black transition-colors">
+                Legal
+              </Link>
+            </div>
           </div>
         </div>
       </Card>
