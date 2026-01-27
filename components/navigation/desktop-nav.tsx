@@ -7,9 +7,10 @@ interface DesktopNavProps {
   isVisible: boolean;
   servicesLabel: string;
   getStartedLabel: string;
+  isContactPage: boolean;
 }
 
-export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStartedLabel }: DesktopNavProps) {
+export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStartedLabel, isContactPage }: DesktopNavProps) {
   return (
     <>
       {/* Desktop Services Link */}
@@ -27,7 +28,7 @@ export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStart
 
       {/* Contact Button - Visible when header is visible - Desktop only */}
       <AnimatePresence>
-        {isVisible && (
+        {isVisible && !isContactPage && (
           <m.a
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

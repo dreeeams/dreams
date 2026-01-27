@@ -20,6 +20,9 @@ export default function Navigation() {
   const lastScrollY = useRef(0);
   const { isAtTop } = useScrollPosition();
 
+  // Check if current page is contact page
+  const isContactPage = pathname.includes('/contact');
+
   // Force scroll to top on locale change to prevent jumping
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -137,6 +140,7 @@ export default function Navigation() {
                 isVisible={isVisible}
                 servicesLabel={t('services')}
                 getStartedLabel={t('getStarted')}
+                isContactPage={isContactPage}
               />
 
               {/* Mobile Menu Button */}
@@ -176,7 +180,7 @@ export default function Navigation() {
 
       {/* Fixed Contact Button - Visible when header is hidden */}
       <AnimatePresence>
-        {!isVisible && (
+        {!isVisible && !isContactPage && (
           <m.a
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
