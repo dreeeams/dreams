@@ -27,7 +27,7 @@ interface StepOneProps {
 export default function StepOne({ formData, updateFormData, onNext, currentStep, totalSteps }: StepOneProps) {
   const t = useTranslations('contact.stepOne');
   const tCommon = useTranslations('contact');
-  const [country, setCountry] = useState<Country>('BE');
+  const [country, setCountry] = useState<Country>('CO');
   const [phoneError, setPhoneError] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {
