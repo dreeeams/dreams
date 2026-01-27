@@ -2,15 +2,20 @@
 
 import { useTranslations } from 'next-intl';
 import { FormData } from './contact-form';
+import PhoneInput from 'react-phone-number-input';
+import './phone-input.css';
 
 interface StepOneProps {
   formData: FormData;
   updateFormData: (data: Partial<FormData>) => void;
   onNext: () => void;
+  currentStep: number;
+  totalSteps: number;
 }
 
-export default function StepOne({ formData, updateFormData, onNext }: StepOneProps) {
+export default function StepOne({ formData, updateFormData, onNext, currentStep, totalSteps }: StepOneProps) {
   const t = useTranslations('contact.stepOne');
+  const tCommon = useTranslations('contact');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,18 +78,19 @@ export default function StepOne({ formData, updateFormData, onNext }: StepOnePro
         <label htmlFor="phone" className="block text-lg font-medium mb-2">
           {t('phone')}
         </label>
-        <input
-          type="tel"
-          id="phone"
+        <PhoneInput
+          international
+          defaultCountry="BE"
           value={formData.phone}
-          onChange={(e) => updateFormData({ phone: e.target.value })}
-          className="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-black outline-none transition-colors bg-transparent"
-          placeholder="+32 456..."
+          onChange={(value) => updateFormData({ phone: value || '' })}
         />
       </div>
 
-      {/* Next Button */}
-      <div className="flex justify-end pt-4">
+      {/* Navigation and Steps */}
+      <div className="flex justify-between items-center pt-4">
+        <p className="text-sm text-gray-500 font-mono tracking-wider">
+          {tCommon('step')} {currentStep} {tCommon('of')} {totalSteps}
+        </p>
         <button
           type="submit"
           disabled={!isValid}

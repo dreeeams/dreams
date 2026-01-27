@@ -123,29 +123,14 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Progress Bar */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-2 gap-2">
-          {[1, 2].map((step) => (
-            <div
-              key={step}
-              className={`flex-1 h-1 transition-colors ${
-                step <= currentStep ? 'bg-black' : 'bg-gray-200'
-              }`}
-            />
-          ))}
-        </div>
-        <p className="text-sm text-gray-500 text-center font-mono tracking-wider">
-          {t('step')} {currentStep} {t('of')} {totalSteps}
-        </p>
-      </div>
-
       {/* Step Content */}
       {currentStep === 1 && (
         <StepOne
           formData={formData}
           updateFormData={updateFormData}
           onNext={nextStep}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
         />
       )}
       {currentStep === 2 && (
@@ -154,6 +139,8 @@ export default function ContactForm() {
           updateFormData={updateFormData}
           onBack={prevStep}
           onSubmit={handleSubmit}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
         />
       )}
     </div>
