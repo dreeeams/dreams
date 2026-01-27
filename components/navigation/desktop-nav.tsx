@@ -27,25 +27,20 @@ export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStart
       </m.a>
 
       {/* Contact Button - Visible when header is visible - Desktop only */}
-      <AnimatePresence>
-        {isVisible && !isContactPage && (
-          <m.a
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            whileTap={{ scale: 0.98 }}
-            href="#contact"
-            className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-fast ${
-              isAtTop
-                ? 'text-black bg-white border-overlay-border-medium hover:bg-gray-200'
-                : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
-            }`}
-          >
-            {getStartedLabel} →
-          </m.a>
-        )}
-      </AnimatePresence>
+      {isVisible && !isContactPage && (
+        <m.a
+          layoutId="get-started-button"
+          whileTap={{ scale: 0.98 }}
+          href="#contact"
+          className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-fast ${
+            isAtTop
+              ? 'text-black bg-white border-overlay-border-medium hover:bg-gray-200'
+              : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
+          }`}
+        >
+          {getStartedLabel} →
+        </m.a>
+      )}
     </>
   );
 }

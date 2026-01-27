@@ -13,6 +13,7 @@ type Project = {
   url?: string;
   mobileView?: boolean;
   isMockup?: boolean;
+  mockupUrl?: string;
   isIcon?: boolean;
   rating?: {
     stars: number;
@@ -53,15 +54,30 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
         className={`aspect-[4/3] ${project.color} relative mb-4 border-2 border-black overflow-hidden`}
       >
         {project.isMockup ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-white">
-            <Image
-              src={`${cdnUrl}/storage/v1/object/public/content/hunt_mockup.png`}
-              alt="Hunt Tickets App Mockup"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
-            />
-          </div>
+          <>
+            {/* Static mockup image */}
+            <div className="absolute inset-0 flex items-center justify-center bg-white group-hover:opacity-0 transition-opacity duration-300">
+              <Image
+                src={project.mockupUrl || `${cdnUrl}/storage/v1/object/public/content/hunt_mockup.png`}
+                alt={`${project.titleKey} Mockup`}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+            {/* Live website iframe on hover */}
+            {project.url && (
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <LazyIframe
+                  src={`https://${project.url}`}
+                  title={project.titleKey}
+                  className="absolute inset-0 w-full h-full pointer-events-none border-0"
+                  mobileView={project.mobileView}
+                  delay={index * 300}
+                />
+              </div>
+            )}
+          </>
         ) : project.url ? (
           <LazyIframe
             src={`https://${project.url}`}

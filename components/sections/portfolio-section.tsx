@@ -14,6 +14,7 @@ type Project = {
   url?: string;
   mobileView?: boolean;
   isMockup?: boolean;
+  mockupUrl?: string;
   isIcon?: boolean;
   rating?: {
     stars: number;
@@ -70,6 +71,8 @@ const projects: Project[] = [
     color: 'bg-black',
     url: 'maria-helena-amador.hunt-tickets.com',
     mobileView: true,
+    isMockup: true,
+    mockupUrl: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/mockup_mha.png',
   },
   {
     titleKey: 'HUNT RHO',
