@@ -375,7 +375,7 @@
     "errorMessage": "Something went wrong. Please try again.",
     "stepOne": {
       "newProject": "New Project",
-      "other": "Other",
+      "support": "Support",
       "name": "What is your name?",
       "company": "What is your company?",
       "email": "What is your email?",

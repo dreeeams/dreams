@@ -375,7 +375,7 @@
     "errorMessage": "Algo salió mal. Por favor, inténtalo de nuevo.",
     "stepOne": {
       "newProject": "Nuevo Proyecto",
-      "other": "Otro",
+      "support": "Soporte",
       "name": "¿Cuál es tu nombre?",
       "company": "¿Cuál es tu empresa?",
       "email": "¿Cuál es tu correo electrónico?",

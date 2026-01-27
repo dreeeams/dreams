@@ -6,7 +6,7 @@ import StepOne from './step-one';
 import StepTwo from './step-two';
 
 export interface FormData {
-  projectType: 'new-project' | 'other';
+  projectType: 'new-project' | 'support';
   name: string;
   company: string;
   email: string;
@@ -96,29 +96,29 @@ export default function ContactForm() {
   return (
     <div className="bg-white border border-black p-8">
       {/* Project Type Tabs */}
-      <div className="border-b border-black/10 mb-8">
-        <div className="flex gap-0">
+      <div className="mb-8">
+        <div className="flex gap-4">
           <button
             type="button"
             onClick={() => updateFormData({ projectType: 'new-project' })}
-            className={`px-6 py-3 border-b-2 font-medium transition-colors ${
+            className={`px-6 py-3 border font-medium transition-colors ${
               formData.projectType === 'new-project'
-                ? 'border-black text-black'
-                : 'border-transparent text-gray-400 hover:text-black hover:border-black/20'
+                ? 'border-black bg-black text-white'
+                : 'border-black/20 bg-white text-gray-700 hover:border-black'
             }`}
           >
             {t('stepOne.newProject')}
           </button>
           <button
             type="button"
-            onClick={() => updateFormData({ projectType: 'other' })}
-            className={`px-6 py-3 border-b-2 font-medium transition-colors ${
-              formData.projectType === 'other'
-                ? 'border-black text-black'
-                : 'border-transparent text-gray-400 hover:text-black hover:border-black/20'
+            onClick={() => updateFormData({ projectType: 'support' })}
+            className={`px-6 py-3 border font-medium transition-colors ${
+              formData.projectType === 'support'
+                ? 'border-black bg-black text-white'
+                : 'border-black/20 bg-white text-gray-700 hover:border-black'
             }`}
           >
-            {t('stepOne.other')}
+            {t('stepOne.support')}
           </button>
         </div>
       </div>
