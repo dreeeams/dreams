@@ -15,7 +15,7 @@ interface StepTwoProps {
 
 export default function StepTwo({ formData, updateFormData, onBack, onSubmit, currentStep, totalSteps }: StepTwoProps) {
   const t = useTranslations('contact.stepTwo');
-  const t3 = useTranslations('contact.stepThree');
+  const tBudget = useTranslations('contact.stepThree');
   const tCommon = useTranslations('contact');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -32,14 +32,14 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
   ];
 
   const budgetOptions = [
-    { id: 'less-2500', label: t3('lessThan2500') },
-    { id: '2500-5000', label: t3('range2500to5000') },
-    { id: '5000-10000', label: t3('range5000to10000') },
-    { id: '10000-15000', label: t3('range10000to15000') },
-    { id: '15000-20000', label: t3('range15000to20000') },
-    { id: '20000-30000', label: t3('range20000to30000') },
-    { id: 'more-30000', label: t3('moreThan30000') },
-    { id: 'dont-know', label: t3('dontKnow') },
+    { id: 'less-2500', label: tBudget('lessThan2500') },
+    { id: '2500-5000', label: tBudget('range2500to5000') },
+    { id: '5000-10000', label: tBudget('range5000to10000') },
+    { id: '10000-15000', label: tBudget('range10000to15000') },
+    { id: '15000-20000', label: tBudget('range15000to20000') },
+    { id: '20000-30000', label: tBudget('range20000to30000') },
+    { id: 'more-30000', label: tBudget('moreThan30000') },
+    { id: 'dont-know', label: tBudget('dontKnow') },
   ];
 
   const toggleNeed = (needId: string) => {
@@ -84,7 +84,7 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
 
       {/* Budget */}
       <div>
-        <h2 className="text-2xl font-medium mb-6">{t3('budgetTitle')}</h2>
+        <h2 className="text-2xl font-medium mb-6">{tBudget('budgetTitle')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {budgetOptions.map((option) => (
             <button
@@ -105,14 +105,14 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
 
       {/* Project Description */}
       <div>
-        <h2 className="text-2xl font-medium mb-2">{t3('projectTitle')}</h2>
-        <p className="text-sm text-gray-500 mb-4">{t3('projectSubtitle')}</p>
+        <h2 className="text-2xl font-medium mb-2">{tBudget('projectTitle')}</h2>
+        <p className="text-sm text-gray-500 mb-4">{tBudget('projectSubtitle')}</p>
         <textarea
           value={formData.projectDescription}
           onChange={(e) => updateFormData({ projectDescription: e.target.value })}
           className="w-full px-4 py-3 border border-black/20 focus:border-black outline-none transition-colors resize-none"
           rows={6}
-          placeholder={t3('projectPlaceholder')}
+          placeholder={tBudget('projectPlaceholder')}
           required
         />
       </div>
@@ -154,10 +154,10 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   />
                 </svg>
-                {t3('submitting')}
+                {tBudget('submitting')}
               </>
             ) : (
-              t3('submit')
+              tBudget('submit')
             )}
           </button>
         </div>

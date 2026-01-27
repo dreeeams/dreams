@@ -113,8 +113,8 @@ export function capitalizeText(text: string): string {
  * Comprehensive sanitization for contact form data
  * Combines validation and sanitization
  */
-export function sanitizeContactData(data: Record<string, any>): Record<string, any> {
-  const sanitized: Record<string, any> = {};
+export function sanitizeContactData(data: Record<string, unknown>): Record<string, unknown> {
+  const sanitized: Record<string, unknown> = {};
 
   for (const [key, value] of Object.entries(data)) {
     if (typeof value === 'string') {

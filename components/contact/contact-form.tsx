@@ -87,8 +87,7 @@ export default function ContactForm() {
       } else {
         alert(t('errorMessage'));
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch {
       alert(t('errorMessage'));
     }
   };
