@@ -619,14 +619,14 @@ export default function PaymentsPage() {
         </section>
 
         {/* Footer Links */}
-        <div className="pt-12 border-t border-gray-200 mt-20">
+        <div className="pt-12 border-t border-gray-200 mt-12">
           <div className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
-            <Link href={`/${locale}/terms`} className="hover:text-black transition-colors">
-              {locale === 'es' ? 'Términos y Condiciones' : 'Terms & Conditions'}
+            <Link href={`/${locale}`} className="hover:text-black transition-colors">
+              {locale === 'es' ? 'Inicio' : 'Home'}
             </Link>
             <span className="text-gray-300">•</span>
-            <Link href={`/${locale}/privacy`} className="hover:text-black transition-colors">
-              {locale === 'es' ? 'Política de Privacidad' : 'Privacy Policy'}
+            <Link href={`/${locale}/payments`} className="hover:text-black transition-colors">
+              {locale === 'es' ? 'Pagos' : 'Payments'}
             </Link>
           </div>
         </div>
