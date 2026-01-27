@@ -115,7 +115,7 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
               ))}
             </select>
           </div>
-          <span className="text-gray-500 mr-3">+{getCountryCallingCode(country)}</span>
+          <span className="text-gray-500 mr-6">+{getCountryCallingCode(country)}</span>
           <PhoneInput
             country={country}
             value={formData.phone}
