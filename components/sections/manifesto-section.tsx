@@ -76,9 +76,16 @@ export default function ManifestoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-nostalgic text-2xl md:text-3xl lg:text-4xl leading-[1.3] tracking-tight text-white text-center mb-16"
+          className="font-nostalgic text-3xl md:text-4xl lg:text-5xl leading-[1.2] tracking-tight text-white text-center mb-16"
         >
-          {t('weAre')} {t('description')}
+          {t('weAre')}{' '}
+          <span className="inline-block align-baseline translate-y-[12%]">
+            <Logo
+              className="h-[0.85em] w-auto"
+              fill="white"
+            />
+          </span>
+          , {t('description')}
         </m.div>
 
         {/* Cal.com Inline Embed */}
