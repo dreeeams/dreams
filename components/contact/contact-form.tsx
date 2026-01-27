@@ -31,7 +31,7 @@ export default function ContactForm() {
     projectDescription: '',
   });
 
-  const totalSteps = 3;
+  const totalSteps = 2;
 
   const updateFormData = (data: Partial<FormData>) => {
     setFormData((prev) => ({ ...prev, ...data }));
@@ -127,7 +127,7 @@ export default function ContactForm() {
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-2 gap-2">
-          {[1, 2, 3].map((step) => (
+          {[1, 2].map((step) => (
             <div
               key={step}
               className={`flex-1 h-1 transition-colors ${
@@ -151,14 +151,6 @@ export default function ContactForm() {
       )}
       {currentStep === 2 && (
         <StepTwo
-          formData={formData}
-          updateFormData={updateFormData}
-          onNext={nextStep}
-          onBack={prevStep}
-        />
-      )}
-      {currentStep === 3 && (
-        <StepThree
           formData={formData}
           updateFormData={updateFormData}
           onBack={prevStep}
