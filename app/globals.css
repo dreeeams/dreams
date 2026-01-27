@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     /* Brand Colors - Improved Contrast */
     --color-accent: 90 90 90; /* Darker gray for better contrast - rgb(90, 90, 90) #5A5A5A */
