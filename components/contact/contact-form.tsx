@@ -96,6 +96,40 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-8">
+      {/* Project Type Tabs */}
+      <div className="border-b border-gray-200 mb-8">
+        <div className="flex gap-8">
+          <button
+            type="button"
+            onClick={() => updateFormData({ projectType: 'new-project' })}
+            className={`pb-3 font-medium transition-all relative ${
+              formData.projectType === 'new-project'
+                ? 'text-black'
+                : 'text-gray-400 hover:text-gray-600'
+            }`}
+          >
+            {t('stepOne.newProject')}
+            {formData.projectType === 'new-project' && (
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-black" />
+            )}
+          </button>
+          <button
+            type="button"
+            onClick={() => updateFormData({ projectType: 'other' })}
+            className={`pb-3 font-medium transition-all relative ${
+              formData.projectType === 'other'
+                ? 'text-black'
+                : 'text-gray-400 hover:text-gray-600'
+            }`}
+          >
+            {t('stepOne.other')}
+            {formData.projectType === 'other' && (
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-black" />
+            )}
+          </button>
+        </div>
+      </div>
+
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-2">

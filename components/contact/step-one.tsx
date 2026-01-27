@@ -21,34 +21,6 @@ export default function StepOne({ formData, updateFormData, onNext }: StepOnePro
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Project Type Toggle */}
-      <div>
-        <div className="flex gap-4">
-          <button
-            type="button"
-            onClick={() => updateFormData({ projectType: 'new-project' })}
-            className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${
-              formData.projectType === 'new-project'
-                ? 'bg-black text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-          >
-            {t('newProject')}
-          </button>
-          <button
-            type="button"
-            onClick={() => updateFormData({ projectType: 'other' })}
-            className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${
-              formData.projectType === 'other'
-                ? 'bg-black text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-          >
-            {t('other')}
-          </button>
-        </div>
-      </div>
-
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-lg font-medium mb-2">
