@@ -27,7 +27,7 @@ const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
   display: 'swap',
-  preload: false,
+  preload: true,
   fallback: ['system-ui', 'arial'],
 });
 
@@ -35,7 +35,7 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
   display: 'swap',
-  preload: false,
+  preload: true,
   fallback: ['ui-monospace', 'monospace'],
 });
 
@@ -49,6 +49,7 @@ const ztHoky = localFont({
   ],
   variable: '--font-nostalgic',
   display: 'swap',
+  preload: true,
 });
 
 export function generateStaticParams() {
@@ -155,6 +156,7 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
 
   // Schema.org structured data
   const organizationSchema = {
@@ -272,10 +274,18 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* DNS prefetch for external services */}
+        {/* Critical resource preloading */}
+        <link rel="preload" href="/fonts/ZTHoky-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+
+        {/* DNS prefetch and preconnect for external services */}
         <link rel="dns-prefetch" href="https://cal.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href={cdnUrl ? new URL(cdnUrl).hostname : ''} />
+
         <link rel="preconnect" href="https://va.vercel-scripts.com" />
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {cdnUrl && <link rel="preconnect" href={cdnUrl} />}
         {/* Schema.org structured data */}
         <script
           type="application/ld+json"
@@ -314,7 +324,7 @@ export default async function LocaleLayout({
         {/* Google Analytics - loaded lazily */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7RHVN0C6WY"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`

@@ -42,16 +42,14 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-20 text-center"
+          className="mb-20"
         >
-          <p className="text-sm md:text-base font-mono tracking-widest text-gray-500 mb-4 uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-nostalgic max-w-4xl leading-tight mb-4" style={{ letterSpacing: '-0.02em' }}>
             {t('subtitle')}
+          </h2>
+          <p className="text-sm md:text-base font-mono tracking-widest text-gray-500">
+            {t('title')}
           </p>
-          <div className="flex items-center justify-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-nostalgic max-w-4xl mx-auto leading-tight" style={{ letterSpacing: '-0.02em' }}>
-              {t('title')}
-            </h2>
-          </div>
         </m.div>
 
         {/* Services Cards Grid */}
@@ -73,6 +71,7 @@ export default function ServicesSection() {
                 src={service.image}
                 alt={t(service.titleKey)}
                 fill
+                loading="lazy"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
