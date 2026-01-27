@@ -68,7 +68,7 @@ export default function ManifestoSection() {
   }, []);
 
   return (
-    <section className="relative z-10 py-24 md:py-32 px-6 md:px-12 bg-black">
+    <section id="contact" className="relative z-10 py-24 md:py-32 px-6 md:px-12 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <m.h2
