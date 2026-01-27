@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { FormData } from './contact-form';
-import { getCountries, getCountryCallingCode, parsePhoneNumber, isValidPhoneNumber } from 'react-phone-number-input';
+import { getCountries, getCountryCallingCode, isValidPhoneNumber } from 'react-phone-number-input';
 import type { Country } from 'react-phone-number-input';
 import en from 'react-phone-number-input/locale/en';
 import { useState } from 'react';

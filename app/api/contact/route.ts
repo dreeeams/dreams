@@ -129,25 +129,25 @@ export async function POST(request: NextRequest) {
     }
 
     // 6. Sanitize all inputs
-    const sanitized = sanitizeContactData(validatedData as Record<string, any>);
+    const sanitized = sanitizeContactData(validatedData as Record<string, unknown>);
 
     // 7. Prepare contact data
     const contactData = {
       fullName: sanitized.fullName as string,
       email: sanitized.email as string,
-      whatsapp: sanitized.whatsapp || null,
-      linkedin: sanitized.linkedin || null,
-      role: sanitized.role || null,
+      whatsapp: (sanitized.whatsapp as string) || null,
+      linkedin: (sanitized.linkedin as string) || null,
+      role: (sanitized.role as string) || null,
       company: sanitized.company as string,
-      websiteUrl: sanitized.websiteUrl || null,
-      instagram: sanitized.instagram || null,
-      companySize: sanitized.companySize ? mapCompanySize(sanitized.companySize) : null,
-      industry: sanitized.industry ? mapIndustry(sanitized.industry) : null,
+      websiteUrl: (sanitized.websiteUrl as string) || null,
+      instagram: (sanitized.instagram as string) || null,
+      companySize: sanitized.companySize ? mapCompanySize(String(sanitized.companySize)) : null,
+      industry: sanitized.industry ? mapIndustry(String(sanitized.industry)) : null,
       need: Array.isArray(sanitized.need)
-        ? sanitized.need.map((n: string) => capitalizeText(n)).join(', ')
-        : capitalizeText(sanitized.need as string),
-      summary: sanitized.summary || null,
-      heardFrom: sanitized.heardFrom ? mapHeardFrom(sanitized.heardFrom) : null,
+        ? (sanitized.need as string[]).map((n) => capitalizeText(n)).join(', ')
+        : capitalizeText(String(sanitized.need)),
+      summary: (sanitized.summary as string) || null,
+      heardFrom: sanitized.heardFrom ? mapHeardFrom(String(sanitized.heardFrom)) : null,
       acceptTerms: Boolean(sanitized.acceptTerms),
       submittedAt: new Date().toISOString(),
       ip: clientIP,
@@ -225,40 +225,44 @@ export async function POST(request: NextRequest) {
     }
 
     // 10. Send to Zapier webhook
-    const zapierWebhookUrl = process.env.ZAPIER_WEBHOOK_URL || 'https://hooks.zapier.com/hooks/catch/26067874/uqb7bzv/';
+    const zapierWebhookUrl = process.env.ZAPIER_WEBHOOK_URL;
 
-    try {
-      logger.log('🔗 Sending to Zapier webhook');
+    if (zapierWebhookUrl) {
+      try {
+        logger.log('🔗 Sending to Zapier webhook');
 
-      const zapierData = {
-        firstName: contactData.fullName.split(' ')[0] || contactData.fullName,
-        lastName: contactData.fullName.split(' ').slice(1).join(' ') || '',
-        fullName: contactData.fullName,
-        email: contactData.email,
-        phone: contactData.whatsapp || '',
-        companyName: contactData.company,
-        websiteUrl: contactData.websiteUrl || '',
-        projectType: contactData.need,
-        projectDetails: contactData.summary || '',
-        howDidYouHear: contactData.heardFrom || '',
-        submittedAt: contactData.submittedAt,
-      };
+        const zapierData = {
+          firstName: contactData.fullName.split(' ')[0] || contactData.fullName,
+          lastName: contactData.fullName.split(' ').slice(1).join(' ') || '',
+          fullName: contactData.fullName,
+          email: contactData.email,
+          phone: contactData.whatsapp || '',
+          companyName: contactData.company,
+          websiteUrl: contactData.websiteUrl || '',
+          projectType: contactData.need,
+          projectDetails: contactData.summary || '',
+          howDidYouHear: contactData.heardFrom || '',
+          submittedAt: contactData.submittedAt,
+        };
 
-      const zapierResponse = await fetch(zapierWebhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(zapierData),
-      });
+        const zapierResponse = await fetch(zapierWebhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(zapierData),
+        });
 
-      if (zapierResponse.ok) {
-        logger.log('✅ Zapier webhook called successfully');
-      } else {
-        logger.error('❌ Zapier webhook failed:', await zapierResponse.text());
+        if (zapierResponse.ok) {
+          logger.log('✅ Zapier webhook called successfully');
+        } else {
+          logger.error('❌ Zapier webhook failed:', await zapierResponse.text());
+        }
+      } catch (error) {
+        logger.error('❌ Failed to send to Zapier:', error);
       }
-    } catch (error) {
-      logger.error('❌ Failed to send to Zapier:', error);
+    } else {
+      logger.log('⚠️ Zapier webhook not configured');
     }
 
     // 11. Log success
