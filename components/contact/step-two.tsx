@@ -21,7 +21,6 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
 
   const needsOptions = [
     { id: 'branding', label: t('branding') },
-    { id: 'print', label: t('print') },
     { id: 'webDesign', label: t('webDesign') },
     { id: 'websiteDevelopment', label: t('websiteDevelopment') },
     { id: 'backend', label: t('backend') },
