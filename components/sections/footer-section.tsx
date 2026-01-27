@@ -64,10 +64,17 @@ export default function FooterSection() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-overlay-border-light pt-8">
+        <div className="border-t border-overlay-border-light pt-8 flex justify-between items-center">
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} Dream Studio. {tFooter('rights')}.
           </p>
+          <Link
+            href="/admin/login"
+            className="text-xs text-gray-500 hover:text-gray-300 transition-colors opacity-50 hover:opacity-100"
+            title="Admin Login"
+          >
+            ●
+          </Link>
         </div>
       </div>
     </footer>

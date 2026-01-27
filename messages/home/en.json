@@ -397,6 +397,38 @@
       "back": "Back",
       "next": "Next"
     },
+    "support": {
+      "clientNotice": "This form is exclusively for Dreeeams clients",
+      "name": "What is your name?",
+      "email": "What is your email?",
+      "company": "What is your company?",
+      "websiteUrl": "Website URL",
+      "issueTypeTitle": "What type of issue are you experiencing?",
+      "issueTypes": {
+        "bug": "Bug/Error",
+        "performance": "Performance",
+        "feature": "New Feature",
+        "security": "Security",
+        "other": "Other"
+      },
+      "urgencyTitle": "Urgency level",
+      "urgency": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "Critical"
+      },
+      "descriptionTitle": "Describe the issue",
+      "descriptionSubtitle": "Provide all relevant details about the problem",
+      "descriptionPlaceholder": "Describe the issue, steps to reproduce, expected behavior...",
+      "filesTitle": "Attachments",
+      "filesSubtitle": "Upload screenshots, videos or relevant documents (optional)",
+      "uploadButton": "Select Files",
+      "fileFormats": "PNG, JPG, PDF, DOC, TXT (max. 10MB per file)",
+      "removeFile": "Remove",
+      "submit": "Submit Support Ticket",
+      "submitting": "Submitting..."
+    },
     "stepThree": {
       "budgetTitle": "What is the dedicated budget for the project?",
       "lessThan2500": "Less than $2,500 USD",

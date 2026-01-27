@@ -1,5 +1,37 @@
 import type { Metadata, Viewport } from 'next';
 import { ReactNode } from 'react';
+import { Geist, Geist_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
+import './globals.css';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['ui-monospace', 'monospace'],
+});
+
+const ztHoky = localFont({
+  src: [
+    {
+      path: '../public/fonts/ZTHoky-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-nostalgic',
+  display: 'swap',
+  preload: true,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://dreeeams.com'),
@@ -19,6 +51,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 5,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#E8E4DC' },
     { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
@@ -26,5 +59,27 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return children;
+  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
+
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Critical resource preloading */}
+        <link rel="preload" href="/fonts/ZTHoky-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+
+        {/* DNS prefetch and preconnect for external services */}
+        <link rel="dns-prefetch" href="https://cal.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href={cdnUrl ? new URL(cdnUrl).hostname : ''} />
+
+        <link rel="preconnect" href="https://va.vercel-scripts.com" />
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {cdnUrl && <link rel="preconnect" href={cdnUrl} />}
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
 }

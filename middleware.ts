@@ -9,6 +9,11 @@ const intlMiddleware = createMiddleware({
 });
 
 export default function middleware(request: NextRequest) {
+  // Skip middleware for admin routes
+  if (request.nextUrl.pathname.startsWith('/admin')) {
+    return NextResponse.next();
+  }
+
   // HTTPS Enforcement in production
   if (
     process.env.NODE_ENV === 'production' &&
@@ -25,5 +30,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/', '/(en|es)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/', '/(en|es)/:path*', '/((?!api|_next|_vercel|admin|.*\\..*).*)'],
 };

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import StepOne from './step-one';
 import StepTwo from './step-two';
+import SupportForm, { SupportFormData } from './support-form';
 
 export interface FormData {
   projectType: 'new-project' | 'support';
@@ -93,6 +94,40 @@ export default function ContactForm() {
     }
   };
 
+  const handleSupportSubmit = async (supportData: SupportFormData) => {
+    try {
+      // Map support data to API format
+      const apiData = {
+        fullName: supportData.name,
+        email: supportData.email,
+        company: supportData.company,
+        websiteUrl: supportData.websiteUrl,
+        issueType: supportData.issueType,
+        urgencyLevel: supportData.urgencyLevel,
+        summary: supportData.description,
+        acceptTerms: true,
+        website: '', // honeypot field
+      };
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiData),
+      });
+
+      if (response.ok) {
+        alert(t('successMessage'));
+      } else {
+        alert(t('errorMessage'));
+      }
+    } catch (error) {
+      console.error('Error submitting support form:', error);
+      alert(t('errorMessage'));
+    }
+  };
+
   return (
     <div className="bg-white border border-black p-8">
       {/* Project Type Tabs */}
@@ -124,24 +159,30 @@ export default function ContactForm() {
       </div>
 
       {/* Step Content */}
-      {currentStep === 1 && (
-        <StepOne
-          formData={formData}
-          updateFormData={updateFormData}
-          onNext={nextStep}
-          currentStep={currentStep}
-          totalSteps={totalSteps}
-        />
-      )}
-      {currentStep === 2 && (
-        <StepTwo
-          formData={formData}
-          updateFormData={updateFormData}
-          onBack={prevStep}
-          onSubmit={handleSubmit}
-          currentStep={currentStep}
-          totalSteps={totalSteps}
-        />
+      {formData.projectType === 'support' ? (
+        <SupportForm onSubmit={handleSupportSubmit} />
+      ) : (
+        <>
+          {currentStep === 1 && (
+            <StepOne
+              formData={formData}
+              updateFormData={updateFormData}
+              onNext={nextStep}
+              currentStep={currentStep}
+              totalSteps={totalSteps}
+            />
+          )}
+          {currentStep === 2 && (
+            <StepTwo
+              formData={formData}
+              updateFormData={updateFormData}
+              onBack={prevStep}
+              onSubmit={handleSubmit}
+              currentStep={currentStep}
+              totalSteps={totalSteps}
+            />
+          )}
+        </>
       )}
     </div>
   );

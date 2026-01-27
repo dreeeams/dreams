@@ -397,6 +397,38 @@
       "back": "Atrás",
       "next": "Siguiente"
     },
+    "support": {
+      "clientNotice": "Este formulario es exclusivo para Dreeeams clients",
+      "name": "¿Cuál es tu nombre?",
+      "email": "¿Cuál es tu correo electrónico?",
+      "company": "¿Cuál es tu empresa?",
+      "websiteUrl": "URL del sitio web",
+      "issueTypeTitle": "¿Qué tipo de problema tienes?",
+      "issueTypes": {
+        "bug": "Error/Bug",
+        "performance": "Rendimiento",
+        "feature": "Nueva Funcionalidad",
+        "security": "Seguridad",
+        "other": "Otro"
+      },
+      "urgencyTitle": "Nivel de urgencia",
+      "urgency": {
+        "low": "Baja",
+        "medium": "Media",
+        "high": "Alta",
+        "critical": "Crítica"
+      },
+      "descriptionTitle": "Describe el problema",
+      "descriptionSubtitle": "Proporciona todos los detalles relevantes sobre el problema",
+      "descriptionPlaceholder": "Describe el problema, pasos para reproducirlo, comportamiento esperado...",
+      "filesTitle": "Archivos adjuntos",
+      "filesSubtitle": "Sube capturas de pantalla, videos o documentos relevantes (opcional)",
+      "uploadButton": "Seleccionar Archivos",
+      "fileFormats": "PNG, JPG, PDF, DOC, TXT (máx. 10MB por archivo)",
+      "removeFile": "Eliminar",
+      "submit": "Enviar Ticket de Soporte",
+      "submitting": "Enviando..."
+    },
     "stepThree": {
       "budgetTitle": "¿Cuál es el presupuesto dedicado para el proyecto?",
       "lessThan2500": "Menos de $2,500 USD",

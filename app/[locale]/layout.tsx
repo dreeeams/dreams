@@ -1,8 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { Geist, Geist_Mono } from 'next/font/google';
-import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import { locales } from '@/i18n/config';
 import { ThemeProvider } from '@/components/providers/theme-provider';
@@ -11,46 +9,10 @@ import ScrollToTop from '@/components/scroll-to-top';
 import DisableZoomOnInput from '@/components/disable-zoom-on-input';
 import MotionProvider from '@/components/providers/motion-provider';
 import PageLoader from '@/components/page-loader';
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 import Script from 'next/script';
-import '../globals.css';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preview.dreeeams.com';
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-};
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['system-ui', 'arial'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['ui-monospace', 'monospace'],
-});
-
-const ztHoky = localFont({
-  src: [
-    {
-      path: '../../public/fonts/ZTHoky-Regular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-nostalgic',
-  display: 'swap',
-  preload: true,
-});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -272,69 +234,42 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <head>
-        {/* Critical resource preloading */}
-        <link rel="preload" href="/fonts/ZTHoky-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+    <>
+      <a href="#main-content" className="skip-to-main">
+        {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
+      </a>
+      <NextIntlClientProvider messages={messages}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          forcedTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <MotionProvider>
+            <PageLoader />
+            <DisableZoomOnInput />
+            <ErrorBoundary>
+              {children}
+              <ScrollToTop />
+            </ErrorBoundary>
+          </MotionProvider>
+        </ThemeProvider>
+      </NextIntlClientProvider>
 
-        {/* DNS prefetch and preconnect for external services */}
-        <link rel="dns-prefetch" href="https://cal.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href={cdnUrl ? new URL(cdnUrl).hostname : ''} />
-
-        <link rel="preconnect" href="https://va.vercel-scripts.com" />
-        <link rel="preconnect" href="https://vitals.vercel-insights.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        {cdnUrl && <link rel="preconnect" href={cdnUrl} />}
-        {/* Schema.org structured data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} antialiased`}
-      >
-        <a href="#main-content" className="skip-to-main">
-          {locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'}
-        </a>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            forcedTheme="light"
-            enableSystem={false}
-            disableTransitionOnChange
-          >
-            <MotionProvider>
-              <PageLoader />
-              <DisableZoomOnInput />
-              <ErrorBoundary>
-                {children}
-                <ScrollToTop />
-              </ErrorBoundary>
-            </MotionProvider>
-          </ThemeProvider>
-        </NextIntlClientProvider>
-
-        {/* Google Analytics - loaded lazily */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-7RHVN0C6WY"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-7RHVN0C6WY');
-          `}
-        </Script>
-      </body>
-    </html>
+      {/* Google Analytics - loaded lazily */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-7RHVN0C6WY"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-7RHVN0C6WY');
+        `}
+      </Script>
+    </>
   );
 }
