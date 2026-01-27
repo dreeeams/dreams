@@ -389,6 +389,11 @@
       "print": "Print",
       "webDesign": "Diseño Web",
       "websiteDevelopment": "Desarrollo de Sitio Web",
+      "backend": "Backend",
+      "ecommerce": "Ecommerce",
+      "cms": "CMS",
+      "integrations": "Integraciones",
+      "consulting": "Consultoría",
       "other": "Otro",
       "back": "Atrás",
       "next": "Siguiente"

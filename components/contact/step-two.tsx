@@ -24,6 +24,11 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
     { id: 'print', label: t('print') },
     { id: 'webDesign', label: t('webDesign') },
     { id: 'websiteDevelopment', label: t('websiteDevelopment') },
+    { id: 'backend', label: t('backend') },
+    { id: 'ecommerce', label: t('ecommerce') },
+    { id: 'cms', label: t('cms') },
+    { id: 'integrations', label: t('integrations') },
+    { id: 'consulting', label: t('consulting') },
     { id: 'other', label: t('other') },
   ];
 
