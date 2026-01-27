@@ -34,6 +34,16 @@
     "weAre": "Somos",
     "description": "un estudio creativo enfocado en marcas y productos digitales bien diseñados"
   },
+  "clients": {
+    "badge": "A quién amamos trabajar con",
+    "nonprofits": "Non-Profits",
+    "smallBusinesses": "Small Businesses",
+    "startups": "Startups",
+    "eventPlanners": "Event Planners",
+    "ecommerce": "Ecommerce Businesses",
+    "agencies": "Agencies",
+    "personalBrands": "Personal Brands"
+  },
   "services": {
     "title": "Diseño limpio y escalable que te ayuda a lanzar más rápido y aumentar tus ingresos.",
     "subtitle": "¿Por qué lanzar lento cuando puedes moverte rápido?",
