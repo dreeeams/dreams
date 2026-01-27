@@ -9,6 +9,7 @@ import ScrollToTop from '@/components/scroll-to-top';
 import DisableZoomOnInput from '@/components/disable-zoom-on-input';
 import MotionProvider from '@/components/providers/motion-provider';
 import PageLoader from '@/components/page-loader';
+import SmoothScroll from '@/components/smooth-scroll';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -248,6 +249,7 @@ export default async function LocaleLayout({
         >
           <MotionProvider>
             <PageLoader />
+            <SmoothScroll />
             <DisableZoomOnInput />
             <ErrorBoundary>
               {children}
