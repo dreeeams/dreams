@@ -380,6 +380,7 @@
       "company": "¿Cuál es tu empresa?",
       "email": "¿Cuál es tu correo electrónico?",
       "phone": "¿Cuál es tu número de teléfono?",
+      "phoneInvalid": "Número de teléfono inválido para el país seleccionado",
       "next": "Siguiente"
     },
     "stepTwo": {

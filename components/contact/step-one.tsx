@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { FormData } from './contact-form';
-import { getCountries, getCountryCallingCode } from 'react-phone-number-input';
+import { getCountries, getCountryCallingCode, parsePhoneNumber, isValidPhoneNumber } from 'react-phone-number-input';
 import type { Country } from 'react-phone-number-input';
 import en from 'react-phone-number-input/locale/en';
 import { useState } from 'react';
@@ -28,9 +28,26 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
   const t = useTranslations('contact.stepOne');
   const tCommon = useTranslations('contact');
   const [country, setCountry] = useState<Country>('BE');
+  const [phoneError, setPhoneError] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate phone number if provided
+    if (formData.phone) {
+      const fullPhone = `+${getCountryCallingCode(country)}${formData.phone}`;
+      try {
+        if (!isValidPhoneNumber(fullPhone, country)) {
+          setPhoneError(t('phoneInvalid') || 'Invalid phone number for selected country');
+          return;
+        }
+      } catch (error) {
+        setPhoneError(t('phoneInvalid') || 'Invalid phone number format');
+        return;
+      }
+    }
+
+    setPhoneError('');
     onNext();
   };
 
@@ -117,11 +134,17 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
           <input
             type="tel"
             value={formData.phone}
-            onChange={(e) => updateFormData({ phone: e.target.value })}
+            onChange={(e) => {
+              updateFormData({ phone: e.target.value });
+              if (phoneError) setPhoneError(''); // Clear error on change
+            }}
             className="flex-1 border-none outline-none bg-transparent ml-2"
             placeholder="456 78 90 12"
           />
         </div>
+        {phoneError && (
+          <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+        )}
       </div>
 
       {/* Navigation and Steps */}
