@@ -70,12 +70,24 @@ export default function ManifestoSection() {
   return (
     <section className="relative z-10 py-24 md:py-32 px-6 md:px-12 bg-black">
       <div className="max-w-7xl mx-auto">
+        {/* Title */}
+        <m.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic text-center text-white mb-12"
+          style={{ letterSpacing: '-0.04em' }}
+        >
+          Tell us more
+        </m.h2>
+
         {/* Manifesto Text */}
         <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="font-nostalgic text-3xl md:text-4xl lg:text-5xl leading-[1.2] tracking-tight text-white text-center mb-16"
         >
           {t('weAre')}{' '}
