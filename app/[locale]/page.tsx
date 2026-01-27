@@ -26,9 +26,6 @@ const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-s
 const FAQSection = dynamic(() => import('@/components/sections/faq-section'), {
   loading: () => <div className="min-h-[50vh] bg-white" />,
 });
-const ContactSection = dynamic(() => import('@/components/sections/contact-section'), {
-  loading: () => <div className="min-h-screen bg-background-light" />,
-});
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -115,7 +112,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <ServicesSection />
             <PortfolioSection />
             <ManifestoSection />
-            <ContactSection />
             <FAQSection />
             <FooterSection />
           </div>
