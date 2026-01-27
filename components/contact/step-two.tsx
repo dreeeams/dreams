@@ -28,7 +28,7 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
     { id: 'cms', label: t('cms') },
     { id: 'integrations', label: t('integrations') },
     { id: 'consulting', label: t('consulting') },
-    { id: 'other', label: t('other') },
+    { id: 'workflowOptimization', label: t('workflowOptimization') },
   ];
 
   const budgetOptions = [
