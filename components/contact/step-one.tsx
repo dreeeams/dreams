@@ -78,12 +78,18 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
         <label htmlFor="phone" className="block text-lg font-medium mb-2">
           {t('phone')}
         </label>
-        <PhoneInput
-          international
-          defaultCountry="BE"
-          value={formData.phone}
-          onChange={(value) => updateFormData({ phone: value || '' })}
-        />
+        <div className="flex items-center border-b-2 border-gray-300 focus-within:border-black transition-colors">
+          <PhoneInput
+            international
+            countryCallingCodeEditable={false}
+            defaultCountry="BE"
+            value={formData.phone}
+            onChange={(value) => updateFormData({ phone: value || '' })}
+            displayInitialValueAsLocalNumber={false}
+            className="flex-1"
+            style={{ border: 'none' }}
+          />
+        </div>
       </div>
 
       {/* Navigation and Steps */}
