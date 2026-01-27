@@ -8,7 +8,7 @@ export default function SmoothScroll() {
     let isScrolling = false;
     let currentY = window.scrollY;
     let targetY = window.scrollY;
-    const ease = 0.08; // Lower = slower, heavier scroll (0.05-0.15 range)
+    const ease = 0.15; // Lower = slower, heavier scroll | Higher = faster, lighter (0.05-0.2 range)
 
     function smoothScroll() {
       if (Math.abs(targetY - currentY) < 0.5) {
