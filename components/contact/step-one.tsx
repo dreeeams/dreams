@@ -115,13 +115,13 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
               ))}
             </select>
           </div>
-          <span className="text-gray-500 mr-6">+{getCountryCallingCode(country)}</span>
+          <span className="text-gray-500">+{getCountryCallingCode(country)}</span>
           <PhoneInput
             country={country}
             value={formData.phone}
             onChange={(value) => updateFormData({ phone: value || '' })}
             className="flex-1 border-none outline-none bg-transparent"
-            style={{ border: 'none', outline: 'none' }}
+            style={{ border: 'none', outline: 'none', paddingLeft: '1rem' }}
             placeholder="456 78 90 12"
           />
         </div>
