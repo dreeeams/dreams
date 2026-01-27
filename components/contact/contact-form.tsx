@@ -95,54 +95,48 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8">
+    <div className="bg-white border border-black p-8">
       {/* Project Type Tabs */}
-      <div className="border-b border-gray-200 mb-8">
-        <div className="flex gap-8">
+      <div className="border-b border-black/10 mb-8">
+        <div className="flex gap-0">
           <button
             type="button"
             onClick={() => updateFormData({ projectType: 'new-project' })}
-            className={`pb-3 font-medium transition-all relative ${
+            className={`px-6 py-3 border-b-2 font-medium transition-colors ${
               formData.projectType === 'new-project'
-                ? 'text-black'
-                : 'text-gray-400 hover:text-gray-600'
+                ? 'border-black text-black'
+                : 'border-transparent text-gray-400 hover:text-black hover:border-black/20'
             }`}
           >
             {t('stepOne.newProject')}
-            {formData.projectType === 'new-project' && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-black" />
-            )}
           </button>
           <button
             type="button"
             onClick={() => updateFormData({ projectType: 'other' })}
-            className={`pb-3 font-medium transition-all relative ${
+            className={`px-6 py-3 border-b-2 font-medium transition-colors ${
               formData.projectType === 'other'
-                ? 'text-black'
-                : 'text-gray-400 hover:text-gray-600'
+                ? 'border-black text-black'
+                : 'border-transparent text-gray-400 hover:text-black hover:border-black/20'
             }`}
           >
             {t('stepOne.other')}
-            {formData.projectType === 'other' && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-black" />
-            )}
           </button>
         </div>
       </div>
 
       {/* Progress Bar */}
       <div className="mb-8">
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-2 gap-2">
           {[1, 2, 3].map((step) => (
             <div
               key={step}
-              className={`flex-1 h-2 rounded-full mx-1 transition-all ${
+              className={`flex-1 h-1 transition-colors ${
                 step <= currentStep ? 'bg-black' : 'bg-gray-200'
               }`}
             />
           ))}
         </div>
-        <p className="text-sm text-gray-500 text-center">
+        <p className="text-sm text-gray-500 text-center font-mono tracking-wider">
           {t('step')} {currentStep} {t('of')} {totalSteps}
         </p>
       </div>

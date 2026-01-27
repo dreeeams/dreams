@@ -47,10 +47,10 @@ export default function StepTwo({ formData, updateFormData, onNext, onBack }: St
               key={option.id}
               type="button"
               onClick={() => toggleNeed(option.id)}
-              className={`py-4 px-6 rounded-lg border-2 font-medium transition-all ${
+              className={`py-4 px-6 border font-medium transition-colors ${
                 formData.needs.includes(option.id)
                   ? 'border-black bg-black text-white'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                  : 'border-black/20 bg-white text-gray-700 hover:border-black'
               }`}
             >
               {option.label}
@@ -64,14 +64,14 @@ export default function StepTwo({ formData, updateFormData, onNext, onBack }: St
         <button
           type="button"
           onClick={onBack}
-          className="px-8 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors"
+          className="px-8 py-3 bg-white text-black border border-black font-medium hover:bg-black hover:text-white transition-colors"
         >
           {t('back')}
         </button>
         <button
           type="submit"
           disabled={!isValid}
-          className="px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+          className="px-8 py-3 bg-black text-white border border-black font-medium hover:bg-white hover:text-black disabled:bg-gray-300 disabled:border-gray-300 disabled:cursor-not-allowed transition-colors"
         >
           {t('next')}
         </button>

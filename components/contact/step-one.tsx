@@ -88,7 +88,7 @@ export default function StepOne({ formData, updateFormData, onNext }: StepOnePro
         <button
           type="submit"
           disabled={!isValid}
-          className="px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+          className="px-8 py-3 bg-black text-white border border-black font-medium hover:bg-white hover:text-black disabled:bg-gray-300 disabled:border-gray-300 disabled:cursor-not-allowed transition-colors"
         >
           {t('next')}
         </button>

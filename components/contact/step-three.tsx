@@ -46,10 +46,10 @@ export default function StepThree({ formData, updateFormData, onBack, onSubmit }
               key={option.id}
               type="button"
               onClick={() => updateFormData({ budget: option.id })}
-              className={`py-4 px-6 rounded-lg border-2 font-medium transition-all text-left ${
+              className={`py-4 px-6 border font-medium transition-colors text-left ${
                 formData.budget === option.id
                   ? 'border-black bg-black text-white'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                  : 'border-black/20 bg-white text-gray-700 hover:border-black'
               }`}
             >
               {option.label}
@@ -65,7 +65,7 @@ export default function StepThree({ formData, updateFormData, onBack, onSubmit }
         <textarea
           value={formData.projectDescription}
           onChange={(e) => updateFormData({ projectDescription: e.target.value })}
-          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-black outline-none transition-colors resize-none"
+          className="w-full px-4 py-3 border border-black/20 focus:border-black outline-none transition-colors resize-none"
           rows={6}
           placeholder={t('projectPlaceholder')}
           required
@@ -78,14 +78,14 @@ export default function StepThree({ formData, updateFormData, onBack, onSubmit }
           type="button"
           onClick={onBack}
           disabled={isSubmitting}
-          className="px-8 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-8 py-3 bg-white text-black border border-black font-medium hover:bg-black hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {t('back')}
         </button>
         <button
           type="submit"
           disabled={!isValid || isSubmitting}
-          className="px-8 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+          className="px-8 py-3 bg-black text-white border border-black font-medium hover:bg-white hover:text-black disabled:bg-gray-300 disabled:border-gray-300 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
         >
           {isSubmitting ? (
             <>
