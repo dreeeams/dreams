@@ -64,18 +64,26 @@ export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuPro
 
             {/* Menu Items */}
             <nav className="flex flex-col items-center gap-8 mb-12">
-              {menuItems.map((item, index) => (
-                <m.button
-                  key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
-                  onClick={() => handleMenuClick(item.href)}
-                  className="text-4xl font-nostalgic text-white hover:text-brand transition-colors"
-                >
-                  [ {item.label.toUpperCase()} ]
-                </m.button>
-              ))}
+              {menuItems.map((item, index) => {
+                const isCallButton = item.href === '/contact';
+
+                return (
+                  <m.button
+                    key={item.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+                    onClick={() => handleMenuClick(item.href)}
+                    className={
+                      isCallButton
+                        ? "px-8 py-4 text-2xl font-medium text-black bg-white hover:bg-brand hover:text-white border-2 border-white transition-colors"
+                        : "text-4xl font-nostalgic text-white hover:text-brand transition-colors"
+                    }
+                  >
+                    {item.label}
+                  </m.button>
+                );
+              })}
             </nav>
 
             {/* Bottom Section */}
