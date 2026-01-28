@@ -192,18 +192,6 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
         <h3 className="text-xl md:text-2xl font-bold font-nostalgic">
           {project.titleKey}
         </h3>
-
-        {/* URL if available */}
-        {project.url && !project.isMockup && !project.isIcon && (
-          <a
-            href={`https://${project.url}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-bold text-brand hover:underline flex items-center gap-1"
-          >
-            {project.url} →
-          </a>
-        )}
       </div>
     </m.div>
   );
