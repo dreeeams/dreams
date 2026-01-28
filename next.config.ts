@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ['framer-motion', 'next-intl', 'lucide-react'],
+    optimizePackageImports: ['framer-motion', 'next-intl', 'lucide-react', 'react-phone-number-input'],
     webpackBuildWorker: true,
   },
   serverExternalPackages: ['@vercel/analytics'],

@@ -51,10 +51,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     metadataBase: new URL(baseUrl),
     alternates: {
-      canonical: `${baseUrl}/${locale}`,
+      canonical: locale === 'en' ? baseUrl : `${baseUrl}/${locale}`,
       languages: {
         es: `${baseUrl}/es`,
-        en: `${baseUrl}/en`,
+        en: baseUrl,
       },
     },
     openGraph: {
@@ -262,9 +262,10 @@ export default async function LocaleLayout({
       {/* Google Analytics - loaded lazily */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-7RHVN0C6WY"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
+        async
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
