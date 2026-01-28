@@ -32,6 +32,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
+  const title = locale === 'es'
+    ? 'Cuéntanos más'
+    : 'Tell us more';
+
   const subtitle = locale === 'es'
     ? 'Agenda una sesión estratégica de 15 minutos para discutir tus requerimientos, cronograma y cómo podemos entregar resultados excepcionales'
     : 'Book a 15-minute strategy session to discuss your requirements, timeline, and how we can deliver exceptional results';
@@ -47,7 +51,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               className="text-4xl sm:text-5xl md:text-6xl font-nostalgic text-white mb-6 text-center"
               style={{ letterSpacing: '-0.04em' }}
             >
-              Tell us more
+              {title}
             </h1>
 
             {/* Subtitle */}
