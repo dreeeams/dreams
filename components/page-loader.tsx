@@ -2,6 +2,7 @@
 
 import { m, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, createContext, useContext } from 'react';
+import { usePathname } from 'next/navigation';
 import Logo from '@/components/logo';
 import { transitions } from '@/lib/motion-presets';
 
@@ -14,10 +15,20 @@ const LoaderContext = createContext<LoaderContextType>({ isLoading: true });
 export const useLoader = () => useContext(LoaderContext);
 
 export default function PageLoader() {
+  const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
 
+  // Don't show loader on contact page
+  const shouldShowLoader = !pathname.includes('/contact');
+
   useEffect(() => {
+    // Skip loader if on contact page
+    if (!shouldShowLoader) {
+      setIsLoading(false);
+      return;
+    }
+
     // Simulate loading progress with smooth animation (1.5s max)
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
@@ -39,7 +50,7 @@ export default function PageLoader() {
     return () => {
       clearInterval(progressInterval);
     };
-  }, []);
+  }, [shouldShowLoader]);
 
   return (
     <AnimatePresence>
