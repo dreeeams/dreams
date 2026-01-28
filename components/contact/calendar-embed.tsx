@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
@@ -9,10 +9,39 @@ declare global {
 }
 
 export default function CalendarEmbed() {
+  const isInitialized = useRef(false);
+
   useEffect(() => {
-    // Only initialize if not already loaded
+    const initCalendar = () => {
+      if (window.Cal) {
+        // Clear any existing calendar instance
+        const container = document.getElementById('my-cal-inline-kickoff');
+        if (container) {
+          container.innerHTML = '';
+        }
+
+        // Reinitialize calendar
+        window.Cal('init', 'kickoff', { origin: 'https://app.cal.com' });
+
+        window.Cal.ns.kickoff('inline', {
+          elementOrSelector: '#my-cal-inline-kickoff',
+          config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
+          calLink: 'luis-fernandez-ezzzmp/kickoff',
+        });
+
+        window.Cal.ns.kickoff('ui', {
+          cssVarsPerTheme: {
+            light: { 'cal-brand': '#1E1E1E' },
+            dark: { 'cal-brand': '#DEE5ED' },
+          },
+          hideEventTypeDetails: false,
+          layout: 'month_view',
+        });
+      }
+    };
+
+    // Load Cal.com script if not already loaded
     if (typeof window !== 'undefined' && !window.Cal) {
-      // Load Cal.com embed script
       (function (C: any, A: string, L: string) {
         let p = function (a: any, ar: any) {
           a.q.push(ar);
@@ -46,28 +75,14 @@ export default function CalendarEmbed() {
           };
       })(window, 'https://app.cal.com/embed/embed.js', 'init');
 
-      // Initialize after a short delay to ensure script loads
-      setTimeout(() => {
-        if (window.Cal) {
-          window.Cal('init', 'kickoff', { origin: 'https://app.cal.com' });
-
-          window.Cal.ns.kickoff('inline', {
-            elementOrSelector: '#my-cal-inline-kickoff',
-            config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
-            calLink: 'luis-fernandez-ezzzmp/kickoff',
-          });
-
-          window.Cal.ns.kickoff('ui', {
-            cssVarsPerTheme: {
-              light: { 'cal-brand': '#1E1E1E' },
-              dark: { 'cal-brand': '#DEE5ED' },
-            },
-            hideEventTypeDetails: false,
-            layout: 'month_view',
-          });
-        }
-      }, 100);
+      // Wait for script to load
+      setTimeout(initCalendar, 100);
+    } else {
+      // Script already loaded, just reinitialize
+      initCalendar();
     }
+
+    isInitialized.current = true;
   }, []);
 
   return (
