@@ -10,8 +10,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
 
   const title = locale === 'es'
-    ? 'Contacto - Dream Studio'
-    : 'Contact - Dream Studio';
+    ? 'Contacto - Dreeeams'
+    : 'Contact - Dreeeams';
 
   const description = locale === 'es'
     ? 'Agenda una reunión con nosotros. Cuéntanos sobre tu proyecto.'

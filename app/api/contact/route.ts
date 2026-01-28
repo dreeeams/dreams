@@ -205,14 +205,14 @@ export async function POST(request: NextRequest) {
         // Send both emails in parallel
         const [userEmailResult, adminEmailResult] = await Promise.allSettled([
           resend.emails.send({
-            from: `Dream Studio <${fromEmail}>`,
+            from: `Dreeeams <${fromEmail}>`,
             to: contactData.email,
             replyTo: adminEmail,
-            subject: '¡Gracias por contactarnos! - Dream Studio',
+            subject: '¡Gracias por contactarnos! - Dreeeams',
             html: renderToStaticMarkup(UserConfirmationEmail({ formData: emailFormData })),
           }),
           resend.emails.send({
-            from: `Dream Studio Notifications <${fromEmail}>`,
+            from: `Dreeeams Notifications <${fromEmail}>`,
             to: adminEmail,
             subject: `🎯 Nuevo Lead: ${contactData.company} - ${contactData.fullName}`,
             html: renderToStaticMarkup(AdminNotificationEmail({ formData: emailFormData })),

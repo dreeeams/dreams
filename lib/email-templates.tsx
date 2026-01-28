@@ -17,7 +17,7 @@ interface ContactFormData {
   heardFrom?: string;
 }
 
-// Brand colors from Dream Studio
+// Brand colors from Dreeeams
 const COLORS = {
   black: '#000000',
   white: '#FFFFFF',
@@ -310,7 +310,7 @@ export const UserConfirmationEmail = ({ formData }: { formData: ContactFormData 
               <a href="https://dreeeams.com/terms" className="footer-link">Términos</a>
             </div>
             <div className="footer-text" style={{ marginTop: 16 }}>
-              2024 Dream Studio. Todos los derechos reservados.
+              2024 Dreeeams. Todos los derechos reservados.
             </div>
           </div>
         </div>
@@ -620,7 +620,7 @@ export const AdminNotificationEmail = ({ formData }: { formData: ContactFormData
             </div>
 
             <div className="actions">
-              <a href={`mailto:${formData.email}?subject=Re: Tu solicitud en Dream Studio`} className="action-button">
+              <a href={`mailto:${formData.email}?subject=Re: Tu solicitud en Dreeeams`} className="action-button">
                 Responder Email
               </a>
               <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} className="action-button">
@@ -630,7 +630,7 @@ export const AdminNotificationEmail = ({ formData }: { formData: ContactFormData
           </div>
 
           <div className="footer">
-            Dream Studio - Sistema de Notificaciones
+            Dreeeams - Sistema de Notificaciones
           </div>
         </div>
       </body>

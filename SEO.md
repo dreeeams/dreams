@@ -44,7 +44,7 @@ All critical SEO elements are implemented and configured for optimal search engi
 {
   width: 1200,
   height: 630,
-  alt: 'Dream Studio - Digital Product Development',
+  alt: 'Dreeeams - Digital Product Development',
   contentType: 'image/png'
 }
 ```
@@ -56,7 +56,7 @@ All critical SEO elements are implemented and configured for optimal search engi
 ```json
 {
   "@type": "Organization",
-  "name": "Dream Studio",
+  "name": "Dreeeams",
   "url": "https://dreeeams.com",
   "logo": "https://dreeeams.com/og-image.png",
   "description": "Web and mobile development agency...",
@@ -74,12 +74,12 @@ All critical SEO elements are implemented and configured for optimal search engi
 ```json
 {
   "@type": "WebSite",
-  "name": "Dream Studio",
+  "name": "Dreeeams",
   "url": "https://dreeeams.com",
   "inLanguage": ["en-US", "es-ES"],
   "publisher": {
     "@type": "Organization",
-    "name": "Dream Studio"
+    "name": "Dreeeams"
   }
 }
 ```
@@ -401,25 +401,25 @@ curl -I https://dreeeams.com/opengraph-image
 
 **English:**
 ```
-Title: Dream Studio | Web & Mobile Development Agency
+Title: Dreeeams | Web & Mobile Development Agency
 Description: We build beautiful, scalable digital products. Modern web apps, mobile applications, and exceptional user experiences. React, Next.js, React Native experts.
 ```
 
 **Spanish:**
 ```
-Title: Dream Studio | Agencia de Desarrollo Web y Móvil
+Title: Dreeeams | Agencia de Desarrollo Web y Móvil
 Description: Construimos productos digitales hermosos y escalables. Aplicaciones web modernas, apps móviles y experiencias de usuario excepcionales. Expertos en React, Next.js y React Native.
 ```
 
 ### Privacy Policy
 
-**Title Format:** `Privacy Policy | Dream Studio`
-**Description:** "Learn how Dream Studio collects, uses, and protects your personal information."
+**Title Format:** `Privacy Policy | Dreeeams`
+**Description:** "Learn how Dreeeams collects, uses, and protects your personal information."
 
 ### Terms of Service
 
-**Title Format:** `Terms of Service | Dream Studio`
-**Description:** "Read Dream Studio's terms of service and understand our project terms, payments, and intellectual property rights."
+**Title Format:** `Terms of Service | Dreeeams`
+**Description:** "Read Dreeeams's terms of service and understand our project terms, payments, and intellectual property rights."
 
 ---
 

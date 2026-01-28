@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Dream Studio - Digital Product Development',
-    short_name: 'Dream Studio',
+    name: 'Dreeeams - Digital Product Development',
+    short_name: 'Dreeeams',
     description: 'We build beautiful, scalable digital products. Modern web apps, mobile applications, and exceptional user experiences.',
     start_url: '/',
     display: 'standalone',

@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Dream Studio - Agencia de Desarrollo Web y Móvil';
+export const alt = 'Dreeeams - Agencia de Desarrollo Web y Móvil';
 export const size = {
   width: 1200,
   height: 630,
@@ -37,7 +37,7 @@ export default async function Image() {
             position: 'relative',
           }}
         >
-          {/* Dream Studio Logo SVG */}
+          {/* Dreeeams Logo SVG */}
           <div
             style={{
               display: 'flex',

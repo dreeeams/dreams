@@ -79,7 +79,7 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex items-center justify-between">
             {/* Left Side - Logo */}
-            <Link href="/" aria-label="Dream Studio Home">
+            <Link href="/" aria-label="Dreeeams Home">
               <m.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center cursor-pointer"

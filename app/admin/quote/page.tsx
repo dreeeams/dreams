@@ -40,7 +40,7 @@ export default function QuotePage() {
     clientNIT: '',
     clientEmail: '',
     clientPhone: '',
-    companyName: 'Dream Studio',
+    companyName: 'Dreeeams',
     companyNIT: '123456789-0',
     companyAddress: 'Bogotá D.C.',
     discount: '',

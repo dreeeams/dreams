@@ -18,7 +18,7 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://dreeeams.com'),
-  title: 'Dream Studio - Web & App Development Studio',
+  title: 'Dreeeams - Web & App Development Studio',
   description:
     'We build stunning websites, mobile apps, and digital experiences. Custom software development with cutting-edge design.',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'UI/UX design',
     'tech consulting',
   ],
-  authors: [{ name: 'Dream Studio' }],
+  authors: [{ name: 'Dreeeams' }],
 };
 
 export const viewport: Viewport = {

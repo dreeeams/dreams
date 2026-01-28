@@ -13,7 +13,7 @@ export default function PaymentsPage() {
         <div className="flex flex-col items-center mb-8">
           <Logo className="h-auto w-auto max-w-[120px] mb-4" fill="currentColor" />
           <h1 className="text-3xl font-bold text-gray-900 text-center">Información de Pago</h1>
-          <p className="text-gray-600 mt-2 text-center">Dream Studio</p>
+          <p className="text-gray-600 mt-2 text-center">Dreeeams</p>
         </div>
 
         {/* Company Information */}
@@ -29,7 +29,7 @@ export default function PaymentsPage() {
                 <Building2 className="h-4 w-4 text-gray-400 mt-0.5" />
                 <div>
                   <p className="font-medium text-gray-700">Razón Social</p>
-                  <p className="text-gray-600">Dream Studio</p>
+                  <p className="text-gray-600">Dreeeams</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -98,7 +98,7 @@ export default function PaymentsPage() {
               </div>
               <div>
                 <p className="font-medium text-gray-700">Titular</p>
-                <p className="text-gray-900">Dream Studio</p>
+                <p className="text-gray-900">Dreeeams</p>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function PaymentsPage() {
           {/* Footer Note */}
           <div className="text-center text-xs text-gray-500 pt-4">
             <p>Para cualquier consulta, no dude en contactarnos</p>
-            <p className="mt-1">Dream Studio © {new Date().getFullYear()}</p>
+            <p className="mt-1">Dreeeams © {new Date().getFullYear()}</p>
           </div>
 
           {/* Footer Links */}

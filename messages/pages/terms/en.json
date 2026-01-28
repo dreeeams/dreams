@@ -1,8 +1,8 @@
 {
   "terms": {
     "meta": {
-      "title": "Terms of Service | Dream Studio",
-      "description": "Read our terms of service and understand the agreement between Dream Studio and our clients."
+      "title": "Terms of Service | Dreeeams",
+      "description": "Read our terms of service and understand the agreement between Dreeeams and our clients."
     },
     "title": "Terms of Service",
     "lastUpdated": "Last Updated",
@@ -10,11 +10,11 @@
     "sections": {
       "introduction": {
         "title": "Introduction",
-        "p1": "These Terms of Service govern your use of Dream Studio's website and services. By accessing or using our services, you agree to be bound by these terms."
+        "p1": "These Terms of Service govern your use of Dreeeams's website and services. By accessing or using our services, you agree to be bound by these terms."
       },
       "services": {
         "title": "Our Services",
-        "p1": "Dream Studio provides the following professional services:",
+        "p1": "Dreeeams provides the following professional services:",
         "items": {
           "web": "Web application development using modern frameworks",
           "mobile": "Mobile application development for iOS and Android",
@@ -48,7 +48,7 @@
       },
       "ip": {
         "title": "Intellectual Property",
-        "p1": "Upon full payment, all deliverables and custom code become the property of the client. Dream Studio retains the right to showcase the project in our portfolio unless otherwise agreed.",
+        "p1": "Upon full payment, all deliverables and custom code become the property of the client. Dreeeams retains the right to showcase the project in our portfolio unless otherwise agreed.",
         "p2": "We retain ownership of any pre-existing code, frameworks, or tools used in the project. The client receives a license to use these as part of the delivered solution."
       },
       "warranties": {
@@ -58,7 +58,7 @@
       },
       "liability": {
         "title": "Limitation of Liability",
-        "p1": "Dream Studio is not liable for indirect, incidental, or consequential damages. Our total liability is limited to the amount paid for services."
+        "p1": "Dreeeams is not liable for indirect, incidental, or consequential damages. Our total liability is limited to the amount paid for services."
       },
       "termination": {
         "title": "Termination",

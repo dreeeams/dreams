@@ -1,7 +1,7 @@
 {
   "loader": {
     "messages": {
-      "init": "> Inicializando Dream Studio...",
+      "init": "> Inicializando Dreeeams...",
       "loading": "> Cargando motor creativo...",
       "compiling": "> Compilando sistemas de diseño...",
       "preparing": "> Preparando experiencia...",
@@ -385,7 +385,7 @@
     "title": "Instrucciones de Pago",
     "lastUpdated": "Última Actualización: Enero 2026",
     "backToHome": "Volver al Inicio",
-    "intro": "Gracias por confiar en Dream Studio. A continuación encontrarás las diferentes opciones para realizar tu pago de forma segura y conveniente.",
+    "intro": "Gracias por confiar en Dreeeams. A continuación encontrarás las diferentes opciones para realizar tu pago de forma segura y conveniente.",
     "tabs": {
       "colombia": "Colombia",
       "usa": "USA",
@@ -476,7 +476,7 @@
   },
   "uiuxPage": {
     "meta": {
-      "title": "Servicios de Diseño UI/UX | Dream Studio",
+      "title": "Servicios de Diseño UI/UX | Dreeeams",
       "description": "Diseño centrado en el usuario que combina estética con funcionalidad. Creamos interfaces hermosas que resuelven problemas reales."
     },
     "hero": {
@@ -577,8 +577,8 @@
   },
   "privacy": {
     "meta": {
-      "title": "Política de Privacidad | Dream Studio",
-      "description": "Conoce cómo Dream Studio recopila, usa y protege tu información personal."
+      "title": "Política de Privacidad | Dreeeams",
+      "description": "Conoce cómo Dreeeams recopila, usa y protege tu información personal."
     },
     "title": "Política de Privacidad",
     "lastUpdated": "Última Actualización",
@@ -586,7 +586,7 @@
     "sections": {
       "introduction": {
         "title": "Introducción",
-        "p1": "En Dream Studio, nos tomamos tu privacidad en serio. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos tu información cuando visitas nuestro sitio web o usas nuestros servicios.",
+        "p1": "En Dreeeams, nos tomamos tu privacidad en serio. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos tu información cuando visitas nuestro sitio web o usas nuestros servicios.",
         "p2": "Por favor lee esta política de privacidad cuidadosamente. Si no estás de acuerdo con los términos de esta política de privacidad, por favor no accedas al sitio ni uses nuestros servicios."
       },
       "collect": {
@@ -650,8 +650,8 @@
   },
   "terms": {
     "meta": {
-      "title": "Términos de Servicio | Dream Studio",
-      "description": "Lee nuestros términos de servicio y comprende el acuerdo entre Dream Studio y nuestros clientes."
+      "title": "Términos de Servicio | Dreeeams",
+      "description": "Lee nuestros términos de servicio y comprende el acuerdo entre Dreeeams y nuestros clientes."
     },
     "title": "Términos de Servicio",
     "lastUpdated": "Última Actualización",
@@ -659,11 +659,11 @@
     "sections": {
       "introduction": {
         "title": "Introducción",
-        "p1": "Estos Términos de Servicio rigen tu uso del sitio web y servicios de Dream Studio. Al acceder o usar nuestros servicios, aceptas estar sujeto a estos términos."
+        "p1": "Estos Términos de Servicio rigen tu uso del sitio web y servicios de Dreeeams. Al acceder o usar nuestros servicios, aceptas estar sujeto a estos términos."
       },
       "services": {
         "title": "Nuestros Servicios",
-        "p1": "Dream Studio proporciona los siguientes servicios profesionales:",
+        "p1": "Dreeeams proporciona los siguientes servicios profesionales:",
         "items": {
           "web": "Desarrollo de aplicaciones web utilizando frameworks modernos",
           "mobile": "Desarrollo de aplicaciones móviles para iOS y Android",
@@ -697,7 +697,7 @@
       },
       "ip": {
         "title": "Propiedad Intelectual",
-        "p1": "Al completar el pago completo, todos los entregables y código personalizado se convierten en propiedad del cliente. Dream Studio se reserva el derecho de mostrar el proyecto en nuestro portafolio a menos que se acuerde lo contrario.",
+        "p1": "Al completar el pago completo, todos los entregables y código personalizado se convierten en propiedad del cliente. Dreeeams se reserva el derecho de mostrar el proyecto en nuestro portafolio a menos que se acuerde lo contrario.",
         "p2": "Retenemos la propiedad de cualquier código preexistente, frameworks o herramientas utilizadas en el proyecto. El cliente recibe una licencia para usar estos como parte de la solución entregada."
       },
       "warranties": {
@@ -707,7 +707,7 @@
       },
       "liability": {
         "title": "Limitación de Responsabilidad",
-        "p1": "Dream Studio no es responsable de daños indirectos, incidentales o consecuentes. Nuestra responsabilidad total está limitada a la cantidad pagada por los servicios."
+        "p1": "Dreeeams no es responsable de daños indirectos, incidentales o consecuentes. Nuestra responsabilidad total está limitada a la cantidad pagada por los servicios."
       },
       "termination": {
         "title": "Terminación",
@@ -721,7 +721,7 @@
   },
   "seoContent": {
     "heading": "Agencia de Desarrollo Web Profesional - Soluciones de Desarrollo de Apps Móviles",
-    "paragraph1": "Dream Studio es una agencia de desarrollo web profesional especializada en aplicaciones web personalizadas, desarrollo de apps móviles y soluciones SaaS de vanguardia. Nuestro equipo experto de desarrolladores React, Next.js y React Native entrega productos digitales de alto rendimiento que generan resultados comerciales reales. Como agencia líder en desarrollo web, combinamos excelencia técnica con diseño excepcional para crear aplicaciones web y apps móviles que los usuarios adoran.",
+    "paragraph1": "Dreeeams es una agencia de desarrollo web profesional especializada en aplicaciones web personalizadas, desarrollo de apps móviles y soluciones SaaS de vanguardia. Nuestro equipo experto de desarrolladores React, Next.js y React Native entrega productos digitales de alto rendimiento que generan resultados comerciales reales. Como agencia líder en desarrollo web, combinamos excelencia técnica con diseño excepcional para crear aplicaciones web y apps móviles que los usuarios adoran.",
     "paragraph2": "Nuestra agencia de desarrollo web sirve a startups, empresas en crecimiento y corporaciones que buscan construir productos digitales escalables. Desde proyectos de desarrollo web personalizado hasta desarrollo de apps móviles para iOS y Android, manejamos cada aspecto de tu transformación digital. Nos especializamos en desarrollo React, aplicaciones web Next.js y apps móviles React Native, asegurando que tu producto esté construido con tecnologías modernas y preparadas para el futuro que ofrecen rendimiento excepcional y experiencia de usuario.",
     "whyChooseHeading": "Por Qué Elegir Nuestra Agencia de Desarrollo Web",
     "paragraph3": "Como agencia de desarrollo web profesional, nos enorgullecemos de entregar proyectos que superan las expectativas. Nuestro enfoque de desarrollo web personalizado significa que cada aplicación web y app móvil está adaptada a tus necesidades comerciales específicas. No usamos plantillas genéricas - nuestros desarrolladores web crean soluciones personalizadas que resuelven problemas reales. Con experiencia en React, Next.js y React Native, nuestra agencia de desarrollo web construye aplicaciones que son rápidas, escalables y mantenibles. Hemos ayudado a empresas a lograr tiempos de carga 40% más rápidos, tasas de retención de clientes del 90% y ROI medible a través de nuestros servicios profesionales de desarrollo web.",

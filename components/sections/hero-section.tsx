@@ -18,7 +18,7 @@ export default function HeroSection() {
       {/* Hero Banner GIF as Background */}
       <Image
         src={`${cdnUrl}/storage/v1/object/public/content/hero_banner.gif`}
-        alt="Dream Studio Hero Banner"
+        alt="Dreeeams Hero Banner"
         fill
         sizes="100vw"
         className="object-cover"

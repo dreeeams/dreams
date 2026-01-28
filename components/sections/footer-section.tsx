@@ -46,7 +46,7 @@ export default function FooterSection() {
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Link href="/" aria-label="Dream Studio Home">
+            <Link href="/" aria-label="Dreeeams Home">
               <Logo
                 className="h-auto w-auto max-w-[180px] mb-3"
                 fill="white"
@@ -91,7 +91,7 @@ export default function FooterSection() {
         {/* Bottom */}
         <div className="border-t border-overlay-border-light pt-8 flex justify-between items-center">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Dream Studio. {tFooter('rights')}.
+            © {new Date().getFullYear()} Dreeeams. {tFooter('rights')}.
           </p>
           {showAdminLink && (
             <Link

@@ -24,12 +24,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const metadata = {
     en: {
-      title: 'Dream Studio - Web & Mobile App Development Agency',
+      title: 'Dreeeams - Web & Mobile App Development Agency',
       description: 'Expert web development agency. Custom web apps, mobile apps, and SaaS solutions with React, Next.js & React Native. Fast delivery, proven results.',
       keywords: 'web development agency, mobile app development company, custom web development, professional web developers, react development agency, nextjs development, react native developers, web application development, mobile application development, software development company, web design agency, app development services, saas development, ecommerce development, ui ux design agency, frontend development, backend development, full stack developers, web development services, app development agency, digital agency, technology consulting, startup development, mvp development, web app development, progressive web apps, responsive web design, api development, cloud development, agile development, software consulting',
     },
     es: {
-      title: 'Dream Studio - Agencia Desarrollo Web y Apps Móviles',
+      title: 'Dreeeams - Agencia Desarrollo Web y Apps Móviles',
       description: 'Agencia experta en desarrollo web. Apps web, móviles y SaaS con React, Next.js y React Native. Entrega rápida y resultados comprobados.',
       keywords: 'agencia desarrollo web, empresa desarrollo aplicaciones móviles, desarrollo web personalizado, desarrolladores web profesionales, agencia desarrollo react, desarrollo nextjs, desarrolladores react native, desarrollo aplicaciones web, desarrollo aplicaciones móviles, empresa desarrollo software, agencia diseño web, servicios desarrollo apps, desarrollo saas, desarrollo ecommerce, agencia diseño ui ux, desarrollo frontend, desarrollo backend, desarrolladores full stack, servicios desarrollo web, agencia desarrollo apps, agencia digital, consultoría tecnológica, desarrollo startups, desarrollo mvp, desarrollo web app, aplicaciones web progresivas, diseño web responsive, desarrollo api, desarrollo cloud, desarrollo ágil, consultoría software',
     },
@@ -41,9 +41,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    authors: [{ name: 'Dream Studio' }],
-    creator: 'Dream Studio',
-    publisher: 'Dream Studio',
+    authors: [{ name: 'Dreeeams' }],
+    creator: 'Dreeeams',
+    publisher: 'Dreeeams',
     formatDetection: {
       email: false,
       address: false,
@@ -64,13 +64,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       url: `${baseUrl}/${locale}`,
       title: meta.title,
       description: meta.description,
-      siteName: 'Dream Studio',
+      siteName: 'Dreeeams',
       images: [
         {
           url: '/og-image.png',
           width: 1200,
           height: 630,
-          alt: 'Dream Studio - Digital Product Development',
+          alt: 'Dreeeams - Digital Product Development',
         },
       ],
     },
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: meta.description,
       images: {
         url: '/og-image.png',
-        alt: 'Dream Studio - Professional Web & Mobile App Development Agency',
+        alt: 'Dreeeams - Professional Web & Mobile App Development Agency',
       },
     },
     robots: {
@@ -125,7 +125,7 @@ export default async function LocaleLayout({
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'LocalBusiness', 'ProfessionalService'],
-    name: 'Dream Studio',
+    name: 'Dreeeams',
     url: baseUrl,
     logo: `${baseUrl}/og-image.png`,
     image: `${baseUrl}/og-image.png`,
@@ -218,7 +218,7 @@ export default async function LocaleLayout({
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Dream Studio',
+    name: 'Dreeeams',
     url: baseUrl,
     description: locale === 'es'
       ? 'Construimos productos digitales hermosos y escalables. Aplicaciones web modernas, apps móviles y experiencias de usuario excepcionales.'
@@ -226,7 +226,7 @@ export default async function LocaleLayout({
     inLanguage: [locale === 'es' ? 'es-ES' : 'en-US'],
     publisher: {
       '@type': 'Organization',
-      name: 'Dream Studio',
+      name: 'Dreeeams',
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/og-image.png`,

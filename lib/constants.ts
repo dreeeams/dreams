@@ -49,10 +49,10 @@ export const API_ENDPOINTS = {
 
 // SEO
 export const SEO = {
-  DEFAULT_TITLE: 'Dream Studio - Web & Mobile App Development Experts',
+  DEFAULT_TITLE: 'Dreeeams - Web & Mobile App Development Experts',
   DEFAULT_DESCRIPTION:
-    'Dream Studio builds scalable web and mobile apps. Expert developers in React, Next.js & React Native.',
-  SITE_NAME: 'Dream Studio',
+    'Dreeeams builds scalable web and mobile apps. Expert developers in React, Next.js & React Native.',
+  SITE_NAME: 'Dreeeams',
   TWITTER_HANDLE: '@dreamstudio',
 } as const;
 

@@ -7,7 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('services.webDev');
 
   return {
-    title: `${t('title')} - Dream Studio`,
+    title: `${t('title')} - Dreeeams`,
     description: t('metaDescription'),
   };
 }

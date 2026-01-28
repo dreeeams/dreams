@@ -1,7 +1,7 @@
 {
   "loader": {
     "messages": {
-      "init": "> Initializing Dream Studio...",
+      "init": "> Initializing Dreeeams...",
       "loading": "> Loading creative engine...",
       "compiling": "> Compiling design systems...",
       "preparing": "> Preparing experience...",
@@ -385,7 +385,7 @@
     "title": "Payment Instructions",
     "lastUpdated": "Last Updated: January 2026",
     "backToHome": "Back to Home",
-    "intro": "Thank you for trusting Dream Studio. Below you'll find different options to make your payment securely and conveniently.",
+    "intro": "Thank you for trusting Dreeeams. Below you'll find different options to make your payment securely and conveniently.",
     "tabs": {
       "colombia": "Colombia",
       "usa": "USA",
@@ -476,7 +476,7 @@
   },
   "uiuxPage": {
     "meta": {
-      "title": "UI/UX Design Services | Dream Studio",
+      "title": "UI/UX Design Services | Dreeeams",
       "description": "User-centered design that combines aesthetics with functionality. We create beautiful interfaces that solve real problems."
     },
     "hero": {
@@ -577,8 +577,8 @@
   },
   "privacy": {
     "meta": {
-      "title": "Privacy Policy | Dream Studio",
-      "description": "Learn how Dream Studio collects, uses, and protects your personal information."
+      "title": "Privacy Policy | Dreeeams",
+      "description": "Learn how Dreeeams collects, uses, and protects your personal information."
     },
     "title": "Privacy Policy",
     "lastUpdated": "Last Updated",
@@ -586,7 +586,7 @@
     "sections": {
       "introduction": {
         "title": "Introduction",
-        "p1": "At Dream Studio, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.",
+        "p1": "At Dreeeams, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.",
         "p2": "Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services."
       },
       "collect": {
@@ -650,8 +650,8 @@
   },
   "terms": {
     "meta": {
-      "title": "Terms of Service | Dream Studio",
-      "description": "Read our terms of service and understand the agreement between Dream Studio and our clients."
+      "title": "Terms of Service | Dreeeams",
+      "description": "Read our terms of service and understand the agreement between Dreeeams and our clients."
     },
     "title": "Terms of Service",
     "lastUpdated": "Last Updated",
@@ -659,11 +659,11 @@
     "sections": {
       "introduction": {
         "title": "Introduction",
-        "p1": "These Terms of Service govern your use of Dream Studio's website and services. By accessing or using our services, you agree to be bound by these terms."
+        "p1": "These Terms of Service govern your use of Dreeeams's website and services. By accessing or using our services, you agree to be bound by these terms."
       },
       "services": {
         "title": "Our Services",
-        "p1": "Dream Studio provides the following professional services:",
+        "p1": "Dreeeams provides the following professional services:",
         "items": {
           "web": "Web application development using modern frameworks",
           "mobile": "Mobile application development for iOS and Android",
@@ -697,7 +697,7 @@
       },
       "ip": {
         "title": "Intellectual Property",
-        "p1": "Upon full payment, all deliverables and custom code become the property of the client. Dream Studio retains the right to showcase the project in our portfolio unless otherwise agreed.",
+        "p1": "Upon full payment, all deliverables and custom code become the property of the client. Dreeeams retains the right to showcase the project in our portfolio unless otherwise agreed.",
         "p2": "We retain ownership of any pre-existing code, frameworks, or tools used in the project. The client receives a license to use these as part of the delivered solution."
       },
       "warranties": {
@@ -707,7 +707,7 @@
       },
       "liability": {
         "title": "Limitation of Liability",
-        "p1": "Dream Studio is not liable for indirect, incidental, or consequential damages. Our total liability is limited to the amount paid for services."
+        "p1": "Dreeeams is not liable for indirect, incidental, or consequential damages. Our total liability is limited to the amount paid for services."
       },
       "termination": {
         "title": "Termination",
@@ -721,7 +721,7 @@
   },
   "seoContent": {
     "heading": "Professional Web Development Agency - Custom Mobile App Development Solutions",
-    "paragraph1": "Dream Studio is a professional web development agency specializing in custom web applications, mobile app development, and cutting-edge SaaS solutions. Our expert team of React, Next.js, and React Native developers delivers high-performance digital products that drive real business results. As a leading web development agency, we combine technical excellence with exceptional design to create web applications and mobile apps that users love.",
+    "paragraph1": "Dreeeams is a professional web development agency specializing in custom web applications, mobile app development, and cutting-edge SaaS solutions. Our expert team of React, Next.js, and React Native developers delivers high-performance digital products that drive real business results. As a leading web development agency, we combine technical excellence with exceptional design to create web applications and mobile apps that users love.",
     "paragraph2": "Our web development agency serves startups, growing businesses, and enterprises looking to build scalable digital products. From custom web development projects to mobile app development for iOS and Android, we handle every aspect of your digital transformation. We specialize in React development, Next.js web applications, and React Native mobile apps, ensuring your product is built with modern, future-proof technologies that deliver exceptional performance and user experience.",
     "whyChooseHeading": "Why Choose Our Web Development Agency",
     "paragraph3": "As a professional web development agency, we pride ourselves on delivering projects that exceed expectations. Our custom web development approach means every web application and mobile app is tailored to your specific business needs. We don't use generic templates - our web developers create bespoke solutions that solve real problems. With expertise in React, Next.js, and React Native, our web development agency builds applications that are fast, scalable, and maintainable. We've helped companies achieve 40% faster load times, 90% client retention rates, and measurable ROI through our professional web development services.",

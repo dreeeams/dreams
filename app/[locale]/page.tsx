@@ -38,8 +38,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     '@id': `${baseUrl}/${locale}#webpage`,
     url: `${baseUrl}/${locale}`,
     name: locale === 'es'
-      ? 'Dream Studio - Agencia Desarrollo Web y Apps Móviles'
-      : 'Dream Studio - Web & Mobile App Development Agency',
+      ? 'Dreeeams - Agencia Desarrollo Web y Apps Móviles'
+      : 'Dreeeams - Web & Mobile App Development Agency',
     description: locale === 'es'
       ? 'Agencia experta en desarrollo web. Apps web, móviles y SaaS con React, Next.js y React Native. Entrega rápida y resultados comprobados.'
       : 'Expert web development agency. Custom web apps, mobile apps, and SaaS solutions with React, Next.js & React Native. Fast delivery, proven results.',
@@ -65,7 +65,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     },
     mainEntity: {
       '@type': 'SoftwareApplication',
-      name: 'Dream Studio',
+      name: 'Dreeeams',
       applicationCategory: 'WebApplication',
       offers: {
         '@type': 'AggregateOffer',

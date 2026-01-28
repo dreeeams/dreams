@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
 
   const title = locale === 'es'
-    ? 'Formulario de Contacto - Dream Studio'
-    : 'Contact Form - Dream Studio';
+    ? 'Formulario de Contacto - Dreeeams'
+    : 'Contact Form - Dreeeams';
 
   const description = locale === 'es'
     ? 'Cuéntanos sobre tu proyecto. Completa el formulario y nos pondremos en contacto contigo pronto.'

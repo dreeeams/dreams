@@ -1,8 +1,8 @@
 {
   "terms": {
     "meta": {
-      "title": "Términos de Servicio | Dream Studio",
-      "description": "Lee nuestros términos de servicio y comprende el acuerdo entre Dream Studio y nuestros clientes."
+      "title": "Términos de Servicio | Dreeeams",
+      "description": "Lee nuestros términos de servicio y comprende el acuerdo entre Dreeeams y nuestros clientes."
     },
     "title": "Términos de Servicio",
     "lastUpdated": "Última Actualización",
@@ -10,11 +10,11 @@
     "sections": {
       "introduction": {
         "title": "Introducción",
-        "p1": "Estos Términos de Servicio rigen tu uso del sitio web y servicios de Dream Studio. Al acceder o usar nuestros servicios, aceptas estar sujeto a estos términos."
+        "p1": "Estos Términos de Servicio rigen tu uso del sitio web y servicios de Dreeeams. Al acceder o usar nuestros servicios, aceptas estar sujeto a estos términos."
       },
       "services": {
         "title": "Nuestros Servicios",
-        "p1": "Dream Studio proporciona los siguientes servicios profesionales:",
+        "p1": "Dreeeams proporciona los siguientes servicios profesionales:",
         "items": {
           "web": "Desarrollo de aplicaciones web utilizando frameworks modernos",
           "mobile": "Desarrollo de aplicaciones móviles para iOS y Android",
@@ -48,7 +48,7 @@
       },
       "ip": {
         "title": "Propiedad Intelectual",
-        "p1": "Al completar el pago completo, todos los entregables y código personalizado se convierten en propiedad del cliente. Dream Studio se reserva el derecho de mostrar el proyecto en nuestro portafolio a menos que se acuerde lo contrario.",
+        "p1": "Al completar el pago completo, todos los entregables y código personalizado se convierten en propiedad del cliente. Dreeeams se reserva el derecho de mostrar el proyecto en nuestro portafolio a menos que se acuerde lo contrario.",
         "p2": "Retenemos la propiedad de cualquier código preexistente, frameworks o herramientas utilizadas en el proyecto. El cliente recibe una licencia para usar estos como parte de la solución entregada."
       },
       "warranties": {
@@ -58,7 +58,7 @@
       },
       "liability": {
         "title": "Limitación de Responsabilidad",
-        "p1": "Dream Studio no es responsable de daños indirectos, incidentales o consecuentes. Nuestra responsabilidad total está limitada a la cantidad pagada por los servicios."
+        "p1": "Dreeeams no es responsable de daños indirectos, incidentales o consecuentes. Nuestra responsabilidad total está limitada a la cantidad pagada por los servicios."
       },
       "termination": {
         "title": "Terminación",

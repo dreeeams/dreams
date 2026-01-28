@@ -9,8 +9,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const metadata = {
     en: {
-      title: 'Terms of Service | Dream Studio',
-      description: 'Read our terms of service and understand the agreement between Dream Studio and our clients.',
+      title: 'Terms of Service | Dreeeams',
+      description: 'Read our terms of service and understand the agreement between Dreeeams and our clients.',
     },
     es: {
       title: 'Términos y Condiciones | LF DREAMS S.A.S.',

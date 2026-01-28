@@ -8,12 +8,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const metadata = {
     en: {
-      title: 'Legal | Dream Studio',
-      description: 'Privacy Policy and Terms & Conditions for Dream Studio services.',
+      title: 'Legal | Dreeeams',
+      description: 'Privacy Policy and Terms & Conditions for Dreeeams services.',
     },
     es: {
-      title: 'Legal | Dream Studio',
-      description: 'Política de Privacidad y Términos y Condiciones de los servicios de Dream Studio.',
+      title: 'Legal | Dreeeams',
+      description: 'Política de Privacidad y Términos y Condiciones de los servicios de Dreeeams.',
     },
   };
 
@@ -49,7 +49,7 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       privacyPolicy: {
         title: 'Privacy Policy',
         subtitle: 'About Our Privacy Policy',
-        intro: 'At Dream Studio, we are committed to protecting your privacy and ensuring the security of your personal information. Our comprehensive Privacy Policy details how we collect, use, store, and protect your data in accordance with applicable laws and regulations.',
+        intro: 'At Dreeeams, we are committed to protecting your privacy and ensuring the security of your personal information. Our comprehensive Privacy Policy details how we collect, use, store, and protect your data in accordance with applicable laws and regulations.',
         paragraph1: 'We collect only the information necessary to provide our services and improve your experience. Your data is processed with the highest security standards and is never sold to third parties.',
         keyPoints: 'Key Points:',
         points: [
@@ -63,13 +63,13 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       termsConditions: {
         title: 'Terms & Conditions',
         subtitle: 'Terms of Service',
-        intro: "These Terms & Conditions govern your use of Dream Studio's services, including our websites, applications, and any digital products we provide. By using our services, you agree to these terms.",
+        intro: "These Terms & Conditions govern your use of Dreeeams's services, including our websites, applications, and any digital products we provide. By using our services, you agree to these terms.",
         serviceUsage: 'Service Usage:',
         points: [
           'You must be at least 18 years old to use our services',
           'You are responsible for maintaining the security of your account',
           'Misuse of our services may result in termination of access',
-          'All content and intellectual property remain the property of Dream Studio',
+          'All content and intellectual property remain the property of Dreeeams',
         ],
         payment: 'Payment & Refunds:',
         paymentText: 'Payment terms, refund policies, and subscription details are outlined in our complete Terms & Conditions document.',
@@ -97,7 +97,7 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       privacyPolicy: {
         title: 'Política de Privacidad',
         subtitle: 'Sobre Nuestra Política de Privacidad',
-        intro: 'En Dream Studio, estamos comprometidos con la protección de tu privacidad y la seguridad de tu información personal. Nuestra Política de Privacidad detalla cómo recopilamos, usamos, almacenamos y protegemos tus datos de acuerdo con las leyes y regulaciones aplicables.',
+        intro: 'En Dreeeams, estamos comprometidos con la protección de tu privacidad y la seguridad de tu información personal. Nuestra Política de Privacidad detalla cómo recopilamos, usamos, almacenamos y protegemos tus datos de acuerdo con las leyes y regulaciones aplicables.',
         paragraph1: 'Recopilamos únicamente la información necesaria para proveer nuestros servicios y mejorar tu experiencia. Tus datos son procesados con los más altos estándares de seguridad y nunca se venden a terceros.',
         keyPoints: 'Puntos Clave:',
         points: [
@@ -111,13 +111,13 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       termsConditions: {
         title: 'Términos y Condiciones',
         subtitle: 'Términos de Servicio',
-        intro: 'Estos Términos y Condiciones rigen tu uso de los servicios de Dream Studio, incluyendo nuestros sitios web, aplicaciones y cualquier producto digital que proveemos. Al usar nuestros servicios, aceptas estos términos.',
+        intro: 'Estos Términos y Condiciones rigen tu uso de los servicios de Dreeeams, incluyendo nuestros sitios web, aplicaciones y cualquier producto digital que proveemos. Al usar nuestros servicios, aceptas estos términos.',
         serviceUsage: 'Uso del Servicio:',
         points: [
           'Debes tener al menos 18 años para usar nuestros servicios',
           'Eres responsable de mantener la seguridad de tu cuenta',
           'El mal uso de nuestros servicios puede resultar en la terminación del acceso',
-          'Todo el contenido y propiedad intelectual permanece como propiedad de Dream Studio',
+          'Todo el contenido y propiedad intelectual permanece como propiedad de Dreeeams',
         ],
         payment: 'Pagos y Reembolsos:',
         paymentText: 'Los términos de pago, políticas de reembolso y detalles de suscripción están detallados en nuestro documento completo de Términos y Condiciones.',

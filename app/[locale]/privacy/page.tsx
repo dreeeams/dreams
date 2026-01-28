@@ -9,8 +9,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const metadata = {
     en: {
-      title: 'Privacy Policy | Dream Studio',
-      description: 'Learn how Dream Studio collects, uses, and protects your personal information.',
+      title: 'Privacy Policy | Dreeeams',
+      description: 'Learn how Dreeeams collects, uses, and protects your personal information.',
     },
     es: {
       title: 'Política de Privacidad | LF DREAMS S.A.S.',
