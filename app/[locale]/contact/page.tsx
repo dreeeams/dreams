@@ -32,6 +32,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
+  const subtitle = locale === 'es'
+    ? 'Agenda una sesión estratégica de 15 minutos para discutir tus requerimientos, cronograma y cómo podemos entregar resultados excepcionales'
+    : 'Book a 15-minute strategy session to discuss your requirements, timeline, and how we can deliver exceptional results';
+
   return (
     <div className="min-h-screen bg-black">
       <Navigation />
@@ -40,11 +44,16 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <div className="max-w-5xl mx-auto">
             {/* Title */}
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl font-nostalgic text-white mb-12 text-center"
+              className="text-4xl sm:text-5xl md:text-6xl font-nostalgic text-white mb-6 text-center"
               style={{ letterSpacing: '-0.04em' }}
             >
               Tell us more
             </h1>
+
+            {/* Subtitle */}
+            <p className="text-base md:text-lg text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+              {subtitle}
+            </p>
 
             {/* Cal.com Calendar Embed */}
             <CalendarEmbed />
