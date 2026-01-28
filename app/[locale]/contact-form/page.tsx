@@ -7,16 +7,6 @@ import FooterSection from '@/components/sections/footer-section';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preview.dreeeams.com';
 
-// Only allow access in development/localhost
-function checkLocalhost() {
-  const isDev = process.env.NODE_ENV === 'development';
-  const isLocalhost = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
-
-  if (!isDev && !isLocalhost) {
-    redirect('/contact');
-  }
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
 
@@ -41,7 +31,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function ContactFormPage({ params }: { params: Promise<{ locale: string }> }) {
-  checkLocalhost();
+  // Redirect to /contact in production
+  const isDev = process.env.NODE_ENV === 'development';
+
+  if (!isDev) {
+    redirect('/contact');
+  }
 
   const { locale } = await params;
   const t = await getTranslations('contact');
