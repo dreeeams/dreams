@@ -85,12 +85,6 @@ export default function FooterSection() {
                 Legal
               </Link>
             </div>
-
-            <div className="space-y-3">
-              <a href="mailto:info@dreeeams.com" className="block text-sm text-gray-400 hover:text-white transition-colors">
-                Email
-              </a>
-            </div>
           </div>
         </div>
 
