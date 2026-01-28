@@ -40,7 +40,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic leading-tight tracking-wider max-w-4xl"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-nostalgic leading-tight tracking-wider max-w-4xl line-clamp-2"
         >
           {t('title')}
         </m.h2>
