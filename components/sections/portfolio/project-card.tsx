@@ -192,9 +192,6 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
         <h3 className="text-xl md:text-2xl font-bold font-nostalgic">
           {project.titleKey}
         </h3>
-        <p className="text-sm text-gray-600 leading-relaxed">
-          {tProjects(`${project.descriptionKey}.description`)}
-        </p>
 
         {/* URL if available */}
         {project.url && !project.isMockup && !project.isIcon && (
