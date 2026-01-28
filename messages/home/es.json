@@ -42,7 +42,14 @@
     "eventPlanners": "Event Planners",
     "ecommerce": "Ecommerce Businesses",
     "agencies": "Agencies",
-    "personalBrands": "Personal Brands"
+    "personalBrands": "Personal Brands",
+    "construction": "Constructoras",
+    "restaurants": "Restaurantes & Cafés",
+    "healthcare": "Salud & Bienestar",
+    "realestate": "Bienes Raíces",
+    "education": "Educación & Capacitación",
+    "fitness": "Fitness & Deportes",
+    "consultants": "Consultores & Coaches"
   },
   "services": {
     "title": "Diseño limpio y escalable que te ayuda a lanzar más rápido y aumentar tus ingresos.",

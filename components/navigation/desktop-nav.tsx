@@ -31,7 +31,7 @@ export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStart
         <m.a
           layoutId="get-started-button"
           whileTap={{ scale: 0.98 }}
-          href="#contact"
+          href="/contact"
           className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-fast ${
             isAtTop
               ? 'text-black bg-white border-overlay-border-medium hover:bg-gray-200'

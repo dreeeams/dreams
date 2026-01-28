@@ -1,8 +1,8 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import ContactForm from '@/components/contact/contact-form';
 import Navigation from '@/components/navigation';
 import FooterSection from '@/components/sections/footer-section';
+import CalendarEmbed from '@/components/contact/calendar-embed';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preview.dreeeams.com';
 
@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     : 'Contact - Dream Studio';
 
   const description = locale === 'es'
-    ? 'Cuéntanos sobre tu proyecto. Completa el formulario y nos pondremos en contacto contigo pronto.'
-    : 'Tell us about your project. Fill out the form and we\'ll get back to you as soon as possible.';
+    ? 'Agenda una reunión con nosotros. Cuéntanos sobre tu proyecto.'
+    : 'Schedule a meeting with us. Tell us about your project.';
 
   return {
     title,
@@ -31,26 +31,24 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations('contact');
 
   return (
     <div className="min-h-screen bg-black">
       <Navigation />
-      <main id="main-content" className="pt-24">
-        <div className="max-w-4xl mx-auto px-6 py-12">
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-nostalgic mb-4 text-white">
-              {t('title')}
+      <main id="main-content" className="pt-24 min-h-screen">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24">
+          <div className="max-w-5xl mx-auto">
+            {/* Title */}
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl font-nostalgic text-white mb-12 text-center"
+              style={{ letterSpacing: '-0.04em' }}
+            >
+              Tell us more
             </h1>
-            <p className="text-lg text-gray-300">
-              {t('subtitle')}
-            </p>
-            <p className="text-sm text-gray-400 mt-2">
-              {t('directContact')}
-            </p>
-          </div>
 
-          <ContactForm />
+            {/* Cal.com Calendar Embed */}
+            <CalendarEmbed />
+          </div>
         </div>
       </main>
       <FooterSection />

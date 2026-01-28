@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior removed - using Lenis for smooth scroll */
   }
 
   :root {
@@ -68,7 +68,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior removed - using Lenis for smooth scroll */
     overflow-x: hidden;
     width: 100%;
     scrollbar-width: none; /* Firefox */

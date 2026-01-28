@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 export default function ServicesSection() {
   const t = useTranslations('services');
+  const tClients = useTranslations('clients');
   const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
 
   const services = [
@@ -33,6 +34,23 @@ export default function ServicesSection() {
     },
   ];
 
+  const clientTypes = [
+    'nonprofits',
+    'smallBusinesses',
+    'startups',
+    'eventPlanners',
+    'ecommerce',
+    'agencies',
+    'personalBrands',
+    'construction',
+    'restaurants',
+    'healthcare',
+    'realestate',
+    'education',
+    'fitness',
+    'consultants',
+  ];
+
   return (
     <section id="services" className="relative z-10 py-24 px-6 md:px-12 bg-surface-light-1">
       <div className="max-w-7xl mx-auto">
@@ -53,7 +71,7 @@ export default function ServicesSection() {
         </m.div>
 
         {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
           {services.map((service, index) => (
             <Link key={service.titleKey} href={service.link}>
               <m.div
@@ -118,6 +136,46 @@ export default function ServicesSection() {
               </m.div>
             </Link>
           ))}
+        </div>
+
+        {/* Who we love to work with */}
+        <div style={{ marginTop: '80px' }}>
+          {/* Small Badge */}
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="inline-block px-4 py-1.5 border border-black/20">
+              <p className="text-xs font-medium tracking-wider uppercase text-black/60">
+                {tClients('badge')}
+              </p>
+            </div>
+          </m.div>
+
+          {/* Client Types - Pills */}
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-wrap items-center justify-center gap-3 md:gap-4 max-w-5xl mx-auto"
+          >
+            {clientTypes.map((type) => (
+              <m.div
+                key={type}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+                className="px-5 py-2.5 border border-black/10 hover:border-black/30 hover:bg-black/5 transition-colors"
+              >
+                <span className="text-sm md:text-base font-medium text-black/80">
+                  {tClients(type)}
+                </span>
+              </m.div>
+            ))}
+          </m.div>
         </div>
       </div>
     </section>

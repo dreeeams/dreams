@@ -42,7 +42,14 @@
     "eventPlanners": "Event Planners",
     "ecommerce": "Ecommerce Businesses",
     "agencies": "Agencies",
-    "personalBrands": "Personal Brands"
+    "personalBrands": "Personal Brands",
+    "construction": "Construction Companies",
+    "restaurants": "Restaurants & Cafes",
+    "healthcare": "Healthcare & Wellness",
+    "realestate": "Real Estate",
+    "education": "Education & Training",
+    "fitness": "Fitness & Sports",
+    "consultants": "Consultants & Coaches"
   },
   "services": {
     "title": "Clean, scalable design that helps you ship faster and grow your revenue.",
