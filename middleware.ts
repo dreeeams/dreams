@@ -26,10 +26,11 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Protect contact routes - localhost only
-  if (pathname.includes('/contact')) {
+  // Protect contact-form route - localhost only
+  if (pathname.includes('/contact-form')) {
     if (!isLocalhost(request)) {
-      return NextResponse.redirect(new URL('/', request.url));
+      const locale = pathname.split('/')[1];
+      return NextResponse.redirect(new URL(`/${locale}/contact`, request.url));
     }
   }
 
