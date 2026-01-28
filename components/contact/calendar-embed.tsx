@@ -10,6 +10,7 @@ declare global {
 
 export default function CalendarEmbed() {
   const isInitialized = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const initCalendar = () => {
@@ -40,8 +41,12 @@ export default function CalendarEmbed() {
       }
     };
 
-    // Load Cal.com script if not already loaded
-    if (typeof window !== 'undefined' && !window.Cal) {
+    const loadCalScript = () => {
+      if (isInitialized.current) return;
+      isInitialized.current = true;
+
+      // Load Cal.com script if not already loaded
+      if (typeof window !== 'undefined' && !window.Cal) {
       (function (C: any, A: string, L: string) {
         let p = function (a: any, ar: any) {
           a.q.push(ar);
@@ -75,18 +80,34 @@ export default function CalendarEmbed() {
           };
       })(window, 'https://app.cal.com/embed/embed.js', 'init');
 
-      // Wait for script to load
-      setTimeout(initCalendar, 100);
-    } else {
-      // Script already loaded, just reinitialize
-      initCalendar();
+        // Wait for script to load
+        setTimeout(initCalendar, 100);
+      } else {
+        // Script already loaded, just reinitialize
+        initCalendar();
+      }
+    };
+
+    // Use IntersectionObserver to load Cal.com only when visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadCalScript();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px' }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
     }
 
-    isInitialized.current = true;
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="w-full">
+    <div ref={containerRef} className="w-full">
       <div
         id="my-cal-inline-kickoff"
         style={{ width: '100%', height: '100%', overflow: 'auto' }}

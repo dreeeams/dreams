@@ -65,17 +65,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Critical resource preloading */}
-        <link rel="preload" href="/fonts/ZTHoky-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/ZTHoky-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" fetchPriority="high" />
 
-        {/* DNS prefetch and preconnect for external services */}
+        {/* DNS prefetch for external services */}
         <link rel="dns-prefetch" href="https://cal.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href={cdnUrl ? new URL(cdnUrl).hostname : ''} />
 
+        {/* Critical preconnects */}
+        {cdnUrl && <link rel="preconnect" href={cdnUrl} crossOrigin="anonymous" />}
         <link rel="preconnect" href="https://va.vercel-scripts.com" />
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        {cdnUrl && <link rel="preconnect" href={cdnUrl} />}
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} antialiased`}>
         {children}

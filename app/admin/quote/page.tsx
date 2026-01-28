@@ -17,8 +17,7 @@ import {
 } from 'lucide-react';
 import Logo from '@/components/logo';
 import { QRCodeSVG } from 'qrcode.react';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+// Removed static imports - libraries now loaded dynamically to reduce bundle size
 
 interface LineItem {
   id: string;
@@ -203,6 +202,12 @@ ${formData.notes ? `\nNotas:\n${formData.notes}` : ''}
     }
 
     try {
+      // Dynamically import PDF libraries only when needed
+      const [{ default: html2canvas }, { default: jsPDF }] = await Promise.all([
+        import('html2canvas'),
+        import('jspdf'),
+      ]);
+
       // Force layout recalculation
       element.style.overflow = 'visible';
 

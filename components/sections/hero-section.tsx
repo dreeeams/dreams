@@ -23,7 +23,7 @@ export default function HeroSection() {
         sizes="100vw"
         className="object-cover"
         priority
-        unoptimized
+        quality={85}
       />
 
       {/* Hero Content with Blend Mode */}
