@@ -44,6 +44,14 @@ export default function HeroSection() {
         >
           {t('title')}
         </m.h2>
+        <m.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+          className="text-xs sm:text-sm font-mono tracking-wide mt-6 opacity-80"
+        >
+          Based in Bogotá, Colombia
+        </m.p>
       </div>
     </div>
   );
