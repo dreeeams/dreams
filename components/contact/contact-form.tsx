@@ -82,7 +82,7 @@ export default function ContactForm() {
         website: '', // honeypot field
       };
 
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contact-simple', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ export default function ContactForm() {
         website: '', // honeypot field
       };
 
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contact-simple', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
