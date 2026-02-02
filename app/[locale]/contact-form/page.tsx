@@ -1,6 +1,5 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import ContactForm from '@/components/contact/contact-form';
 import Navigation from '@/components/navigation';
 import FooterSection from '@/components/sections/footer-section';

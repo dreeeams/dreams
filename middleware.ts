@@ -26,14 +26,6 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Protect contact-form route - localhost only
-  if (pathname.includes('/contact-form')) {
-    if (!isLocalhost(request)) {
-      const locale = pathname.split('/')[1];
-      return NextResponse.redirect(new URL(`/${locale}/contact`, request.url));
-    }
-  }
-
   // HTTPS Enforcement in production
   if (
     process.env.NODE_ENV === 'production' &&
