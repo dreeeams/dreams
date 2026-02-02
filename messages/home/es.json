@@ -493,5 +493,17 @@
       "madeWith": "Construido con",
       "payments": "Pagos"
     }
+  },
+  "thankYou": {
+    "title": "¡Gracias!",
+    "subtitle": "Tu mensaje ha sido enviado exitosamente.",
+    "message": "Apreciamos que te hayas tomado el tiempo de contactarnos. Nuestro equipo ha recibido tu consulta y la revisará cuidadosamente. Normalmente respondemos dentro de 24-48 horas en días hábiles.",
+    "whatsNext": "¿Qué sigue?",
+    "step1": "Nuestro equipo revisará los requisitos de tu proyecto",
+    "step2": "Prepararemos una propuesta personalizada para ti",
+    "step3": "Programaremos una llamada para discutir tu proyecto en detalle",
+    "backToHome": "Volver al Inicio",
+    "contactWhatsapp": "Chatear en WhatsApp",
+    "responseTime": "Tiempo promedio de respuesta: 24 horas"
   }
 }

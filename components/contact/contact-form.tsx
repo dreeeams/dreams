@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import StepOne from './step-one';
 import StepTwo from './step-two';
 import SupportForm, { SupportFormData } from './support-form';
@@ -23,6 +24,8 @@ export interface FormData {
 
 export default function ContactForm() {
   const t = useTranslations('contact');
+  const locale = useLocale();
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     projectType: 'new-project',
@@ -101,21 +104,8 @@ export default function ContactForm() {
           trackConversion(conversionId, conversionLabel);
         }
 
-        alert(t('successMessage'));
-        // Reset form
-        setFormData({
-          projectType: 'new-project',
-          name: '',
-          company: '',
-          email: '',
-          phone: '',
-          needs: [],
-          budget: '',
-          projectDescription: '',
-          referral: '',
-          referralOther: '',
-        });
-        setCurrentStep(1);
+        // Redirect to thank you page
+        router.push(`/${locale}/thank-you`);
       } else {
         alert(t('errorMessage'));
       }
@@ -148,7 +138,8 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        alert(t('successMessage'));
+        // Redirect to thank you page
+        router.push(`/${locale}/thank-you`);
       } else {
         alert(t('errorMessage'));
       }

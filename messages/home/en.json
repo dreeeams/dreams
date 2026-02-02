@@ -493,5 +493,17 @@
       "madeWith": "Made with",
       "payments": "Payments"
     }
+  },
+  "thankYou": {
+    "title": "Thank You!",
+    "subtitle": "Your message has been successfully sent.",
+    "message": "We appreciate you taking the time to contact us. Our team has received your inquiry and will review it carefully. We typically respond within 24-48 hours during business days.",
+    "whatsNext": "What happens next?",
+    "step1": "Our team will review your project requirements",
+    "step2": "We'll prepare a personalized proposal for you",
+    "step3": "We'll schedule a call to discuss your project in detail",
+    "backToHome": "Back to Home",
+    "contactWhatsapp": "Chat on WhatsApp",
+    "responseTime": "Average response time: 24 hours"
   }
 }
