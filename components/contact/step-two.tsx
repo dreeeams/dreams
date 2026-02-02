@@ -42,6 +42,16 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
     { id: 'dont-know', label: tBudget('dontKnow') },
   ];
 
+  const referralOptions = [
+    { id: 'google', label: tBudget('referralOptions.google') },
+    { id: 'social', label: tBudget('referralOptions.social') },
+    { id: 'referral', label: tBudget('referralOptions.referral') },
+    { id: 'linkedin', label: tBudget('referralOptions.linkedin') },
+    { id: 'instagram', label: tBudget('referralOptions.instagram') },
+    { id: 'event', label: tBudget('referralOptions.event') },
+    { id: 'other', label: tBudget('referralOptions.other') },
+  ];
+
   const toggleNeed = (needId: string) => {
     const currentNeeds = formData.needs;
     const newNeeds = currentNeeds.includes(needId)
@@ -115,6 +125,27 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
           placeholder={tBudget('projectPlaceholder')}
           required
         />
+      </div>
+
+      {/* Referral */}
+      <div>
+        <h2 className="text-2xl font-medium mb-6">{tBudget('referralTitle')}</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {referralOptions.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => updateFormData({ referral: option.id })}
+              className={`py-4 px-6 border font-medium transition-colors text-left ${
+                formData.referral === option.id
+                  ? 'border-black bg-black text-white'
+                  : 'border-black/20 bg-white text-gray-700 hover:border-black'
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Navigation and Steps */}

@@ -15,6 +15,7 @@ export interface FormData {
   needs: string[];
   budget: string;
   projectDescription: string;
+  referral: string;
 }
 
 export default function ContactForm() {
@@ -29,6 +30,7 @@ export default function ContactForm() {
     needs: [],
     budget: '',
     projectDescription: '',
+    referral: '',
   });
 
   const totalSteps = 2;
@@ -59,6 +61,7 @@ export default function ContactForm() {
         company: formData.company,
         need: formData.needs,
         summary: formData.projectDescription,
+        heardFrom: formData.referral,
         acceptTerms: true,
         website: '', // honeypot field
       };
@@ -83,6 +86,7 @@ export default function ContactForm() {
           needs: [],
           budget: '',
           projectDescription: '',
+          referral: '',
         });
         setCurrentStep(1);
       } else {

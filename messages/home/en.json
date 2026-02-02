@@ -460,6 +460,16 @@
       "projectTitle": "Tell us about your project",
       "projectSubtitle": "Write us a few lines about your project",
       "projectPlaceholder": "Describe your project, goals, key features...",
+      "referralTitle": "How did you hear about us?",
+      "referralOptions": {
+        "google": "Google Search",
+        "social": "Social Media",
+        "referral": "Referral / Recommendation",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram",
+        "event": "Event / Conference",
+        "other": "Other"
+      },
       "back": "Back",
       "submit": "Submit",
       "submitting": "Submitting..."

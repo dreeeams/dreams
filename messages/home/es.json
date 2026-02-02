@@ -460,6 +460,16 @@
       "projectTitle": "Cuéntanos sobre tu proyecto",
       "projectSubtitle": "Escríbenos unas líneas sobre tu proyecto",
       "projectPlaceholder": "Describe tu proyecto, objetivos, funcionalidades clave...",
+      "referralTitle": "¿Cómo nos conociste?",
+      "referralOptions": {
+        "google": "Búsqueda en Google",
+        "social": "Redes Sociales",
+        "referral": "Referido / Recomendación",
+        "linkedin": "LinkedIn",
+        "instagram": "Instagram",
+        "event": "Evento / Conferencia",
+        "other": "Otro"
+      },
       "back": "Atrás",
       "submit": "Enviar",
       "submitting": "Enviando..."
