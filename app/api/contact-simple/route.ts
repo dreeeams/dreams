@@ -11,6 +11,75 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString()
     });
 
+    // Send emails using Resend
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'no-reply@updates.dreeeams.com';
+    const adminEmail = process.env.ADMIN_EMAIL || 'info@dreeeams.com';
+
+    if (resendApiKey) {
+      try {
+        const { Resend } = await import('resend');
+        const { UserConfirmationEmail, AdminNotificationEmail } = await import(
+          '@/lib/email-templates'
+        );
+        const { renderToStaticMarkup } = await import('react-dom/server');
+
+        const resend = new Resend(resendApiKey);
+
+        // Prepare email data
+        const emailFormData = {
+          fullName: body.fullName,
+          email: body.email,
+          whatsapp: body.whatsapp || '',
+          linkedin: undefined,
+          role: '',
+          company: body.company,
+          website: body.websiteUrl ? 'yes' : 'no',
+          websiteUrl: body.websiteUrl || undefined,
+          instagram: undefined,
+          companySize: '',
+          industry: '',
+          need: body.need || [],
+          summary: body.summary || '',
+          heardFrom: body.heardFrom || undefined,
+        };
+
+        // Send both emails in parallel
+        const [userEmailResult, adminEmailResult] = await Promise.allSettled([
+          resend.emails.send({
+            from: `Dreeeams <${fromEmail}>`,
+            to: body.email,
+            replyTo: adminEmail,
+            subject: '¡Gracias por contactarnos! - Dreeeams',
+            html: renderToStaticMarkup(UserConfirmationEmail({ formData: emailFormData })),
+          }),
+          resend.emails.send({
+            from: `Dreeeams Notifications <${fromEmail}>`,
+            to: adminEmail,
+            subject: `🎯 Nuevo Lead: ${body.company} - ${body.fullName}`,
+            html: renderToStaticMarkup(AdminNotificationEmail({ formData: emailFormData })),
+            replyTo: body.email,
+          }),
+        ]);
+
+        if (userEmailResult.status === 'fulfilled') {
+          console.log('✅ User email sent');
+        } else {
+          console.error('❌ User email failed:', userEmailResult.reason);
+        }
+
+        if (adminEmailResult.status === 'fulfilled') {
+          console.log('✅ Admin email sent');
+        } else {
+          console.error('❌ Admin email failed:', adminEmailResult.reason);
+        }
+      } catch (error) {
+        console.error('❌ Failed to send emails:', error);
+      }
+    } else {
+      console.log('⚠️ Resend not configured - emails not sent');
+    }
+
     // Return success
     return NextResponse.json({
       success: true,
