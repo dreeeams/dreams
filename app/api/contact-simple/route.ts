@@ -44,20 +44,32 @@ export async function POST(request: NextRequest) {
           heardFrom: body.heardFrom || undefined,
         };
 
+        // Get locale from request body, default to Spanish
+        const locale = body.locale || 'es';
+
+        // Determine email subject based on locale
+        const userSubject = locale === 'en'
+          ? 'Thank you for contacting us! - Dreeeams'
+          : '¡Gracias por contactarnos! - Dreeeams';
+
+        const adminSubject = locale === 'en'
+          ? `🎯 New Lead: ${body.company} - ${body.fullName}`
+          : `🎯 Nuevo Lead: ${body.company} - ${body.fullName}`;
+
         // Send both emails in parallel
         const [userEmailResult, adminEmailResult] = await Promise.allSettled([
           resend.emails.send({
             from: `Dreeeams <${fromEmail}>`,
             to: body.email,
             replyTo: adminEmail,
-            subject: '¡Gracias por contactarnos! - Dreeeams',
-            html: renderToStaticMarkup(UserConfirmationEmail({ formData: emailFormData })),
+            subject: userSubject,
+            html: renderToStaticMarkup(UserConfirmationEmail({ formData: emailFormData, locale })),
           }),
           resend.emails.send({
             from: `Dreeeams Notifications <${fromEmail}>`,
             to: adminEmail,
-            subject: `🎯 Nuevo Lead: ${body.company} - ${body.fullName}`,
-            html: renderToStaticMarkup(AdminNotificationEmail({ formData: emailFormData })),
+            subject: adminSubject,
+            html: renderToStaticMarkup(AdminNotificationEmail({ formData: emailFormData, locale })),
             replyTo: body.email,
           }),
         ]);

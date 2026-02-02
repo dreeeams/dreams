@@ -83,6 +83,7 @@ export default function ContactForm() {
         heardFrom: referralValue,
         acceptTerms: true,
         website: '', // honeypot field
+        locale: locale, // Pass current locale for email language
       };
 
       const response = await fetch('/api/contact-simple', {
@@ -127,6 +128,7 @@ export default function ContactForm() {
         summary: supportData.description,
         acceptTerms: true,
         website: '', // honeypot field
+        locale: locale, // Pass current locale for email language
       };
 
       const response = await fetch('/api/contact-simple', {
