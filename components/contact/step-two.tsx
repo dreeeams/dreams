@@ -145,37 +145,63 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
       <div>
         <h2 className="text-2xl font-medium mb-6">{tBudget('referralTitle')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {referralOptions.map((option) => (
-            <button
-              key={option.id}
-              type="button"
-              onClick={() => {
-                updateFormData({ referral: option.id });
-                trackReferralSelection(option.id);
-              }}
-              className={`py-4 px-6 border font-medium transition-colors text-left ${
-                formData.referral === option.id
-                  ? 'border-black bg-black text-white'
-                  : 'border-black/20 bg-white text-gray-700 hover:border-black'
-              }`}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
+          {referralOptions.map((option) => {
+            // For "other" option, show button or input based on selection
+            if (option.id === 'other') {
+              return (
+                <div key={option.id}>
+                  {formData.referral === 'other' ? (
+                    // Show input when "other" is selected
+                    <input
+                      type="text"
+                      value={formData.referralOther || ''}
+                      onChange={(e) => {
+                        updateFormData({ referralOther: e.target.value });
+                        if (e.target.value) {
+                          trackReferralSelection('other');
+                        }
+                      }}
+                      autoFocus
+                      className="w-full py-4 px-6 border border-black bg-white text-black font-medium outline-none transition-colors"
+                      placeholder={tBudget('referralOtherPlaceholder') || 'Please specify...'}
+                    />
+                  ) : (
+                    // Show button when "other" is not selected
+                    <button
+                      type="button"
+                      onClick={() => {
+                        updateFormData({ referral: 'other', referralOther: '' });
+                        trackReferralSelection('other');
+                      }}
+                      className="w-full py-4 px-6 border border-black/20 bg-white text-gray-700 font-medium transition-colors text-left hover:border-black"
+                    >
+                      {option.label}
+                    </button>
+                  )}
+                </div>
+              );
+            }
 
-        {/* Custom input when "other" is selected */}
-        {formData.referral === 'other' && (
-          <div className="mt-4">
-            <input
-              type="text"
-              value={formData.referralOther || ''}
-              onChange={(e) => updateFormData({ referralOther: e.target.value })}
-              className="w-full px-4 py-3 border border-black/20 focus:border-black outline-none transition-colors bg-white"
-              placeholder={tBudget('referralOtherPlaceholder') || 'Please specify...'}
-            />
-          </div>
-        )}
+            // Regular buttons for other options
+            return (
+              <button
+                key={option.id}
+                type="button"
+                onClick={() => {
+                  updateFormData({ referral: option.id, referralOther: '' });
+                  trackReferralSelection(option.id);
+                }}
+                className={`py-4 px-6 border font-medium transition-colors text-left ${
+                  formData.referral === option.id
+                    ? 'border-black bg-black text-white'
+                    : 'border-black/20 bg-white text-gray-700 hover:border-black'
+                }`}
+              >
+                {option.label}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Navigation and Steps */}

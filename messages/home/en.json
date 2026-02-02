@@ -470,7 +470,7 @@
         "event": "Event / Conference",
         "other": "Other"
       },
-      "referralOtherPlaceholder": "Please specify how you heard about us...",
+      "referralOtherPlaceholder": "Other (please specify)...",
       "back": "Back",
       "submit": "Submit",
       "submitting": "Submitting..."
