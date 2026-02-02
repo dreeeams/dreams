@@ -17,13 +17,13 @@ interface ContactFormData {
   heardFrom?: string;
 }
 
-// Brand colors from Dreeeams
+// Brand colors from Dreeeams Brand Guidelines
 const COLORS = {
   black: '#000000',
   white: '#FFFFFF',
-  gray: '#787878',
-  lightGray: '#F5F5F5',
-  darkGray: '#1E1E1E',
+  gray: '#5A5A5A', // Gris Acento
+  lightGray: '#DEE5ED', // Winter Haze
+  darkGray: '#1E1E1E', // Negro Principal
   border: '#000000',
 };
 
@@ -268,7 +268,7 @@ export const UserConfirmationEmail = ({ formData }: { formData: ContactFormData 
             <h1 className="title">Gracias por contactarnos, {firstName}</h1>
 
             <p className="text">
-              Hemos recibido tu solicitud y estamos emocionados de conocer más sobre {formData.company}.
+              Hemos recibido tu solicitud y revisaremos la información sobre {formData.company} en detalle.
             </p>
 
             <div className="divider"></div>
@@ -285,17 +285,17 @@ export const UserConfirmationEmail = ({ formData }: { formData: ContactFormData 
                 <div className="timeline-text">Revisaremos tu solicitud en las próximas 24 horas</div>
               </div>
               <div className="timeline-item">
-                <div className="timeline-text">Te contactaremos para agendar una llamada de descubrimiento</div>
+                <div className="timeline-text">Te contactaremos para agendar una llamada inicial</div>
               </div>
               <div className="timeline-item">
-                <div className="timeline-text">Discutiremos tu proyecto y crearemos una propuesta personalizada</div>
+                <div className="timeline-text">Discutiremos tu proyecto y prepararemos una propuesta detallada</div>
               </div>
             </div>
 
             <div className="divider"></div>
 
             <p className="text">
-              Mientras tanto, si tienes alguna pregunta urgente, no dudes en contactarnos:
+              Si tienes preguntas, puedes contactarnos directamente:
             </p>
 
             <div className="contact-info">
@@ -310,14 +310,23 @@ export const UserConfirmationEmail = ({ formData }: { formData: ContactFormData 
           </div>
 
           <div className="footer">
-            <div className="footer-text">DREAM STUDIO</div>
-            <div className="footer-text">
-              <a href="https://dreeeams.com/privacy" className="footer-link">Privacidad</a>
-              <span>|</span>
-              <a href="https://dreeeams.com/terms" className="footer-link">Términos</a>
+            <div className="footer-text" style={{ fontWeight: 'bold', fontSize: 13, marginBottom: 12 }}>DREEEAMS</div>
+            <div className="footer-text">Agencia Digital | Construcción de soluciones tecnológicas</div>
+            <div className="footer-text" style={{ marginTop: 8 }}>
+              Email: info@dreeeams.com | Web: dreeeams.com
             </div>
             <div className="footer-text" style={{ marginTop: 16 }}>
-              2024 Dreeeams. Todos los derechos reservados.
+              <a href="https://dreeeams.com/privacy" className="footer-link">Política de Privacidad</a>
+              <span> | </span>
+              <a href="https://dreeeams.com/terms" className="footer-link">Términos y Condiciones</a>
+            </div>
+            <div className="footer-text" style={{ marginTop: 16, fontSize: 11, lineHeight: 1.5 }}>
+              Este correo contiene información confidencial dirigida exclusivamente al destinatario indicado.
+              Si has recibido este mensaje por error, por favor elimínalo y notifícanos.
+              Al contactarnos, aceptas nuestros términos de servicio y política de privacidad.
+            </div>
+            <div className="footer-text" style={{ marginTop: 12 }}>
+              © 2024 Dreeeams. Todos los derechos reservados.
             </div>
           </div>
         </div>
@@ -637,7 +646,10 @@ export const AdminNotificationEmail = ({ formData }: { formData: ContactFormData
           </div>
 
           <div className="footer">
-            Dreeeams - Sistema de Notificaciones
+            <div style={{ marginBottom: 8 }}>DREEEAMS - SISTEMA DE NOTIFICACIONES</div>
+            <div style={{ fontSize: 10, opacity: 0.8 }}>
+              Este es un correo automático del sistema interno. No responder.
+            </div>
           </div>
         </div>
       </body>
