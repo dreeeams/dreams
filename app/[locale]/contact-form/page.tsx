@@ -31,14 +31,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function ContactFormPage({ params }: { params: Promise<{ locale: string }> }) {
-  // Redirect to /contact if not localhost
-  const isLocalhost = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
-
-  if (!isLocalhost) {
-    const { locale } = await params;
-    redirect(`/${locale}/contact`);
-  }
-
   const { locale } = await params;
   const t = await getTranslations('contact');
 
