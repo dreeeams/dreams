@@ -23,7 +23,7 @@ export default function ManifestoSection() {
 
         {/* CTA Button */}
         <div className="flex justify-center">
-          <Link href="/contact">
+          <Link href="/contact-form">
             <m.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}

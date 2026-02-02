@@ -65,7 +65,7 @@ export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuPro
             {/* Menu Items */}
             <nav className="flex flex-col items-center gap-8 mb-12">
               {menuItems.map((item, index) => {
-                const isCallButton = item.href === '/contact';
+                const isCallButton = item.href === '/contact-form';
 
                 return (
                   <m.button
