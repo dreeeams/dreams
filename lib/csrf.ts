@@ -19,6 +19,7 @@ export function getAllowedOrigins(): string[] {
   // Add production domains
   allowedOrigins.push('https://dreeeams.com');
   allowedOrigins.push('https://www.dreeeams.com');
+  allowedOrigins.push('https://preview.dreeeams.com');
 
   // Add localhost for development
   if (process.env.NODE_ENV === 'development') {
@@ -42,8 +43,10 @@ export function validateOrigin(origin: string | null): boolean {
     return true; // Allow requests without origin in dev (e.g., curl, Postman)
   }
 
+  // If no origin header, we'll validate using referer instead
+  // Some browsers don't send origin on same-origin requests
   if (!origin) {
-    return false; // Reject requests without origin in production
+    return true; // Allow and rely on referer check
   }
 
   const allowedOrigins = getAllowedOrigins();

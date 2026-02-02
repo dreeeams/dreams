@@ -293,18 +293,28 @@ export async function OPTIONS(request: NextRequest) {
   const allowedOrigins = [
     'https://dreeeams.com',
     'https://www.dreeeams.com',
+    'https://preview.dreeeams.com',
     process.env.NEXT_PUBLIC_SITE_URL,
   ].filter(Boolean);
 
   const responseHeaders: Record<string, string> = {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version',
     'Access-Control-Max-Age': '86400',
+    'Access-Control-Allow-Credentials': 'true',
   };
 
+  // Allow requests from any of our domains
   if (origin && allowedOrigins.includes(origin)) {
     responseHeaders['Access-Control-Allow-Origin'] = origin;
     responseHeaders['Vary'] = 'Origin';
+  } else if (origin) {
+    // If origin doesn't match exactly, check if it's from our domain
+    const originUrl = new URL(origin);
+    if (originUrl.hostname.endsWith('.dreeeams.com') || originUrl.hostname === 'dreeeams.com') {
+      responseHeaders['Access-Control-Allow-Origin'] = origin;
+      responseHeaders['Vary'] = 'Origin';
+    }
   }
 
   return NextResponse.json(

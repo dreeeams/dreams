@@ -54,6 +54,32 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      // CORS headers for API routes
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Credentials',
+            value: 'true'
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: process.env.NEXT_PUBLIC_SITE_URL || 'https://preview.dreeeams.com'
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS'
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization'
+          },
+          {
+            key: 'Access-Control-Max-Age',
+            value: '86400'
+          }
+        ]
+      },
       // Security headers for all routes
       {
         source: '/:path*',
@@ -88,7 +114,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com https://*.vercel-insights.com https://www.googletagmanager.com https://analytics.dreeeams.com https://app.cal.com https://app.chatwoot.com; style-src 'self' 'unsafe-inline' https://app.chatwoot.com; img-src 'self' data: https: blob:; font-src 'self' data: https://app.chatwoot.com; connect-src 'self' https://vercel.live https://va.vercel-scripts.com https://*.vercel-insights.com https://vitals.vercel-insights.com https://twenty-production-25cf.up.railway.app https://www.google-analytics.com https://www.googletagmanager.com https://analytics.dreeeams.com https://app.cal.com https://app.chatwoot.com https://cdn.jsdelivr.net https://images.ctfassets.net https://cdn.worldvectorlogo.com https://api.pirsch.io https://hooks.zapier.com wss://app.chatwoot.com; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://va.vercel-scripts.com https://*.vercel-insights.com https://www.googletagmanager.com https://analytics.dreeeams.com https://app.cal.com https://app.chatwoot.com; style-src 'self' 'unsafe-inline' https://app.chatwoot.com; img-src 'self' data: https: blob:; font-src 'self' data: https://app.chatwoot.com; connect-src 'self' https://vercel.live https://va.vercel-scripts.com https://*.vercel-insights.com https://vitals.vercel-insights.com https://twenty-production-25cf.up.railway.app https://www.google-analytics.com https://www.googletagmanager.com https://analytics.dreeeams.com https://app.cal.com https://app.chatwoot.com https://cdn.jsdelivr.net https://images.ctfassets.net https://cdn.worldvectorlogo.com https://api.pirsch.io https://hooks.zapier.com wss://app.chatwoot.com; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self' https://preview.dreeeams.com; frame-ancestors 'self';"
           }
         ]
       },
