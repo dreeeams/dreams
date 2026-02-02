@@ -163,6 +163,19 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
             </button>
           ))}
         </div>
+
+        {/* Custom input when "other" is selected */}
+        {formData.referral === 'other' && (
+          <div className="mt-4">
+            <input
+              type="text"
+              value={formData.referralOther || ''}
+              onChange={(e) => updateFormData({ referralOther: e.target.value })}
+              className="w-full px-4 py-3 border border-black/20 focus:border-black outline-none transition-colors bg-white"
+              placeholder={tBudget('referralOtherPlaceholder') || 'Please specify...'}
+            />
+          </div>
+        )}
       </div>
 
       {/* Navigation and Steps */}

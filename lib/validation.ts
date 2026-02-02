@@ -115,7 +115,8 @@ export const ContactFormSchema = z.object({
     .or(z.literal('')),
 
   heardFrom: z
-    .enum(['google', 'social', 'referral', 'linkedin', 'instagram', 'event', 'other'])
+    .string()
+    .max(100, 'Source must be less than 100 characters')
     .optional()
     .or(z.literal('')),
 

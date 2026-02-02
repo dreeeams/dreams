@@ -18,6 +18,7 @@ export interface FormData {
   budget: string;
   projectDescription: string;
   referral: string;
+  referralOther?: string;
 }
 
 export default function ContactForm() {
@@ -33,6 +34,7 @@ export default function ContactForm() {
     budget: '',
     projectDescription: '',
     referral: '',
+    referralOther: '',
   });
 
   const totalSteps = 2;
@@ -61,6 +63,12 @@ export default function ContactForm() {
         whatsappNumber = `+${formData.phoneCountry}${formData.phone}`;
       }
 
+      // Build referral value - use custom text if "other" was selected
+      let referralValue = formData.referral || '';
+      if (formData.referral === 'other' && formData.referralOther) {
+        referralValue = formData.referralOther;
+      }
+
       // Map form data to API format
       const apiData = {
         fullName: formData.name,
@@ -69,7 +77,7 @@ export default function ContactForm() {
         company: formData.company,
         need: formData.needs,
         summary: formData.projectDescription || '',
-        heardFrom: formData.referral || '',
+        heardFrom: referralValue,
         acceptTerms: true,
         website: '', // honeypot field
       };
@@ -105,6 +113,7 @@ export default function ContactForm() {
           budget: '',
           projectDescription: '',
           referral: '',
+          referralOther: '',
         });
         setCurrentStep(1);
       } else {
