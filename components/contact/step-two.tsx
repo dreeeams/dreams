@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { FormData } from './contact-form';
+import { trackStep2Reached, trackNeedSelection, trackBudgetSelection, trackReferralSelection } from '@/lib/google-ads-tracking';
 
 interface StepTwoProps {
   formData: FormData;
@@ -18,6 +19,11 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
   const tBudget = useTranslations('contact.stepThree');
   const tCommon = useTranslations('contact');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Track when user reaches Step 2
+  useEffect(() => {
+    trackStep2Reached();
+  }, []);
 
   const needsOptions = [
     { id: 'branding', label: t('branding') },
@@ -58,6 +64,11 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
       ? currentNeeds.filter((id) => id !== needId)
       : [...currentNeeds, needId];
     updateFormData({ needs: newNeeds });
+
+    // Track need selection
+    if (!currentNeeds.includes(needId)) {
+      trackNeedSelection(newNeeds);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -100,7 +111,10 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
             <button
               key={option.id}
               type="button"
-              onClick={() => updateFormData({ budget: option.id })}
+              onClick={() => {
+                updateFormData({ budget: option.id });
+                trackBudgetSelection(option.id);
+              }}
               className={`py-4 px-6 border font-medium transition-colors text-left ${
                 formData.budget === option.id
                   ? 'border-black bg-black text-white'
@@ -135,7 +149,10 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
             <button
               key={option.id}
               type="button"
-              onClick={() => updateFormData({ referral: option.id })}
+              onClick={() => {
+                updateFormData({ referral: option.id });
+                trackReferralSelection(option.id);
+              }}
               className={`py-4 px-6 border font-medium transition-colors text-left ${
                 formData.referral === option.id
                   ? 'border-black bg-black text-white'

@@ -5,7 +5,8 @@ import { FormData } from './contact-form';
 import { getCountries, getCountryCallingCode, isValidPhoneNumber } from 'react-phone-number-input';
 import type { Country } from 'react-phone-number-input';
 import en from 'react-phone-number-input/locale/en';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { trackFormStart } from '@/lib/google-ads-tracking';
 
 // Function to convert country code to flag emoji
 const getFlagEmoji = (countryCode: string) => {
@@ -29,6 +30,15 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
   const tCommon = useTranslations('contact');
   const [country, setCountry] = useState<Country>('CO');
   const [phoneError, setPhoneError] = useState<string>('');
+  const [hasTrackedStart, setHasTrackedStart] = useState(false);
+
+  // Track form start when user interacts with any field
+  useEffect(() => {
+    if (!hasTrackedStart && (formData.name || formData.email || formData.company || formData.phone)) {
+      trackFormStart();
+      setHasTrackedStart(true);
+    }
+  }, [formData.name, formData.email, formData.company, formData.phone, hasTrackedStart]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +55,8 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
         setPhoneError(t('phoneInvalid') || 'Invalid phone number format');
         return;
       }
+      // Save country code with phone number
+      updateFormData({ phoneCountry: getCountryCallingCode(country) });
     }
 
     setPhoneError('');

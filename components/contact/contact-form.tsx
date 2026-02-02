@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import StepOne from './step-one';
 import StepTwo from './step-two';
 import SupportForm, { SupportFormData } from './support-form';
+import { trackFormSubmit, trackConversion } from '@/lib/google-ads-tracking';
 
 export interface FormData {
   projectType: 'new-project' | 'support';
@@ -12,6 +13,7 @@ export interface FormData {
   company: string;
   email: string;
   phone: string;
+  phoneCountry?: string;
   needs: string[];
   budget: string;
   projectDescription: string;
@@ -53,15 +55,21 @@ export default function ContactForm() {
 
   const handleSubmit = async () => {
     try {
+      // Build phone with country code if provided
+      let whatsappNumber = '';
+      if (formData.phone && formData.phoneCountry) {
+        whatsappNumber = `+${formData.phoneCountry}${formData.phone}`;
+      }
+
       // Map form data to API format
       const apiData = {
         fullName: formData.name,
         email: formData.email,
-        whatsapp: formData.phone,
+        whatsapp: whatsappNumber,
         company: formData.company,
         need: formData.needs,
-        summary: formData.projectDescription,
-        heardFrom: formData.referral,
+        summary: formData.projectDescription || '',
+        heardFrom: formData.referral || '',
         acceptTerms: true,
         website: '', // honeypot field
       };
@@ -75,6 +83,16 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
+        // Track successful form submission
+        trackFormSubmit();
+
+        // Track conversion if Google Ads IDs are configured
+        const conversionId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+        const conversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
+        if (conversionId && conversionLabel) {
+          trackConversion(conversionId, conversionLabel);
+        }
+
         alert(t('successMessage'));
         // Reset form
         setFormData({

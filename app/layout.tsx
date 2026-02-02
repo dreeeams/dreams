@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { ReactNode } from 'react';
 import { Geist, Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
+import GoogleAdsScript from '@/components/analytics/google-ads-script';
 import './globals.css';
 
 const geistSans = Geist({
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${ztHoky.variable} antialiased`}>
+        <GoogleAdsScript />
         {children}
       </body>
     </html>
