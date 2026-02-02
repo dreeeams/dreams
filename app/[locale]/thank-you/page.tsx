@@ -81,15 +81,15 @@ export default async function ThankYouPage({ params }: { params: Promise<{ local
             </h2>
             <div className="space-y-3">
               <div className="flex items-start">
-                <span className="text-white mr-3 mt-1">→</span>
+                <span className="text-white mr-3 mt-1">★</span>
                 <p className="text-gray-300">{t('step1')}</p>
               </div>
               <div className="flex items-start">
-                <span className="text-white mr-3 mt-1">→</span>
+                <span className="text-white mr-3 mt-1">★</span>
                 <p className="text-gray-300">{t('step2')}</p>
               </div>
               <div className="flex items-start">
-                <span className="text-white mr-3 mt-1">→</span>
+                <span className="text-white mr-3 mt-1">★</span>
                 <p className="text-gray-300">{t('step3')}</p>
               </div>
             </div>
