@@ -20,12 +20,13 @@ export default function FooterSection() {
   }, []);
 
   const isContactPage = pathname.includes('/contact');
+  const isThankYouPage = pathname.includes('/thank-you');
 
   return (
     <footer className="bg-black text-white border-t border-overlay-border-light py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* CTA Section - Hidden on contact page */}
-        {!isContactPage && (
+        {/* CTA Section - Hidden on contact and thank you pages */}
+        {!isContactPage && !isThankYouPage && (
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-nostalgic text-white mb-6">
               Ready to start your project?
