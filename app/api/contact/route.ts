@@ -49,20 +49,6 @@ function mapCompanySize(sizeCode: string): string {
 
 export async function POST(request: NextRequest) {
   try {
-    // 0. Localhost-only check - Reject requests from non-localhost in production
-    const hostname = request.headers.get('host') || '';
-    const isLocalhost = hostname.startsWith('localhost') ||
-                        hostname.startsWith('127.0.0.1') ||
-                        hostname.startsWith('[::1]');
-
-    if (!isLocalhost) {
-      logger.warn('Contact API accessed from non-localhost', { hostname });
-      return NextResponse.json(
-        { error: 'Not found' },
-        { status: 404 }
-      );
-    }
-
     // 1. CSRF Protection - Validate request origin
     const csrfValidation = validateCSRF(request.headers);
     if (!csrfValidation.valid) {
@@ -303,16 +289,6 @@ export async function POST(request: NextRequest) {
 
 // Handle OPTIONS for CORS preflight
 export async function OPTIONS(request: NextRequest) {
-  // Localhost-only check
-  const hostname = request.headers.get('host') || '';
-  const isLocalhost = hostname.startsWith('localhost') ||
-                      hostname.startsWith('127.0.0.1') ||
-                      hostname.startsWith('[::1]');
-
-  if (!isLocalhost) {
-    return NextResponse.json({}, { status: 404 });
-  }
-
   const origin = request.headers.get('origin');
   const allowedOrigins = [
     'https://dreeeams.com',
