@@ -18,6 +18,11 @@ function isLocalhost(request: NextRequest): boolean {
 export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // Skip middleware for API routes entirely
+  if (pathname.startsWith('/api')) {
+    return NextResponse.next();
+  }
+
   // Protect admin routes - localhost only
   if (pathname.startsWith('/admin')) {
     if (!isLocalhost(request)) {
