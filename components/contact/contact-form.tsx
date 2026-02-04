@@ -5,11 +5,9 @@ import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import StepOne from './step-one';
 import StepTwo from './step-two';
-import SupportForm, { SupportFormData } from './support-form';
 import { trackFormSubmit, trackConversion } from '@/lib/google-ads-tracking';
 
 export interface FormData {
-  projectType: 'new-project' | 'support';
   name: string;
   company: string;
   email: string;
@@ -28,7 +26,6 @@ export default function ContactForm() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
-    projectType: 'new-project',
     name: '',
     company: '',
     email: '',
@@ -115,97 +112,26 @@ export default function ContactForm() {
     }
   };
 
-  const handleSupportSubmit = async (supportData: SupportFormData) => {
-    try {
-      // Map support data to API format
-      const apiData = {
-        fullName: supportData.name,
-        email: supportData.email,
-        company: supportData.company,
-        websiteUrl: supportData.websiteUrl,
-        issueType: supportData.issueType,
-        urgencyLevel: supportData.urgencyLevel,
-        summary: supportData.description,
-        acceptTerms: true,
-        website: '', // honeypot field
-        locale: locale, // Pass current locale for email language
-      };
-
-      const response = await fetch('/api/contact-simple', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(apiData),
-      });
-
-      if (response.ok) {
-        // Redirect to thank you page
-        router.push(`/${locale}/thank-you`);
-      } else {
-        alert(t('errorMessage'));
-      }
-    } catch (error) {
-      console.error('Error submitting support form:', error);
-      alert(t('errorMessage'));
-    }
-  };
-
   return (
-    <div className="bg-white border-y md:border border-black p-4 md:p-8">
-      {/* Project Type Tabs */}
-      <div className="mb-6 md:mb-8">
-        <div className="flex gap-4">
-          <button
-            type="button"
-            onClick={() => updateFormData({ projectType: 'new-project' })}
-            className={`px-6 py-3 border font-medium transition-colors ${
-              formData.projectType === 'new-project'
-                ? 'border-black bg-black text-white'
-                : 'border-black/20 bg-white text-gray-700 hover:border-black'
-            }`}
-          >
-            {t('stepOne.newProject')}
-          </button>
-          <button
-            type="button"
-            onClick={() => updateFormData({ projectType: 'support' })}
-            className={`px-6 py-3 border font-medium transition-colors ${
-              formData.projectType === 'support'
-                ? 'border-black bg-black text-white'
-                : 'border-black/20 bg-white text-gray-700 hover:border-black'
-            }`}
-          >
-            {t('stepOne.support')}
-          </button>
-        </div>
-      </div>
-
-      {/* Step Content */}
-      {formData.projectType === 'support' ? (
-        <SupportForm onSubmit={handleSupportSubmit} />
-      ) : (
-        <>
-          {currentStep === 1 && (
-            <StepOne
-              formData={formData}
-              updateFormData={updateFormData}
-              onNext={nextStep}
-              currentStep={currentStep}
-              totalSteps={totalSteps}
-            />
-          )}
-          {currentStep === 2 && (
-            <StepTwo
-              formData={formData}
-              updateFormData={updateFormData}
-              onBack={prevStep}
-              onSubmit={handleSubmit}
-              currentStep={currentStep}
-              totalSteps={totalSteps}
-            />
-          )}
-        </>
+    <div className="bg-white border border-black p-4 md:p-8">
+      {currentStep === 1 && (
+        <StepOne
+          formData={formData}
+          updateFormData={updateFormData}
+          onNext={nextStep}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+        />
+      )}
+      {currentStep === 2 && (
+        <StepTwo
+          formData={formData}
+          updateFormData={updateFormData}
+          onBack={prevStep}
+          onSubmit={handleSubmit}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+        />
       )}
     </div>
   );

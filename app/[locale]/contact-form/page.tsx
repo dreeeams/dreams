@@ -37,8 +37,8 @@ export default async function ContactFormPage({ params }: { params: Promise<{ lo
     <div className="min-h-screen bg-black">
       <Navigation />
       <main id="main-content" className="pt-24">
-        <div className="max-w-4xl mx-auto md:px-6 py-12">
-          <div className="mb-12 px-6 md:px-0">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 py-12">
+          <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-nostalgic mb-4 text-white">
               {t('title')}
             </h1>

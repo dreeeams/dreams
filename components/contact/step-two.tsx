@@ -214,9 +214,12 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
             type="button"
             onClick={onBack}
             disabled={isSubmitting}
-            className="flex-1 sm:flex-initial px-4 md:px-6 py-2.5 md:py-3 bg-white text-black border border-black font-medium hover:bg-black hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm md:text-base"
+            className="flex-1 sm:flex-initial px-3 md:px-6 py-2.5 md:py-3 bg-white text-black border border-black font-medium hover:bg-black hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
           >
-            {t('back')}
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span className="hidden md:inline text-sm md:text-base">{t('back')}</span>
           </button>
           <button
             type="submit"
@@ -241,10 +244,15 @@ export default function StepTwo({ formData, updateFormData, onBack, onSubmit, cu
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   />
                 </svg>
-                {tBudget('submitting')}
+                <span className="hidden md:inline">{tBudget('submitting')}</span>
               </>
             ) : (
-              tBudget('submit')
+              <>
+                <span className="hidden md:inline">{tBudget('submit')}</span>
+                <svg className="w-5 h-5 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </>
             )}
           </button>
         </div>
