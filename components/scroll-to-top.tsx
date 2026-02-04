@@ -57,25 +57,16 @@ export default function ScrollToTop() {
     });
   };
 
-  // Don't render on contact-form or thank-you pages
-  if (shouldHide) {
+  // Don't render on contact-form or thank-you pages, or when not scrolled down
+  if (shouldHide || !isVisible) {
     return null;
   }
 
   return (
     <m.button
-      initial={false}
-      animate={{
-        opacity: isVisible ? 1 : 0,
-        scale: isVisible ? 1 : 0.8,
-        y: isVisible ? 0 : 20,
-      }}
-      transition={{
-        duration: 0.3,
-        ease: [0.4, 0, 0.2, 1],
-      }}
+      layoutId="scroll-to-top-button"
       onClick={scrollToTop}
-      style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
+      whileTap={{ scale: 0.98 }}
       className="fixed bottom-6 sm:bottom-8 left-6 sm:left-8 z-50 p-3 sm:p-3 bg-black text-white border border-black hover:bg-white hover:text-black transition-fast shadow-lg"
       aria-label="Scroll to top"
     >
