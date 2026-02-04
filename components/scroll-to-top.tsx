@@ -1,11 +1,16 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { m } from 'framer-motion';
 
 export default function ScrollToTop() {
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+
+  // Hide on contact-form page
+  const shouldHide = pathname?.includes('/contact-form');
 
   useEffect(() => {
     let ticking = false;
@@ -51,6 +56,11 @@ export default function ScrollToTop() {
       behavior: 'smooth',
     });
   };
+
+  // Don't render on contact-form page
+  if (shouldHide) {
+    return null;
+  }
 
   return (
     <m.button

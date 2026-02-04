@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import StepOne from './step-one';
 import StepTwo from './step-two';
 import { trackFormSubmit, trackConversion } from '@/lib/google-ads-tracking';
@@ -24,7 +24,9 @@ export default function ContactForm() {
   const t = useTranslations('contact');
   const locale = useLocale();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [currentStep, setCurrentStep] = useState(1);
+  const [utmReferral, setUtmReferral] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     company: '',
@@ -36,6 +38,26 @@ export default function ContactForm() {
     referral: '',
     referralOther: '',
   });
+
+  // Detect UTM parameters on mount
+  useEffect(() => {
+    const utmSource = searchParams.get('utm_source');
+    const utmMedium = searchParams.get('utm_medium');
+    const utmCampaign = searchParams.get('utm_campaign');
+
+    if (utmSource || utmMedium || utmCampaign) {
+      // Build UTM referral string
+      const utmParts = [];
+      if (utmSource) utmParts.push(`source: ${utmSource}`);
+      if (utmMedium) utmParts.push(`medium: ${utmMedium}`);
+      if (utmCampaign) utmParts.push(`campaign: ${utmCampaign}`);
+
+      const utmString = `UTM (${utmParts.join(', ')})`;
+      setUtmReferral(utmString);
+      // Set it in form data automatically
+      setFormData((prev) => ({ ...prev, referral: utmString }));
+    }
+  }, [searchParams]);
 
   const totalSteps = 2;
 
@@ -131,6 +153,7 @@ export default function ContactForm() {
           onSubmit={handleSubmit}
           currentStep={currentStep}
           totalSteps={totalSteps}
+          utmReferral={utmReferral}
         />
       )}
     </div>
