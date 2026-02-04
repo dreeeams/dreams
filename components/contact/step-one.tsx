@@ -43,27 +43,25 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate phone number if provided
-    if (formData.phone) {
-      const fullPhone = `+${getCountryCallingCode(country)}${formData.phone}`;
-      try {
-        if (!isValidPhoneNumber(fullPhone, country)) {
-          setPhoneError(t('phoneInvalid') || 'Invalid phone number for selected country');
-          return;
-        }
-      } catch (error) {
-        setPhoneError(t('phoneInvalid') || 'Invalid phone number format');
+    // Validate phone number (now required)
+    const fullPhone = `+${getCountryCallingCode(country)}${formData.phone}`;
+    try {
+      if (!isValidPhoneNumber(fullPhone, country)) {
+        setPhoneError(t('phoneInvalid') || 'Invalid phone number for selected country');
         return;
       }
-      // Save country code with phone number
-      updateFormData({ phoneCountry: getCountryCallingCode(country) });
+    } catch (error) {
+      setPhoneError(t('phoneInvalid') || 'Invalid phone number format');
+      return;
     }
+    // Save country code with phone number
+    updateFormData({ phoneCountry: getCountryCallingCode(country) });
 
     setPhoneError('');
     onNext();
   };
 
-  const isValid = formData.name && formData.email;
+  const isValid = formData.name && formData.email && formData.company && formData.phone;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -95,6 +93,7 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
           onChange={(e) => updateFormData({ company: e.target.value })}
           className="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-black outline-none transition-colors bg-transparent"
           placeholder="Doecompany"
+          required
         />
       </div>
 
@@ -152,6 +151,7 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
             }}
             className="flex-1 border-none outline-none bg-transparent ml-2"
             placeholder="456 78 90 12"
+            required
           />
         </div>
         {phoneError && (

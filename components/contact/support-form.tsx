@@ -74,16 +74,17 @@ export default function SupportForm({ onSubmit }: SupportFormProps) {
   const isValid =
     formData.name &&
     formData.email &&
+    formData.company &&
     formData.websiteUrl &&
     formData.issueType &&
     formData.urgencyLevel &&
     formData.description;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
       {/* Client Notice */}
-      <div className="bg-yellow-50 border border-yellow-200 p-4">
-        <p className="text-sm font-medium text-yellow-800">{t('clientNotice')}</p>
+      <div className="bg-yellow-50 border border-yellow-200 p-3 md:p-4">
+        <p className="text-xs md:text-sm font-medium text-yellow-800">{t('clientNotice')}</p>
       </div>
 
       {/* Name */}
@@ -130,6 +131,7 @@ export default function SupportForm({ onSubmit }: SupportFormProps) {
           onChange={(e) => setFormData((prev) => ({ ...prev, company: e.target.value }))}
           className="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-black outline-none transition-colors bg-transparent"
           placeholder="Company Inc."
+          required
         />
       </div>
 
@@ -151,14 +153,14 @@ export default function SupportForm({ onSubmit }: SupportFormProps) {
 
       {/* Issue Type */}
       <div>
-        <h2 className="text-2xl font-medium mb-6">{t('issueTypeTitle')}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <h2 className="text-xl md:text-2xl font-medium mb-3 md:mb-4">{t('issueTypeTitle')}</h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3">
           {issueTypes.map((type) => (
             <button
               key={type.id}
               type="button"
               onClick={() => setFormData((prev) => ({ ...prev, issueType: type.id }))}
-              className={`py-4 px-6 border font-medium transition-colors ${
+              className={`py-2.5 md:py-3 px-3 md:px-4 border font-medium transition-colors text-sm md:text-base ${
                 formData.issueType === type.id
                   ? 'border-black bg-black text-white'
                   : 'border-black/20 bg-white text-gray-700 hover:border-black'
@@ -172,14 +174,14 @@ export default function SupportForm({ onSubmit }: SupportFormProps) {
 
       {/* Urgency Level */}
       <div>
-        <h2 className="text-2xl font-medium mb-6">{t('urgencyTitle')}</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <h2 className="text-xl md:text-2xl font-medium mb-3 md:mb-4">{t('urgencyTitle')}</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 md:gap-3">
           {urgencyLevels.map((level) => (
             <button
               key={level.id}
               type="button"
               onClick={() => setFormData((prev) => ({ ...prev, urgencyLevel: level.id }))}
-              className={`py-4 px-6 border font-medium transition-colors ${
+              className={`py-2.5 md:py-3 px-3 md:px-4 border font-medium transition-colors text-sm md:text-base ${
                 formData.urgencyLevel === level.id
                   ? 'border-black bg-black text-white'
                   : 'border-black/20 bg-white text-gray-700 hover:border-black'
@@ -193,13 +195,13 @@ export default function SupportForm({ onSubmit }: SupportFormProps) {
 
       {/* Description */}
       <div>
-        <h2 className="text-2xl font-medium mb-2">{t('descriptionTitle')}</h2>
-        <p className="text-sm text-gray-500 mb-4">{t('descriptionSubtitle')}</p>
+        <h2 className="text-xl md:text-2xl font-medium mb-2">{t('descriptionTitle')}</h2>
+        <p className="text-xs md:text-sm text-gray-500 mb-2 md:mb-3">{t('descriptionSubtitle')}</p>
         <textarea
           value={formData.description}
           onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
-          className="w-full px-4 py-3 border border-black/20 focus:border-black outline-none transition-colors resize-none"
-          rows={6}
+          className="w-full px-3 md:px-4 py-2 md:py-3 border border-black/20 focus:border-black outline-none transition-colors resize-none text-sm md:text-base"
+          rows={4}
           placeholder={t('descriptionPlaceholder')}
           required
         />
@@ -207,9 +209,9 @@ export default function SupportForm({ onSubmit }: SupportFormProps) {
 
       {/* File Upload */}
       <div>
-        <h2 className="text-2xl font-medium mb-2">{t('filesTitle')}</h2>
-        <p className="text-sm text-gray-500 mb-4">{t('filesSubtitle')}</p>
-        <div className="border-2 border-dashed border-black/20 p-6 text-center">
+        <h2 className="text-xl md:text-2xl font-medium mb-2">{t('filesTitle')}</h2>
+        <p className="text-xs md:text-sm text-gray-500 mb-2 md:mb-3">{t('filesSubtitle')}</p>
+        <div className="border-2 border-dashed border-black/20 p-4 md:p-6 text-center">
           <input
             type="file"
             id="file-upload"
@@ -220,11 +222,11 @@ export default function SupportForm({ onSubmit }: SupportFormProps) {
           />
           <label
             htmlFor="file-upload"
-            className="cursor-pointer inline-block px-6 py-3 bg-black text-white border border-black font-medium hover:bg-white hover:text-black transition-colors"
+            className="cursor-pointer inline-block px-4 md:px-6 py-2.5 md:py-3 bg-black text-white border border-black font-medium hover:bg-white hover:text-black transition-colors text-sm md:text-base"
           >
             {t('uploadButton')}
           </label>
-          <p className="text-sm text-gray-500 mt-2">{t('fileFormats')}</p>
+          <p className="text-xs md:text-sm text-gray-500 mt-2">{t('fileFormats')}</p>
         </div>
 
         {/* File List */}
@@ -250,15 +252,15 @@ export default function SupportForm({ onSubmit }: SupportFormProps) {
       </div>
 
       {/* Submit Button */}
-      <div className="flex justify-end pt-4">
+      <div className="flex justify-end pt-3 md:pt-4 sticky bottom-0 bg-white pb-2 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 border-t md:border-t-0 border-gray-200 md:static">
         <button
           type="submit"
           disabled={!isValid || isSubmitting}
-          className="px-8 py-3 bg-black text-white border border-black font-medium hover:bg-white hover:text-black disabled:bg-gray-300 disabled:border-gray-300 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+          className="w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-3 bg-black text-white border border-black font-medium hover:bg-white hover:text-black disabled:bg-gray-300 disabled:border-gray-300 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 text-sm md:text-base"
         >
           {isSubmitting ? (
             <>
-              <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+              <svg className="animate-spin h-4 w-4 md:h-5 md:w-5" viewBox="0 0 24 24">
                 <circle
                   className="opacity-25"
                   cx="12"
