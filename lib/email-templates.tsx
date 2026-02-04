@@ -24,6 +24,7 @@ const COLORS = {
   gray: '#5A5A5A',
   lightGray: '#DEE5ED',
   darkGray: '#1E1E1E',
+  bgGray: '#F3F4F6',
 };
 
 // Bilingual translations
@@ -171,7 +172,7 @@ export const UserConfirmationEmail = ({ formData, locale = 'es' }: { formData: C
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body style={{ margin: 0, padding: 0, backgroundColor: COLORS.white, fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif' }}>
+      <body style={{ margin: 0, padding: 0, backgroundColor: COLORS.bgGray, fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif' }}>
         <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse' }}>
           <tr>
             <td align="center" style={{ padding: '40px 20px' }}>
@@ -179,86 +180,74 @@ export const UserConfirmationEmail = ({ formData, locale = 'es' }: { formData: C
               {/* Main Container */}
               <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="600" style={{ borderCollapse: 'collapse', maxWidth: '600px' }}>
 
-                {/* Logo/Brand */}
+                {/* Logo/Brand - Header fuera del card */}
                 <tr>
-                  <td style={{ padding: '0 0 40px 0', borderBottom: `1px solid ${COLORS.black}` }}>
+                  <td style={{ padding: '0 0 30px 0', textAlign: 'center' }}>
                     <h1 style={{ margin: 0, fontSize: '24px', fontWeight: 'bold', color: COLORS.black, letterSpacing: '2px' }}>
                       DREEEAMS
                     </h1>
                   </td>
                 </tr>
 
-                {/* Main Content */}
+                {/* White Card Container */}
                 <tr>
-                  <td style={{ padding: '40px 0' }}>
-                    <h2 style={{ margin: '0 0 20px 0', fontSize: '18px', fontWeight: '600', color: COLORS.black }}>
-                      {t.thankYou(firstName)}
-                    </h2>
-                    <p style={{ margin: '0 0 30px 0', fontSize: '15px', lineHeight: '1.6', color: COLORS.gray }}>
-                      {t.weReceived(formData.company)}
-                    </p>
+                  <td style={{ backgroundColor: COLORS.white, padding: '40px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+                    <div style={{ textAlign: 'center', maxWidth: '520px', margin: '0 auto' }}>
+                      <h2 style={{ margin: '0 0 20px 0', fontSize: '20px', fontWeight: '600', color: COLORS.black }}>
+                        {t.thankYou(firstName)}
+                      </h2>
+                      <p style={{ margin: '0 0 30px 0', fontSize: '15px', lineHeight: '1.8', color: COLORS.gray, textAlign: 'justify' }}>
+                        {t.weReceived(formData.company)}
+                      </p>
 
-                    {/* Info Box */}
-                    <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse', marginBottom: '30px' }}>
-                      <tr>
-                        <td style={{ padding: '20px', backgroundColor: COLORS.lightGray, border: `1px solid ${COLORS.black}` }}>
-                          <p style={{ margin: '0 0 10px 0', fontSize: '13px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                            {t.requestSummary}
-                          </p>
-                          <p style={{ margin: '0 0 5px 0', fontSize: '15px', color: COLORS.black }}>
-                            {formData.company}
-                          </p>
-                          <p style={{ margin: 0, fontSize: '14px', color: COLORS.gray }}>
-                            {formData.need.map(n => t.needOptions[n as keyof typeof t.needOptions]).join(', ')}
-                          </p>
-                        </td>
-                      </tr>
-                    </table>
+                      {/* Info Box - Markdown Style */}
+                      <div style={{ marginBottom: '30px', padding: '20px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}`, textAlign: 'left' }}>
+                        <p style={{ margin: '0 0 8px 0', fontSize: '13px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          {t.requestSummary}
+                        </p>
+                        <p style={{ margin: '0 0 5px 0', fontSize: '15px', color: COLORS.black, fontWeight: '500' }}>
+                          {formData.company}
+                        </p>
+                        <p style={{ margin: 0, fontSize: '14px', color: COLORS.gray }}>
+                          {formData.need.map(n => t.needOptions[n as keyof typeof t.needOptions]).join(', ')}
+                        </p>
+                      </div>
 
-                    {/* Next Steps */}
-                    <p style={{ margin: '0 0 15px 0', fontSize: '13px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      {t.nextSteps}
-                    </p>
-                    <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse', marginBottom: '30px' }}>
-                      <tr>
-                        <td style={{ padding: '10px 0', borderLeft: `2px solid ${COLORS.black}`, paddingLeft: '15px' }}>
-                          <p style={{ margin: 0, fontSize: '14px', color: COLORS.gray }}>
-                            {t.step1}
-                          </p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: '10px 0', borderLeft: `2px solid ${COLORS.black}`, paddingLeft: '15px' }}>
-                          <p style={{ margin: 0, fontSize: '14px', color: COLORS.gray }}>
-                            {t.step2}
-                          </p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: '10px 0', borderLeft: `2px solid ${COLORS.black}`, paddingLeft: '15px' }}>
-                          <p style={{ margin: 0, fontSize: '14px', color: COLORS.gray }}>
-                            {t.step3}
-                          </p>
-                        </td>
-                      </tr>
-                    </table>
+                      {/* Next Steps - Markdown Style */}
+                      <div style={{ textAlign: 'left', marginBottom: '30px' }}>
+                        <p style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          {t.nextSteps}
+                        </p>
+                        <p style={{ margin: '0 0 12px 0', fontSize: '15px', lineHeight: '1.6', color: COLORS.gray, paddingLeft: '20px', borderLeft: `2px solid ${COLORS.lightGray}` }}>
+                          {t.step1}
+                        </p>
+                        <p style={{ margin: '0 0 12px 0', fontSize: '15px', lineHeight: '1.6', color: COLORS.gray, paddingLeft: '20px', borderLeft: `2px solid ${COLORS.lightGray}` }}>
+                          {t.step2}
+                        </p>
+                        <p style={{ margin: 0, fontSize: '15px', lineHeight: '1.6', color: COLORS.gray, paddingLeft: '20px', borderLeft: `2px solid ${COLORS.lightGray}` }}>
+                          {t.step3}
+                        </p>
+                      </div>
 
-                    {/* Contact Info */}
-                    <p style={{ margin: '0 0 10px 0', fontSize: '14px', color: COLORS.gray }}>
-                      {t.questions}
-                    </p>
-                    <p style={{ margin: '0 0 5px 0', fontSize: '14px', color: COLORS.black }}>
-                      Email: <a href="mailto:info@dreeeams.com" style={{ color: COLORS.black, textDecoration: 'underline' }}>info@dreeeams.com</a>
-                    </p>
-                    <p style={{ margin: 0, fontSize: '14px', color: COLORS.black }}>
-                      WhatsApp: {formData.whatsapp}
-                    </p>
+                      {/* Contact Info */}
+                      <div style={{ textAlign: 'center', paddingTop: '20px', borderTop: `1px solid ${COLORS.lightGray}` }}>
+                        <p style={{ margin: '0 0 12px 0', fontSize: '14px', color: COLORS.gray }}>
+                          {t.questions}
+                        </p>
+                        <p style={{ margin: '0 0 5px 0', fontSize: '14px', color: COLORS.black }}>
+                          <a href="mailto:info@dreeeams.com" style={{ color: COLORS.black, textDecoration: 'underline' }}>info@dreeeams.com</a>
+                        </p>
+                        <p style={{ margin: 0, fontSize: '14px', color: COLORS.black }}>
+                          WhatsApp: {formData.whatsapp}
+                        </p>
+                      </div>
+                    </div>
                   </td>
                 </tr>
 
-                {/* Footer */}
+                {/* Footer - Fuera del card */}
                 <tr>
-                  <td style={{ padding: '30px 0 0 0', borderTop: `1px solid ${COLORS.lightGray}` }}>
+                  <td style={{ padding: '30px 0 0 0', textAlign: 'center' }}>
                     <p style={{ margin: '0 0 5px 0', fontSize: '13px', fontWeight: '600', color: COLORS.black }}>
                       DREEEAMS
                     </p>
@@ -299,7 +288,7 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body style={{ margin: 0, padding: 0, backgroundColor: COLORS.white, fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif' }}>
+      <body style={{ margin: 0, padding: 0, backgroundColor: COLORS.bgGray, fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif' }}>
         <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse' }}>
           <tr>
             <td align="center" style={{ padding: '40px 20px' }}>
@@ -307,182 +296,127 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
               {/* Main Container */}
               <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="600" style={{ borderCollapse: 'collapse', maxWidth: '600px' }}>
 
-                {/* Header */}
+                {/* Header - Fuera del card */}
                 <tr>
-                  <td style={{ padding: '0 0 30px 0' }}>
-                    <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse', backgroundColor: COLORS.black, padding: '20px' }}>
-                      <tr>
-                        <td>
-                          <h1 style={{ margin: '0 0 5px 0', fontSize: '20px', fontWeight: 'bold', color: COLORS.white, letterSpacing: '1px' }}>
-                            {t.newLead}
-                          </h1>
-                          <p style={{ margin: 0, fontSize: '13px', color: COLORS.lightGray }}>
-                            {t.contactForm}
+                  <td style={{ padding: '0 0 20px 0', textAlign: 'center' }}>
+                    <div style={{ backgroundColor: COLORS.black, padding: '20px', borderRadius: '8px' }}>
+                      <h1 style={{ margin: '0 0 5px 0', fontSize: '20px', fontWeight: 'bold', color: COLORS.white, letterSpacing: '1px' }}>
+                        {t.newLead}
+                      </h1>
+                      <p style={{ margin: 0, fontSize: '13px', color: COLORS.lightGray }}>
+                        {t.contactForm}
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* White Card Container */}
+                <tr>
+                  <td style={{ backgroundColor: COLORS.white, padding: '40px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+                    <div style={{ maxWidth: '520px', margin: '0 auto' }}>
+
+                      {/* Alert */}
+                      <div style={{ marginBottom: '30px', padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                        <p style={{ margin: 0, fontSize: '14px', fontWeight: '600', color: COLORS.black }}>
+                          {t.respondIn24}
+                        </p>
+                      </div>
+
+                      {/* Contact Information - Markdown Style */}
+                      <div style={{ marginBottom: '30px' }}>
+                        <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          {t.contactInformation}
+                        </h2>
+                        <div style={{ padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                          <p style={{ margin: '0 0 8px 0', fontSize: '15px', color: COLORS.black }}>
+                            <strong>{formData.fullName}</strong>
                           </p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-
-                {/* Alert */}
-                <tr>
-                  <td style={{ padding: '0 0 30px 0' }}>
-                    <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse', backgroundColor: COLORS.lightGray, border: `2px solid ${COLORS.black}` }}>
-                      <tr>
-                        <td style={{ padding: '15px' }}>
-                          <p style={{ margin: 0, fontSize: '14px', fontWeight: '600', color: COLORS.black }}>
-                            {t.respondIn24}
+                          <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: COLORS.gray }}>
+                            <a href={`mailto:${formData.email}`} style={{ color: COLORS.black, textDecoration: 'underline' }}>{formData.email}</a>
                           </p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
+                          <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: COLORS.gray }}>
+                            <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} style={{ color: COLORS.black, textDecoration: 'underline' }}>WhatsApp: {formData.whatsapp}</a>
+                          </p>
+                          {formData.role && (
+                            <p style={{ margin: 0, fontSize: '14px', color: COLORS.gray }}>
+                              {formData.role}
+                            </p>
+                          )}
+                        </div>
+                      </div>
 
-                {/* Contact Information */}
-                <tr>
-                  <td style={{ padding: '0 0 30px 0' }}>
-                    <h2 style={{ margin: '0 0 15px 0', fontSize: '15px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      {t.contactInformation}
-                    </h2>
-                    <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse' }}>
-                      <tr>
-                        <td style={{ padding: '8px 0', borderBottom: `1px solid ${COLORS.lightGray}` }}>
-                          <span style={{ fontSize: '13px', color: COLORS.gray }}>{t.name}</span>{' '}
-                          <strong style={{ fontSize: '14px', color: COLORS.black }}>{formData.fullName}</strong>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: '8px 0', borderBottom: `1px solid ${COLORS.lightGray}` }}>
-                          <span style={{ fontSize: '13px', color: COLORS.gray }}>{t.email}</span>{' '}
-                          <a href={`mailto:${formData.email}`} style={{ fontSize: '14px', color: COLORS.black, textDecoration: 'underline' }}>{formData.email}</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: '8px 0', borderBottom: `1px solid ${COLORS.lightGray}` }}>
-                          <span style={{ fontSize: '13px', color: COLORS.gray }}>WhatsApp:</span>{' '}
-                          <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} style={{ fontSize: '14px', color: COLORS.black, textDecoration: 'underline' }}>{formData.whatsapp}</a>
-                        </td>
-                      </tr>
-                      {formData.linkedin && (
-                        <tr>
-                          <td style={{ padding: '8px 0', borderBottom: `1px solid ${COLORS.lightGray}` }}>
-                            <span style={{ fontSize: '13px', color: COLORS.gray }}>LinkedIn:</span>{' '}
-                            <a href={formData.linkedin} style={{ fontSize: '14px', color: COLORS.black, textDecoration: 'underline' }}>{formData.linkedin}</a>
-                          </td>
-                        </tr>
-                      )}
-                      <tr>
-                        <td style={{ padding: '8px 0' }}>
-                          <span style={{ fontSize: '13px', color: COLORS.gray }}>{t.position}</span>{' '}
-                          <strong style={{ fontSize: '14px', color: COLORS.black }}>{formData.role}</strong>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
+                      {/* Company Information - Markdown Style */}
+                      <div style={{ marginBottom: '30px' }}>
+                        <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          {t.companyInformation}
+                        </h2>
+                        <div style={{ padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                          <p style={{ margin: '0 0 8px 0', fontSize: '15px', color: COLORS.black }}>
+                            <strong>{formData.company}</strong>
+                          </p>
+                          {formData.websiteUrl && (
+                            <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: COLORS.gray }}>
+                              <a href={formData.websiteUrl} style={{ color: COLORS.black, textDecoration: 'underline' }}>{formData.websiteUrl}</a>
+                            </p>
+                          )}
+                          {formData.companySize && (
+                            <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: COLORS.gray }}>
+                              {t.companySize[formData.companySize as keyof typeof t.companySize]}
+                            </p>
+                          )}
+                          {formData.industry && (
+                            <p style={{ margin: 0, fontSize: '14px', color: COLORS.gray }}>
+                              {t.industryOptions[formData.industry as keyof typeof t.industryOptions]}
+                            </p>
+                          )}
+                        </div>
+                      </div>
 
-                {/* Company Information */}
-                <tr>
-                  <td style={{ padding: '0 0 30px 0' }}>
-                    <h2 style={{ margin: '0 0 15px 0', fontSize: '15px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      {t.companyInformation}
-                    </h2>
-                    <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse' }}>
-                      <tr>
-                        <td style={{ padding: '8px 0', borderBottom: `1px solid ${COLORS.lightGray}` }}>
-                          <span style={{ fontSize: '13px', color: COLORS.gray }}>{t.company}</span>{' '}
-                          <strong style={{ fontSize: '15px', color: COLORS.black }}>{formData.company}</strong>
-                        </td>
-                      </tr>
-                      {formData.websiteUrl && (
-                        <tr>
-                          <td style={{ padding: '8px 0', borderBottom: `1px solid ${COLORS.lightGray}` }}>
-                            <span style={{ fontSize: '13px', color: COLORS.gray }}>{t.website}</span>{' '}
-                            <a href={formData.websiteUrl} style={{ fontSize: '14px', color: COLORS.black, textDecoration: 'underline' }}>{formData.websiteUrl}</a>
-                          </td>
-                        </tr>
-                      )}
-                      <tr>
-                        <td style={{ padding: '8px 0', borderBottom: `1px solid ${COLORS.lightGray}` }}>
-                          <span style={{ fontSize: '13px', color: COLORS.gray }}>{t.size}</span>{' '}
-                          <span style={{ fontSize: '14px', color: COLORS.black }}>{t.companySize[formData.companySize as keyof typeof t.companySize]}</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: '8px 0' }}>
-                          <span style={{ fontSize: '13px', color: COLORS.gray }}>{t.industry}</span>{' '}
-                          <span style={{ fontSize: '14px', color: COLORS.black }}>{t.industryOptions[formData.industry as keyof typeof t.industryOptions]}</span>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
+                      {/* Services Required - Markdown Style */}
+                      <div style={{ marginBottom: '30px' }}>
+                        <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          {t.servicesRequired}
+                        </h2>
+                        <div style={{ padding: '15px', backgroundColor: COLORS.black, borderRadius: '4px' }}>
+                          {formData.need.map((need, index) => (
+                            <p key={index} style={{ margin: index < formData.need.length - 1 ? '0 0 8px 0' : 0, fontSize: '14px', color: COLORS.white }}>
+                              • {t.needOptions[need as keyof typeof t.needOptions]}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
 
-                {/* Services Required */}
-                <tr>
-                  <td style={{ padding: '0 0 30px 0' }}>
-                    <h2 style={{ margin: '0 0 15px 0', fontSize: '15px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      {t.servicesRequired}
-                    </h2>
-                    <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse', backgroundColor: COLORS.black }}>
-                      {formData.need.map((need, index) => (
-                        <tr key={index}>
-                          <td style={{ padding: '12px 20px', borderBottom: index < formData.need.length - 1 ? `1px solid ${COLORS.gray}` : 'none' }}>
-                            <span style={{ fontSize: '14px', color: COLORS.white, fontWeight: '500' }}>
-                              ■ {t.needOptions[need as keyof typeof t.needOptions]}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </table>
-                  </td>
-                </tr>
-
-                {/* Summary if available */}
-                {formData.summary && (
-                  <tr>
-                    <td style={{ padding: '0 0 30px 0' }}>
-                      <h2 style={{ margin: '0 0 15px 0', fontSize: '15px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                        {t.projectSummary}
-                      </h2>
-                      <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse', backgroundColor: COLORS.lightGray, border: `1px solid ${COLORS.black}` }}>
-                        <tr>
-                          <td style={{ padding: '20px' }}>
-                            <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.7', color: COLORS.black, fontStyle: 'italic' }}>
+                      {/* Summary if available - Markdown Style */}
+                      {formData.summary && (
+                        <div style={{ marginBottom: '30px' }}>
+                          <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                            {t.projectSummary}
+                          </h2>
+                          <div style={{ padding: '20px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                            <p style={{ margin: 0, fontSize: '15px', lineHeight: '1.8', color: COLORS.black, textAlign: 'justify', fontStyle: 'italic' }}>
                               {formData.summary}
                             </p>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                )}
+                          </div>
+                        </div>
+                      )}
 
-                {/* Action Buttons */}
-                <tr>
-                  <td style={{ padding: '0 0 30px 0' }}>
-                    <table role="presentation" cellPadding="0" cellSpacing="0" border={0} width="100%" style={{ borderCollapse: 'collapse' }}>
-                      <tr>
-                        <td style={{ padding: '0 5px 0 0' }} width="50%">
-                          <a href={`mailto:${formData.email}?subject=Re: ${locale === 'en' ? 'Your request at Dreeeams' : 'Tu solicitud en Dreeeams'}`} style={{ display: 'block', backgroundColor: COLORS.black, color: COLORS.white, textAlign: 'center', padding: '15px 10px', textDecoration: 'none', fontSize: '13px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px', border: `1px solid ${COLORS.black}` }}>
-                            {t.replyEmail}
-                          </a>
-                        </td>
-                        <td style={{ padding: '0 0 0 5px' }} width="50%">
-                          <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} style={{ display: 'block', backgroundColor: COLORS.white, color: COLORS.black, textAlign: 'center', padding: '15px 10px', textDecoration: 'none', fontSize: '13px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px', border: `1px solid ${COLORS.black}` }}>
-                            WhatsApp
-                          </a>
-                        </td>
-                      </tr>
-                    </table>
+                      {/* Action Buttons */}
+                      <div style={{ display: 'flex', gap: '10px', marginTop: '30px', paddingTop: '20px', borderTop: `1px solid ${COLORS.lightGray}` }}>
+                        <a href={`mailto:${formData.email}?subject=Re: ${locale === 'en' ? 'Your request at Dreeeams' : 'Tu solicitud en Dreeeams'}`} style={{ flex: 1, display: 'block', backgroundColor: COLORS.black, color: COLORS.white, textAlign: 'center', padding: '15px 10px', textDecoration: 'none', fontSize: '13px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px', borderRadius: '4px' }}>
+                          {t.replyEmail}
+                        </a>
+                        <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} style={{ flex: 1, display: 'block', backgroundColor: COLORS.white, color: COLORS.black, textAlign: 'center', padding: '15px 10px', textDecoration: 'none', fontSize: '13px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px', border: `2px solid ${COLORS.black}`, borderRadius: '4px' }}>
+                          WhatsApp
+                        </a>
+                      </div>
+
+                    </div>
                   </td>
                 </tr>
 
-                {/* Footer */}
+                {/* Footer - Fuera del card */}
                 <tr>
-                  <td style={{ padding: '20px 0 0 0', borderTop: `1px solid ${COLORS.lightGray}`, textAlign: 'center' }}>
+                  <td style={{ padding: '30px 0 0 0', textAlign: 'center' }}>
                     <p style={{ margin: '0 0 5px 0', fontSize: '12px', fontWeight: '600', color: COLORS.black }}>
                       {t.notificationSystem}
                     </p>
