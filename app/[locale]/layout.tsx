@@ -10,6 +10,7 @@ import DisableZoomOnInput from '@/components/disable-zoom-on-input';
 import MotionProvider from '@/components/providers/motion-provider';
 import PageLoader from '@/components/page-loader';
 import LenisScroll from '@/components/lenis-scroll';
+import GoogleAdsScript from '@/components/analytics/google-ads-script';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -273,6 +274,21 @@ export default async function LocaleLayout({
           gtag('config', 'G-7RHVN0C6WY');
         `}
       </Script>
+
+      {/* Google Ads Conversion Tracking */}
+      <GoogleAdsScript />
+
+      {/* Schema.org structured data */}
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <Script
+        id="website-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
     </>
   );
 }
