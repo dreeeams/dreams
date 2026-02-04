@@ -152,9 +152,9 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white border border-black p-8">
+    <div className="bg-white border-y md:border border-black p-4 md:p-8">
       {/* Project Type Tabs */}
-      <div className="mb-8">
+      <div className="mb-6 md:mb-8">
         <div className="flex gap-4">
           <button
             type="button"
