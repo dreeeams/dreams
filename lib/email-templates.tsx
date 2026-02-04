@@ -85,14 +85,17 @@ const i18n = {
       other: 'Otro',
     },
     needOptions: {
-      landing: 'Landing Page',
-      webapp: 'Aplicación Web',
-      mobile: 'App Móvil',
-      chatbot: 'Chatbot/IA',
-      automation: 'Automatización',
-      design: 'Diseño UI/UX',
-      other: 'Otro',
+      branding: 'Branding',
+      webDesign: 'Diseño Web',
+      websiteDevelopment: 'Desarrollo de Sitio Web',
+      backend: 'Backend y APIs',
+      aiDevelopment: 'Desarrollo con IA',
+      ecommerce: 'E-commerce',
+      integrations: 'Integraciones',
+      consulting: 'Consultoría',
+      workflowOptimization: 'Optimización de Flujos',
     },
+    referralLabel: 'Cómo nos conoció',
   },
   en: {
     // User email
@@ -150,14 +153,17 @@ const i18n = {
       other: 'Other',
     },
     needOptions: {
-      landing: 'Landing Page',
-      webapp: 'Web Application',
-      mobile: 'Mobile App',
-      chatbot: 'Chatbot/AI',
-      automation: 'Automation',
-      design: 'UI/UX Design',
-      other: 'Other',
+      branding: 'Branding',
+      webDesign: 'Web Design',
+      websiteDevelopment: 'Website Development',
+      backend: 'Backend & APIs',
+      aiDevelopment: 'AI Development',
+      ecommerce: 'E-commerce',
+      integrations: 'Integrations',
+      consulting: 'Consulting',
+      workflowOptimization: 'Workflow Optimization',
     },
+    referralLabel: 'How did you hear about us',
   },
 };
 
@@ -385,6 +391,20 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
                           ))}
                         </div>
                       </div>
+
+                      {/* Referral Source - Markdown Style */}
+                      {formData.heardFrom && (
+                        <div style={{ marginBottom: '30px' }}>
+                          <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                            {t.referralLabel}
+                          </h2>
+                          <div style={{ padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                            <p style={{ margin: 0, fontSize: '15px', color: COLORS.black }}>
+                              {formData.heardFrom}
+                            </p>
+                          </div>
+                        </div>
+                      )}
 
                       {/* Summary if available - Markdown Style */}
                       {formData.summary && (
