@@ -96,21 +96,13 @@ export default async function ThankYouPage({ params }: { params: Promise<{ local
           </div>
 
           {/* CTA Buttons */}
-          <div className="space-y-3 mb-8">
+          <div className="mb-8">
             <Link
               href={`/${locale}`}
               className="block w-full bg-white text-black px-6 py-3 border-2 border-black hover:bg-black hover:text-white transition-colors font-medium text-center"
             >
               {t('backToHome')}
             </Link>
-            <a
-              href="https://wa.me/5215583107293"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-green-500 text-black px-6 py-3 border-2 border-black hover:bg-green-600 transition-colors font-medium text-center"
-            >
-              {t('contactWhatsapp')}
-            </a>
           </div>
 
           {/* Response Time */}
