@@ -184,6 +184,7 @@ export async function POST(request: NextRequest) {
           companySize: validatedData.companySize || '',
           industry: validatedData.industry || '',
           need: validatedData.need,
+          budget: validatedData.budget || undefined,
           summary: contactData.summary || undefined,
           heardFrom: contactData.heardFrom || undefined,
         };

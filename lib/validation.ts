@@ -108,6 +108,20 @@ export const ContactFormSchema = z.object({
     .optional()
     .or(z.literal('')),
 
+  budget: z
+    .enum([
+      'less-2500',
+      '2500-5000',
+      '5000-10000',
+      '10000-15000',
+      '15000-20000',
+      '20000-30000',
+      'more-30000',
+      'dont-know',
+    ])
+    .optional()
+    .or(z.literal('')),
+
   summary: z
     .string()
     .max(500, 'Summary must be less than 500 characters')

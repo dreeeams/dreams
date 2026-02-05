@@ -13,6 +13,7 @@ interface ContactFormData {
   companySize: string;
   industry: string;
   need: string[];
+  budget?: string;
   summary?: string;
   heardFrom?: string;
 }
@@ -59,6 +60,7 @@ const i18n = {
     size: 'Tamaño:',
     industry: 'Industria:',
     servicesRequired: 'Servicios Requeridos',
+    budget: 'Presupuesto',
     projectSummary: 'Resumen del Proyecto',
     replyEmail: 'Responder Email',
     notificationSystem: 'DREEEAMS - SISTEMA DE NOTIFICACIONES',
@@ -95,6 +97,16 @@ const i18n = {
       consulting: 'Consultoría',
       workflowOptimization: 'Optimización de Flujos',
     },
+    budgetOptions: {
+      'less-2500': 'Menos de $2,500',
+      '2500-5000': '$2,500 - $5,000',
+      '5000-10000': '$5,000 - $10,000',
+      '10000-15000': '$10,000 - $15,000',
+      '15000-20000': '$15,000 - $20,000',
+      '20000-30000': '$20,000 - $30,000',
+      'more-30000': 'Más de $30,000',
+      'dont-know': 'No lo sé',
+    },
     referralLabel: 'Cómo nos conoció',
   },
   en: {
@@ -127,6 +139,7 @@ const i18n = {
     size: 'Size:',
     industry: 'Industry:',
     servicesRequired: 'Required Services',
+    budget: 'Budget',
     projectSummary: 'Project Summary',
     replyEmail: 'Reply Email',
     notificationSystem: 'DREEEAMS - NOTIFICATION SYSTEM',
@@ -162,6 +175,16 @@ const i18n = {
       integrations: 'Integrations',
       consulting: 'Consulting',
       workflowOptimization: 'Workflow Optimization',
+    },
+    budgetOptions: {
+      'less-2500': 'Less than $2,500',
+      '2500-5000': '$2,500 - $5,000',
+      '5000-10000': '$5,000 - $10,000',
+      '10000-15000': '$10,000 - $15,000',
+      '15000-20000': '$15,000 - $20,000',
+      '20000-30000': '$20,000 - $30,000',
+      'more-30000': 'More than $30,000',
+      'dont-know': "I don't know",
     },
     referralLabel: 'How did you hear about us',
   },
@@ -399,6 +422,20 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
                           ))}
                         </div>
                       </div>
+
+                      {/* Budget - Markdown Style */}
+                      {formData.budget && (
+                        <div style={{ marginBottom: '30px' }}>
+                          <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                            {t.budget}
+                          </h2>
+                          <div style={{ padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                            <p style={{ margin: 0, fontSize: '15px', color: COLORS.black, fontWeight: '500' }}>
+                              {t.budgetOptions[formData.budget as keyof typeof t.budgetOptions] || formData.budget}
+                            </p>
+                          </div>
+                        </div>
+                      )}
 
                       {/* Referral Source - Markdown Style */}
                       {formData.heardFrom && (
