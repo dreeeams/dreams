@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { CAL_EVENT_LINK } from '@/lib/constants';
 
 declare global {
   interface Window {
@@ -8,29 +9,61 @@ declare global {
   }
 }
 
-export default function CalendarEmbed() {
+interface CalendarEmbedProps {
+  /** Override the default cal.com event link */
+  calLink?: string;
+  /** URL to redirect to after successful booking */
+  successRedirectUrl?: string;
+  /** Prefill guest name */
+  name?: string;
+  /** Prefill guest email */
+  email?: string;
+}
+
+export default function CalendarEmbed({
+  calLink,
+  successRedirectUrl,
+  name,
+  email,
+}: CalendarEmbedProps) {
   const isInitialized = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const link = calLink || CAL_EVENT_LINK;
 
   useEffect(() => {
     const initCalendar = () => {
       if (window.Cal) {
-        // Clear any existing calendar instance
-        const container = document.getElementById('my-cal-inline-kickoff');
+        const container = document.getElementById('my-cal-inline');
         if (container) {
           container.innerHTML = '';
         }
 
-        // Reinitialize calendar
-        window.Cal('init', 'kickoff', { origin: 'https://app.cal.com' });
+        window.Cal('init', 'booking', { origin: 'https://app.cal.com' });
 
-        window.Cal.ns.kickoff('inline', {
-          elementOrSelector: '#my-cal-inline-kickoff',
-          config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
-          calLink: 'luis-fernandez-ezzzmp/kickoff',
+        const config: Record<string, string> = {
+          layout: 'month_view',
+          useSlotsViewOnSmallScreen: 'true',
+        };
+
+        if (successRedirectUrl) {
+          config.successRedirectUrl = successRedirectUrl;
+        }
+
+        if (name) {
+          config.name = name;
+        }
+
+        if (email) {
+          config.email = email;
+        }
+
+        window.Cal.ns.booking('inline', {
+          elementOrSelector: '#my-cal-inline',
+          config,
+          calLink: link,
         });
 
-        window.Cal.ns.kickoff('ui', {
+        window.Cal.ns.booking('ui', {
           cssVarsPerTheme: {
             light: { 'cal-brand': '#1E1E1E' },
             dark: { 'cal-brand': '#DEE5ED' },
@@ -45,7 +78,6 @@ export default function CalendarEmbed() {
       if (isInitialized.current) return;
       isInitialized.current = true;
 
-      // Load Cal.com script if not already loaded
       if (typeof window !== 'undefined' && !window.Cal) {
       (function (C: any, A: string, L: string) {
         let p = function (a: any, ar: any) {
@@ -80,15 +112,12 @@ export default function CalendarEmbed() {
           };
       })(window, 'https://app.cal.com/embed/embed.js', 'init');
 
-        // Wait for script to load
         setTimeout(initCalendar, 100);
       } else {
-        // Script already loaded, just reinitialize
         initCalendar();
       }
     };
 
-    // Use IntersectionObserver to load Cal.com only when visible
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -104,12 +133,12 @@ export default function CalendarEmbed() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [link, successRedirectUrl, name, email]);
 
   return (
     <div ref={containerRef} className="w-full">
       <div
-        id="my-cal-inline-kickoff"
+        id="my-cal-inline"
         style={{ width: '100%', height: '100%', overflow: 'auto' }}
         data-lenis-prevent
       />

@@ -33,6 +33,10 @@ export const SOCIAL_MEDIA = {
   WHATSAPP: process.env.NEXT_PUBLIC_WHATSAPP || '',
 } as const;
 
+// Cal.com
+export const CAL_EVENT_LINK =
+  process.env.NEXT_PUBLIC_CAL_EVENT_LINK || 'luis-fernandez-ezzzmp/30min';
+
 // Form Steps
 export const FORM_STEPS = {
   CONTACT: 1,

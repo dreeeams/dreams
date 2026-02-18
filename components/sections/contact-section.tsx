@@ -3,6 +3,7 @@
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Calendar } from 'lucide-react';
+import { CAL_EVENT_LINK } from '@/lib/constants';
 
 export default function ContactSection() {
   const t = useTranslations('contact');
@@ -37,7 +38,7 @@ export default function ContactSection() {
               className="w-full max-w-3xl mx-auto text-center"
             >
               <m.a
-                href="https://cal.com/luis-fernandez-ezzzmp/30min?overlayCalendar=true"
+                href={`https://cal.com/${CAL_EVENT_LINK}?overlayCalendar=true`}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
