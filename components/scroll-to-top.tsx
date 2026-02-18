@@ -9,8 +9,8 @@ export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
-  // Hide on contact-form and thank-you pages
-  const shouldHide = pathname?.includes('/contact-form') || pathname?.includes('/thank-you');
+  // Hide on start and thank-you pages
+  const shouldHide = pathname?.includes('/start') || pathname?.includes('/thank-you');
 
   useEffect(() => {
     let ticking = false;
@@ -57,7 +57,7 @@ export default function ScrollToTop() {
     });
   };
 
-  // Don't render on contact-form or thank-you pages, or when not scrolled down
+  // Don't render on start or thank-you pages, or when not scrolled down
   if (shouldHide || !isVisible) {
     return null;
   }

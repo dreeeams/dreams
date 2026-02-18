@@ -31,7 +31,7 @@ export default function FooterSection() {
             <h3 className="text-3xl md:text-4xl font-nostalgic text-white mb-6">
               Ready to start your project?
             </h3>
-            <Link href="/contact-form">
+            <Link href="/start">
               <m.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}

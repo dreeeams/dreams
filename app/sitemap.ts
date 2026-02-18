@@ -57,13 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/es/contact-form`,
+      url: `${baseUrl}/es/start`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/en/contact-form`,
+      url: `${baseUrl}/en/start`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
