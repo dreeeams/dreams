@@ -4,32 +4,32 @@ import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cdnAssetUrl } from '@/lib/constants';
 
 export default function ServicesSection() {
   const t = useTranslations('services');
   const tClients = useTranslations('clients');
-  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
 
   const services = [
     {
       number: '01',
       titleKey: 'webDev.title',
       descriptionKey: 'webDev.description',
-      image: `${cdnUrl}/storage/v1/object/public/content/red_gradient.jpeg`,
+      image: cdnAssetUrl('red_gradient.jpeg'),
       link: '/web-development',
     },
     {
       number: '02',
       titleKey: 'mobileDev.title',
       descriptionKey: 'mobileDev.description',
-      image: `${cdnUrl}/storage/v1/object/public/content/green_gradient.jpeg`,
+      image: cdnAssetUrl('green_gradient.jpeg'),
       link: '/mobile-development',
     },
     {
       number: '03',
       titleKey: 'uiux.title',
       descriptionKey: 'uiux.description',
-      image: `${cdnUrl}/storage/v1/object/public/content/blue_gradient.jpeg`,
+      image: cdnAssetUrl('blue_gradient.jpeg'),
       link: '/ai-solutions',
     },
   ];
@@ -85,14 +85,18 @@ export default function ServicesSection() {
                 className="group relative h-[600px] overflow-hidden cursor-pointer"
               >
               {/* Background Image */}
-              <Image
-                src={service.image}
-                alt={t(service.titleKey)}
-                fill
-                loading="lazy"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
+              {service.image ? (
+                <Image
+                  src={service.image}
+                  alt={t(service.titleKey)}
+                  fill
+                  loading="lazy"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-black" />
+              )}
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-500" />

@@ -3,10 +3,11 @@
 import Image from 'next/image';
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { cdnAssetUrl } from '@/lib/constants';
 
 export default function HeroSection() {
   const t = useTranslations('hero');
-  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
+  const heroSrc = cdnAssetUrl('hero_banner.gif');
 
   return (
     <div className="relative w-full h-screen">
@@ -16,15 +17,17 @@ export default function HeroSection() {
       </h1>
 
       {/* Hero Banner GIF as Background */}
-      <Image
-        src={`${cdnUrl}/storage/v1/object/public/content/hero_banner.gif`}
-        alt="Dreeeams Hero Banner"
-        fill
-        sizes="100vw"
-        className="object-cover"
-        priority
-        quality={85}
-      />
+      {heroSrc && (
+        <Image
+          src={heroSrc}
+          alt="Dreeeams Hero Banner"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          quality={85}
+        />
+      )}
 
       {/* Hero Content with Blend Mode */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white mix-blend-difference px-8 text-center">

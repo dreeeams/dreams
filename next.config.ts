@@ -8,38 +8,35 @@ const bundleAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-// Extract CDN hostname from environment variable
-const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL || '';
-const cdnHostname = cdnUrl ? new URL(cdnUrl).hostname : '';
-
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
   images: {
+    // Custom loader bypasses Turbopack's broken client-side hostname check.
+    // Server-side /_next/image still validates via remotePatterns.
+    loaderFile: './lib/image-loader.ts',
     formats: ['image/avif', 'image/webp'],
+    qualities: [75, 80, 85],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
-      // Active: Payment page flag icons
       {
         protocol: 'https',
         hostname: 'flagcdn.com',
       },
-      // Active: Payment page cryptocurrency icons
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
       },
-      // Active: CDN for hero banner, service gradients, portfolio mockups
-      // Configured via NEXT_PUBLIC_CDN_URL environment variable
-      ...(cdnHostname ? [{
-        protocol: 'https' as const,
-        hostname: cdnHostname,
-      }] : []),
+      {
+        protocol: 'https',
+        hostname: 'eeyjhkhrdoouapuilwep.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
     ],
   },
   experimental: {

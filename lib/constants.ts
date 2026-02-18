@@ -33,6 +33,17 @@ export const SOCIAL_MEDIA = {
   WHATSAPP: process.env.NEXT_PUBLIC_WHATSAPP || '',
 } as const;
 
+// CDN
+const CDN_BASE = process.env.NEXT_PUBLIC_CDN_URL || '';
+const CDN_CONTENT_PREFIX = CDN_BASE
+  ? `${CDN_BASE}/storage/v1/object/public/content`
+  : '';
+
+/** Build a full CDN asset URL. Returns empty string if CDN is not configured. */
+export function cdnAssetUrl(path: string): string {
+  return CDN_CONTENT_PREFIX ? `${CDN_CONTENT_PREFIX}/${path}` : '';
+}
+
 // Cal.com
 export const CAL_EVENT_LINK =
   process.env.NEXT_PUBLIC_CAL_EVENT_LINK || 'luis-fernandez-ezzzmp/30min';

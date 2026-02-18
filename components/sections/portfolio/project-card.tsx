@@ -3,6 +3,7 @@
 import { m } from 'framer-motion';
 import Image from 'next/image';
 import { LazyIframe } from '@/components/ui/lazy-iframe';
+import { cdnAssetUrl } from '@/lib/constants';
 
 type Project = {
   titleKey: string;
@@ -38,7 +39,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index, tButtons, tLabels, tProjects }: ProjectCardProps) {
-  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
+  const fallbackMockup = cdnAssetUrl('hunt_mockup.png');
   const isPriority = index < 2; // Only prioritize first 2 projects
 
   return (
@@ -58,16 +59,18 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
           <>
             {/* Static mockup image */}
             <div className="absolute inset-0 flex items-center justify-center bg-white group-hover:opacity-0 transition-opacity duration-300">
-              <Image
-                src={project.mockupUrl || `${cdnUrl}/storage/v1/object/public/content/hunt_mockup.png`}
-                alt={`${project.titleKey} Mockup`}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover"
-                loading={isPriority ? "eager" : "lazy"}
-                priority={isPriority}
-                quality={80}
-              />
+              {(project.mockupUrl || fallbackMockup) && (
+                <Image
+                  src={project.mockupUrl || fallbackMockup}
+                  alt={`${project.titleKey} Mockup`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover"
+                  loading={isPriority ? "eager" : "lazy"}
+                  priority={isPriority}
+                  quality={80}
+                />
+              )}
             </div>
             {/* Live website iframe on hover */}
             {project.url && (
