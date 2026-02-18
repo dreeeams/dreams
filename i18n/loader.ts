@@ -5,6 +5,7 @@ export type MessageNamespace =
   | 'home'
   | 'pages/payments'
   | 'pages/privacy'
+  | 'pages/start'
   | 'pages/terms'
   | 'pages/uiux-design';
 
@@ -40,6 +41,11 @@ export const routeToNamespaces: Record<string, MessageNamespace[]> = {
   '/terms': ['common', 'pages/terms'],
   '/en/terms': ['common', 'pages/terms'],
   '/es/terminos': ['common', 'pages/terms'],
+
+  // Start / Fit Check page
+  '/start': ['common', 'pages/start'],
+  '/en/start': ['common', 'pages/start'],
+  '/es/start': ['common', 'pages/start'],
 
   // UI/UX Design service page
   '/servicios/diseno-uiux': ['common', 'pages/uiux-design'],

@@ -1,0 +1,54 @@
+{
+  "start": {
+    "meta": {
+      "title": "Start Your Project - Dreeeams",
+      "description": "Answer a few quick questions and book a call with our team."
+    },
+    "heading": "Let's see if we're a fit",
+    "subtitle": "Answer 3 quick questions so we can prepare for our call.",
+    "service": {
+      "label": "What do you need?",
+      "options": {
+        "web": "Website / Web App",
+        "backend": "Backend & APIs",
+        "ai": "AI & Automation",
+        "branding": "Branding & Design",
+        "other": "Something else"
+      }
+    },
+    "budget": {
+      "label": "What's your budget range?",
+      "options": {
+        "under": "Under $2,000 USD",
+        "low": "$2,000 – $5,000 USD",
+        "mid": "$5,000 – $15,000 USD",
+        "high": "$15,000 – $30,000 USD",
+        "premium": "$30,000+ USD"
+      }
+    },
+    "timeline": {
+      "label": "When do you want to launch?",
+      "options": {
+        "asap": "ASAP (< 1 month)",
+        "soon": "1 – 3 months",
+        "planned": "3 – 6 months",
+        "flexible": "No rush / flexible"
+      }
+    },
+    "next": "Next",
+    "back": "Back",
+    "bookCall": "Book Your Call",
+    "bookingHeading": "Great fit! Pick a time below.",
+    "bookingSubtitle": "We'll dive into your project details on the call.",
+    "notFit": {
+      "heading": "We might not be the best match right now",
+      "message": "Our engagements start at $2,000 USD. If you'd like, leave your email and we'll send you free resources to help you get started.",
+      "emailPlaceholder": "your@email.com",
+      "send": "Send me resources",
+      "sent": "Sent! Check your inbox.",
+      "noThanks": "No thanks, take me home"
+    },
+    "step": "Step",
+    "of": "of"
+  }
+}

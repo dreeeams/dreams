@@ -44,6 +44,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     'home',
     'pages/payments',
     'pages/privacy',
+    'pages/start',
     'pages/terms',
     'pages/uiux-design',
   ]);
