@@ -23,6 +23,42 @@ const nameRegex = /^[a-zA-ZÀ-ÿ\s'-]{2,100}$/;
 // Company name validation (alphanumeric, spaces, common business characters)
 const companyRegex = /^[a-zA-Z0-9\s&.,'()-]{2,100}$/;
 
+// Personal email domains to block (common free email providers)
+const personalEmailDomains = [
+  'gmail.com',
+  'yahoo.com',
+  'hotmail.com',
+  'outlook.com',
+  'live.com',
+  'icloud.com',
+  'me.com',
+  'aol.com',
+  'protonmail.com',
+  'proton.me',
+  'zoho.com',
+  'yandex.com',
+  'mail.com',
+  'gmx.com',
+  'tutanota.com',
+  'fastmail.com',
+  'hushmail.com',
+  'inbox.com',
+  'mail.ru',
+  'rediffmail.com',
+];
+
+/**
+ * Validates if an email is corporate (not from a personal email provider)
+ * @param email - Email address to validate
+ * @returns true if corporate email, false if personal
+ */
+export function isCorporateEmail(email: string): boolean {
+  const domain = email.toLowerCase().split('@')[1];
+  if (!domain) return false;
+
+  return !personalEmailDomains.includes(domain);
+}
+
 export const ContactFormSchema = z.object({
   // Required fields
   fullName: z
@@ -36,7 +72,11 @@ export const ContactFormSchema = z.object({
     .email('Invalid email format')
     .max(100, 'Email must be less than 100 characters')
     .toLowerCase()
-    .trim(),
+    .trim()
+    .refine(
+      (email) => isCorporateEmail(email),
+      'Please use a corporate email address (personal emails like Gmail, Yahoo, etc. are not accepted)'
+    ),
 
   company: z
     .string()

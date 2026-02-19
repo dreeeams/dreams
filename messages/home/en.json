@@ -397,6 +397,7 @@
       "name": "What is your name?",
       "company": "What is your company?",
       "email": "What is your email?",
+      "emailCorporateOnly": "Please use a corporate email address. Personal emails (Gmail, Yahoo, Outlook, etc.) are not accepted.",
       "phone": "What is your phone number?",
       "phoneInvalid": "Invalid phone number for selected country",
       "next": "Next"
@@ -505,5 +506,14 @@
     "backToHome": "Back to Home",
     "contactWhatsapp": "Chat on WhatsApp",
     "responseTime": "Average response time: 24 hours"
+  },
+  "cta": {
+    "badge": "World-Class Development",
+    "title": {
+      "line1": "Your vision, our code.",
+      "line2": "perfectly crafted."
+    },
+    "description": "Join 100+ companies trusting us to build high-performance web and mobile apps. Scalable solutions, clean code, exceptional results.",
+    "button": "Start Your Project"
   }
 }

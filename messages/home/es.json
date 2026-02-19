@@ -397,6 +397,7 @@
       "name": "¿Cuál es tu nombre?",
       "company": "¿Cuál es tu empresa?",
       "email": "¿Cuál es tu correo electrónico?",
+      "emailCorporateOnly": "Por favor usa un correo corporativo. No se aceptan correos personales (Gmail, Yahoo, Outlook, etc.).",
       "phone": "¿Cuál es tu número de teléfono?",
       "phoneInvalid": "Número de teléfono inválido para el país seleccionado",
       "next": "Siguiente"
@@ -505,5 +506,14 @@
     "backToHome": "Volver al Inicio",
     "contactWhatsapp": "Chatear en WhatsApp",
     "responseTime": "Tiempo promedio de respuesta: 24 horas"
+  },
+  "cta": {
+    "badge": "Desarrollo de Clase Mundial",
+    "title": {
+      "line1": "Tu visión, nuestro código.",
+      "line2": "perfectamente ejecutado."
+    },
+    "description": "Únete a 100+ empresas que confían en nosotros para construir aplicaciones web y móviles de alto rendimiento. Soluciones escalables, código limpio, resultados excepcionales.",
+    "button": "Inicia Tu Proyecto"
   }
 }
