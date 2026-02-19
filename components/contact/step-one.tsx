@@ -7,6 +7,7 @@ import type { Country } from 'react-phone-number-input';
 import en from 'react-phone-number-input/locale/en';
 import { useState, useEffect } from 'react';
 import { trackFormStart } from '@/lib/google-ads-tracking';
+import { isCorporateEmail } from '@/lib/validation';
 
 // Function to convert country code to flag emoji
 const getFlagEmoji = (countryCode: string) => {
@@ -30,6 +31,7 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
   const tCommon = useTranslations('contact');
   const [country, setCountry] = useState<Country>('CO');
   const [phoneError, setPhoneError] = useState<string>('');
+  const [emailError, setEmailError] = useState<string>('');
   const [hasTrackedStart, setHasTrackedStart] = useState(false);
 
   // Track form start when user interacts with any field
@@ -42,6 +44,12 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate corporate email
+    if (formData.email && !isCorporateEmail(formData.email)) {
+      setEmailError(t('emailCorporateOnly') || 'Please use a corporate email address');
+      return;
+    }
 
     // Validate phone number (now required)
     const fullPhone = `+${getCountryCallingCode(country)}${formData.phone}`;
@@ -58,6 +66,7 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
     updateFormData({ phoneCountry: getCountryCallingCode(country) });
 
     setPhoneError('');
+    setEmailError('');
     onNext();
   };
 
@@ -106,11 +115,23 @@ export default function StepOne({ formData, updateFormData, onNext, currentStep,
           type="email"
           id="email"
           value={formData.email}
-          onChange={(e) => updateFormData({ email: e.target.value })}
+          onChange={(e) => {
+            const email = e.target.value;
+            updateFormData({ email });
+            // Validate on change if email has @ symbol (basic check)
+            if (email.includes('@') && !isCorporateEmail(email)) {
+              setEmailError(t('emailCorporateOnly') || 'Please use a corporate email address');
+            } else {
+              setEmailError('');
+            }
+          }}
           className="w-full px-4 py-3 border-b-2 border-gray-300 focus:border-black outline-none transition-colors bg-transparent"
           placeholder="john@doecompany.com"
           required
         />
+        {emailError && (
+          <p className="text-red-500 text-sm mt-1">{emailError}</p>
+        )}
       </div>
 
       {/* Phone */}
