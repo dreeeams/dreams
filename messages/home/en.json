@@ -1,9 +1,8 @@
 {
   "hero": {
-    "tagline": "CREATE · BUILD · SCALE",
-    "title": "Authentic design. Business Impact.",
-    "subtitle": "Intelligent digital products that deliver real results",
-    "location": "Based in Bogotá, Colombia",
+    "tagline": "Based in Bogotá. Working globally.",
+    "title": "We build and scale digital products.",
+    "subtitle": "We handle the technology, so you can focus on growth.",
     "cta": "Start Your Project",
     "seoHeading": "Professional Web Development Agency - Custom Mobile App Development - React, Next.js & React Native Experts",
     "buttons": {

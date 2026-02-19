@@ -53,7 +53,7 @@ export default function HeroSection() {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="text-xs sm:text-sm font-mono tracking-wide mt-6 opacity-80"
         >
-          {t('location')}
+          {t('subtitle')}
         </m.p>
       </div>
     </div>
