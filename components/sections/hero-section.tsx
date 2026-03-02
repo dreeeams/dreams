@@ -1,22 +1,32 @@
 'use client';
 
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { cdnAssetUrl } from '@/lib/constants';
+import { useMediaQuery } from '@/lib/hooks/use-media-query';
+
+const ShaderAnimation = dynamic(
+  () => import('@/components/ui/shader-animation'),
+  { ssr: false }
+);
 
 export default function HeroSection() {
   const t = useTranslations('hero');
   const heroSrc = cdnAssetUrl('hero_banner.gif');
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const showShader = isDesktop && !prefersReducedMotion;
 
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative w-full h-screen overflow-hidden">
       {/* SEO H1 - Visually hidden but available for screen readers and SEO */}
       <h1 className="sr-only">
         {t('seoHeading')}
       </h1>
 
-      {/* Hero Banner GIF as Background */}
+      {/* Layer 1: GIF background — always present as base/fallback */}
       {heroSrc && (
         <Image
           src={heroSrc}
@@ -29,8 +39,18 @@ export default function HeroSection() {
         />
       )}
 
-      {/* Hero Content with Blend Mode */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white mix-blend-difference px-8 text-center">
+      {/* Layer 2: Shader background — desktop only, respects reduced motion */}
+      {showShader && (
+        <div className="absolute inset-0 z-[1] pointer-events-none" aria-hidden="true">
+          <ShaderAnimation className="w-full h-full" />
+        </div>
+      )}
+
+      {/* Layer 3: Readability overlay */}
+      <div className="absolute inset-0 z-[2] bg-black/40 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
+
+      {/* Layer 4: Hero content — unchanged */}
+      <div className="absolute inset-0 z-[3] flex flex-col items-center justify-center text-white mix-blend-difference px-8 text-center">
         <m.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
