@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { FlickeringGrid } from '@/components/ui/flickering-grid';
+import { FlipWords } from '@/components/ui/flip-words';
 
 export default function WebDevContent() {
   const t = useTranslations('services.webDev');
@@ -38,18 +39,24 @@ export default function WebDevContent() {
 
         {/* 1) Hero */}
         <section className="relative pt-32 pb-20 px-6 md:px-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h1 className="heading-display mb-6">
-                {t('title')}
-              </h1>
-              <p className="text-xl md:text-2xl text-muted max-w-3xl mx-auto mb-4">
-                {t('hero.subtitle')}
-              </p>
-              <p className="text-sm text-muted/70">
-                {t('hero.microline')}
-              </p>
-            </div>
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
+              {t('hero.h1')}
+            </h1>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white/70">
+              {t('hero.h2Prefix')}
+              <span className="inline-block min-w-[11ch] text-left align-baseline">
+                <FlipWords
+                  words={t.raw('hero.flipWords') as string[]}
+                  duration={2400}
+                  className="text-white"
+                />
+              </span>
+              .
+            </h2>
+            <p className="text-sm md:text-base text-white/60">
+              {t('hero.microline')}
+            </p>
           </div>
         </section>
 

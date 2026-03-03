@@ -71,8 +71,10 @@
       ],
       "metaDescription": "Diseñamos y desarrollamos interfaces que convierten tráfico en leads y ventas, sin sacrificar performance ni marca.",
       "hero": {
-        "subtitle": "Diseñamos y desarrollamos interfaces que convierten tráfico en leads y ventas, sin sacrificar performance ni marca.",
-        "microline": "UX + performance + analítica. Todo medible. Todo optimizable."
+        "h1": "Interfaces que convierten tráfico en leads.",
+        "h2Prefix": "Construido para",
+        "flipWords": ["UX", "Performance", "Analítica"],
+        "microline": "Todo medible. Todo optimizable."
       },
       "problem": {
         "title": "Esto no es 'una web bonita'. Es un sistema comercial.",
