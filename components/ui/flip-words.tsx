@@ -40,10 +40,10 @@ export const FlipWords = ({
         transition={{ type: "spring", stiffness: 100, damping: 10 }}
         exit={{
           opacity: 0,
-          y: -40,
-          x: 40,
-          filter: "blur(8px)",
-          scale: 2,
+          y: -16,
+          x: 10,
+          filter: "blur(6px)",
+          scale: 1.2,
           position: "absolute",
         }}
         className={cn(
