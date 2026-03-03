@@ -69,37 +69,61 @@
         "Diseño integrado con tu marca",
         "Flujos optimizados para conversión"
       ],
-      "metaDescription": "Servicios profesionales de diseño y desarrollo web. Creamos sitios web y aplicaciones web hermosos y de alto rendimiento que generan resultados.",
-      "intro": {
-        "heading": "Desarrollo Web Personalizado Que Genera Resultados",
-        "paragraph1": "Creamos sitios web y aplicaciones web impresionantes que combinan diseño hermoso con funcionalidad potente. Nuestro equipo se especializa en tecnologías web modernas como React, Next.js y TypeScript para construir soluciones rápidas, escalables y mantenibles.",
-        "paragraph2": "Desde páginas de aterrizaje hasta plataformas SaaS complejas, entregamos experiencias web que involucran a los usuarios y generan conversiones. Cada proyecto se construye a medida para coincidir con tu identidad de marca y objetivos comerciales."
+      "metaDescription": "Diseñamos y desarrollamos interfaces que convierten tráfico en leads y ventas, sin sacrificar performance ni marca.",
+      "hero": {
+        "subtitle": "Diseñamos y desarrollamos interfaces que convierten tráfico en leads y ventas, sin sacrificar performance ni marca.",
+        "microline": "UX + performance + analítica. Todo medible. Todo optimizable."
       },
-      "detailFeatures": {
-        "design": {
-          "title": "Diseño UI/UX",
-          "description": "Creamos interfaces intuitivas y visualmente impresionantes que los usuarios aman. Nuestro proceso de diseño se enfoca en investigación de usuarios, prototipado y pruebas iterativas para garantizar la experiencia de usuario perfecta."
-        },
-        "development": {
-          "title": "Desarrollo Moderno",
-          "description": "Construido con tecnologías de vanguardia como React, Next.js y TypeScript. Escribimos código limpio y mantenible que escala con tu negocio y resiste el paso del tiempo."
-        },
-        "performance": {
-          "title": "Rendimiento Ultra Rápido",
-          "description": "Optimizado para velocidad y rendimiento. Implementamos las mejores prácticas para división de código, carga diferida y almacenamiento en caché para garantizar que tu sitio web cargue instantáneamente."
-        },
-        "ux": {
-          "title": "Diseño Centrado en el Usuario",
-          "description": "Cada decisión de diseño está respaldada por investigación y pruebas de usuarios. Creamos experiencias que no solo se ven geniales sino que resuelven problemas reales de usuarios."
-        }
+      "problem": {
+        "title": "Esto no es 'una web bonita'. Es un sistema comercial.",
+        "bullets": [
+          "Aumenta conversión (formularios, CTAs, flujo, fricción cero)",
+          "Mejora velocidad y UX (Core Web Vitals, carga real rápida)",
+          "Prepara medición (eventos, embudos, tracking serio)",
+          "Escala sin rehacer (arquitectura modular)"
+        ]
       },
-      "technologies": {
-        "heading": "Tecnologías Que Usamos",
-        "list": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel", "Supabase", "PostgreSQL"]
+      "deliverables": {
+        "title": "Entregables (sin humo)",
+        "items": [
+          "Landing / páginas clave con estructura de conversión (6–8 secciones)",
+          "Sistema de componentes (UI modular, consistente, escalable)",
+          "Formularios + integraciones (CRM, email, calendar, WhatsApp)",
+          "SEO y performance base (metas, OG, accesibilidad básica)",
+          "Analytics listo (GA4 + eventos esenciales)"
+        ]
+      },
+      "processSection": {
+        "title": "Proceso (rápido, ordenado, sin improvisación)",
+        "steps": [
+          "Diagnóstico: objetivo, oferta, ICP, fricciones actuales",
+          "Arquitectura de conversión: secciones, jerarquía, CTAs, proof",
+          "Diseño UI: Figma con rondas claras",
+          "Build: Next.js + Tailwind + componentes",
+          "QA & medición: performance, responsive, tracking",
+          "Launch + 30 días: ajustes finos post-lanzamiento"
+        ]
+      },
+      "fit": {
+        "title": "Ideal si…",
+        "bullets": [
+          "Estás metiendo tráfico y no estás capturando leads",
+          "Tu web \"se ve bien\" pero no convierte",
+          "Quieres escalar campañas y necesitas medición real",
+          "Necesitas base modular para crecer sin reconstruir"
+        ]
+      },
+      "proof": {
+        "title": "Evidencia",
+        "bullets": [
+          "Casos con alto tráfico y arquitectura escalable",
+          "Experiencias enfocadas en conversión y performance"
+        ]
       },
       "cta": {
-        "heading": "¿Listo Para Construir Tu Sitio Web?",
-        "description": "Discutamos tu proyecto y creemos una solución web personalizada que supere tus expectativas."
+        "heading": "¿Quieres que tu web venda en vez de decorar?",
+        "description": "Te mostramos qué cambiar para convertir más, en una llamada corta.",
+        "button": "Agendar una reunión"
       }
     },
     "mobileDev": {

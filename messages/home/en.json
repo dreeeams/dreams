@@ -69,37 +69,61 @@
         "Brand-integrated design",
         "Conversion-optimized flows"
       ],
-      "metaDescription": "Professional web design and development services. We create beautiful, high-performance websites and web applications that drive results.",
-      "intro": {
-        "heading": "Custom Web Development That Drives Results",
-        "paragraph1": "We create stunning websites and web applications that combine beautiful design with powerful functionality. Our team specializes in modern web technologies like React, Next.js, and TypeScript to build fast, scalable, and maintainable solutions.",
-        "paragraph2": "From landing pages to complex SaaS platforms, we deliver web experiences that engage users and drive conversions. Every project is custom-built to match your brand identity and business goals."
+      "metaDescription": "We design and develop interfaces that turn traffic into leads and sales, without sacrificing performance or brand.",
+      "hero": {
+        "subtitle": "We design and develop interfaces that turn traffic into leads and sales, without sacrificing performance or brand.",
+        "microline": "UX + performance + analytics. Everything measurable. Everything optimizable."
       },
-      "detailFeatures": {
-        "design": {
-          "title": "UI/UX Design",
-          "description": "We create intuitive, visually stunning interfaces that users love. Our design process focuses on user research, prototyping, and iterative testing to ensure the perfect user experience."
-        },
-        "development": {
-          "title": "Modern Development",
-          "description": "Built with cutting-edge technologies like React, Next.js, and TypeScript. We write clean, maintainable code that scales with your business and stands the test of time."
-        },
-        "performance": {
-          "title": "Blazing Fast Performance",
-          "description": "Optimized for speed and performance. We implement best practices for code splitting, lazy loading, and caching to ensure your website loads instantly."
-        },
-        "ux": {
-          "title": "User-Centered Design",
-          "description": "Every design decision is backed by user research and testing. We create experiences that not only look great but solve real user problems."
-        }
+      "problem": {
+        "title": "This isn't 'a pretty website'. It's a commercial system.",
+        "bullets": [
+          "Increase conversion (forms, CTAs, flow, zero friction)",
+          "Improve speed and UX (Core Web Vitals, real fast loading)",
+          "Set up measurement (events, funnels, serious tracking)",
+          "Scale without rebuilding (modular architecture)"
+        ]
       },
-      "technologies": {
-        "heading": "Technologies We Use",
-        "list": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel", "Supabase", "PostgreSQL"]
+      "deliverables": {
+        "title": "Deliverables (no fluff)",
+        "items": [
+          "Landing / key pages with conversion structure (6–8 sections)",
+          "Component system (modular, consistent, scalable UI)",
+          "Forms + integrations (CRM, email, calendar, WhatsApp)",
+          "Base SEO and performance (metas, OG, basic accessibility)",
+          "Analytics ready (GA4 + essential events)"
+        ]
+      },
+      "processSection": {
+        "title": "Process (fast, organized, no improvisation)",
+        "steps": [
+          "Diagnosis: goal, offer, ICP, current friction points",
+          "Conversion architecture: sections, hierarchy, CTAs, proof",
+          "UI Design: Figma with clear review rounds",
+          "Build: Next.js + Tailwind + components",
+          "QA & measurement: performance, responsive, tracking",
+          "Launch + 30 days: post-launch fine-tuning"
+        ]
+      },
+      "fit": {
+        "title": "Ideal if…",
+        "bullets": [
+          "You're driving traffic but not capturing leads",
+          "Your site 'looks good' but doesn't convert",
+          "You want to scale campaigns and need real measurement",
+          "You need a modular base to grow without rebuilding"
+        ]
+      },
+      "proof": {
+        "title": "Evidence",
+        "bullets": [
+          "Cases with high traffic and scalable architecture",
+          "Experiences focused on conversion and performance"
+        ]
       },
       "cta": {
-        "heading": "Ready to Build Your Website?",
-        "description": "Let's discuss your project and create a custom web solution that exceeds your expectations."
+        "heading": "Want your site to sell instead of decorate?",
+        "description": "We'll show you what to change to convert more, in a short call.",
+        "button": "Schedule a meeting"
       }
     },
     "mobileDev": {
