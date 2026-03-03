@@ -142,6 +142,22 @@ export default function ServicesSection() {
           ))}
         </div>
 
+        {/* Positioning Statement */}
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-12"
+        >
+          <p className="text-lg md:text-xl font-nostalgic text-gray-600 leading-relaxed">
+            {t('positioning')}
+          </p>
+          <p className="text-sm font-mono tracking-wider text-gray-400 mt-4">
+            {t('proofStrip')}
+          </p>
+        </m.div>
+
         {/* Who we love to work with */}
         <div style={{ marginTop: '80px' }}>
           {/* Small Badge */}

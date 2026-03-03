@@ -52,20 +52,22 @@
     "consultants": "Consultores & Coaches"
   },
   "services": {
-    "title": "Diseño limpio y escalable que te ayuda a lanzar más rápido y aumentar tus ingresos.",
-    "subtitle": "¿Por qué lanzar lento cuando puedes moverte rápido?",
+    "title": "Sistemas modulares diseñados para convertir tráfico en resultados medibles.",
+    "subtitle": "Construye infraestructura digital que convierte.",
+    "positioning": "No diseñamos páginas. Construimos sistemas modulares que escalan con tu negocio.",
+    "proofStrip": "30K+ tickets vendidos · 90K+ visitantes únicos · 4.3 rating en apps",
     "techStack": {
       "title": "Tecnologias y Herramientas Que Usamos:",
       "andMore": "Y muchas mas..."
     },
     "webDev": {
-      "title": "Design & Dev",
-      "description": "Creatividad y funcionalidad al frente",
+      "title": "Frontend de Conversión",
+      "description": "Interfaces estratégicas para capturar y convertir tráfico.",
       "features": [
-        "Interfaces Visuales Innovadoras",
-        "Personalización UI Avanzada",
-        "Identidad de Marca",
-        "Experiencia de Usuario Intuitiva"
+        "Sistemas de landing de alto rendimiento",
+        "Arquitectura UI modular",
+        "Diseño integrado con tu marca",
+        "Flujos optimizados para conversión"
       ],
       "metaDescription": "Servicios profesionales de diseño y desarrollo web. Creamos sitios web y aplicaciones web hermosos y de alto rendimiento que generan resultados.",
       "intro": {
@@ -101,13 +103,13 @@
       }
     },
     "mobileDev": {
-      "title": "Backend & APIs",
-      "description": "El motor principal de tu proyecto",
+      "title": "Infraestructura Escalable",
+      "description": "El motor que impulsa tu crecimiento.",
       "features": [
-        "Rendimientos sin Interrupciones",
-        "Arquitectura Escalable",
-        "Integraciones Personalizadas",
-        "Ciberseguridad"
+        "Stack moderno (React, Next.js)",
+        "Arquitectura de APIs",
+        "Integraciones CRM y herramientas",
+        "Bases seguras y escalables"
       ],
       "metaDescription": "Desarrollo de backend robusto y servicios de API. Construimos sistemas backend escalables y seguros que impulsan tus aplicaciones.",
       "intro": {
@@ -143,13 +145,13 @@
       }
     },
     "uiux": {
-      "title": "AI & Eficiencia",
-      "description": "Soluciones inteligentes para optimizar tu negocio",
+      "title": "Automatización e Inteligencia",
+      "description": "Sistemas que multiplican la capacidad operativa.",
       "features": [
-        "Automatizaciones Inteligentes",
-        "Consultorías en Eficiencia AI",
-        "Optimización de Recursos con AI",
-        "Chatbot y Agentes"
+        "Chatbots con IA",
+        "Automatización de flujos",
+        "Sistemas de cualificación de leads",
+        "Optimización basada en datos"
       ],
       "metaDescription": "Soluciones impulsadas por IA y servicios de automatización. Ayudamos a las empresas a aprovechar la inteligencia artificial para aumentar la eficiencia y reducir costos.",
       "intro": {

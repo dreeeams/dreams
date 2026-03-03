@@ -52,20 +52,22 @@
     "consultants": "Consultants & Coaches"
   },
   "services": {
-    "title": "Clean, scalable design that helps you ship faster and grow your revenue.",
-    "subtitle": "Why launch slow when you can move fast?",
+    "title": "Modular systems designed to turn traffic into measurable results.",
+    "subtitle": "Build digital infrastructure that converts.",
+    "positioning": "We don't design pages. We build modular systems that scale with your business.",
+    "proofStrip": "30K+ tickets sold · 90K+ unique visitors · 4.3 app rating",
     "techStack": {
       "title": "Technologies & Tools We Use:",
       "andMore": "And many more..."
     },
     "webDev": {
-      "title": "Design & Dev",
-      "description": "Creativity and functionality upfront",
+      "title": "Conversion-First Frontend",
+      "description": "Strategic interfaces built to capture and convert traffic.",
       "features": [
-        "Innovative Visual Interfaces",
-        "Advanced UI Customization",
-        "Brand Identity",
-        "Intuitive User Experience"
+        "High-performance landing systems",
+        "Modular UI architecture",
+        "Brand-integrated design",
+        "Conversion-optimized flows"
       ],
       "metaDescription": "Professional web design and development services. We create beautiful, high-performance websites and web applications that drive results.",
       "intro": {
@@ -101,13 +103,13 @@
       }
     },
     "mobileDev": {
-      "title": "Backend & APIs",
-      "description": "The main engine of your project",
+      "title": "Scalable Infrastructure",
+      "description": "The engine that powers your growth.",
       "features": [
-        "Uninterrupted Performance",
-        "Scalable Architecture",
-        "Custom Integrations",
-        "Cybersecurity"
+        "Modern stack (React, Next.js)",
+        "API architecture",
+        "CRM & tool integrations",
+        "Secure & scalable foundations"
       ],
       "metaDescription": "Robust backend development and API services. We build scalable, secure backend systems that power your applications.",
       "intro": {
@@ -143,13 +145,13 @@
       }
     },
     "uiux": {
-      "title": "AI & Efficiency",
-      "description": "Intelligent solutions to optimize your business",
+      "title": "Automation & Intelligence",
+      "description": "Systems that multiply operational capacity.",
       "features": [
-        "Intelligent Automations",
-        "AI Efficiency Consulting",
-        "Resource Optimization with AI",
-        "Chatbot and Agents"
+        "AI-powered chatbots",
+        "Workflow automation",
+        "Lead qualification systems",
+        "Data-driven optimization"
       ],
       "metaDescription": "AI-powered solutions and automation services. We help businesses leverage artificial intelligence to increase efficiency and reduce costs.",
       "intro": {
