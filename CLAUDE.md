@@ -3,10 +3,15 @@
 Before performing any task:
 
 1. Read `/ai/SYSTEM.md` — coding standards, role definition, principles
-2. Apply GSD methodology (`/ai/GSD.md`) — analyze, plan, implement, validate
-3. Follow UI/UX standards strictly (`/ai/UI_UX.md`) — spacing, typography, motion, responsive
-4. Apply debugging protocol when relevant (`/ai/DEBUGGER.md`) — reproduce, isolate, root-cause
-5. Follow workflow discipline (`/ai/WORKFLOW.md`) — ship clean, no overengineering
+2. Read `/ai/WORKFLOW.md` — shipping discipline, multi-session continuity, definition of done
+
+Then pick your role:
+
+- **Building features?** Follow `/ai/BUILDER.md` — analyze, plan, implement, validate, minimal diffs
+- **Debugging errors?** Follow `/ai/DEBUGGER.md` — reproduce, isolate, root-cause, smallest fix
+- **Touching UI?** Also follow `/ai/UI_UX.md` — spacing, typography, motion, responsive, accessibility
+
+This repo is **Next.js App Router + TypeScript + Tailwind CSS**. Bilingual (EN/ES) via `next-intl`. Deployed on Vercel.
 
 All generated code must comply with this system.
 
