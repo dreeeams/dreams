@@ -2,9 +2,10 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Zap, LineChart, Layers, Package, Blocks, Workflow, Search, Gauge } from 'lucide-react';
 import { FlickeringGrid } from '@/components/ui/flickering-grid';
 import { FlipWords } from '@/components/ui/flip-words';
+import { GlowingEffect } from '@/components/ui/glowing-effect';
 
 export default function WebDevContent() {
   const t = useTranslations('services.webDev');
@@ -69,32 +70,51 @@ export default function WebDevContent() {
 
           {/* 2) Problem / Outcome */}
           <div className="mb-20">
-            <h2 className="heading-xl mb-6">
+            <h2 className="heading-xl mb-8">
               {t('problem.title')}
             </h2>
-            <ul className="space-y-3">
-              {(t.raw('problem.bullets') as string[]).map((bullet, i) => (
-                <li key={i} className="text-lg text-secondary leading-relaxed flex items-start gap-3">
-                  <span className="text-white mt-1">•</span>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {(t.raw('problem.bullets') as string[]).map((bullet, i) => {
+                const icons = [TrendingUp, Zap, LineChart, Layers];
+                const Icon = icons[i] || TrendingUp;
+                return (
+                  <div key={i} className="relative rounded-[1.25rem] border border-white/10 p-2 md:rounded-[1.5rem] md:p-3 bg-transparent">
+                    <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} />
+                    <div className="relative flex flex-col gap-3 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+                      <div className="w-fit rounded-lg border border-white/10 bg-white/5 p-2">
+                        <Icon className="h-4 w-4 text-white" />
+                      </div>
+                      <p className="text-base text-secondary leading-relaxed">{bullet}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* 3) Deliverables */}
           <div className="mb-20">
-            <h2 className="heading-xl mb-6">
+            <h2 className="heading-xl mb-8">
               {t('deliverables.title')}
             </h2>
-            <ul className="space-y-3">
-              {(t.raw('deliverables.items') as string[]).map((item, i) => (
-                <li key={i} className="text-lg text-secondary leading-relaxed flex items-start gap-3">
-                  <span className="text-white mt-1">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {(t.raw('deliverables.items') as string[]).map((item, i) => {
+                const icons = [Package, Blocks, Workflow, Search, Gauge];
+                const Icon = icons[i] || Package;
+                const isLast = i === (t.raw('deliverables.items') as string[]).length - 1 && (t.raw('deliverables.items') as string[]).length % 2 !== 0;
+                return (
+                  <div key={i} className={`relative rounded-[1.25rem] border border-white/10 p-2 md:rounded-[1.5rem] md:p-3 bg-transparent ${isLast ? 'md:col-span-2' : ''}`}>
+                    <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} />
+                    <div className="relative flex flex-col gap-3 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+                      <div className="w-fit rounded-lg border border-white/10 bg-white/5 p-2">
+                        <Icon className="h-4 w-4 text-white" />
+                      </div>
+                      <p className="text-base text-secondary leading-relaxed">{item}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* 4) Process */}
