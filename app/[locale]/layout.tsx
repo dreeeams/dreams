@@ -11,8 +11,6 @@ import MotionProvider from '@/components/providers/motion-provider';
 import PageLoader from '@/components/page-loader';
 import LenisScroll from '@/components/lenis-scroll';
 import GoogleAdsScript from '@/components/analytics/google-ads-script';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -279,12 +277,6 @@ export default async function LocaleLayout({
 
       {/* Google Ads Conversion Tracking */}
       <GoogleAdsScript />
-
-      {/* Vercel Speed Insights */}
-      <SpeedInsights />
-
-      {/* Vercel Analytics */}
-      <Analytics />
 
       {/* Schema.org structured data */}
       <Script
