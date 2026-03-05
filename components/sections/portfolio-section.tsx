@@ -56,12 +56,14 @@ const projects: Project[] = [
     },
   },
   {
-    titleKey: 'AMAZONAS TOURES',
+    titleKey: 'MARIA JOSE & PABLO JOSE',
     categoryKey: 'webApp',
-    descriptionKey: 'amazonasToures',
+    descriptionKey: 'mariaJosePabloJose',
     tags: ['Next.js', 'Tailwind', 'Supabase'],
     color: 'bg-white',
-    url: 'www.amazonas-toures.com',
+    url: 'mariajosepablojose.com',
+    isMockup: true,
+    mockupUrl: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/wedding_mockup.png',
   },
   {
     titleKey: 'MARÍA HELENA AMADOR',
