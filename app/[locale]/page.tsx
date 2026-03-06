@@ -26,6 +26,9 @@ const PortfolioSection = dynamic(() => import('@/components/sections/portfolio-s
 const FAQSection = dynamic(() => import('@/components/sections/faq-section'), {
   loading: () => <div className="min-h-[50vh] bg-white" />,
 });
+const CTASection = dynamic(() => import('@/components/ui/hero-dithering-card').then(mod => ({ default: mod.CTASection })), {
+  loading: () => <div className="min-h-[600px] bg-white" />,
+});
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -111,6 +114,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="relative z-10" style={{ marginTop: '100vh' }}>
             <ServicesSection />
             <PortfolioSection />
+            <CTASection />
             <ManifestoSection />
             <FAQSection />
             <FooterSection />

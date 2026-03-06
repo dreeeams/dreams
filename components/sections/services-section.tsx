@@ -139,7 +139,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Who we love to work with */}
-        <div style={{ marginTop: '80px' }}>
+        <div style={{ marginTop: '40px' }}>
           {/* Small Badge */}
           <m.div
             initial={{ opacity: 0, y: 20 }}

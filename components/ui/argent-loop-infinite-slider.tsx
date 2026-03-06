@@ -97,7 +97,7 @@ export function Component() {
   const projectsRef = React.useRef<Map<number, HTMLDivElement>>(new Map());
   const minimapRef = React.useRef<Map<number, HTMLDivElement>>(new Map());
   const infoRef = React.useRef<Map<number, HTMLDivElement>>(new Map());
-  const requestRef = React.useRef<number>();
+  const requestRef = React.useRef<number>(0);
 
   // Helper to update parallax for a single item
   const updateParallax = (
