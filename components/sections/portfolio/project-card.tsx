@@ -2,6 +2,7 @@
 
 import { m } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { LazyIframe } from '@/components/ui/lazy-iframe';
 
 type Project = {
@@ -11,6 +12,7 @@ type Project = {
   tags: string[];
   color: string;
   url?: string;
+  caseStudyUrl?: string;
   mobileView?: boolean;
   isMockup?: boolean;
   mockupUrl?: string;
@@ -41,7 +43,7 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
   const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
   const isPriority = index < 2; // Only prioritize first 2 projects
 
-  return (
+  const CardContent = (
     <m.div
       key={project.titleKey}
       initial={{ opacity: 0, y: 20 }}
@@ -199,4 +201,16 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
       </div>
     </m.div>
   );
+
+  // If there's a case study URL, wrap the card with a Link
+  if (project.caseStudyUrl) {
+    return (
+      <Link href={project.caseStudyUrl}>
+        {CardContent}
+      </Link>
+    );
+  }
+
+  // Otherwise, return the card without a link
+  return CardContent;
 }

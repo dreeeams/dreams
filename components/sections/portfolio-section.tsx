@@ -12,6 +12,7 @@ type Project = {
   tags: string[];
   color: string;
   url?: string;
+  caseStudyUrl?: string;
   mobileView?: boolean;
   isMockup?: boolean;
   mockupUrl?: string;
@@ -37,6 +38,7 @@ const projects: Project[] = [
     descriptionKey: 'huntTickets',
     tags: ['React Native', 'TypeScript', 'Firebase'],
     color: 'bg-white',
+    caseStudyUrl: '/case-studies/hunt-tickets',
     isMockup: true,
     rating: { stars: 4.3, reviews: 250 },
     appStore: true,
@@ -50,6 +52,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'Stripe', 'PostgreSQL'],
     color: 'bg-black',
     url: 'perronegro.biotickets.com',
+    caseStudyUrl: '/case-studies/perro-negro',
     metrics: {
       visitors: 'visitors',
       visits: 'visits',
@@ -62,6 +65,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'Tailwind', 'Supabase'],
     color: 'bg-white',
     url: 'mariajosepablojose.com',
+    caseStudyUrl: '/case-studies/maria-jose-pablo-jose',
     isMockup: true,
     mockupUrl: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/wedding_mockup.png',
   },
@@ -72,6 +76,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'Stripe', 'PostgreSQL'],
     color: 'bg-black',
     url: 'maria-helena-amador.hunt-tickets.com',
+    caseStudyUrl: '/case-studies/maria-helena-amador',
     mobileView: true,
     isMockup: true,
     mockupUrl: 'https://eeyjhkhrdoouapuilwep.supabase.co/storage/v1/object/public/content/mockup_mha.png',
@@ -83,6 +88,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Vercel'],
     color: 'bg-brand',
     url: 'hunt-rho.vercel.app',
+    caseStudyUrl: '/case-studies/hunt-rho',
   },
   {
     titleKey: 'KUENTA',
@@ -91,6 +97,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Vercel'],
     color: 'bg-gradient-to-br from-purple-600 to-pink-600',
     url: 'paga-dreamstudio.vercel.app',
+    caseStudyUrl: '/case-studies/kuenta',
   },
 ];
 
