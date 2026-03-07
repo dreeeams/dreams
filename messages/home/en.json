@@ -165,9 +165,60 @@
         "heading": "Technologies We Use",
         "list": ["Node.js", "PostgreSQL", "Redis", "GraphQL", "Docker", "AWS", "Supabase", "Prisma"]
       },
+      "hero": {
+        "h1": "Backend systems that power real growth.",
+        "h2Prefix": "Built for",
+        "flipWords": ["APIs", "Security", "Scale"],
+        "microline": "Robust. Secure. Production-ready."
+      },
+      "problem": {
+        "title": "This isn't 'another backend'. It's your growth engine.",
+        "bullets": [
+          "Fast, reliable APIs (REST, GraphQL, real-time)",
+          "Database architecture that scales without breaking",
+          "Enterprise-grade security (auth, encryption, audits)",
+          "Infrastructure that grows with your business"
+        ]
+      },
+      "deliverables": {
+        "items": [
+          "API architecture (REST / GraphQL, documented, versioned)",
+          "Database design (PostgreSQL, Redis, optimized queries)",
+          "Auth & security layer (JWT, OAuth, role-based access)",
+          "CI/CD pipeline (automated testing, staging, deploy)",
+          "Monitoring & observability (logs, alerts, uptime)"
+        ]
+      },
+      "processSection": {
+        "title": "Process (fast, organized, no improvisation)",
+        "steps": [
+          "Diagnosis: requirements, data model, integration points",
+          "Architecture: system design, API contracts, infra plan",
+          "Build: Node.js + TypeScript + tested modules",
+          "Security audit: penetration testing, vulnerability scan",
+          "Deploy: CI/CD, staging, production rollout",
+          "Launch + 30 days: monitoring, optimization, support"
+        ]
+      },
+      "fit": {
+        "title": "Ideal if…",
+        "bullets": [
+          "Your frontend is ready but the backend can't keep up",
+          "You need APIs that third parties can integrate with",
+          "Security and compliance are non-negotiable",
+          "You're scaling and need infrastructure that won't break"
+        ]
+      },
+      "proof": {
+        "bullets": [
+          "Systems handling high-traffic loads with 99.9% uptime",
+          "API architectures powering multiple client applications"
+        ]
+      },
       "cta": {
         "heading": "Need a Robust Backend?",
-        "description": "Let's build a backend system that powers your business growth and handles any scale."
+        "description": "Let's build a backend system that powers your business growth and handles any scale.",
+        "button": "Schedule a meeting"
       }
     },
     "uiux": {
@@ -207,9 +258,60 @@
         "heading": "Technologies We Use",
         "list": ["OpenAI", "Anthropic Claude", "LangChain", "Python", "TensorFlow", "Pinecone", "Supabase Vector", "Vercel AI SDK"]
       },
+      "hero": {
+        "h1": "Systems that multiply your operational capacity.",
+        "h2Prefix": "Built for",
+        "flipWords": ["Automation", "Intelligence", "Efficiency"],
+        "microline": "Less manual work. More strategic leverage."
+      },
+      "problem": {
+        "title": "This isn't 'a chatbot'. It's operational leverage.",
+        "bullets": [
+          "Automate repetitive workflows (save hours, reduce errors)",
+          "Integrate AI into real business processes (not demos)",
+          "Make data-driven decisions (predictive, not reactive)",
+          "Scale operations without scaling headcount"
+        ]
+      },
+      "deliverables": {
+        "items": [
+          "AI agent or chatbot (custom-trained, context-aware)",
+          "Workflow automation (triggers, actions, integrations)",
+          "Data pipeline (collection, processing, insights)",
+          "Dashboard & reporting (KPIs, trends, alerts)",
+          "Integration layer (CRM, email, Slack, custom APIs)"
+        ]
+      },
+      "processSection": {
+        "title": "Process (fast, organized, no improvisation)",
+        "steps": [
+          "Audit: current workflows, bottlenecks, automation potential",
+          "Strategy: prioritize high-impact automations, define KPIs",
+          "Prototype: working proof of concept in 2 weeks",
+          "Build: production-ready AI + automation pipelines",
+          "Deploy: staging, testing, gradual rollout",
+          "Optimize + 30 days: fine-tuning, monitoring, iteration"
+        ]
+      },
+      "fit": {
+        "title": "Ideal if…",
+        "bullets": [
+          "Your team spends too much time on repetitive tasks",
+          "You want to use AI but don't know where to start",
+          "You need customer support that scales without hiring",
+          "You want data-driven decisions, not gut feelings"
+        ]
+      },
+      "proof": {
+        "bullets": [
+          "AI systems handling thousands of interactions daily",
+          "Workflow automations saving 20+ hours per week"
+        ]
+      },
       "cta": {
         "heading": "Ready to Leverage AI?",
-        "description": "Let's explore how AI can transform your business and give you a competitive advantage."
+        "description": "Let's explore how AI can transform your business and give you a competitive advantage.",
+        "button": "Schedule a meeting"
       }
     }
   },

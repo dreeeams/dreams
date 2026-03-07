@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
-import WebDevContent from './web-dev-content';
+import ServicePageTemplate from '@/components/service-page/service-page-template';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('services.webDev');
@@ -12,5 +12,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function WebDevelopmentPage() {
-  return <WebDevContent />;
+  return <ServicePageTemplate serviceKey="webDev" />;
 }

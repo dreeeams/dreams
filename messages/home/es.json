@@ -165,9 +165,60 @@
         "heading": "Tecnologías Que Usamos",
         "list": ["Node.js", "PostgreSQL", "Redis", "GraphQL", "Docker", "AWS", "Supabase", "Prisma"]
       },
+      "hero": {
+        "h1": "Sistemas backend que impulsan crecimiento real.",
+        "h2Prefix": "Construido para",
+        "flipWords": ["APIs", "Seguridad", "Escala"],
+        "microline": "Robusto. Seguro. Listo para producción."
+      },
+      "problem": {
+        "title": "Esto no es 'otro backend'. Es tu motor de crecimiento.",
+        "bullets": [
+          "APIs rápidas y confiables (REST, GraphQL, tiempo real)",
+          "Arquitectura de datos que escala sin romperse",
+          "Seguridad de nivel empresarial (auth, encriptación, auditorías)",
+          "Infraestructura que crece con tu negocio"
+        ]
+      },
+      "deliverables": {
+        "items": [
+          "Arquitectura de APIs (REST / GraphQL, documentada, versionada)",
+          "Diseño de base de datos (PostgreSQL, Redis, queries optimizados)",
+          "Capa de auth y seguridad (JWT, OAuth, acceso por roles)",
+          "Pipeline CI/CD (testing automatizado, staging, deploy)",
+          "Monitoreo y observabilidad (logs, alertas, uptime)"
+        ]
+      },
+      "processSection": {
+        "title": "Proceso (rápido, ordenado, sin improvisación)",
+        "steps": [
+          "Diagnóstico: requerimientos, modelo de datos, puntos de integración",
+          "Arquitectura: diseño de sistema, contratos de API, plan de infra",
+          "Build: Node.js + TypeScript + módulos testeados",
+          "Auditoría de seguridad: penetration testing, escaneo de vulnerabilidades",
+          "Deploy: CI/CD, staging, rollout a producción",
+          "Launch + 30 días: monitoreo, optimización, soporte"
+        ]
+      },
+      "fit": {
+        "title": "Ideal si…",
+        "bullets": [
+          "Tu frontend está listo pero el backend no da abasto",
+          "Necesitas APIs que terceros puedan integrar",
+          "Seguridad y compliance son innegociables",
+          "Estás escalando y necesitas infraestructura que no se rompa"
+        ]
+      },
+      "proof": {
+        "bullets": [
+          "Sistemas manejando cargas de alto tráfico con 99.9% uptime",
+          "Arquitecturas de API alimentando múltiples aplicaciones cliente"
+        ]
+      },
       "cta": {
         "heading": "¿Necesitas Un Backend Robusto?",
-        "description": "Construyamos un sistema backend que impulse el crecimiento de tu negocio y maneje cualquier escala."
+        "description": "Construyamos un sistema backend que impulse el crecimiento de tu negocio y maneje cualquier escala.",
+        "button": "Agendar una reunión"
       }
     },
     "uiux": {
@@ -207,9 +258,60 @@
         "heading": "Tecnologías Que Usamos",
         "list": ["OpenAI", "Anthropic Claude", "LangChain", "Python", "TensorFlow", "Pinecone", "Supabase Vector", "Vercel AI SDK"]
       },
+      "hero": {
+        "h1": "Sistemas que multiplican tu capacidad operativa.",
+        "h2Prefix": "Construido para",
+        "flipWords": ["Automatización", "Inteligencia", "Eficiencia"],
+        "microline": "Menos trabajo manual. Más apalancamiento estratégico."
+      },
+      "problem": {
+        "title": "Esto no es 'un chatbot'. Es apalancamiento operativo.",
+        "bullets": [
+          "Automatiza flujos repetitivos (ahorra horas, reduce errores)",
+          "Integra IA en procesos reales de negocio (no demos)",
+          "Toma decisiones basadas en datos (predictivo, no reactivo)",
+          "Escala operaciones sin escalar nómina"
+        ]
+      },
+      "deliverables": {
+        "items": [
+          "Agente o chatbot IA (entrenado, con contexto de tu negocio)",
+          "Automatización de flujos (triggers, acciones, integraciones)",
+          "Pipeline de datos (recolección, procesamiento, insights)",
+          "Dashboard y reportería (KPIs, tendencias, alertas)",
+          "Capa de integración (CRM, email, Slack, APIs custom)"
+        ]
+      },
+      "processSection": {
+        "title": "Proceso (rápido, ordenado, sin improvisación)",
+        "steps": [
+          "Auditoría: flujos actuales, cuellos de botella, potencial de automatización",
+          "Estrategia: priorizar automatizaciones de alto impacto, definir KPIs",
+          "Prototipo: prueba de concepto funcional en 2 semanas",
+          "Build: IA + pipelines de automatización listos para producción",
+          "Deploy: staging, testing, rollout gradual",
+          "Optimización + 30 días: ajuste fino, monitoreo, iteración"
+        ]
+      },
+      "fit": {
+        "title": "Ideal si…",
+        "bullets": [
+          "Tu equipo gasta demasiado tiempo en tareas repetitivas",
+          "Quieres usar IA pero no sabes por dónde empezar",
+          "Necesitas soporte al cliente que escale sin contratar",
+          "Quieres decisiones basadas en datos, no en intuición"
+        ]
+      },
+      "proof": {
+        "bullets": [
+          "Sistemas de IA manejando miles de interacciones diarias",
+          "Automatizaciones de flujos ahorrando 20+ horas por semana"
+        ]
+      },
       "cta": {
         "heading": "¿Listo Para Aprovechar la IA?",
-        "description": "Exploremos cómo la IA puede transformar tu negocio y darte una ventaja competitiva."
+        "description": "Exploremos cómo la IA puede transformar tu negocio y darte una ventaja competitiva.",
+        "button": "Agendar una reunión"
       }
     }
   },
