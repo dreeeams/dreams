@@ -199,6 +199,18 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
         <h3 className="text-xl md:text-2xl font-bold font-nostalgic">
           {project.titleKey}
         </h3>
+
+        {/* Mobile-visible project link (hover overlay is inaccessible on touch) */}
+        {project.url && (
+          <a
+            href={`https://${project.url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block md:hidden text-sm font-bold border-b-2 border-black hover:opacity-70 transition-opacity"
+          >
+            {tButtons('viewProject')} →
+          </a>
+        )}
       </div>
     </m.div>
   );

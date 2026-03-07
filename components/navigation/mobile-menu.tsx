@@ -31,7 +31,7 @@ export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuPro
           animate={{ y: 0 }}
           exit={{ y: '-100%' }}
           transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[60] bg-black sm:hidden"
+          className="fixed inset-0 z-[60] bg-black md:hidden"
         >
           {/* Close Button */}
           <m.button
@@ -95,7 +95,7 @@ export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuPro
             >
               <div className="flex items-center justify-between text-sm font-mono">
                 <span className="text-gray-400 font-nostalgic">DREEEAMS</span>
-                <span className="text-gray-400">2024</span>
+                <span className="text-gray-400">{new Date().getFullYear()}</span>
               </div>
             </m.div>
           </div>

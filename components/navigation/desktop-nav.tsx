@@ -32,7 +32,7 @@ export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStart
           layoutId="get-started-button"
           whileTap={{ scale: 0.98 }}
           href="/start"
-          className={`hidden sm:block px-4 py-2 text-sm font-medium border transition-fast ${
+          className={`hidden md:block px-4 py-2 text-sm font-medium border transition-fast ${
             isAtTop
               ? 'text-black bg-white border-overlay-border-medium hover:bg-gray-200'
               : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'

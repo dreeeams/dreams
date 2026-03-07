@@ -29,7 +29,7 @@ export default function FooterSection() {
         {!isContactPage && !isThankYouPage && (
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-nostalgic text-white mb-6">
-              Ready to start your project?
+              {tFooter('ctaHeading')}
             </h3>
             <Link href="/start">
               <m.button

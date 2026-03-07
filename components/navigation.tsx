@@ -147,7 +147,7 @@ export default function Navigation() {
               <m.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 whileTap={{ scale: 0.98 }}
-                className={`sm:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border transition-fast group ${
+                className={`md:hidden px-3 py-2 flex flex-col items-center justify-center gap-1.5 border transition-fast group ${
                   isAtTop
                     ? 'border-overlay-border-medium hover:bg-white'
                     : 'border-black/10 hover:border-black hover:bg-black'
