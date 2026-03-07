@@ -42,11 +42,11 @@ export default function WebDevContent() {
 
         {/* Hero content */}
         <div className="relative z-20 mx-auto max-w-5xl px-6 text-center">
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] text-white">
+          <h1 className="heading-display text-white">
             {t('hero.h1')}
           </h1>
 
-          <div className="mt-5 inline-flex items-baseline justify-center gap-2 text-3xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
+          <div className="mt-5 flex flex-col items-center gap-1 md:inline-flex md:flex-row md:items-baseline md:gap-2 text-2xl md:text-3xl lg:text-5xl font-semibold tracking-tight leading-[1.1]">
             <span className="text-white/70">{t('hero.h2Prefix')}</span>
             <span className="relative inline-block min-w-[12ch] text-left align-baseline">
               <FlipWords
@@ -58,7 +58,7 @@ export default function WebDevContent() {
             <span className="text-white/70">.</span>
           </div>
 
-          <p className="mt-4 text-sm md:text-base text-white/60">
+          <p className="mt-4 text-sm md:text-base text-muted">
             {t('hero.microline')}
           </p>
         </div>
@@ -78,10 +78,10 @@ export default function WebDevContent() {
                 const icons = [TrendingUp, Zap, LineChart, Layers];
                 const Icon = icons[i] || TrendingUp;
                 return (
-                  <div key={i} className="relative rounded-[1.25rem] border border-white/10 p-2 md:rounded-[1.5rem] md:p-3 bg-transparent">
-                    <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} />
-                    <div className="relative flex flex-col gap-3 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                      <div className="w-fit rounded-lg border border-white/10 bg-white/5 p-2">
+                  <div key={i} className="relative rounded-[1.25rem] border border-overlay-border-light p-2 md:rounded-[1.5rem] md:p-3 bg-transparent">
+                    <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} variant="white" />
+                    <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md">
+                      <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2">
                         <Icon className="h-4 w-4 text-white" />
                       </div>
                       <p className="text-base text-secondary leading-relaxed">{bullet}</p>
@@ -103,10 +103,10 @@ export default function WebDevContent() {
                 const Icon = icons[i] || Package;
                 const isLast = i === (t.raw('deliverables.items') as string[]).length - 1 && (t.raw('deliverables.items') as string[]).length % 2 !== 0;
                 return (
-                  <div key={i} className={`relative rounded-[1.25rem] border border-white/10 p-2 md:rounded-[1.5rem] md:p-3 bg-transparent ${isLast ? 'md:col-span-2' : ''}`}>
-                    <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} />
-                    <div className="relative flex flex-col gap-3 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                      <div className="w-fit rounded-lg border border-white/10 bg-white/5 p-2">
+                  <div key={i} className={`relative rounded-[1.25rem] border border-overlay-border-light p-2 md:rounded-[1.5rem] md:p-3 bg-transparent ${isLast ? 'md:col-span-2' : ''}`}>
+                    <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} variant="white" />
+                    <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md">
+                      <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2">
                         <Icon className="h-4 w-4 text-white" />
                       </div>
                       <p className="text-base text-secondary leading-relaxed">{item}</p>
