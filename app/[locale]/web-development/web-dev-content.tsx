@@ -39,17 +39,20 @@ export default function WebDevContent() {
             {t('hero.h1')}
           </h1>
 
-          <h2 className="mt-5 text-2xl md:text-3xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-center">
-            <span className="text-muted">{t('hero.h2Prefix')}</span>{' '}
-            <span className="relative inline-block align-baseline">
-              <FlipWords
-                words={(t.raw('hero.flipWords') as string[]).map(w => w + '.')}
-                duration={2400}
-                className="text-white px-0"
-              />
-              {/* Invisible measurer to reserve width of longest word */}
-              <span className="invisible">
+          <h2 className="mt-5 flex flex-wrap items-baseline justify-center gap-x-3 text-2xl md:text-3xl lg:text-5xl font-semibold tracking-tight leading-[1.1]">
+            <span className="text-muted whitespace-nowrap">{t('hero.h2Prefix')}</span>
+            <span className="relative inline-block overflow-hidden">
+              {/* Invisible measurer reserves stable width */}
+              <span className="invisible whitespace-nowrap" aria-hidden="true">
                 {(t.raw('hero.flipWords') as string[]).reduce((a, b) => a.length >= b.length ? a : b) + '.'}
+              </span>
+              {/* Animated word centered within reserved space */}
+              <span className="absolute inset-0 flex items-start justify-center">
+                <FlipWords
+                  words={(t.raw('hero.flipWords') as string[]).map(w => w + '.')}
+                  duration={2400}
+                  className="text-white !px-0"
+                />
               </span>
             </span>
           </h2>
