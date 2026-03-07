@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { ArrowLeft, TrendingUp, Zap, LineChart, Layers, Package, Blocks, Workflow, Search, Gauge, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Package, Blocks, Workflow, Search, Gauge, CheckCircle } from 'lucide-react';
 import { BackgroundPaths } from '@/components/ui/background-paths';
 import { FlipWords } from '@/components/ui/flip-words';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
@@ -64,38 +64,17 @@ export default function WebDevContent() {
       </section>
 
       {/* Body sections */}
-      <section className="mt-12 md:mt-16 py-16 px-6 md:px-12">
+      <section className="mt-8 md:mt-12 py-12 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
 
-          {/* 2) Problem / Outcome */}
-          <div className="mb-20">
-            <h2 className="heading-xl mb-8">
+          {/* 2) What You Get — merged Outcomes + Deliverables */}
+          <div className="mb-16">
+            <h2 className="heading-xl mb-4">
               {t('problem.title')}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {(t.raw('problem.bullets') as string[]).map((bullet, i) => {
-                const icons = [TrendingUp, Zap, LineChart, Layers];
-                const Icon = icons[i] || TrendingUp;
-                return (
-                  <div key={i} className="relative rounded-[1.25rem] border border-overlay-border-light p-2 md:rounded-[1.5rem] md:p-3 bg-transparent">
-                    <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} variant="white" />
-                    <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md hover:bg-overlay-bg-light transition-smooth">
-                      <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2.5">
-                        <Icon className="h-5 w-5 text-white" />
-                      </div>
-                      <p className="text-base text-secondary leading-relaxed">{bullet}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* 3) Deliverables */}
-          <div className="mb-20">
-            <h2 className="heading-xl mb-8">
-              {t('deliverables.title')}
-            </h2>
+            <p className="text-lg text-secondary leading-relaxed mb-10">
+              {(t.raw('problem.bullets') as string[]).join(' · ')}
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {(t.raw('deliverables.items') as string[]).map((item, i) => {
                 const icons = [Package, Blocks, Workflow, Search, Gauge];
@@ -116,14 +95,12 @@ export default function WebDevContent() {
             </div>
           </div>
 
-          <hr className="border-overlay-border-light my-16" />
-
-          {/* 4) Process */}
-          <div className="mb-20">
+          {/* 3) How It Works — merged Process + Fit + Proof */}
+          <div className="mb-16">
             <h2 className="heading-xl mb-6">
               {t('processSection.title')}
             </h2>
-            <ol className="space-y-4">
+            <ol className="space-y-3 mb-10">
               {(t.raw('processSection.steps') as string[]).map((step, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-overlay-border-medium text-sm font-medium text-white">
@@ -133,39 +110,25 @@ export default function WebDevContent() {
                 </li>
               ))}
             </ol>
-          </div>
 
-          {/* 5) Fit */}
-          <div className="mb-20">
-            <h2 className="heading-xl mb-6">
+            <p className="text-sm font-medium uppercase tracking-wider text-muted mb-4">
               {t('fit.title')}
-            </h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            </p>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
               {(t.raw('fit.bullets') as string[]).map((bullet, i) => (
-                <li key={i} className="flex items-start gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-5">
-                  <CheckCircle className="h-5 w-5 shrink-0 text-white/50 mt-0.5" />
-                  <span className="text-base text-secondary leading-relaxed">{bullet}</span>
+                <li key={i} className="flex items-start gap-3 rounded-lg border border-overlay-border-light bg-overlay-bg-subtle px-4 py-3">
+                  <CheckCircle className="h-4 w-4 shrink-0 text-white/40 mt-0.5" />
+                  <span className="text-sm text-secondary leading-relaxed">{bullet}</span>
                 </li>
               ))}
             </ul>
+
+            <blockquote className="border-l-2 border-overlay-border-medium pl-4 text-muted italic">
+              {(t.raw('proof.bullets') as string[])[0]}
+            </blockquote>
           </div>
 
-          {/* 6) Proof */}
-          {/* TODO: Insert real metrics and case study data here */}
-          <div className="mb-20">
-            <h2 className="heading-xl mb-6">
-              {t('proof.title')}
-            </h2>
-            <ul className="space-y-4">
-              {(t.raw('proof.bullets') as string[]).map((bullet, i) => (
-                <li key={i} className="border-l-2 border-overlay-border-medium pl-4 text-lg text-secondary leading-relaxed">
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 7) Final CTA */}
+          {/* 4) Final CTA */}
           <div className="text-center rounded-2xl border border-overlay-border-light p-12 bg-overlay-bg-subtle backdrop-blur-sm">
             <h2 className="heading-xl mb-6">
               {t('cta.heading')}
