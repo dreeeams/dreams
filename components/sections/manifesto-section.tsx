@@ -27,7 +27,7 @@ export default function ManifestoSection() {
             <m.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 text-base md:text-lg font-medium text-black bg-white hover:bg-gray-200 border border-white transition-colors"
+              className="px-8 py-4 text-base md:text-lg font-medium text-black bg-white hover:bg-surface-light-1 border border-white transition-colors"
             >
               {tNav('getStarted')} →
             </m.button>

@@ -108,7 +108,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           {/* Content that scrolls over hero */}
-          <div className="relative z-10" style={{ marginTop: '100vh' }}>
+          <div className="relative z-10 mt-[100vh]">
             <ServicesSection />
             <PortfolioSection />
             <ManifestoSection />

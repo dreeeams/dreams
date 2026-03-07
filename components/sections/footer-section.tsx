@@ -28,17 +28,14 @@ export default function FooterSection() {
         {/* CTA Section - Hidden on contact and thank you pages */}
         {!isContactPage && !isThankYouPage && (
           <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-nostalgic text-white mb-6">
+            <h3 className="text-2xl md:text-3xl font-nostalgic text-white mb-4">
               {tFooter('ctaHeading')}
             </h3>
-            <Link href="/start">
-              <m.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 text-base md:text-lg font-medium text-black bg-white hover:bg-gray-200 border border-white transition-colors"
-              >
-                {tNav('getStarted')} →
-              </m.button>
+            <Link
+              href="/start"
+              className="text-base text-muted hover:text-white border-b border-muted hover:border-white transition-colors"
+            >
+              {tNav('getStarted')} →
             </Link>
           </div>
         )}
@@ -53,10 +50,10 @@ export default function FooterSection() {
                 fill="white"
               />
             </Link>
-            <p className="text-sm text-gray-400 max-w-xs">
+            <p className="text-sm text-muted max-w-xs">
               {tFooter('tagline')}
             </p>
-            <p className="text-xs text-gray-500 mt-3">
+            <p className="text-xs text-muted mt-3">
               Bogotá, Colombia
             </p>
             <div className="mt-4">
@@ -67,22 +64,22 @@ export default function FooterSection() {
           {/* Links */}
           <div className="flex flex-wrap gap-8 md:gap-12">
             <div className="space-y-3">
-              <a href="#services" className="block text-sm text-gray-400 hover:text-white transition-colors">
+              <a href="#services" className="block text-sm text-muted hover:text-white transition-colors">
                 {tFooter('services')}
               </a>
-              <a href="#work" className="block text-sm text-gray-400 hover:text-white transition-colors">
+              <a href="#work" className="block text-sm text-muted hover:text-white transition-colors">
                 {tFooter('portfolio')}
               </a>
-              <a href="#contact" className="block text-sm text-gray-400 hover:text-white transition-colors">
+              <a href="#contact" className="block text-sm text-muted hover:text-white transition-colors">
                 {tFooter('contact')}
               </a>
             </div>
 
             <div className="space-y-3">
-              <Link href="/payments" className="block text-sm text-gray-400 hover:text-white transition-colors">
+              <Link href="/payments" className="block text-sm text-muted hover:text-white transition-colors">
                 {tFooter('payments')}
               </Link>
-              <Link href="/legal" className="block text-sm text-gray-400 hover:text-white transition-colors">
+              <Link href="/legal" className="block text-sm text-muted hover:text-white transition-colors">
                 Legal
               </Link>
             </div>
@@ -91,13 +88,13 @@ export default function FooterSection() {
 
         {/* Bottom */}
         <div className="border-t border-overlay-border-light pt-8 flex justify-between items-center">
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-muted">
             © {new Date().getFullYear()} Dreeeams. {tFooter('rights')}.
           </p>
           {showAdminLink && (
             <Link
               href="/admin/login"
-              className="text-xs text-gray-500 hover:text-gray-300 transition-colors opacity-50 hover:opacity-100"
+              className="text-xs text-muted hover:text-white/80 transition-colors opacity-50 hover:opacity-100"
               title="Admin Login"
             >
               ●

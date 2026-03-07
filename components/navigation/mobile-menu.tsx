@@ -94,8 +94,8 @@ export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuPro
               className="absolute bottom-12 left-0 right-0 px-8"
             >
               <div className="flex items-center justify-between text-sm font-mono">
-                <span className="text-gray-400 font-nostalgic">DREEEAMS</span>
-                <span className="text-gray-400">{new Date().getFullYear()}</span>
+                <span className="text-muted font-nostalgic">DREEEAMS</span>
+                <span className="text-muted">{new Date().getFullYear()}</span>
               </div>
             </m.div>
           </div>

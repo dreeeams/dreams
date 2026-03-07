@@ -62,16 +62,16 @@ export default function ServicesSection() {
           transition={{ duration: 0.8 }}
           className="mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-nostalgic max-w-4xl leading-tight mb-4" style={{ letterSpacing: '-0.02em' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-nostalgic max-w-4xl leading-tight mb-4 tracking-tight">
             {t('subtitle')}
           </h2>
-          <p className="text-sm md:text-base font-mono tracking-widest text-gray-500">
+          <p className="text-sm md:text-base font-mono tracking-widest text-muted-foreground">
             {t('title')}
           </p>
         </m.div>
 
         {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {services.map((service, index) => (
             <Link key={service.titleKey} href={service.link}>
               <m.div
@@ -82,7 +82,7 @@ export default function ServicesSection() {
                   duration: 0.5,
                   delay: index * 0.1
                 }}
-                className="group relative h-[600px] overflow-hidden cursor-pointer"
+                className="group relative min-h-[500px] overflow-hidden cursor-pointer"
               >
               {/* Background Image */}
               {service.image ? (
@@ -119,12 +119,12 @@ export default function ServicesSection() {
                 {/* Bottom Section - Descripción y Features abajo */}
                 <div className="mt-auto">
                   {/* Descripción */}
-                  <p className="text-base md:text-lg leading-relaxed text-tertiary mb-6 font-nostalgic">
+                  <p className="text-base md:text-lg leading-relaxed text-tertiary mb-6">
                     {t(service.descriptionKey)}
                   </p>
 
                   {/* Features List */}
-                  <ul className="space-y-2 mb-6 font-nostalgic">
+                  <ul className="space-y-2 mb-6">
                     {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
                       <li key={idx} className="flex items-start text-sm md:text-base text-tertiary">
                         <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white flex-shrink-0" />
@@ -150,16 +150,16 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <p className="text-lg md:text-xl font-nostalgic text-gray-600 leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             {t('positioning')}
           </p>
-          <p className="text-sm font-mono tracking-wider text-gray-400 mt-4">
+          <p className="text-sm font-mono tracking-wider text-muted-foreground mt-4">
             {t('proofStrip')}
           </p>
         </m.div>
 
         {/* Who we love to work with */}
-        <div style={{ marginTop: '80px' }}>
+        <div className="mt-20">
           {/* Small Badge */}
           <m.div
             initial={{ opacity: 0, y: 20 }}
@@ -184,16 +184,14 @@ export default function ServicesSection() {
             className="flex flex-wrap items-center justify-center gap-3 md:gap-4 max-w-5xl mx-auto"
           >
             {clientTypes.map((type) => (
-              <m.div
+              <div
                 key={type}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
                 className="px-5 py-2.5 border border-black/10 hover:border-black/30 hover:bg-black/5 transition-colors"
               >
                 <span className="text-sm md:text-base font-medium text-black/80">
                   {tClients(type)}
                 </span>
-              </m.div>
+              </div>
             ))}
           </m.div>
         </div>

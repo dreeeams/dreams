@@ -115,7 +115,7 @@ export default function FAQSection() {
                 itemType="https://schema.org/Answer"
               >
                 <div className="pb-8 pl-20">
-                  <p className="text-base md:text-lg leading-relaxed text-gray-600" itemProp="text">
+                  <p className="text-base md:text-lg leading-relaxed text-muted-foreground" itemProp="text">
                     {t(`questions.${faqKey}.answer`)}
                   </p>
                 </div>

@@ -34,8 +34,8 @@ export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStart
           href="/start"
           className={`hidden md:block px-4 py-2 text-sm font-medium border transition-fast ${
             isAtTop
-              ? 'text-black bg-white border-overlay-border-medium hover:bg-gray-200'
-              : 'text-white bg-black hover:bg-gray-800 border-black hover:border-gray-800'
+              ? 'text-black bg-white border-overlay-border-medium hover:bg-surface-light-1'
+              : 'text-white bg-black hover:bg-brand-hover border-black hover:border-brand-hover'
           }`}
         >
           {getStartedLabel} →
