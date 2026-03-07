@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ArrowLeft, TrendingUp, Zap, LineChart, Layers, Package, Blocks, Workflow, Search, Gauge, CheckCircle } from 'lucide-react';
-import { FlickeringGrid } from '@/components/ui/flickering-grid';
+import { BackgroundPaths } from '@/components/ui/background-paths';
 import { FlipWords } from '@/components/ui/flip-words';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 
@@ -25,20 +25,13 @@ export default function WebDevContent() {
 
       {/* 1) Hero — self-contained background */}
       <section className="relative overflow-hidden bg-black pt-28 pb-16 md:pt-36 md:pb-24">
-        {/* Animated grid background */}
+        {/* Animated SVG background */}
         <div className="absolute inset-0 z-0">
-          <FlickeringGrid
-            className="absolute inset-0 size-full"
-            squareSize={4}
-            gridGap={6}
-            color="#6B7280"
-            maxOpacity={0.35}
-            flickerChance={0.08}
-          />
+          <BackgroundPaths />
         </div>
 
         {/* Readability overlay */}
-        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/55 to-black/85" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
 
         {/* Hero content */}
         <div className="relative z-20 mx-auto max-w-5xl px-6 text-center">
@@ -46,17 +39,20 @@ export default function WebDevContent() {
             {t('hero.h1')}
           </h1>
 
-          <div className="mt-5 flex flex-col items-center gap-1 md:inline-flex md:flex-row md:items-baseline md:gap-2 text-2xl md:text-3xl lg:text-5xl font-semibold tracking-tight leading-[1.1]">
-            <span className="text-muted">{t('hero.h2Prefix')}</span>
-            <span className="relative inline-block min-w-[12ch] text-left align-baseline">
+          <h2 className="mt-5 text-2xl md:text-3xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-center">
+            <span className="text-muted">{t('hero.h2Prefix')}</span>{' '}
+            <span className="relative inline-block align-baseline">
               <FlipWords
-                words={t.raw('hero.flipWords') as string[]}
+                words={(t.raw('hero.flipWords') as string[]).map(w => w + '.')}
                 duration={2400}
                 className="text-white px-0"
               />
+              {/* Invisible measurer to reserve width of longest word */}
+              <span className="invisible">
+                {(t.raw('hero.flipWords') as string[]).reduce((a, b) => a.length >= b.length ? a : b) + '.'}
+              </span>
             </span>
-            <span className="text-muted">.</span>
-          </div>
+          </h2>
 
           <p className="mt-4 text-sm md:text-base text-muted">
             {t('hero.microline')}
