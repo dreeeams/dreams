@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { ArrowLeft, TrendingUp, Zap, LineChart, Layers, Package, Blocks, Workflow, Search, Gauge } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Zap, LineChart, Layers, Package, Blocks, Workflow, Search, Gauge, CheckCircle } from 'lucide-react';
 import { FlickeringGrid } from '@/components/ui/flickering-grid';
 import { FlipWords } from '@/components/ui/flip-words';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
@@ -47,7 +47,7 @@ export default function WebDevContent() {
           </h1>
 
           <div className="mt-5 flex flex-col items-center gap-1 md:inline-flex md:flex-row md:items-baseline md:gap-2 text-2xl md:text-3xl lg:text-5xl font-semibold tracking-tight leading-[1.1]">
-            <span className="text-white/70">{t('hero.h2Prefix')}</span>
+            <span className="text-muted">{t('hero.h2Prefix')}</span>
             <span className="relative inline-block min-w-[12ch] text-left align-baseline">
               <FlipWords
                 words={t.raw('hero.flipWords') as string[]}
@@ -55,7 +55,7 @@ export default function WebDevContent() {
                 className="text-white px-0"
               />
             </span>
-            <span className="text-white/70">.</span>
+            <span className="text-muted">.</span>
           </div>
 
           <p className="mt-4 text-sm md:text-base text-muted">
@@ -81,8 +81,8 @@ export default function WebDevContent() {
                   <div key={i} className="relative rounded-[1.25rem] border border-overlay-border-light p-2 md:rounded-[1.5rem] md:p-3 bg-transparent">
                     <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} variant="white" />
                     <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md">
-                      <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2">
-                        <Icon className="h-4 w-4 text-white" />
+                      <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2.5">
+                        <Icon className="h-5 w-5 text-white" />
                       </div>
                       <p className="text-base text-secondary leading-relaxed">{bullet}</p>
                     </div>
@@ -106,8 +106,8 @@ export default function WebDevContent() {
                   <div key={i} className={`relative rounded-[1.25rem] border border-overlay-border-light p-2 md:rounded-[1.5rem] md:p-3 bg-transparent ${isLast ? 'md:col-span-2' : ''}`}>
                     <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} variant="white" />
                     <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md">
-                      <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2">
-                        <Icon className="h-4 w-4 text-white" />
+                      <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2.5">
+                        <Icon className="h-5 w-5 text-white" />
                       </div>
                       <p className="text-base text-secondary leading-relaxed">{item}</p>
                     </div>
@@ -124,9 +124,11 @@ export default function WebDevContent() {
             </h2>
             <ol className="space-y-4">
               {(t.raw('processSection.steps') as string[]).map((step, i) => (
-                <li key={i} className="text-lg text-secondary leading-relaxed flex items-start gap-3">
-                  <span className="text-white font-medium shrink-0">{i + 1}.</span>
-                  <span>{step}</span>
+                <li key={i} className="flex items-start gap-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-overlay-border-medium text-sm font-medium text-white">
+                    {i + 1}
+                  </span>
+                  <span className="text-lg text-secondary leading-relaxed pt-1">{step}</span>
                 </li>
               ))}
             </ol>
@@ -137,11 +139,11 @@ export default function WebDevContent() {
             <h2 className="heading-xl mb-6">
               {t('fit.title')}
             </h2>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {(t.raw('fit.bullets') as string[]).map((bullet, i) => (
-                <li key={i} className="text-lg text-secondary leading-relaxed flex items-start gap-3">
-                  <span className="text-white mt-1">•</span>
-                  <span>{bullet}</span>
+                <li key={i} className="flex items-start gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-5">
+                  <CheckCircle className="h-5 w-5 shrink-0 text-white/50 mt-0.5" />
+                  <span className="text-base text-secondary leading-relaxed">{bullet}</span>
                 </li>
               ))}
             </ul>
@@ -153,18 +155,17 @@ export default function WebDevContent() {
             <h2 className="heading-xl mb-6">
               {t('proof.title')}
             </h2>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {(t.raw('proof.bullets') as string[]).map((bullet, i) => (
-                <li key={i} className="text-lg text-secondary leading-relaxed flex items-start gap-3">
-                  <span className="text-white mt-1">•</span>
-                  <span>{bullet}</span>
+                <li key={i} className="border-l-2 border-overlay-border-medium pl-4 text-lg text-secondary leading-relaxed">
+                  {bullet}
                 </li>
               ))}
             </ul>
           </div>
 
           {/* 7) Final CTA */}
-          <div className="text-center border border-overlay-border-light p-12 bg-overlay-bg-subtle backdrop-blur-sm">
+          <div className="text-center rounded-2xl border border-overlay-border-light p-12 bg-overlay-bg-subtle backdrop-blur-sm">
             <h2 className="heading-xl mb-6">
               {t('cta.heading')}
             </h2>
