@@ -72,9 +72,13 @@ export default function WebDevContent() {
             <h2 className="heading-xl mb-4">
               {t('problem.title')}
             </h2>
-            <p className="text-lg text-secondary leading-relaxed mb-10">
-              {(t.raw('problem.bullets') as string[]).join(' · ')}
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
+              {(t.raw('problem.bullets') as string[]).map((bullet, i) => (
+                <p key={i} className="border-l-2 border-overlay-border-medium pl-4 text-base text-secondary leading-relaxed">
+                  {bullet}
+                </p>
+              ))}
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {(t.raw('deliverables.items') as string[]).map((item, i) => {
                 const icons = [Package, Blocks, Workflow, Search, Gauge];
@@ -123,9 +127,13 @@ export default function WebDevContent() {
               ))}
             </ul>
 
-            <blockquote className="border-l-2 border-overlay-border-medium pl-4 text-muted italic">
-              {(t.raw('proof.bullets') as string[])[0]}
-            </blockquote>
+            <div className="space-y-3">
+              {(t.raw('proof.bullets') as string[]).map((bullet, i) => (
+                <blockquote key={i} className="border-l-2 border-overlay-border-medium pl-4 text-muted italic">
+                  {bullet}
+                </blockquote>
+              ))}
+            </div>
           </div>
 
           {/* 4) Final CTA */}
