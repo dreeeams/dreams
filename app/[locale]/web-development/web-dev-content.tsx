@@ -16,7 +16,7 @@ export default function WebDevContent() {
       <div className="fixed top-24 left-6 z-50">
         <Link
           href="/#services"
-          className="inline-flex items-center gap-2 px-4 py-2 border border-overlay-border-medium bg-black/50 backdrop-blur-sm hover:bg-overlay-bg-light transition-smooth"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-overlay-border-medium bg-black/50 backdrop-blur-sm hover:bg-overlay-bg-light transition-smooth"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm">Back</span>
@@ -80,7 +80,7 @@ export default function WebDevContent() {
                 return (
                   <div key={i} className="relative rounded-[1.25rem] border border-overlay-border-light p-2 md:rounded-[1.5rem] md:p-3 bg-transparent">
                     <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} variant="white" />
-                    <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md">
+                    <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md hover:bg-overlay-bg-light transition-smooth">
                       <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2.5">
                         <Icon className="h-5 w-5 text-white" />
                       </div>
@@ -105,7 +105,7 @@ export default function WebDevContent() {
                 return (
                   <div key={i} className={`relative rounded-[1.25rem] border border-overlay-border-light p-2 md:rounded-[1.5rem] md:p-3 bg-transparent ${isLast ? 'md:col-span-2' : ''}`}>
                     <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.2} borderWidth={2} blur={0} disabled={false} variant="white" />
-                    <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md">
+                    <div className="relative flex flex-col gap-3 rounded-xl border border-overlay-border-light bg-overlay-bg-subtle p-6 backdrop-blur-md hover:bg-overlay-bg-light transition-smooth">
                       <div className="w-fit rounded-lg border border-overlay-border-light bg-overlay-bg-subtle p-2.5">
                         <Icon className="h-5 w-5 text-white" />
                       </div>
@@ -116,6 +116,8 @@ export default function WebDevContent() {
               })}
             </div>
           </div>
+
+          <hr className="border-overlay-border-light my-16" />
 
           {/* 4) Process */}
           <div className="mb-20">
@@ -174,7 +176,7 @@ export default function WebDevContent() {
             </p>
             <Link
               href="/start"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black hover:bg-white/90 transition-smooth font-medium"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black hover:bg-white/90 hover:scale-[1.02] transition-smooth font-medium"
             >
               {t('cta.button')}
             </Link>
