@@ -51,7 +51,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-sm sm:text-base md:text-lg font-mono tracking-wide mt-6 max-w-2xl opacity-80"
+          className="text-sm sm:text-base md:text-lg font-mono tracking-wide mt-6 max-w-2xl drop-shadow-sm"
         >
           {t('subtitle')}
         </m.p>

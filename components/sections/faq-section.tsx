@@ -89,10 +89,10 @@ export default function FAQSection() {
                 aria-controls={`faq-answer-${index}`}
               >
                 <div className="flex items-center gap-6 flex-1">
-                  <span className="text-4xl md:text-5xl font-mono font-bold text-brand opacity-40 group-hover:opacity-100 transition-opacity">
+                  <span className="text-2xl md:text-3xl font-mono font-bold text-brand opacity-40 group-hover:opacity-100 transition-opacity">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-xl md:text-2xl font-nostalgic group-hover:text-brand transition-colors" itemProp="name">
+                  <span className="text-xl md:text-2xl font-nostalgic group-hover:underline transition-colors" itemProp="name">
                     {t(`questions.${faqKey}.question`)}
                   </span>
                 </div>
