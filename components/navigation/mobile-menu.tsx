@@ -1,6 +1,7 @@
 'use client';
 
 import { m, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import Logo from '@/components/logo';
 
 interface MenuItem {
@@ -15,12 +16,18 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuProps) {
+  const router = useRouter();
+
   const handleMenuClick = (href: string) => {
     onClose();
-    // Small delay to allow animation to start before navigating
-    setTimeout(() => {
-      window.location.href = href;
-    }, 300);
+    if (href.startsWith('#')) {
+      const el = document.querySelector(href);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 300);
+      }
+    } else {
+      setTimeout(() => router.push(href), 300);
+    }
   };
 
   return (

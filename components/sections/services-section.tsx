@@ -35,20 +35,12 @@ export default function ServicesSection() {
   ];
 
   const clientTypes = [
-    'nonprofits',
-    'smallBusinesses',
     'startups',
-    'eventPlanners',
     'ecommerce',
     'agencies',
+    'eventPlanners',
+    'smallBusinesses',
     'personalBrands',
-    'construction',
-    'restaurants',
-    'healthcare',
-    'realestate',
-    'education',
-    'fitness',
-    'consultants',
   ];
 
   return (
@@ -141,22 +133,6 @@ export default function ServicesSection() {
             </Link>
           ))}
         </div>
-
-        {/* Positioning Statement */}
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12"
-        >
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            {t('positioning')}
-          </p>
-          <p className="text-sm font-mono tracking-wider text-muted-foreground mt-4">
-            {t('proofStrip')}
-          </p>
-        </m.div>
 
         {/* Who we love to work with */}
         <div className="mt-20">

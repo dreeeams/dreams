@@ -1,8 +1,8 @@
 {
   "hero": {
-    "tagline": "Based in Bogotá. Working globally.",
-    "title": "We build and scale digital products.",
-    "subtitle": "We handle the technology, so you can focus on growth.",
+    "tagline": "BOGOTÁ → WORLDWIDE",
+    "title": "Product engineering for companies that ship.",
+    "subtitle": "We design, build, and scale web and mobile products. React, Next.js, React Native.",
     "cta": "Start Your Project",
     "seoHeading": "Professional Web Development Agency - Custom Mobile App Development - React, Next.js & React Native Experts",
     "buttons": {
@@ -32,7 +32,8 @@
   },
   "manifesto": {
     "weAre": "We're",
-    "description": "a creative studio focused on well-designed brands and digital products"
+    "description": "a product studio that designs, builds, and ships digital products for companies that take growth seriously",
+    "proofPoints": ["4 products shipped", "90K+ users reached", "Bogotá → Global"]
   },
   "clients": {
     "badge": "Who we love to work with",
@@ -52,8 +53,8 @@
     "consultants": "Consultants & Coaches"
   },
   "services": {
-    "title": "Modular systems designed to turn traffic into measurable results.",
-    "subtitle": "Build digital infrastructure that converts.",
+    "title": "We build modular products, not pages. Each system compounds your results.",
+    "subtitle": "Three systems. One growth engine.",
     "positioning": "We don't design pages. We build modular systems that scale with your business.",
     "proofStrip": "30K+ tickets sold · 90K+ unique visitors · 4.3 app rating",
     "techStack": {
@@ -61,8 +62,8 @@
       "andMore": "And many more..."
     },
     "webDev": {
-      "title": "Conversion-First Frontend",
-      "description": "Strategic interfaces built to capture and convert traffic.",
+      "title": "Conversion-First Web",
+      "description": "Strategic interfaces that turn traffic into qualified leads. High-performance, SEO-optimized, built to measure.",
       "features": [
         "High-performance landing systems",
         "Modular UI architecture",
@@ -130,7 +131,7 @@
     },
     "mobileDev": {
       "title": "Scalable Infrastructure",
-      "description": "The engine that powers your growth.",
+      "description": "APIs, databases, and backend systems engineered for reliability and growth. Secure, documented, production-ready.",
       "features": [
         "Modern stack (React, Next.js)",
         "API architecture",
@@ -222,8 +223,8 @@
       }
     },
     "uiux": {
-      "title": "Automation & Intelligence",
-      "description": "Systems that multiply operational capacity.",
+      "title": "AI & Automation",
+      "description": "Custom AI agents, workflow automation, and data pipelines that multiply your team's operational capacity.",
       "features": [
         "AI-powered chatbots",
         "Workflow automation",
@@ -338,7 +339,7 @@
   },
   "portfolio": {
     "title": "Our Work",
-    "subtitle": "Real projects, real results. See how we've helped companies transform their digital presence.",
+    "subtitle": "Products we've shipped. Results we've measured.",
     "buttons": {
       "viewProject": "VIEW PROJECT",
       "viewAllProjects": "VIEW ALL PROJECTS",
@@ -368,10 +369,10 @@
     },
     "projects": {
       "huntRho": {
-        "description": "Modern ticketing and event management platform with real-time updates and analytics"
+        "description": "Ticketing and event management platform with real-time updates and analytics."
       },
       "perroNegro": {
-        "description": "Event ticketing platform for Perro Negro with real-time ticket sales and management",
+        "description": "Ticketing platform for Bogotá's largest venue. 90K unique visitors, 105K platform visits, real-time inventory.",
         "metrics": {
           "visitors": "90,000+",
           "visitorsLabel": "Unique Visitors",
@@ -380,16 +381,16 @@
         }
       },
       "mariaHelena": {
-        "description": "Ticketing platform for María Helena Amador events with seamless booking experience"
+        "description": "Event management for María Helena Amador. Booking experience, mobile-first design."
       },
       "amazonasToures": {
-        "description": "Tourism and travel agency platform showcasing amazing Amazon tours and experiences"
+        "description": "Tourism platform for Amazon river expeditions. Booking engine, multi-language, SEO-optimized."
       },
       "kuenta": {
-        "description": "Modern payment and transaction platform with seamless user experience and secure payment processing"
+        "description": "Payment and transaction platform with secure processing and streamlined user flows."
       },
       "huntTickets": {
-        "description": "Modern ticketing and event management mobile application with real-time updates and analytics"
+        "description": "Event ticketing app. 30K+ tickets processed, 4.3★ App Store rating, 5K+ downloads in first year."
       }
     }
   },
@@ -421,23 +422,23 @@
     "questions": {
       "q1": {
         "question": "How long does a typical project take?",
-        "answer": "Project timelines vary based on complexity. A simple website can take 4-6 weeks, while a full mobile app typically takes 3-6 months. We'll provide a detailed timeline during our initial consultation."
+        "answer": "4–6 weeks for websites. 3–6 months for mobile apps. We scope timeline during the first call."
       },
       "q2": {
         "question": "What is your pricing model?",
-        "answer": "We offer flexible pricing models including fixed-price and time & materials. Pricing depends on project scope, complexity, and timeline. Contact us for a personalized quote tailored to your needs."
+        "answer": "Fixed-price or time & materials, depending on scope. We quote after understanding your project."
       },
       "q3": {
         "question": "Do you provide ongoing support?",
-        "answer": "Yes! We offer comprehensive maintenance packages that include bug fixes, updates, security patches, performance optimization, and feature enhancements. Your success is our priority."
+        "answer": "Yes. We offer maintenance packages covering updates, security patches, and performance optimization."
       },
       "q4": {
         "question": "Can you work with our existing team?",
-        "answer": "Absolutely! We collaborate seamlessly with in-house teams, providing expertise where needed. We integrate smoothly into your workflow and complement your existing resources."
+        "answer": "Yes. We integrate with in-house teams and adapt to your existing workflow and tools."
       },
       "q5": {
         "question": "What technologies do you specialize in?",
-        "answer": "We specialize in modern web and mobile technologies including React, Next.js, React Native, Node.js, TypeScript, PostgreSQL, and leading cloud platforms like Vercel and Supabase."
+        "answer": "React, Next.js, React Native, Node.js, TypeScript, PostgreSQL, Supabase, Vercel."
       }
     }
   },
@@ -610,7 +611,7 @@
     "callDescription": "Schedule a 30-minute call to talk about your project",
     "footer": {
       "ctaHeading": "Ready to start your project?",
-      "tagline": "Building digital experiences since 2024",
+      "tagline": "Digital products. Engineered to perform.",
       "quickLinks": "Quick Links",
       "services": "Services",
       "portfolio": "Portfolio",

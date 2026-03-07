@@ -1,8 +1,8 @@
 {
   "hero": {
-    "tagline": "Desde Bogotá. Trabajando globalmente.",
-    "title": "Construimos y escalamos productos digitales.",
-    "subtitle": "Asumimos la tecnología para que tú puedas enfocarte en crecer.",
+    "tagline": "BOGOTÁ → MUNDIAL",
+    "title": "Ingeniería de producto para empresas que ejecutan.",
+    "subtitle": "Diseñamos, construimos y escalamos productos web y móviles. React, Next.js, React Native.",
     "cta": "Inicia Tu Proyecto",
     "seoHeading": "Agencia de Desarrollo Web Profesional - Desarrollo de Apps Móviles - Expertos en React, Next.js y React Native",
     "buttons": {
@@ -32,7 +32,8 @@
   },
   "manifesto": {
     "weAre": "Somos",
-    "description": "un estudio creativo enfocado en marcas y productos digitales bien diseñados"
+    "description": "un estudio de producto que diseña, construye y lanza productos digitales para empresas que se toman el crecimiento en serio",
+    "proofPoints": ["4 productos lanzados", "90K+ usuarios alcanzados", "Bogotá → Global"]
   },
   "clients": {
     "badge": "Con quién nos encanta trabajar",
@@ -52,8 +53,8 @@
     "consultants": "Consultores & Coaches"
   },
   "services": {
-    "title": "Sistemas modulares diseñados para convertir tráfico en resultados medibles.",
-    "subtitle": "Construye infraestructura digital que convierte.",
+    "title": "Construimos productos modulares, no páginas. Cada sistema multiplica tus resultados.",
+    "subtitle": "Tres sistemas. Un motor de crecimiento.",
     "positioning": "No diseñamos páginas. Construimos sistemas modulares que escalan con tu negocio.",
     "proofStrip": "30K+ tickets vendidos · 90K+ visitantes únicos · 4.3 rating en apps",
     "techStack": {
@@ -61,8 +62,8 @@
       "andMore": "Y muchas mas..."
     },
     "webDev": {
-      "title": "Frontend de Conversión",
-      "description": "Interfaces estratégicas para capturar y convertir tráfico.",
+      "title": "Web de Conversión",
+      "description": "Interfaces estratégicas que convierten tráfico en leads calificados. Alto rendimiento, SEO optimizado, listo para medir.",
       "features": [
         "Sistemas de landing de alto rendimiento",
         "Arquitectura UI modular",
@@ -130,7 +131,7 @@
     },
     "mobileDev": {
       "title": "Infraestructura Escalable",
-      "description": "El motor que impulsa tu crecimiento.",
+      "description": "APIs, bases de datos y sistemas backend diseñados para confiabilidad y crecimiento. Seguros, documentados, listos para producción.",
       "features": [
         "Stack moderno (React, Next.js)",
         "Arquitectura de APIs",
@@ -222,8 +223,8 @@
       }
     },
     "uiux": {
-      "title": "Automatización e Inteligencia",
-      "description": "Sistemas que multiplican la capacidad operativa.",
+      "title": "IA & Automatización",
+      "description": "Agentes de IA personalizados, automatización de flujos y pipelines de datos que multiplican la capacidad operativa de tu equipo.",
       "features": [
         "Chatbots con IA",
         "Automatización de flujos",
@@ -338,7 +339,7 @@
   },
   "portfolio": {
     "title": "Nuestro Trabajo",
-    "subtitle": "Proyectos reales, resultados reales. Mira como hemos ayudado a empresas a transformar su presencia digital.",
+    "subtitle": "Productos que hemos lanzado. Resultados que hemos medido.",
     "buttons": {
       "viewProject": "VER PROYECTO",
       "viewAllProjects": "VER TODOS LOS PROYECTOS",
@@ -368,10 +369,10 @@
     },
     "projects": {
       "huntRho": {
-        "description": "Plataforma moderna de tickets y gestion de eventos con actualizaciones en tiempo real y analiticas"
+        "description": "Plataforma de tickets y gestión de eventos con actualizaciones en tiempo real y analíticas."
       },
       "perroNegro": {
-        "description": "Plataforma de venta de tickets para eventos de Perro Negro con ventas y gestion en tiempo real",
+        "description": "Plataforma de tickets para el venue más grande de Bogotá. 90K visitantes únicos, 105K visitas, inventario en tiempo real.",
         "metrics": {
           "visitors": "90.000+",
           "visitorsLabel": "Visitantes únicos",
@@ -380,16 +381,16 @@
         }
       },
       "mariaHelena": {
-        "description": "Plataforma de venta de tickets para eventos de Maria Helena Amador con experiencia de reserva perfecta"
+        "description": "Gestión de eventos para María Helena Amador. Reservas, diseño mobile-first."
       },
       "amazonasToures": {
-        "description": "Plataforma de agencia de viajes y turismo mostrando increibles tours del Amazonas y experiencias"
+        "description": "Plataforma de turismo para expediciones al Amazonas. Motor de reservas, multi-idioma, SEO optimizado."
       },
       "kuenta": {
-        "description": "Plataforma moderna de pagos y transacciones con experiencia de usuario fluida y procesamiento de pagos seguro"
+        "description": "Plataforma de pagos y transacciones con procesamiento seguro y flujos optimizados."
       },
       "huntTickets": {
-        "description": "Aplicacion movil moderna de tickets y gestion de eventos con actualizaciones en tiempo real y analiticas"
+        "description": "App de tickets para eventos. 30K+ tickets procesados, 4.3★ en App Store, 5K+ descargas en el primer año."
       }
     }
   },
@@ -421,23 +422,23 @@
     "questions": {
       "q1": {
         "question": "¿Cuánto tiempo toma un proyecto típico?",
-        "answer": "Los tiempos de proyecto varían según la complejidad. Un sitio web simple puede tomar 4-6 semanas, mientras que una aplicación móvil completa típicamente toma 3-6 meses. Te proporcionaremos un cronograma detallado durante nuestra consulta inicial."
+        "answer": "4–6 semanas para sitios web. 3–6 meses para apps móviles. Definimos el cronograma en la primera llamada."
       },
       "q2": {
         "question": "¿Cuál es su modelo de precios?",
-        "answer": "Ofrecemos modelos de precios flexibles incluyendo precio fijo y tiempo y materiales. Los precios dependen del alcance del proyecto, complejidad y cronograma. Contáctanos para una cotización personalizada adaptada a tus necesidades."
+        "answer": "Precio fijo o tiempo y materiales, según el alcance. Cotizamos después de entender tu proyecto."
       },
       "q3": {
         "question": "¿Proporcionan soporte continuo?",
-        "answer": "¡Sí! Ofrecemos paquetes de mantenimiento integral que incluyen corrección de errores, actualizaciones, parches de seguridad, optimización de rendimiento y mejoras de funcionalidades. Tu éxito es nuestra prioridad."
+        "answer": "Sí. Ofrecemos paquetes de mantenimiento que cubren actualizaciones, parches de seguridad y optimización de rendimiento."
       },
       "q4": {
         "question": "¿Pueden trabajar con nuestro equipo existente?",
-        "answer": "¡Por supuesto! Colaboramos perfectamente con equipos internos, proporcionando experiencia donde se necesita. Nos integramos sin problemas en tu flujo de trabajo y complementamos tus recursos existentes."
+        "answer": "Sí. Nos integramos con equipos internos y nos adaptamos a tu flujo de trabajo y herramientas."
       },
       "q5": {
         "question": "¿En qué tecnologías se especializan?",
-        "answer": "Nos especializamos en tecnologías web y móviles modernas incluyendo React, Next.js, React Native, Node.js, TypeScript, PostgreSQL, y plataformas cloud líderes como Vercel y Supabase."
+        "answer": "React, Next.js, React Native, Node.js, TypeScript, PostgreSQL, Supabase, Vercel."
       }
     }
   },
@@ -610,7 +611,7 @@
     "callDescription": "Agenda una llamada de 30 minutos para hablar sobre tu proyecto",
     "footer": {
       "ctaHeading": "¿Listo para comenzar tu proyecto?",
-      "tagline": "Construyendo experiencias digitales desde 2024",
+      "tagline": "Productos digitales. Diseñados para rendir.",
       "quickLinks": "Enlaces Rápidos",
       "services": "Servicios",
       "portfolio": "Portafolio",

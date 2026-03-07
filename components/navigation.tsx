@@ -139,6 +139,7 @@ export default function Navigation() {
                 isAtTop={isAtTop}
                 isVisible={isVisible}
                 servicesLabel={t('services')}
+                portfolioLabel={t('work')}
                 getStartedLabel={t('getStarted')}
                 isContactPage={isContactPage}
               />

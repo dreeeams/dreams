@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { cdnAssetUrl } from '@/lib/constants';
@@ -55,6 +56,27 @@ export default function HeroSection() {
         >
           {t('subtitle')}
         </m.p>
+
+        {/* CTA Buttons */}
+        <m.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.8 }}
+          className="flex items-center gap-6 mt-10"
+        >
+          <Link
+            href="/start"
+            className="px-8 py-4 text-sm font-medium tracking-wider bg-white text-black border border-white hover:bg-transparent hover:text-white transition-colors duration-300"
+          >
+            {t('buttons.startProject')} →
+          </Link>
+          <a
+            href="#work"
+            className="text-sm font-mono tracking-wider border-b border-white/50 hover:border-white pb-1 transition-colors duration-300"
+          >
+            {t('buttons.viewWork')} ↓
+          </a>
+        </m.div>
       </div>
     </div>
   );

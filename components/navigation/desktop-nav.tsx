@@ -6,11 +6,12 @@ interface DesktopNavProps {
   isAtTop: boolean;
   isVisible: boolean;
   servicesLabel: string;
+  portfolioLabel: string;
   getStartedLabel: string;
   isContactPage: boolean;
 }
 
-export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStartedLabel, isContactPage }: DesktopNavProps) {
+export default function DesktopNav({ isAtTop, isVisible, servicesLabel, portfolioLabel, getStartedLabel, isContactPage }: DesktopNavProps) {
   return (
     <>
       {/* Desktop Services Link */}
@@ -24,6 +25,19 @@ export default function DesktopNav({ isAtTop, isVisible, servicesLabel, getStart
         }`}
       >
         {servicesLabel}
+      </m.a>
+
+      {/* Desktop Portfolio Link */}
+      <m.a
+        whileTap={{ scale: 0.98 }}
+        href="#work"
+        className={`md:block hidden px-4 py-2 text-sm font-medium border transition-fast ${
+          isAtTop
+            ? 'text-white border-overlay-border-medium hover:bg-white hover:text-black'
+            : 'text-foreground-light border-black/10 hover:border-black hover:text-white hover:bg-black'
+        }`}
+      >
+        {portfolioLabel}
       </m.a>
 
       {/* Contact Button - Visible when header is visible - Desktop only */}

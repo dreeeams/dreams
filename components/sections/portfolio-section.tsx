@@ -26,7 +26,6 @@ type Project = {
   metrics?: {
     visitors?: string;
     visits?: string;
-    bounceRate?: string;
   };
 };
 
@@ -97,6 +96,14 @@ export default function PortfolioSection() {
   const tButtons = useTranslations('portfolio.buttons');
   const tLabels = useTranslations('portfolio.labels');
   const tProjects = useTranslations('portfolio.projects');
+  const tProof = useTranslations('socialProof');
+
+  const metrics = [
+    { key: 'tickets' },
+    { key: 'visits' },
+    { key: 'downloads' },
+    { key: 'rating' },
+  ];
 
   return (
     <section id="work" className="relative z-10 py-24 px-6 md:px-12 bg-white">
@@ -114,9 +121,23 @@ export default function PortfolioSection() {
               {t('title')}
             </h2>
           </div>
-          <p className="text-center text-sm max-w-2xl mx-auto">
+          <p className="text-center text-sm max-w-2xl mx-auto mb-12">
             {t('subtitle')}
           </p>
+
+          {/* Social Proof Metrics Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto border-t border-b border-black/10 py-8">
+            {metrics.map((metric) => (
+              <div key={metric.key} className="text-center">
+                <p className="text-2xl md:text-3xl font-mono font-bold tracking-tight">
+                  {tProof(`metrics.${metric.key}.value`)}
+                </p>
+                <p className="text-xs font-mono tracking-wider text-muted-foreground mt-1">
+                  {tProof(`metrics.${metric.key}.label`)}
+                </p>
+              </div>
+            ))}
+          </div>
         </m.div>
 
         {/* Projects Grid */}
