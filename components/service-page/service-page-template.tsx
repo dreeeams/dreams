@@ -14,19 +14,26 @@ import { FlipWords } from '@/components/ui/flip-words';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { InteractiveCTA } from '@/components/ui/interactive-cta';
 
+const TRANSLATION_KEYS: Record<string, string> = {
+  webDevelopment: 'webDev',
+  mobileDevelopment: 'mobileDev',
+  aiSolutions: 'uiux',
+};
+
 const SERVICE_ICONS: Record<string, LucideIcon[]> = {
-  webDev: [Package, Blocks, Workflow, Search, Gauge],
-  mobileDev: [Server, Database, Shield, Cpu, Cloud],
-  uiux: [Brain, Bot, TrendingUp, Sparkles, Workflow],
+  webDevelopment: [Package, Blocks, Workflow, Search, Gauge],
+  mobileDevelopment: [Server, Database, Shield, Cpu, Cloud],
+  aiSolutions: [Brain, Bot, TrendingUp, Sparkles, Workflow],
 };
 
 interface ServicePageTemplateProps {
-  serviceKey: 'webDev' | 'mobileDev' | 'uiux';
+  serviceKey: 'webDevelopment' | 'mobileDevelopment' | 'aiSolutions';
 }
 
 export default function ServicePageTemplate({ serviceKey }: ServicePageTemplateProps) {
-  const t = useTranslations(`services.${serviceKey}`);
-  const icons = SERVICE_ICONS[serviceKey] || SERVICE_ICONS.webDev;
+  const translationKey = TRANSLATION_KEYS[serviceKey];
+  const t = useTranslations(`services.${translationKey}`);
+  const icons = SERVICE_ICONS[serviceKey] || SERVICE_ICONS.webDevelopment;
 
   return (
     <main className="min-h-screen bg-black text-white">

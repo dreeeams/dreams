@@ -12,5 +12,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function AISolutionsPage() {
-  return <ServicePageTemplate serviceKey="uiux" />;
+  return <ServicePageTemplate serviceKey="aiSolutions" />;
 }

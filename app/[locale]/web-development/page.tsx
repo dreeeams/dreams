@@ -12,5 +12,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function WebDevelopmentPage() {
-  return <ServicePageTemplate serviceKey="webDev" />;
+  return <ServicePageTemplate serviceKey="webDevelopment" />;
 }
