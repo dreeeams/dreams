@@ -12,7 +12,7 @@ interface InteractiveCTAProps {
   href: string;
 }
 
-const PARTICLE_COUNT = 18;
+const PARTICLE_COUNT = 24;
 
 export function InteractiveCTA({
   heading,
@@ -24,13 +24,14 @@ export function InteractiveCTA({
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const particlesControl = useAnimation();
   const [isHovering, setIsHovering] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
 
   const [particles] = useState(() =>
     Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
       id: i,
       left: 5 + Math.random() * 90,
-      top: 5 + Math.random() * 90,
-      size: 1 + Math.random() * 1.5,
+      top: 15 + Math.random() * 80,
+      size: 1.5 + Math.random() * 1.5,
     }))
   );
 
@@ -46,6 +47,21 @@ export function InteractiveCTA({
     };
   }, []);
 
+  const getProximity = useCallback(
+    (
+      i: number,
+      target: { x: number; y: number; cw: number; ch: number }
+    ) => {
+      const px = (particles[i].left / 100) * target.cw;
+      const py = (particles[i].top / 100) * target.ch;
+      const dx = target.x - px;
+      const dy = target.y - py;
+      const maxDist = Math.sqrt(target.cw ** 2 + target.ch ** 2);
+      return Math.sqrt(dx ** 2 + dy ** 2) / maxDist;
+    },
+    [particles]
+  );
+
   const handleHoverStart = useCallback(() => {
     const target = getButtonTarget();
     if (!target) return;
@@ -54,31 +70,39 @@ export function InteractiveCTA({
     particlesControl.start((i) => {
       const px = (particles[i].left / 100) * target.cw;
       const py = (particles[i].top / 100) * target.ch;
+      const proximity = getProximity(i, target);
+      const pullFactor = 0.5 + (1 - proximity) * 0.35;
+      const opacity = 0.4 + (1 - proximity) * 0.5;
+      const scale = 1 + (1 - proximity) * 0.8;
+
       return {
-        x: (target.x - px) * 0.7,
-        y: (target.y - py) * 0.7,
-        opacity: 0.6,
+        x: (target.x - px) * pullFactor,
+        y: (target.y - py) * pullFactor,
+        opacity,
+        scale,
         transition: {
           type: "spring",
-          stiffness: 25,
+          stiffness: 20 + (1 - proximity) * 30,
           damping: 12,
-          delay: i * 0.015,
+          delay: proximity * 0.15,
         },
       };
     });
-  }, [particlesControl, particles, getButtonTarget]);
+  }, [particlesControl, particles, getButtonTarget, getProximity]);
 
   const handleHoverEnd = useCallback(() => {
     setIsHovering(false);
+    setIsPressed(false);
     particlesControl.start((i) => ({
       x: 0,
       y: 0,
-      opacity: 0.2,
+      opacity: 0.3,
+      scale: 1,
       transition: {
         type: "spring",
         stiffness: 40,
         damping: 18,
-        delay: i * 0.01,
+        delay: i * 0.008,
       },
     }));
   }, [particlesControl]);
@@ -86,17 +110,19 @@ export function InteractiveCTA({
   const handleMouseDown = useCallback(() => {
     const target = getButtonTarget();
     if (!target) return;
+    setIsPressed(true);
 
     particlesControl.start((i) => {
       const px = (particles[i].left / 100) * target.cw;
       const py = (particles[i].top / 100) * target.ch;
       return {
-        x: (target.x - px) * 0.95 + (Math.random() - 0.5) * 8,
-        y: (target.y - py) * 0.95 + (Math.random() - 0.5) * 8,
-        opacity: 0.8,
+        x: (target.x - px) * 0.95 + (Math.random() - 0.5) * 6,
+        y: (target.y - py) * 0.95 + (Math.random() - 0.5) * 6,
+        opacity: 0.9,
+        scale: 0.5,
         transition: {
           type: "spring",
-          stiffness: 80,
+          stiffness: 100,
           damping: 8,
         },
       };
@@ -141,7 +167,7 @@ export function InteractiveCTA({
             <motion.div
               key={p.id}
               custom={i}
-              initial={{ x: 0, y: 0, opacity: 0.2 }}
+              initial={{ x: 0, y: 0, opacity: 0.3, scale: 1 }}
               animate={particlesControl}
               style={{
                 left: `${p.left}%`,
@@ -162,17 +188,34 @@ export function InteractiveCTA({
               {description}
             </p>
           </div>
-          <div className="flex justify-center">
+
+          <div className="relative flex justify-center">
+            {/* Magnetic field glow */}
+            <div
+              className={`pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
+                isHovering ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                width: "320px",
+                height: "140px",
+                background: isPressed
+                  ? "radial-gradient(ellipse at center, rgba(255,255,255,0.14) 0%, transparent 70%)"
+                  : "radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, transparent 70%)",
+              }}
+            />
+
             <Link
               ref={buttonRef}
               href={href}
               onMouseEnter={handleHoverStart}
               onMouseLeave={handleHoverEnd}
               onMouseDown={handleMouseDown}
-              className={`inline-flex items-center gap-3 px-8 py-4 font-medium transition-smooth ${
-                isHovering
-                  ? "bg-white text-black scale-[1.02]"
-                  : "bg-white text-black hover:bg-white/90 hover:scale-[1.02]"
+              className={`relative inline-flex items-center gap-3 px-8 py-4 font-medium transition-all duration-300 ${
+                isPressed
+                  ? "bg-white text-black scale-[0.97] shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                  : isHovering
+                    ? "bg-white text-black scale-[1.03] shadow-[0_0_24px_rgba(255,255,255,0.15)]"
+                    : "bg-white text-black"
               }`}
             >
               {buttonText}
