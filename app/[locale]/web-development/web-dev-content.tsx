@@ -6,6 +6,7 @@ import { ArrowLeft, Package, Blocks, Workflow, Search, Gauge, CheckCircle } from
 import { BackgroundPaths } from '@/components/ui/background-paths';
 import { FlipWords } from '@/components/ui/flip-words';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { InteractiveCTA } from '@/components/ui/interactive-cta';
 
 export default function WebDevContent() {
   const t = useTranslations('services.webDev');
@@ -137,20 +138,12 @@ export default function WebDevContent() {
           </div>
 
           {/* 4) Final CTA */}
-          <div className="text-center rounded-2xl border border-overlay-border-light p-12 bg-overlay-bg-subtle backdrop-blur-sm">
-            <h2 className="heading-xl mb-6">
-              {t('cta.heading')}
-            </h2>
-            <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
-              {t('cta.description')}
-            </p>
-            <Link
-              href="/start"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black hover:bg-white/90 hover:scale-[1.02] transition-smooth font-medium"
-            >
-              {t('cta.button')}
-            </Link>
-          </div>
+          <InteractiveCTA
+            heading={t('cta.heading')}
+            description={t('cta.description')}
+            buttonText={t('cta.button')}
+            href="/start"
+          />
 
         </div>
       </section>
