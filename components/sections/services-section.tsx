@@ -64,77 +64,119 @@ export default function ServicesSection() {
 
         {/* Services Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-          {services.map((service, index) => (
+          {services.map((service, index) => {
+            // Enhanced card (index 0 only for review — will apply to all once approved)
+            const isEnhanced = index === 0;
+
+            return (
             <Link key={service.titleKey} href={service.link}>
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1
-                }}
-                whileHover={{ y: -8 }}
-                className="group relative min-h-[500px] overflow-hidden cursor-pointer transition-shadow duration-500 shadow-lg hover:shadow-2xl"
-              >
-              {/* Top highlight line — reveals on hover */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-white/0 group-hover:bg-white/60 transition-colors duration-500 z-20" />
+              {/* Outer wrapper — depth panel needs to extend beyond card bounds */}
+              <div className="group relative">
+                {/* Depth panel — dark offset layer behind card, adapted from SkewCards layered panels */}
+                {isEnhanced && (
+                  <div className="absolute inset-0 bg-black/80 transition-transform duration-500 ease-out translate-x-0 translate-y-0 group-hover:translate-x-2 group-hover:translate-y-2" />
+                )}
 
-              {/* Background Image */}
-              {service.image ? (
-                <Image
-                  src={service.image}
-                  alt={t(service.titleKey)}
-                  fill
-                  loading="lazy"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-              ) : (
-                <div className="absolute inset-0 bg-black" />
-              )}
+                {/* Main card */}
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1
+                  }}
+                  className={`relative min-h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out ${
+                    isEnhanced
+                      ? 'group-hover:-translate-y-2 group-hover:-translate-x-1'
+                      : 'group-hover:-translate-y-2 shadow-lg hover:shadow-2xl'
+                  }`}
+                >
+                {/* Top highlight line */}
+                <div className={`absolute top-0 left-0 right-0 h-px z-20 transition-colors duration-500 ${
+                  isEnhanced
+                    ? 'bg-white/0 group-hover:bg-white/80'
+                    : 'bg-white/0 group-hover:bg-white/60'
+                }`} />
 
-              {/* Overlay — deeper on hover for contrast */}
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-500" />
+                {/* Border reveal on hover */}
+                {isEnhanced && (
+                  <div className="absolute inset-0 border border-white/0 group-hover:border-white/15 transition-colors duration-500 z-20 pointer-events-none" />
+                )}
 
-              {/* Glass surface on hover */}
-              <div className="absolute inset-0 backdrop-blur-[0px] group-hover:backdrop-blur-[2px] transition-all duration-500" />
+                {/* Background Image */}
+                {service.image ? (
+                  <Image
+                    src={service.image}
+                    alt={t(service.titleKey)}
+                    fill
+                    loading="lazy"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-black" />
+                )}
 
-              {/* Content */}
-              <div className="relative h-full flex flex-col p-8 text-white z-10">
-                {/* Top Section */}
-                <div className="mb-auto">
-                  <p className="text-sm md:text-base text-white/50 group-hover:text-white/70 mb-2 font-mono transition-colors duration-300">
-                    {service.number}
-                  </p>
-                  <h3 className="text-3xl md:text-4xl font-bold font-nostalgic tracking-tight">
-                    {t(service.titleKey)}
-                  </h3>
+                {/* Overlay — gradient for enhanced, flat for others */}
+                {isEnhanced ? (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20 group-hover:from-black/70 group-hover:via-black/40 group-hover:to-black/25 transition-all duration-500" />
+                ) : (
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-500" />
+                )}
+
+                {/* Glass surface on hover */}
+                <div className="absolute inset-0 backdrop-blur-[0px] group-hover:backdrop-blur-[2px] transition-all duration-500" />
+
+                {/* Content */}
+                <div className="relative h-full flex flex-col p-8 text-white z-10">
+                  {/* Top Section */}
+                  <div className="mb-auto">
+                    <p className={`text-sm font-mono tracking-wider mb-3 transition-colors duration-300 ${
+                      isEnhanced
+                        ? 'text-white/40 group-hover:text-white/70'
+                        : 'text-white/50 group-hover:text-white/70'
+                    }`}>
+                      {service.number}
+                    </p>
+                    <h3 className={`text-3xl md:text-4xl font-bold font-nostalgic tracking-tight transition-transform duration-500 ${
+                      isEnhanced ? 'group-hover:translate-x-1' : ''
+                    }`}>
+                      {t(service.titleKey)}
+                    </h3>
+                  </div>
+
+                  {/* Bottom Section — slides up on hover */}
+                  <div className={`mt-auto transition-transform duration-500 ${
+                    isEnhanced ? 'translate-y-3 group-hover:translate-y-0' : 'translate-y-2 group-hover:translate-y-0'
+                  }`}>
+                    <p className="text-base md:text-lg leading-relaxed text-white/60 group-hover:text-white/90 mb-6 transition-colors duration-300">
+                      {t(service.descriptionKey)}
+                    </p>
+
+                    {/* Features List */}
+                    <ul className="space-y-2 mb-6">
+                      {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
+                        <li key={idx} className="flex items-start text-sm md:text-base text-white/60 group-hover:text-white/80 transition-colors duration-300">
+                          <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white/60 group-hover:bg-white flex-shrink-0 transition-colors duration-300" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Decorative line */}
+                    <div className={`h-px transition-all duration-500 ${
+                      isEnhanced
+                        ? 'w-12 bg-white/30 group-hover:w-28 group-hover:bg-white'
+                        : 'w-16 bg-white/40 group-hover:w-32 group-hover:bg-white'
+                    }`} />
+                  </div>
                 </div>
-
-                {/* Bottom Section — slides up slightly on hover */}
-                <div className="mt-auto translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-base md:text-lg leading-relaxed text-white/70 group-hover:text-white/90 mb-6 transition-colors duration-300">
-                    {t(service.descriptionKey)}
-                  </p>
-
-                  {/* Features List */}
-                  <ul className="space-y-2 mb-6">
-                    {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
-                      <li key={idx} className="flex items-start text-sm md:text-base text-white/60 group-hover:text-white/80 transition-colors duration-300">
-                        <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white/60 group-hover:bg-white flex-shrink-0 transition-colors duration-300" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Decorative line */}
-                  <div className="h-px w-16 bg-white/40 group-hover:w-32 group-hover:bg-white transition-all duration-500" />
-                </div>
+                </m.div>
               </div>
-              </m.div>
             </Link>
-          ))}
+            );
+          })}
         </div>
 
         {/* Who we love to work with */}
