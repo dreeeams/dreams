@@ -31,7 +31,9 @@
     }
   },
   "manifesto": {
-    "headline": "We build systems that companies grow on.",
+    "headlineBefore": "We build systems companies",
+    "headlineAfter": "on.",
+    "morphWords": ["grow", "scale", "operate", "rely"],
     "intro": "Dreeeams is a product studio focused on building digital systems that actually perform.",
     "introContrast": ["Not isolated pages.", "Not disconnected features."],
     "introClose": "Real infrastructure: web platforms, mobile products, and AI-powered workflows designed to scale with the companies that use them.",
