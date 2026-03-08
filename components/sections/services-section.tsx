@@ -74,8 +74,12 @@ export default function ServicesSection() {
                   duration: 0.5,
                   delay: index * 0.1
                 }}
-                className="group relative min-h-[500px] overflow-hidden cursor-pointer"
+                whileHover={{ y: -8 }}
+                className="group relative min-h-[500px] overflow-hidden cursor-pointer transition-shadow duration-500 shadow-lg hover:shadow-2xl"
               >
+              {/* Top highlight line — reveals on hover */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-white/0 group-hover:bg-white/60 transition-colors duration-500 z-20" />
+
               {/* Background Image */}
               {service.image ? (
                 <Image
@@ -83,50 +87,49 @@ export default function ServicesSection() {
                   alt={t(service.titleKey)}
                   fill
                   loading="lazy"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               ) : (
                 <div className="absolute inset-0 bg-black" />
               )}
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-500" />
+              {/* Overlay — deeper on hover for contrast */}
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-500" />
+
+              {/* Glass surface on hover */}
+              <div className="absolute inset-0 backdrop-blur-[0px] group-hover:backdrop-blur-[2px] transition-all duration-500" />
 
               {/* Content */}
               <div className="relative h-full flex flex-col p-8 text-white z-10">
-                {/* Top Section - Número y Título pegados arriba */}
+                {/* Top Section */}
                 <div className="mb-auto">
-                  {/* Subtítulo (Número) */}
-                  <p className="text-sm md:text-base text-muted mb-2">
+                  <p className="text-sm md:text-base text-white/50 group-hover:text-white/70 mb-2 font-mono transition-colors duration-300">
                     {service.number}
                   </p>
-
-                  {/* Título */}
                   <h3 className="text-3xl md:text-4xl font-bold font-nostalgic tracking-tight">
                     {t(service.titleKey)}
                   </h3>
                 </div>
 
-                {/* Bottom Section - Descripción y Features abajo */}
-                <div className="mt-auto">
-                  {/* Descripción */}
-                  <p className="text-base md:text-lg leading-relaxed text-tertiary mb-6">
+                {/* Bottom Section — slides up slightly on hover */}
+                <div className="mt-auto translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <p className="text-base md:text-lg leading-relaxed text-white/70 group-hover:text-white/90 mb-6 transition-colors duration-300">
                     {t(service.descriptionKey)}
                   </p>
 
                   {/* Features List */}
                   <ul className="space-y-2 mb-6">
                     {t.raw(`${service.titleKey.split('.')[0]}.features`).map((feature: string, idx: number) => (
-                      <li key={idx} className="flex items-start text-sm md:text-base text-tertiary">
-                        <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white flex-shrink-0" />
+                      <li key={idx} className="flex items-start text-sm md:text-base text-white/60 group-hover:text-white/80 transition-colors duration-300">
+                        <span className="mr-2 mt-1.5 h-1.5 w-1.5 rounded-full bg-white/60 group-hover:bg-white flex-shrink-0 transition-colors duration-300" />
                         {feature}
                       </li>
                     ))}
                   </ul>
 
-                  {/* Línea decorativa */}
-                  <div className="h-1 w-20 bg-white group-hover:w-40 transition-all duration-500" />
+                  {/* Decorative line */}
+                  <div className="h-px w-16 bg-white/40 group-hover:w-32 group-hover:bg-white transition-all duration-500" />
                 </div>
               </div>
               </m.div>
