@@ -30,8 +30,8 @@ export default function HeroSection() {
         />
       )}
 
-      {/* Hero Content with Blend Mode */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white mix-blend-difference px-8 text-center">
+      {/* Hero Text — keeps mix-blend-difference for editorial feel */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white mix-blend-difference px-8 text-center pb-32">
         <m.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,28 +56,30 @@ export default function HeroSection() {
         >
           {t('subtitle')}
         </m.p>
+      </div>
 
-        {/* CTA Buttons */}
-        <m.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
-          className="flex items-center gap-6 mt-10"
-        >
+      {/* CTA Cluster — isolated from blend mode, with its own backdrop for legibility */}
+      <m.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.8 }}
+        className="absolute bottom-[15%] left-1/2 -translate-x-1/2 z-10"
+      >
+        <div className="flex items-center gap-6 px-8 py-5 bg-black/40 backdrop-blur-md border border-white/10 rounded-sm">
           <Link
             href="/start"
-            className="px-8 py-4 text-sm font-medium tracking-wider bg-white text-black border border-white hover:bg-transparent hover:text-white transition-colors duration-300"
+            className="px-8 py-3.5 text-sm font-medium tracking-wider bg-white text-black hover:bg-white/90 transition-colors duration-300"
           >
             {t('buttons.startProject')} →
           </Link>
           <a
             href="#work"
-            className="text-sm font-mono tracking-wider border-b border-white/50 hover:border-white pb-1 transition-colors duration-300"
+            className="text-sm font-mono tracking-wider text-white/80 hover:text-white border-b border-white/30 hover:border-white/70 pb-0.5 transition-all duration-300"
           >
             {t('buttons.viewWork')} ↓
           </a>
-        </m.div>
-      </div>
+        </div>
+      </m.div>
     </div>
   );
 }
