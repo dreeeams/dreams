@@ -4,19 +4,17 @@ import { useRef, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { m } from 'framer-motion';
 import Link from 'next/link';
+import Logo from '@/components/logo';
 
 // ---------------------------------------------------------------------------
-// MorphWord — adapted from GooeyText merge/morph mechanism
-// Keeps: rAF loop, blur+opacity crossfade, SVG feColorMatrix threshold filter
-// Removed: demo styling, className props, foreground color tokens
-// Changed: slower timing (1.5s morph, 2s cooldown), proper rAF cleanup,
-//          inline-flex layout with dynamic spacer for longest word
+// MorphWord — text merge/morph animation
+// Uses SVG feColorMatrix threshold + blur/opacity crossfade on two spans.
+// Fixed-width inline-block container sized to longest word prevents layout shift.
 // ---------------------------------------------------------------------------
 function MorphWord({ words }: { words: string[] }) {
   const text1Ref = useRef<HTMLSpanElement>(null);
   const text2Ref = useRef<HTMLSpanElement>(null);
 
-  // Find the longest word for the invisible spacer
   const spacer = useMemo(
     () => words.reduce((a, b) => (a.length >= b.length ? a : b), ''),
     [words]
@@ -104,13 +102,12 @@ function MorphWord({ words }: { words: string[] }) {
         </defs>
       </svg>
       <span
-        className="relative inline-flex items-center justify-center"
+        className="relative inline-block text-center align-baseline"
         style={{ filter: 'url(#threshold-manifesto)' }}
       >
-        <span ref={text1Ref} className="absolute text-white" />
-        <span ref={text2Ref} className="absolute text-white" />
-        {/* Invisible spacer — reserves width of longest word */}
-        <span className="invisible">{spacer}</span>
+        <span ref={text1Ref} className="absolute inset-0 text-white" />
+        <span ref={text2Ref} className="absolute inset-0 text-white" />
+        <span className="invisible" aria-hidden="true">{spacer}</span>
       </span>
     </>
   );
@@ -130,12 +127,23 @@ export default function ManifestoSection() {
   return (
     <section className="relative z-10 py-28 md:py-36 px-6 md:px-12 bg-black">
       <div className="max-w-4xl mx-auto">
-        {/* Headline with morphing keyword */}
-        <m.h2
+        {/* Logo identity anchor */}
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          className="flex justify-center mb-10"
+        >
+          <Logo className="h-8 md:h-10 w-auto" fill="white" />
+        </m.div>
+
+        {/* Morphing headline */}
+        <m.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
           className="font-nostalgic text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.2] tracking-tight text-white text-center mb-20"
         >
           {t('headlineBefore')}{' '}
@@ -148,7 +156,7 @@ export default function ManifestoSection() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="mb-20 text-center"
         >
           <p className="text-base md:text-lg leading-relaxed text-white/70 mb-6">
@@ -166,8 +174,8 @@ export default function ManifestoSection() {
           </p>
         </m.div>
 
-        {/* Principles grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-20">
+        {/* Principles grid — card surfaces adapted from GridPatternCard */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-20">
           {principles.map((principle, index) => (
             <m.div
               key={index}
@@ -175,14 +183,32 @@ export default function ManifestoSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="border-t border-white/10 pt-6"
+              className="group border border-white/10 hover:border-white/20 overflow-hidden transition-all duration-500 hover:-translate-y-0.5"
             >
-              <h3 className="text-lg md:text-xl font-nostalgic font-bold text-white mb-2">
-                {principle.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-white/50">
-                {principle.description}
-              </p>
+              {/* Grid texture layer */}
+              <div
+                className="size-full"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)',
+                  backgroundSize: '24px 24px',
+                }}
+              >
+                {/* Gradient overlay — fades texture toward solid */}
+                <div className="size-full bg-gradient-to-tr from-black/95 via-black/70 to-black/40">
+                  <div className="p-6 md:p-8">
+                    <span className="block text-xs font-mono tracking-widest text-white/25 mb-4">
+                      0{index + 1}
+                    </span>
+                    <h3 className="text-lg md:text-xl font-nostalgic font-bold text-white mb-3 group-hover:text-white/95 transition-colors duration-300">
+                      {principle.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-white/45 group-hover:text-white/60 transition-colors duration-300">
+                      {principle.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </m.div>
           ))}
         </div>
