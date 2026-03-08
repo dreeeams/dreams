@@ -31,9 +31,29 @@
     }
   },
   "manifesto": {
-    "weAre": "We're",
-    "description": "a product studio that designs, builds, and ships digital products for companies that take growth seriously",
-    "proofPoints": ["4 products shipped", "90K+ users reached", "Bogotá → Global"]
+    "headline": "We build systems that companies grow on.",
+    "intro": "Dreeeams is a product studio focused on building digital systems that actually perform.",
+    "introContrast": ["Not isolated pages.", "Not disconnected features."],
+    "introClose": "Real infrastructure: web platforms, mobile products, and AI-powered workflows designed to scale with the companies that use them.",
+    "principles": [
+      {
+        "title": "Systems over pages",
+        "description": "Websites, apps, and automation should work as a single system."
+      },
+      {
+        "title": "Execution over noise",
+        "description": "Good ideas are cheap. What matters is shipping and improving real products."
+      },
+      {
+        "title": "Clarity over complexity",
+        "description": "Modern technology should simplify how companies operate, not make it harder."
+      },
+      {
+        "title": "Long-term thinking",
+        "description": "We build digital foundations that companies can grow on for years."
+      }
+    ],
+    "closing": "If your company needs digital systems that actually move the needle, let's build them."
   },
   "clients": {
     "badge": "Who we love to work with",

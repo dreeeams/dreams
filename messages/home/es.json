@@ -31,9 +31,29 @@
     }
   },
   "manifesto": {
-    "weAre": "Somos",
-    "description": "un estudio de producto que diseña, construye y lanza productos digitales para empresas que se toman el crecimiento en serio",
-    "proofPoints": ["4 productos lanzados", "90K+ usuarios alcanzados", "Bogotá → Global"]
+    "headline": "Construimos sistemas sobre los que las empresas crecen.",
+    "intro": "Dreeeams es un estudio de producto enfocado en construir sistemas digitales que realmente funcionan.",
+    "introContrast": ["No páginas aisladas.", "No funcionalidades desconectadas."],
+    "introClose": "Infraestructura real: plataformas web, productos móviles y flujos de trabajo con IA diseñados para escalar con las empresas que los usan.",
+    "principles": [
+      {
+        "title": "Sistemas sobre páginas",
+        "description": "Sitios web, apps y automatización deben funcionar como un solo sistema."
+      },
+      {
+        "title": "Ejecución sobre ruido",
+        "description": "Las buenas ideas son baratas. Lo que importa es enviar y mejorar productos reales."
+      },
+      {
+        "title": "Claridad sobre complejidad",
+        "description": "La tecnología moderna debe simplificar cómo operan las empresas, no hacerlo más difícil."
+      },
+      {
+        "title": "Pensamiento a largo plazo",
+        "description": "Construimos bases digitales sobre las que las empresas pueden crecer por años."
+      }
+    ],
+    "closing": "Si tu empresa necesita sistemas digitales que realmente muevan la aguja, construyámoslos."
   },
   "clients": {
     "badge": "Con quién nos encanta trabajar",
