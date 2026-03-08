@@ -64,18 +64,11 @@ export default function ServicesSection() {
 
         {/* Services Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-          {services.map((service, index) => {
-            // Enhanced card (index 0 only for review — will apply to all once approved)
-            const isEnhanced = index === 0;
-
-            return (
+          {services.map((service, index) => (
             <Link key={service.titleKey} href={service.link}>
-              {/* Outer wrapper — depth panel needs to extend beyond card bounds */}
               <div className="group relative">
-                {/* Depth panel — dark offset layer behind card, adapted from SkewCards layered panels */}
-                {isEnhanced && (
-                  <div className="absolute inset-0 bg-black/80 transition-transform duration-500 ease-out translate-x-0 translate-y-0 group-hover:translate-x-2 group-hover:translate-y-2" />
-                )}
+                {/* Depth panel — dark offset layer behind card */}
+                <div className="absolute inset-0 bg-black/80 transition-transform duration-500 ease-out translate-x-0 translate-y-0 group-hover:translate-x-2 group-hover:translate-y-2" />
 
                 {/* Main card */}
                 <m.div
@@ -86,23 +79,13 @@ export default function ServicesSection() {
                     duration: 0.5,
                     delay: index * 0.1
                   }}
-                  className={`relative min-h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out ${
-                    isEnhanced
-                      ? 'group-hover:-translate-y-2 group-hover:-translate-x-1'
-                      : 'group-hover:-translate-y-2 shadow-lg hover:shadow-2xl'
-                  }`}
+                  className="relative min-h-[500px] overflow-hidden cursor-pointer transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:-translate-x-1"
                 >
                 {/* Top highlight line */}
-                <div className={`absolute top-0 left-0 right-0 h-px z-20 transition-colors duration-500 ${
-                  isEnhanced
-                    ? 'bg-white/0 group-hover:bg-white/80'
-                    : 'bg-white/0 group-hover:bg-white/60'
-                }`} />
+                <div className="absolute top-0 left-0 right-0 h-px z-20 transition-colors duration-500 bg-white/0 group-hover:bg-white/80" />
 
                 {/* Border reveal on hover */}
-                {isEnhanced && (
-                  <div className="absolute inset-0 border border-white/0 group-hover:border-white/15 transition-colors duration-500 z-20 pointer-events-none" />
-                )}
+                <div className="absolute inset-0 border border-white/0 group-hover:border-white/15 transition-colors duration-500 z-20 pointer-events-none" />
 
                 {/* Background Image */}
                 {service.image ? (
@@ -118,12 +101,8 @@ export default function ServicesSection() {
                   <div className="absolute inset-0 bg-black" />
                 )}
 
-                {/* Overlay — gradient for enhanced, flat for others */}
-                {isEnhanced ? (
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20 group-hover:from-black/70 group-hover:via-black/40 group-hover:to-black/25 transition-all duration-500" />
-                ) : (
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-500" />
-                )}
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20 group-hover:from-black/70 group-hover:via-black/40 group-hover:to-black/25 transition-all duration-500" />
 
                 {/* Glass surface on hover */}
                 <div className="absolute inset-0 backdrop-blur-[0px] group-hover:backdrop-blur-[2px] transition-all duration-500" />
@@ -132,24 +111,16 @@ export default function ServicesSection() {
                 <div className="relative h-full flex flex-col p-8 text-white z-10">
                   {/* Top Section */}
                   <div className="mb-auto">
-                    <p className={`text-sm font-mono tracking-wider mb-3 transition-colors duration-300 ${
-                      isEnhanced
-                        ? 'text-white/40 group-hover:text-white/70'
-                        : 'text-white/50 group-hover:text-white/70'
-                    }`}>
+                    <p className="text-sm font-mono tracking-wider mb-3 transition-colors duration-300 text-white/40 group-hover:text-white/70">
                       {service.number}
                     </p>
-                    <h3 className={`text-3xl md:text-4xl font-bold font-nostalgic tracking-tight transition-transform duration-500 ${
-                      isEnhanced ? 'group-hover:translate-x-1' : ''
-                    }`}>
+                    <h3 className="text-3xl md:text-4xl font-bold font-nostalgic tracking-tight transition-transform duration-500 group-hover:translate-x-1">
                       {t(service.titleKey)}
                     </h3>
                   </div>
 
                   {/* Bottom Section — slides up on hover */}
-                  <div className={`mt-auto transition-transform duration-500 ${
-                    isEnhanced ? 'translate-y-3 group-hover:translate-y-0' : 'translate-y-2 group-hover:translate-y-0'
-                  }`}>
+                  <div className="mt-auto transition-transform duration-500 translate-y-3 group-hover:translate-y-0">
                     <p className="text-base md:text-lg leading-relaxed text-white/60 group-hover:text-white/90 mb-6 transition-colors duration-300">
                       {t(service.descriptionKey)}
                     </p>
@@ -165,18 +136,13 @@ export default function ServicesSection() {
                     </ul>
 
                     {/* Decorative line */}
-                    <div className={`h-px transition-all duration-500 ${
-                      isEnhanced
-                        ? 'w-12 bg-white/30 group-hover:w-28 group-hover:bg-white'
-                        : 'w-16 bg-white/40 group-hover:w-32 group-hover:bg-white'
-                    }`} />
+                    <div className="h-px transition-all duration-500 w-12 bg-white/30 group-hover:w-28 group-hover:bg-white" />
                   </div>
                 </div>
                 </m.div>
               </div>
             </Link>
-            );
-          })}
+          ))}
         </div>
 
         {/* Who we love to work with */}
