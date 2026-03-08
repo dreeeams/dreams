@@ -2,34 +2,8 @@
 
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { SplitText } from '@/components/ui/animated-text';
 import ProjectCard from '@/components/sections/portfolio/project-card';
-
-type Project = {
-  titleKey: string;
-  categoryKey: 'webApp' | 'mobileApp';
-  descriptionKey: string;
-  tags: string[];
-  color: string;
-  url?: string;
-  caseStudyUrl?: string;
-  mobileView?: boolean;
-  isMockup?: boolean;
-  mockupUrl?: string;
-  isIcon?: boolean;
-  rating?: {
-    stars: number;
-    reviews: number;
-  };
-  appStore?: boolean;
-  downloads?: number;
-  ticketsSold?: number;
-  metrics?: {
-    visitors?: string;
-    visits?: string;
-    bounceRate?: string;
-  };
-};
+import type { Project } from '@/types/project';
 
 const projects: Project[] = [
   {
