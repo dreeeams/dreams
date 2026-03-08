@@ -394,6 +394,28 @@
       }
     }
   },
+  "timeline": {
+    "title": "Built in motion.",
+    "subtitle": "A studio shaped by launches, traction, and real execution.",
+    "items": {
+      "2023": {
+        "phase": "Foundation",
+        "description": "Internal tools, early products, and brand experiments."
+      },
+      "2024": {
+        "phase": "Launches",
+        "description": "Web platforms, mobile products, and conversion-first systems shipped."
+      },
+      "2025": {
+        "phase": "Traction",
+        "description": "Users reached, tickets sold, downloads generated, and stronger proof of execution."
+      },
+      "2026": {
+        "phase": "Scale",
+        "description": "Dreeeams evolves into a technical partner building web, mobile, and AI systems for long-term growth."
+      }
+    }
+  },
   "process": {
     "title": "Our Process",
     "discover": {

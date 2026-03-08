@@ -394,6 +394,28 @@
       }
     }
   },
+  "timeline": {
+    "title": "Construido en movimiento.",
+    "subtitle": "Un estudio formado por lanzamientos, tracción y ejecución real.",
+    "items": {
+      "2023": {
+        "phase": "Fundación",
+        "description": "Herramientas internas, productos iniciales y experimentos de marca."
+      },
+      "2024": {
+        "phase": "Lanzamientos",
+        "description": "Plataformas web, productos móviles y sistemas de conversión enviados."
+      },
+      "2025": {
+        "phase": "Tracción",
+        "description": "Usuarios alcanzados, tickets vendidos, descargas generadas y mayor prueba de ejecución."
+      },
+      "2026": {
+        "phase": "Escala",
+        "description": "Dreeeams evoluciona como socio técnico construyendo sistemas web, móviles e IA para crecimiento a largo plazo."
+      }
+    }
+  },
   "process": {
     "title": "Nuestro Proceso",
     "discover": {
