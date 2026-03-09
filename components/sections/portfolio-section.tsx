@@ -3,6 +3,7 @@
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import ProjectCard from '@/components/sections/portfolio/project-card';
+import { fadeInView } from '@/lib/motion-presets';
 import type { Project } from '@/types/project';
 
 const projects: Project[] = [
@@ -86,10 +87,7 @@ export default function PortfolioSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <m.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          {...fadeInView}
           className="mb-16"
         >
           <div className="flex items-center justify-center mb-8">

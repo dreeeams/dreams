@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CDN_URL } from '@/lib/constants';
+import { fadeInView, fadeInUpView, createStaggeredFadeInUp } from '@/lib/motion-presets';
 
 export default function ServicesSection() {
   const t = useTranslations('services');
@@ -56,10 +57,7 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <m.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          {...fadeInView}
           className="mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-nostalgic max-w-4xl leading-tight mb-4" style={{ letterSpacing: '-0.02em' }}>
@@ -75,13 +73,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <Link key={service.titleKey} href={service.link}>
               <m.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1
-                }}
+                {...createStaggeredFadeInUp(index)}
                 className="group relative h-[600px] overflow-hidden cursor-pointer"
               >
               {/* Background Image */}
@@ -142,10 +134,7 @@ export default function ServicesSection() {
         <div style={{ marginTop: '40px' }}>
           {/* Small Badge */}
           <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            {...fadeInUpView}
             className="text-center mb-12"
           >
             <div className="inline-block px-4 py-1.5 border border-black/20">

@@ -8,6 +8,7 @@ import { MetricBadge } from '@/components/ui/metric-badge';
 import { AppStoreIcon, DownloadIcon, TicketIcon, UsersIcon, EyeIcon, ChartIcon } from '@/components/ui/icons';
 import { formatLargeNumber } from '@/lib/format';
 import { CDN_URL } from '@/lib/constants';
+import { fadeInUpView } from '@/lib/motion-presets';
 import type { Project } from '@/types/project';
 
 interface ProjectCardProps {
@@ -24,10 +25,7 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
   const CardContent = (
     <m.div
       key={project.titleKey}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
+      {...fadeInUpView}
       className="group cursor-pointer"
     >
       <m.div

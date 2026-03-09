@@ -28,6 +28,31 @@ const COLORS = {
   bgGray: '#F3F4F6',
 };
 
+// Shared email styles
+const STYLES = {
+  sectionHeader: {
+    margin: '0 0 15px 0',
+    fontSize: '14px',
+    fontWeight: '600' as const,
+    color: COLORS.black,
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.5px',
+  },
+  contentBox: {
+    marginBottom: '30px',
+  },
+  infoBox: {
+    padding: '15px',
+    backgroundColor: COLORS.bgGray,
+    borderLeft: `4px solid ${COLORS.black}`,
+  },
+  textSmall: {
+    margin: '0 0 6px 0',
+    fontSize: '14px',
+    color: COLORS.gray,
+  },
+} as const;
+
 // Bilingual translations
 const i18n = {
   es: {
@@ -234,8 +259,8 @@ export const UserConfirmationEmail = ({ formData, locale = 'es' }: { formData: C
                       </p>
 
                       {/* Info Box - Markdown Style */}
-                      <div style={{ marginBottom: '30px', padding: '20px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}`, textAlign: 'left' }}>
-                        <p style={{ margin: '0 0 8px 0', fontSize: '13px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      <div style={{ ...STYLES.contentBox, padding: '20px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}`, textAlign: 'left' }}>
+                        <p style={{ ...STYLES.sectionHeader, margin: '0 0 8px 0', fontSize: '13px' }}>
                           {t.requestSummary}
                         </p>
                         <p style={{ margin: '0 0 5px 0', fontSize: '15px', color: COLORS.black, fontWeight: '500' }}>
@@ -247,8 +272,8 @@ export const UserConfirmationEmail = ({ formData, locale = 'es' }: { formData: C
                       </div>
 
                       {/* Next Steps - Markdown Style */}
-                      <div style={{ textAlign: 'left', marginBottom: '30px' }}>
-                        <p style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      <div style={{ textAlign: 'left', ...STYLES.contentBox }}>
+                        <p style={STYLES.sectionHeader}>
                           {t.nextSteps}
                         </p>
                         <p style={{ margin: '0 0 12px 0', fontSize: '15px', lineHeight: '1.6', color: COLORS.gray, paddingLeft: '20px', borderLeft: `2px solid ${COLORS.lightGray}` }}>
@@ -360,18 +385,18 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
                       </div>
 
                       {/* Contact Information - Markdown Style */}
-                      <div style={{ marginBottom: '30px' }}>
-                        <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      <div style={STYLES.contentBox}>
+                        <h2 style={STYLES.sectionHeader}>
                           {t.contactInformation}
                         </h2>
-                        <div style={{ padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                        <div style={STYLES.infoBox}>
                           <p style={{ margin: '0 0 8px 0', fontSize: '15px', color: COLORS.black }}>
                             <strong>{formData.fullName}</strong>
                           </p>
-                          <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: COLORS.gray }}>
+                          <p style={STYLES.textSmall}>
                             <a href={`mailto:${formData.email}`} style={{ color: COLORS.black, textDecoration: 'underline' }}>{formData.email}</a>
                           </p>
-                          <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: COLORS.gray }}>
+                          <p style={STYLES.textSmall}>
                             <a href={`https://wa.me/${formData.whatsapp.replace(/\D/g, '')}`} style={{ color: COLORS.black, textDecoration: 'underline' }}>WhatsApp: {formData.whatsapp}</a>
                           </p>
                           {formData.role && (
@@ -383,21 +408,21 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
                       </div>
 
                       {/* Company Information - Markdown Style */}
-                      <div style={{ marginBottom: '30px' }}>
-                        <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      <div style={STYLES.contentBox}>
+                        <h2 style={STYLES.sectionHeader}>
                           {t.companyInformation}
                         </h2>
-                        <div style={{ padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                        <div style={STYLES.infoBox}>
                           <p style={{ margin: '0 0 8px 0', fontSize: '15px', color: COLORS.black }}>
                             <strong>{formData.company}</strong>
                           </p>
                           {formData.websiteUrl && (
-                            <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: COLORS.gray }}>
+                            <p style={STYLES.textSmall}>
                               <a href={formData.websiteUrl} style={{ color: COLORS.black, textDecoration: 'underline' }}>{formData.websiteUrl}</a>
                             </p>
                           )}
                           {formData.companySize && (
-                            <p style={{ margin: '0 0 6px 0', fontSize: '14px', color: COLORS.gray }}>
+                            <p style={STYLES.textSmall}>
                               {t.companySize[formData.companySize as keyof typeof t.companySize]}
                             </p>
                           )}
@@ -410,8 +435,8 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
                       </div>
 
                       {/* Services Required - Markdown Style */}
-                      <div style={{ marginBottom: '30px' }}>
-                        <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      <div style={STYLES.contentBox}>
+                        <h2 style={STYLES.sectionHeader}>
                           {t.servicesRequired}
                         </h2>
                         <div style={{ padding: '15px', backgroundColor: COLORS.black, borderRadius: '4px' }}>
@@ -425,11 +450,11 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
 
                       {/* Budget - Markdown Style */}
                       {formData.budget && (
-                        <div style={{ marginBottom: '30px' }}>
-                          <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        <div style={STYLES.contentBox}>
+                          <h2 style={STYLES.sectionHeader}>
                             {t.budget}
                           </h2>
-                          <div style={{ padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                          <div style={STYLES.infoBox}>
                             <p style={{ margin: 0, fontSize: '15px', color: COLORS.black, fontWeight: '500' }}>
                               {t.budgetOptions[formData.budget as keyof typeof t.budgetOptions] || formData.budget}
                             </p>
@@ -439,11 +464,11 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
 
                       {/* Referral Source - Markdown Style */}
                       {formData.heardFrom && (
-                        <div style={{ marginBottom: '30px' }}>
-                          <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        <div style={STYLES.contentBox}>
+                          <h2 style={STYLES.sectionHeader}>
                             {t.referralLabel}
                           </h2>
-                          <div style={{ padding: '15px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
+                          <div style={STYLES.infoBox}>
                             <p style={{ margin: 0, fontSize: '15px', color: COLORS.black }}>
                               {formData.heardFrom}
                             </p>
@@ -453,8 +478,8 @@ export const AdminNotificationEmail = ({ formData, locale = 'es' }: { formData: 
 
                       {/* Summary if available - Markdown Style */}
                       {formData.summary && (
-                        <div style={{ marginBottom: '30px' }}>
-                          <h2 style={{ margin: '0 0 15px 0', fontSize: '14px', fontWeight: '600', color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        <div style={STYLES.contentBox}>
+                          <h2 style={STYLES.sectionHeader}>
                             {t.projectSummary}
                           </h2>
                           <div style={{ padding: '20px', backgroundColor: COLORS.bgGray, borderLeft: `4px solid ${COLORS.black}` }}>
