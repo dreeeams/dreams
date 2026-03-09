@@ -1,6 +1,7 @@
 'use client';
 
 import { m } from 'framer-motion';
+import { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LazyIframe } from '@/components/ui/lazy-iframe';
@@ -19,7 +20,7 @@ interface ProjectCardProps {
   tProjects: (key: string) => string;
 }
 
-export default function ProjectCard({ project, index, tButtons, tLabels, tProjects }: ProjectCardProps) {
+function ProjectCardComponent({ project, index, tButtons, tLabels, tProjects }: ProjectCardProps) {
   const isPriority = index < 2;
 
   const CardContent = (
@@ -172,3 +173,5 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
 
   return CardContent;
 }
+
+export default memo(ProjectCardComponent);

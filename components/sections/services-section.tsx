@@ -1,13 +1,14 @@
 'use client';
 
 import { m } from 'framer-motion';
+import { memo } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CDN_URL } from '@/lib/constants';
 import { fadeInView, fadeInUpView, createStaggeredFadeInUp } from '@/lib/motion-presets';
 
-export default function ServicesSection() {
+function ServicesSectionComponent() {
   const t = useTranslations('services');
   const tClients = useTranslations('clients');
 
@@ -170,3 +171,5 @@ export default function ServicesSection() {
     </section>
   );
 }
+
+export default memo(ServicesSectionComponent);

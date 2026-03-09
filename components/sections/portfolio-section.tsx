@@ -1,6 +1,7 @@
 'use client';
 
 import { m } from 'framer-motion';
+import { memo } from 'react';
 import { useTranslations } from 'next-intl';
 import ProjectCard from '@/components/sections/portfolio/project-card';
 import { fadeInView } from '@/lib/motion-presets';
@@ -76,7 +77,7 @@ const projects: Project[] = [
   },
 ];
 
-export default function PortfolioSection() {
+function PortfolioSectionComponent() {
   const t = useTranslations('portfolio');
   const tButtons = useTranslations('portfolio.buttons');
   const tLabels = useTranslations('portfolio.labels');
@@ -125,3 +126,5 @@ export default function PortfolioSection() {
     </section>
   );
 }
+
+export default memo(PortfolioSectionComponent);
