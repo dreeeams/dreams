@@ -7,6 +7,7 @@ import { LazyIframe } from '@/components/ui/lazy-iframe';
 import { MetricBadge } from '@/components/ui/metric-badge';
 import { AppStoreIcon, DownloadIcon, TicketIcon, UsersIcon, EyeIcon, ChartIcon } from '@/components/ui/icons';
 import { formatLargeNumber } from '@/lib/format';
+import { CDN_URL } from '@/lib/constants';
 import type { Project } from '@/types/project';
 
 interface ProjectCardProps {
@@ -18,7 +19,6 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index, tButtons, tLabels, tProjects }: ProjectCardProps) {
-  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
   const isPriority = index < 2;
 
   const CardContent = (
@@ -37,7 +37,7 @@ export default function ProjectCard({ project, index, tButtons, tLabels, tProjec
           <>
             <div className="absolute inset-0 flex items-center justify-center bg-white group-hover:opacity-0 transition-opacity duration-300">
               <Image
-                src={project.mockupUrl || `${cdnUrl}/storage/v1/object/public/content/hunt_mockup.png`}
+                src={project.mockupUrl || `${CDN_URL}/storage/v1/object/public/content/hunt_mockup.png`}
                 alt={`${project.titleKey} Mockup`}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -30,3 +30,17 @@ export const scaleOnHover = {
   whileHover: { scale: 1.05 },
   whileTap: { scale: 0.95 },
 };
+
+export const fadeInUpView = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.4 },
+};
+
+export const fadeInView = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true },
+  transition: { duration: 0.8 },
+};

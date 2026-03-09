@@ -4,32 +4,32 @@ import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CDN_URL } from '@/lib/constants';
 
 export default function ServicesSection() {
   const t = useTranslations('services');
   const tClients = useTranslations('clients');
-  const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
 
   const services = [
     {
       number: '01',
       titleKey: 'webDev.title',
       descriptionKey: 'webDev.description',
-      image: `${cdnUrl}/storage/v1/object/public/content/red_gradient.jpeg`,
+      image: `${CDN_URL}/storage/v1/object/public/content/red_gradient.jpeg`,
       link: '/web-development',
     },
     {
       number: '02',
       titleKey: 'mobileDev.title',
       descriptionKey: 'mobileDev.description',
-      image: `${cdnUrl}/storage/v1/object/public/content/green_gradient.jpeg`,
+      image: `${CDN_URL}/storage/v1/object/public/content/green_gradient.jpeg`,
       link: '/mobile-development',
     },
     {
       number: '03',
       titleKey: 'uiux.title',
       descriptionKey: 'uiux.description',
-      image: `${cdnUrl}/storage/v1/object/public/content/blue_gradient.jpeg`,
+      image: `${CDN_URL}/storage/v1/object/public/content/blue_gradient.jpeg`,
       link: '/ai-solutions',
     },
   ];

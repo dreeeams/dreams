@@ -75,3 +75,7 @@ export const WEB_VITALS_THRESHOLDS = {
   TTFB: { good: 800, poor: 1800 },
   INP: { good: 200, poor: 500 },
 } as const;
+
+// Environment URLs
+export const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL || '';
+export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://preview.dreeeams.com';
