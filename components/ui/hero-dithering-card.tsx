@@ -3,12 +3,13 @@
 import { ArrowRight } from "@/lib/icons"
 import { useState } from "react"
 import { Dithering } from "@paper-design/shaders-react"
+import Logo from "@/components/logo"
 
 export function CTASection() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <section className="py-12 w-full flex justify-center items-center px-4 md:px-6 bg-black">
+    <section className="py-20 md:py-32 lg:py-40 w-full flex justify-center items-center px-4 md:px-6 bg-black">
       <div
         className="w-full max-w-7xl relative"
         onMouseEnter={() => setIsHovered(true)}
@@ -18,7 +19,7 @@ export function CTASection() {
           <div className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-30 mix-blend-multiply dark:mix-blend-screen">
             <Dithering
               colorBack="#00000000" // Transparent
-              colorFront="#DEE5ED"  // Winter Haze
+              colorFront="#A5B3C2"  // Winter Haze Darker
               shape="warp"
               type="4x4"
               speed={isHovered ? 0.6 : 0.2}
@@ -38,15 +39,18 @@ export function CTASection() {
             </div>
 
             {/* Headline */}
-            <h2 className="font-nostalgic text-4xl md:text-6xl lg:text-7xl tracking-tight text-black mb-12 leading-tight">
-              Somos Dreeeams, un estudio creativo enfocado en marcas y productos digitales bien diseñados
+            <h2 className="font-nostalgic text-4xl md:text-6xl lg:text-7xl tracking-tight text-black mb-12 leading-tight flex flex-wrap items-center justify-center gap-x-4">
+              Somos <Logo className="h-12 md:h-16 lg:h-20 w-auto inline-block" fill="black" />, un estudio creativo enfocado en marcas y productos digitales bien diseñados
             </h2>
 
             {/* Button */}
-            <button className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden bg-black border-2 border-black px-12 text-base font-medium text-white transition-all duration-300 hover:bg-white hover:text-black active:scale-95">
+            <a
+              href="/contact-form"
+              className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden bg-black border-2 border-black px-12 text-base font-medium text-white transition-all duration-300 hover:bg-white hover:text-black active:scale-95"
+            >
               <span className="relative z-10">Agendar Llamada</span>
               <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

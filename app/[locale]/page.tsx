@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import Navigation from '@/components/navigation';
 import HeroSection from '@/components/sections/hero-section';
-import ManifestoSection from '@/components/sections/manifesto-section';
 import FooterSection from '@/components/sections/footer-section';
 import SkipToContent from '@/components/skip-to-content';
 import { SkeletonProjectCard } from '@/components/skeleton';
@@ -115,7 +114,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <ServicesSection />
             <PortfolioSection />
             <CTASection />
-            <ManifestoSection />
             <FAQSection />
             <FooterSection />
           </div>
