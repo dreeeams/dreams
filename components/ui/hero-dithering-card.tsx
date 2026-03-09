@@ -40,7 +40,7 @@ export function CTASection() {
 
             {/* Headline */}
             <h2 className="font-nostalgic text-4xl md:text-6xl lg:text-7xl tracking-tight text-black mb-12 leading-tight flex flex-wrap items-center justify-center gap-x-4">
-              Somos <Logo className="h-12 md:h-16 lg:h-20 w-auto inline-block" fill="black" />, un estudio creativo enfocado en marcas y productos digitales bien diseñados
+              Somos <Logo className="h-10 md:h-12 lg:h-16 w-auto inline-block" fill="black" />, un estudio creativo enfocado en marcas y productos digitales bien diseñados
             </h2>
 
             {/* Button */}
