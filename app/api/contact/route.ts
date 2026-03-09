@@ -5,6 +5,7 @@ import { checkRateLimit, getClientIP } from '@/lib/rate-limit';
 import { validateCSRF } from '@/lib/csrf';
 import { validateContactForm, ContactFormData } from '@/lib/validation';
 import { sanitizeContactData, capitalizeText } from '@/lib/sanitizer';
+import { startTimer, trackAPIMetrics } from '@/lib/metrics';
 
 // Map form codes to full text
 function mapIndustry(industryCode: string): string {
@@ -48,6 +49,9 @@ function mapCompanySize(sizeCode: string): string {
 }
 
 export async function POST(request: NextRequest) {
+  const timer = startTimer('api.contact');
+  let statusCode = 200;
+
   try {
     // 1. CSRF Protection - Validate request origin
     const csrfValidation = validateCSRF(request.headers);
@@ -56,6 +60,9 @@ export async function POST(request: NextRequest) {
         error: csrfValidation.error,
         origin: request.headers.get('origin'),
       });
+      statusCode = 403;
+      const duration = timer.end({ status: statusCode.toString() });
+      trackAPIMetrics('/api/contact', 'POST', duration, statusCode);
       return NextResponse.json(
         { error: 'Invalid request origin' },
         { status: 403 }
@@ -68,6 +75,9 @@ export async function POST(request: NextRequest) {
 
     if (!rateLimitResult.success) {
       logger.warn('Rate limit exceeded', { ip: clientIP });
+      statusCode = 429;
+      const duration = timer.end({ status: statusCode.toString() });
+      trackAPIMetrics('/api/contact', 'POST', duration, statusCode);
       return NextResponse.json(
         { error: 'Too many requests. Please try again later.' },
         {
@@ -87,6 +97,9 @@ export async function POST(request: NextRequest) {
     try {
       body = await request.json();
     } catch (error) {
+      statusCode = 400;
+      const duration = timer.end({ status: statusCode.toString() });
+      trackAPIMetrics('/api/contact', 'POST', duration, statusCode);
       return NextResponse.json(
         { error: 'Invalid JSON payload' },
         { status: 400 }
@@ -101,6 +114,9 @@ export async function POST(request: NextRequest) {
       if (error instanceof z.ZodError) {
         const zodError = error as z.ZodError<unknown>;
         logger.warn('Validation failed', { errors: zodError.issues, ip: clientIP });
+        statusCode = 400;
+        const duration = timer.end({ status: statusCode.toString() });
+        trackAPIMetrics('/api/contact', 'POST', duration, statusCode);
         return NextResponse.json(
           {
             error: 'Validation failed',
@@ -119,6 +135,9 @@ export async function POST(request: NextRequest) {
     if (validatedData.website) {
       logger.warn('Bot detected via honeypot', { ip: clientIP });
       // Return fake success to fool bots
+      statusCode = 200;
+      const duration = timer.end({ status: statusCode.toString(), bot: 'true' });
+      trackAPIMetrics('/api/contact', 'POST', duration, statusCode);
       return NextResponse.json(
         {
           success: true,
@@ -272,6 +291,9 @@ export async function POST(request: NextRequest) {
       company: contactData.company,
     });
 
+    statusCode = 200;
+    const duration = timer.end({ status: statusCode.toString() });
+    trackAPIMetrics('/api/contact', 'POST', duration, statusCode);
     return NextResponse.json(
       {
         success: true,
@@ -281,6 +303,9 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     logger.error('Contact form error:', error);
+    statusCode = 500;
+    const duration = timer.end({ status: statusCode.toString() });
+    trackAPIMetrics('/api/contact', 'POST', duration, statusCode);
     return NextResponse.json(
       { error: 'Internal server error. Please try again later.' },
       { status: 500 }

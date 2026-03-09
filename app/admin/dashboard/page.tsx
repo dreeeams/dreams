@@ -9,7 +9,7 @@ import {
   DollarSign,
   AlertCircle,
   CheckCircle
-} from 'lucide-react';
+} from '@/lib/icons';
 
 export default function DashboardPage() {
   const stats = [

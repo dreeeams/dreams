@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { TrendingUp, TrendingDown, Users, DollarSign, Briefcase, Target } from 'lucide-react';
+import { TrendingUp, TrendingDown, Users, DollarSign, Briefcase, Target } from '@/lib/icons';
 
 export default function AnalyticsPage() {
   const monthlyRevenue = [

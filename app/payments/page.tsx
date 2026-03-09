@@ -3,7 +3,7 @@
 import { Card } from '@/components/ui/card';
 import Logo from '@/components/logo';
 import Link from 'next/link';
-import { Building2, Mail, Phone, MapPin, CreditCard } from 'lucide-react';
+import { Building2, Mail, Phone, MapPin, CreditCard } from '@/lib/icons';
 
 export default function PaymentsPage() {
   return (

@@ -14,7 +14,7 @@ import {
   Trash2,
   Settings,
   X,
-} from 'lucide-react';
+} from '@/lib/icons';
 import Logo from '@/components/logo';
 import { QRCodeSVG } from 'qrcode.react';
 // Removed static imports - libraries now loaded dynamically to reduce bundle size

@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { Brain, Workflow, TrendingUp, Bot } from 'lucide-react';
+import { Brain, Workflow, TrendingUp, Bot } from '@/lib/icons';
 import type { Metadata } from 'next';
 import ServiceDetailPage from '@/components/service-detail-page';
 

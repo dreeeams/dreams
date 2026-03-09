@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { ArrowLeft, LucideIcon } from 'lucide-react';
+import { ArrowLeft, type LucideIcon } from '@/lib/icons';
 
 type Feature = {
   icon: LucideIcon;

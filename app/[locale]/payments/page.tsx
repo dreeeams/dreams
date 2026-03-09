@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check } from '@/lib/icons';
 import { useState } from 'react';
 import Image from 'next/image';
 import Logo from '@/components/logo';

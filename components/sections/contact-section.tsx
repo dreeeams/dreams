@@ -2,7 +2,7 @@
 
 import { m } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Calendar } from 'lucide-react';
+import { Calendar } from '@/lib/icons';
 
 export default function ContactSection() {
   const t = useTranslations('contact');

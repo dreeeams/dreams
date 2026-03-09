@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { Code2, Palette, Zap, Users } from 'lucide-react';
+import { Code2, Palette, Zap, Users } from '@/lib/icons';
 import type { Metadata } from 'next';
 import ServiceDetailPage from '@/components/service-detail-page';
 

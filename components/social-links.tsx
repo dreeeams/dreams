@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail } from 'lucide-react';
+import { Mail } from '@/lib/icons';
 
 // WhatsApp icon component
 const WhatsAppIcon = ({ className }: { className?: string }) => (

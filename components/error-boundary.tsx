@@ -1,10 +1,19 @@
 'use client';
 
-import { Component, ReactNode } from 'react';
+import { Component, ReactNode, ErrorInfo } from 'react';
+import { logger } from '@/lib/logger';
 
 interface Props {
   children: ReactNode;
   fallback?: ReactNode;
+  /**
+   * Section name for logging context
+   */
+  section?: string;
+  /**
+   * Optional error handler callback
+   */
+  onError?: (error: Error, errorInfo: ErrorInfo) => void;
 }
 
 interface State {
@@ -16,6 +25,11 @@ interface State {
  * Error Boundary Component
  * Catches JavaScript errors anywhere in child component tree
  * and displays a fallback UI instead of crashing the whole app
+ *
+ * @example
+ * <ErrorBoundary section="Contact Form">
+ *   <ContactForm />
+ * </ErrorBoundary>
  */
 export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
@@ -27,13 +41,22 @@ export class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // Log error to console in development
-    if (process.env.NODE_ENV === 'development') {
-      console.error('Error Boundary caught an error:', error, errorInfo);
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    const { section, onError } = this.props;
+
+    // Log error with section context
+    logger.error(`Error in ${section || 'component'}:`, {
+      error: error.message,
+      stack: error.stack,
+      componentStack: errorInfo.componentStack,
+    });
+
+    // Call custom error handler if provided
+    if (onError) {
+      onError(error, errorInfo);
     }
 
-    // In production, send to error tracking service
+    // In production, could send to error tracking service
     // Example: Sentry.captureException(error, { contexts: { react: { componentStack: errorInfo.componentStack } } });
   }
 

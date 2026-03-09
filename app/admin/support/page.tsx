@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { AlertCircle, CheckCircle, Clock } from 'lucide-react';
+import { AlertCircle, CheckCircle, Clock } from '@/lib/icons';
 
 export default function SupportPage() {
   const tickets = [

@@ -1,18 +1,16 @@
 'use client';
 
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, memo } from 'react';
 import { m } from 'framer-motion';
 import { easing, transitions } from '@/lib/motion-presets';
+import { useInterval } from '@/lib/hooks/use-interval';
 
 function LayoutAnimationComponent() {
   const [layout, setLayout] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLayout((prev) => (prev + 1) % 3);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+  useInterval(() => {
+    setLayout((prev) => (prev + 1) % 3);
+  }, 2500);
 
   const layouts = ['grid-cols-2', 'grid-cols-3', 'grid-cols-1'];
 

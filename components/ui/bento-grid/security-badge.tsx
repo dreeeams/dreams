@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, memo } from 'react';
 import { m } from 'framer-motion';
-import { Lock } from 'lucide-react';
+import { Lock } from '@/lib/icons';
+import { useInterval } from '@/lib/hooks/use-interval';
 
 interface Shield {
   id: number;
@@ -16,18 +17,15 @@ function SecurityBadgeComponent() {
     { id: 3, active: false },
   ]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShields((prev) => {
-        const nextIndex = prev.findIndex((s) => !s.active);
-        if (nextIndex === -1) {
-          return prev.map(() => ({ id: Math.random(), active: false }));
-        }
-        return prev.map((s, i) => (i === nextIndex ? { ...s, active: true } : s));
-      });
-    }, 800);
-    return () => clearInterval(interval);
-  }, []);
+  useInterval(() => {
+    setShields((prev) => {
+      const nextIndex = prev.findIndex((s) => !s.active);
+      if (nextIndex === -1) {
+        return prev.map(() => ({ id: Math.random(), active: false }));
+      }
+      return prev.map((s, i) => (i === nextIndex ? { ...s, active: true } : s));
+    });
+  }, 800);
 
   return (
     <div className="flex items-center justify-center h-full gap-1.5 sm:gap-2">

@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Plus, Calendar, DollarSign } from 'lucide-react';
+import { Plus, Calendar, DollarSign } from '@/lib/icons';
 
 export default function ProjectsPage() {
   const projects = [

@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Plus, Mail, Phone, Building } from 'lucide-react';
+import { Plus, Mail, Phone, Building } from '@/lib/icons';
 
 export default function ClientsPage() {
   const clients = [

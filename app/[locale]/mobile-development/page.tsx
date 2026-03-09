@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { Server, Database, Shield, Cpu } from 'lucide-react';
+import { Server, Database, Shield, Cpu } from '@/lib/icons';
 import type { Metadata } from 'next';
 import ServiceDetailPage from '@/components/service-detail-page';
 
