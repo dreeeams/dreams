@@ -59,6 +59,7 @@ export const FORM_STEPS = {
 // API Endpoints
 export const API_ENDPOINTS = {
   CONTACT: '/api/contact',
+  INTAKE: '/api/intake',
   HEALTH: '/api/health',
 } as const;
 

@@ -4,51 +4,47 @@
       "title": "Inicia Tu Proyecto - Dreeeams",
       "description": "Responde unas preguntas rápidas y agenda una llamada con nuestro equipo."
     },
-    "heading": "Veamos si somos compatibles",
-    "subtitle": "Responde 3 preguntas rápidas para que podamos preparar tu llamada.",
+    "heading": "Construyamos algo",
+    "subtitle": "3 preguntas rápidas. Luego hablamos.",
     "service": {
-      "label": "¿Qué necesitas?",
+      "label": "¿Qué quieres construir?",
       "options": {
-        "web": "Sitio Web / App Web",
+        "web": "Sitio Web / Plataforma Web",
+        "mobile": "App Móvil",
         "backend": "Backend & APIs",
         "ai": "IA & Automatización",
-        "branding": "Branding & Diseño",
-        "other": "Otra cosa"
-      }
-    },
-    "budget": {
-      "label": "¿Cuál es tu rango de presupuesto?",
-      "options": {
-        "under": "Menos de $2.500.000 COP",
-        "low": "$2.500.000 – $5.000.000 COP",
-        "mid": "$5.000.000 – $15.000.000 COP",
-        "high": "$15.000.000 – $30.000.000 COP",
-        "premium": "$30.000.000+ COP"
+        "branding": "Diseño / Branding",
+        "unsure": "No estoy seguro aún"
       }
     },
     "timeline": {
-      "label": "¿Cuándo quieres lanzar?",
+      "label": "¿Cuándo te gustaría lanzar?",
       "options": {
         "asap": "Lo antes posible (< 1 mes)",
         "soon": "1 – 3 meses",
         "planned": "3 – 6 meses",
-        "flexible": "Sin prisa / flexible"
+        "flexible": "Flexible"
       }
     },
-    "next": "Siguiente",
+    "budget": {
+      "label": "¿Qué rango de presupuesto consideras?",
+      "options": {
+        "low": "$2.5M – $5M COP",
+        "mid": "$5M – $10M COP",
+        "high": "$10M+ COP",
+        "under": "Menos de $2.5M COP / Solo explorando"
+      }
+    },
     "back": "Atrás",
-    "bookCall": "Agenda Tu Llamada",
-    "bookingHeading": "¡Gran match! Elige un horario abajo.",
+    "bookingHeading": "Gran match. Elige un horario abajo.",
     "bookingSubtitle": "Hablaremos sobre los detalles de tu proyecto en la llamada.",
     "notFit": {
-      "heading": "Puede que no seamos la mejor opción ahora",
-      "message": "Nuestros proyectos comienzan desde $2.500.000 COP. Si quieres, déjanos tu email y te enviaremos recursos gratis para ayudarte a empezar.",
+      "heading": "Nuestros proyectos usualmente inician desde $2.5M COP.",
+      "message": "Pero nos encantaría ayudarte. Déjanos tu email y te enviaremos recursos para empezar.",
       "emailPlaceholder": "tu@email.com",
       "send": "Envíame recursos",
       "sent": "¡Enviado! Revisa tu bandeja.",
-      "noThanks": "No gracias, llévame al inicio"
-    },
-    "step": "Paso",
-    "of": "de"
+      "noThanks": "Volver al inicio"
+    }
   }
 }

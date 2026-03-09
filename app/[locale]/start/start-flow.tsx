@@ -1,27 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import CalendarEmbed from '@/components/contact/calendar-embed';
+import { API_ENDPOINTS } from '@/lib/constants';
 
-type Step = 'service' | 'budget' | 'timeline' | 'booking' | 'not-fit';
+type Step = 'service' | 'timeline' | 'budget' | 'booking' | 'not-fit';
 
-const SERVICE_OPTIONS = ['web', 'backend', 'ai', 'branding', 'other'] as const;
-const BUDGET_OPTIONS = ['under', 'low', 'mid', 'high', 'premium'] as const;
+const SERVICE_OPTIONS = ['web', 'mobile', 'backend', 'ai', 'branding', 'unsure'] as const;
 const TIMELINE_OPTIONS = ['asap', 'soon', 'planned', 'flexible'] as const;
+const BUDGET_OPTIONS = ['low', 'mid', 'high', 'under'] as const;
 
-// "under" is the only budget that disqualifies
-const BUDGET_FIT: Record<string, boolean> = {
-  under: false,
-  low: true,
-  mid: true,
-  high: true,
-  premium: true,
-};
-
-const stepOrder: Step[] = ['service', 'budget', 'timeline'];
+const STEP_NUMBER: Record<string, number> = { service: 1, timeline: 2, budget: 3 };
 
 interface StartFlowProps {
   locale: string;
@@ -32,41 +24,69 @@ export default function StartFlow({ locale }: StartFlowProps) {
 
   const [step, setStep] = useState<Step>('service');
   const [service, setService] = useState('');
-  const [budget, setBudget] = useState('');
   const [timeline, setTimeline] = useState('');
+  const [budget, setBudget] = useState('');
+  const [selected, setSelected] = useState(''); // tracks flash state
   const [email, setEmail] = useState('');
   const [emailSent, setEmailSent] = useState(false);
-
-  const currentStepIndex = stepOrder.indexOf(step);
-  const totalSteps = stepOrder.length;
 
   const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
   const successRedirectUrl = `${baseUrl}/${locale}/thank-you`;
 
-  const handleNext = () => {
-    if (step === 'service' && service) {
-      setStep('budget');
-    } else if (step === 'budget' && budget) {
-      if (!BUDGET_FIT[budget]) {
-        setStep('not-fit');
-      } else {
-        setStep('timeline');
-      }
-    } else if (step === 'timeline' && timeline) {
-      setStep('booking');
-    }
-  };
+  const submitIntake = useCallback(
+    (qualified: boolean, emailValue?: string) => {
+      if (!service || !timeline || !budget) return;
+      fetch(API_ENDPOINTS.INTAKE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service,
+          timeline,
+          budget,
+          qualified,
+          ...(emailValue ? { email: emailValue } : {}),
+        }),
+      }).catch(() => {
+        // silent — non-blocking
+      });
+    },
+    [service, timeline, budget]
+  );
+
+  const advance = useCallback(
+    (value: string, setter: (v: string) => void, nextStep: Step) => {
+      setter(value);
+      setSelected(value);
+      setTimeout(() => {
+        setSelected('');
+        if (nextStep === 'booking') {
+          // Budget step just completed — check qualification
+          const isQualified = value !== 'under';
+          if (isQualified) {
+            submitIntake(true);
+            setStep('booking');
+          } else {
+            setStep('not-fit');
+          }
+        } else {
+          setStep(nextStep);
+        }
+      }, 200);
+    },
+    [submitIntake]
+  );
 
   const handleBack = () => {
-    if (step === 'budget') setStep('service');
-    else if (step === 'timeline') setStep('budget');
+    if (step === 'timeline') setStep('service');
+    else if (step === 'budget') setStep('timeline');
     else if (step === 'not-fit') setStep('budget');
-    else if (step === 'booking') setStep('timeline');
+    else if (step === 'booking') setStep('budget');
   };
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
+      submitIntake(false, email);
       setEmailSent(true);
     }
   };
@@ -77,7 +97,35 @@ export default function StartFlow({ locale }: StartFlowProps) {
     exit: { opacity: 0, y: -12 },
   };
 
-  const isQuestionStep = step === 'service' || step === 'budget' || step === 'timeline';
+  const isQuestionStep = step in STEP_NUMBER;
+
+  const renderOption = (
+    key: string,
+    label: string,
+    currentValue: string,
+    onSelect: () => void
+  ) => {
+    const isSelected = selected === key || (currentValue === key && !selected);
+    const isFlash = selected === key;
+
+    return (
+      <m.button
+        key={key}
+        onClick={onSelect}
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.99 }}
+        className={`w-full text-left px-5 py-4 border-2 text-base font-mono tracking-wide transition-all duration-150 ${
+          isFlash
+            ? 'border-white bg-white text-black'
+            : isSelected
+              ? 'border-white/40 text-white'
+              : 'border-white/15 text-white/70 hover:border-white/40'
+        }`}
+      >
+        {label}
+      </m.button>
+    );
+  };
 
   return (
     <div className="min-h-[60vh]">
@@ -96,22 +144,12 @@ export default function StartFlow({ locale }: StartFlowProps) {
         </p>
       </m.div>
 
-      {/* Step indicator */}
+      {/* Progress indicator */}
       {isQuestionStep && (
-        <div className="mb-8 flex items-center gap-3">
+        <div className="mb-8">
           <span className="text-sm text-gray-500 font-mono">
-            {t('step')} {currentStepIndex + 1} {t('of')} {totalSteps}
+            {STEP_NUMBER[step]} / 3
           </span>
-          <div className="flex gap-1.5 flex-1 max-w-[120px]">
-            {stepOrder.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1 flex-1 ${
-                  i <= currentStepIndex ? 'bg-white' : 'bg-gray-700'
-                }`}
-              />
-            ))}
-          </div>
         </div>
       )}
 
@@ -123,28 +161,35 @@ export default function StartFlow({ locale }: StartFlowProps) {
             <h2 className="text-xl font-medium text-white mb-5">
               {t('service.label')}
             </h2>
-            <div className="grid gap-3">
-              {SERVICE_OPTIONS.map((key) => (
-                <button
-                  key={key}
-                  onClick={() => setService(key)}
-                  className={`w-full text-left px-5 py-4 border-2 text-base font-medium transition-colors ${
-                    service === key
-                      ? 'border-white bg-white text-black'
-                      : 'border-gray-700 text-gray-300 hover:border-gray-400'
-                  }`}
-                >
-                  {t(`service.options.${key}`)}
-                </button>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {SERVICE_OPTIONS.map((key) =>
+                renderOption(key, t(`service.options.${key}`), service, () =>
+                  advance(key, setService, 'timeline')
+                )
+              )}
+            </div>
+          </m.div>
+        )}
+
+        {/* Timeline step */}
+        {step === 'timeline' && (
+          <m.div key="timeline" {...fadeVariants} transition={{ duration: 0.3 }}>
+            <h2 className="text-xl font-medium text-white mb-5">
+              {t('timeline.label')}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {TIMELINE_OPTIONS.map((key) =>
+                renderOption(key, t(`timeline.options.${key}`), timeline, () =>
+                  advance(key, setTimeline, 'budget')
+                )
+              )}
             </div>
             <div className="mt-8">
               <button
-                onClick={handleNext}
-                disabled={!service}
-                className="px-8 py-3 text-base font-medium bg-white text-black border-2 border-white hover:bg-gray-200 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                onClick={handleBack}
+                className="px-6 py-3 text-sm font-mono text-gray-500 border border-gray-700 hover:border-gray-400 transition-colors"
               >
-                {t('next')} →
+                {t('back')}
               </button>
             </div>
           </m.div>
@@ -156,86 +201,32 @@ export default function StartFlow({ locale }: StartFlowProps) {
             <h2 className="text-xl font-medium text-white mb-5">
               {t('budget.label')}
             </h2>
-            <div className="grid gap-3">
-              {BUDGET_OPTIONS.map((key) => (
-                <button
-                  key={key}
-                  onClick={() => setBudget(key)}
-                  className={`w-full text-left px-5 py-4 border-2 text-base font-medium transition-colors ${
-                    budget === key
-                      ? 'border-white bg-white text-black'
-                      : 'border-gray-700 text-gray-300 hover:border-gray-400'
-                  }`}
-                >
-                  {t(`budget.options.${key}`)}
-                </button>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {BUDGET_OPTIONS.map((key) =>
+                renderOption(key, t(`budget.options.${key}`), budget, () =>
+                  advance(key, setBudget, 'booking')
+                )
+              )}
             </div>
-            <div className="mt-8 flex gap-3">
+            <div className="mt-8">
               <button
                 onClick={handleBack}
-                className="px-6 py-3 text-base font-medium text-gray-400 border-2 border-gray-700 hover:border-gray-400 transition-colors"
+                className="px-6 py-3 text-sm font-mono text-gray-500 border border-gray-700 hover:border-gray-400 transition-colors"
               >
-                ← {t('back')}
-              </button>
-              <button
-                onClick={handleNext}
-                disabled={!budget}
-                className="px-8 py-3 text-base font-medium bg-white text-black border-2 border-white hover:bg-gray-200 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-              >
-                {t('next')} →
+                {t('back')}
               </button>
             </div>
           </m.div>
         )}
 
-        {/* Timeline step */}
-        {step === 'timeline' && (
-          <m.div key="timeline" {...fadeVariants} transition={{ duration: 0.3 }}>
-            <h2 className="text-xl font-medium text-white mb-5">
-              {t('timeline.label')}
-            </h2>
-            <div className="grid gap-3">
-              {TIMELINE_OPTIONS.map((key) => (
-                <button
-                  key={key}
-                  onClick={() => setTimeline(key)}
-                  className={`w-full text-left px-5 py-4 border-2 text-base font-medium transition-colors ${
-                    timeline === key
-                      ? 'border-white bg-white text-black'
-                      : 'border-gray-700 text-gray-300 hover:border-gray-400'
-                  }`}
-                >
-                  {t(`timeline.options.${key}`)}
-                </button>
-              ))}
-            </div>
-            <div className="mt-8 flex gap-3">
-              <button
-                onClick={handleBack}
-                className="px-6 py-3 text-base font-medium text-gray-400 border-2 border-gray-700 hover:border-gray-400 transition-colors"
-              >
-                ← {t('back')}
-              </button>
-              <button
-                onClick={handleNext}
-                disabled={!timeline}
-                className="px-8 py-3 text-base font-medium bg-white text-black border-2 border-white hover:bg-gray-200 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-              >
-                {t('bookCall')} →
-              </button>
-            </div>
-          </m.div>
-        )}
-
-        {/* Booking step (Cal.com inline) */}
+        {/* Booking step */}
         {step === 'booking' && (
           <m.div key="booking" {...fadeVariants} transition={{ duration: 0.3 }}>
             <button
               onClick={handleBack}
-              className="mb-6 px-4 py-2 text-sm text-gray-400 border border-gray-700 hover:border-gray-400 transition-colors"
+              className="mb-6 px-4 py-2 text-sm font-mono text-gray-500 border border-gray-700 hover:border-gray-400 transition-colors"
             >
-              ← {t('back')}
+              {t('back')}
             </button>
             <CalendarEmbed successRedirectUrl={successRedirectUrl} />
           </m.div>
@@ -277,13 +268,13 @@ export default function StartFlow({ locale }: StartFlowProps) {
             <div className="mt-6 flex gap-3">
               <button
                 onClick={handleBack}
-                className="px-6 py-3 text-base font-medium text-gray-400 border-2 border-gray-700 hover:border-gray-400 transition-colors"
+                className="px-6 py-3 text-sm font-mono text-gray-500 border border-gray-700 hover:border-gray-400 transition-colors"
               >
-                ← {t('back')}
+                {t('back')}
               </button>
               <Link
                 href={`/${locale}`}
-                className="px-6 py-3 text-base font-medium text-gray-400 border-2 border-gray-700 hover:border-gray-400 transition-colors"
+                className="px-6 py-3 text-sm font-mono text-gray-500 border border-gray-700 hover:border-gray-400 transition-colors"
               >
                 {t('notFit.noThanks')}
               </Link>
