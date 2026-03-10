@@ -80,13 +80,13 @@
       "andMore": "Y muchas mas..."
     },
     "webDev": {
-      "title": "Web de Conversión",
-      "description": "Interfaces estratégicas que convierten tráfico en leads calificados. Alto rendimiento, SEO optimizado, listo para medir.",
+      "title": "Web que convierte",
+      "description": "Sitios diseñados para vender, no para decorar. Rápidos, medibles y optimizados para captar clientes.",
       "features": [
-        "Sistemas de landing de alto rendimiento",
-        "Arquitectura UI modular",
-        "Diseño integrado con tu marca",
-        "Flujos optimizados para conversión"
+        "Landings de alto rendimiento",
+        "Componentes modulares y reutilizables",
+        "Diseño alineado a tu marca",
+        "Flujos pensados para convertir"
       ],
       "metaDescription": "Diseñamos y desarrollamos interfaces que convierten tráfico en leads y ventas, sin sacrificar performance ni marca.",
       "hero": {
@@ -148,13 +148,13 @@
       }
     },
     "mobileDev": {
-      "title": "Infraestructura Escalable",
-      "description": "APIs, bases de datos y sistemas backend hechos para aguantar y crecer. Seguros, documentados, listos para producción.",
+      "title": "Backend escalable",
+      "description": "APIs y sistemas backend que aguantan carga real. Seguros, documentados, listos para producción.",
       "features": [
         "Stack moderno (React, Next.js)",
-        "Arquitectura de APIs",
-        "Integraciones CRM y herramientas",
-        "Bases seguras y escalables"
+        "APIs bien diseñadas",
+        "Integraciones con CRM y herramientas",
+        "Infraestructura segura y escalable"
       ],
       "metaDescription": "Desarrollo de backend robusto y servicios de API. Construimos sistemas backend escalables y seguros que impulsan tus aplicaciones.",
       "intro": {
@@ -241,13 +241,13 @@
       }
     },
     "uiux": {
-      "title": "IA & Automatización",
-      "description": "Agentes de IA personalizados, automatización de flujos y pipelines de datos que multiplican la capacidad operativa de tu equipo.",
+      "title": "IA y automatización",
+      "description": "Agentes de IA y automatizaciones que le ahorran horas a tu equipo y multiplican su capacidad.",
       "features": [
-        "Chatbots con IA",
-        "Automatización de flujos",
-        "Sistemas de cualificación de leads",
-        "Optimización basada en datos"
+        "Chatbots inteligentes",
+        "Automatización de procesos",
+        "Cualificación automática de leads",
+        "Decisiones basadas en datos"
       ],
       "metaDescription": "Soluciones impulsadas por IA y servicios de automatización. Ayudamos a las empresas a aprovechar la inteligencia artificial para aumentar la eficiencia y reducir costos.",
       "intro": {
