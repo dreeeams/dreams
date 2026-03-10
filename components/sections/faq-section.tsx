@@ -205,7 +205,7 @@ export default function FAQSection() {
 
   return (
     <section
-      className="relative z-10 py-28 md:py-36 px-6 md:px-12 bg-black overflow-hidden"
+      className="relative z-10 py-24 md:py-32 px-6 md:px-12 bg-black overflow-hidden"
       itemScope
       itemType="https://schema.org/FAQPage"
     >
@@ -219,9 +219,12 @@ export default function FAQSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16 md:mb-20"
+          className="mb-16 md:mb-20 text-center"
         >
-          <h2 className="text-3xl md:text-5xl font-nostalgic text-white text-center">
+          <p className="text-sm md:text-base text-white/40 mb-3">
+            {t('intro')}
+          </p>
+          <h2 className="text-3xl md:text-5xl font-nostalgic text-white">
             {t('title')}
           </h2>
         </m.div>

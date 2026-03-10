@@ -6,7 +6,7 @@
     "cta": "Inicia Tu Proyecto",
     "seoHeading": "Agencia de Desarrollo Web Profesional - Desarrollo de Apps Móviles - Expertos en React, Next.js y React Native",
     "buttons": {
-      "startProject": "INICIAR PROYECTO",
+      "startProject": "AGENDAR LLAMADA",
       "viewWork": "VER PROYECTOS",
       "scrollDown": "DESPLAZAR_ABAJO"
     },
@@ -459,6 +459,8 @@
   },
   "faq": {
     "title": "Preguntas Frecuentes",
+    "intro": "¿Aún tienes dudas sobre cómo es trabajar juntos?",
+    "introSub": "Estas son las preguntas más comunes.",
     "questions": {
       "q1": {
         "question": "¿Qué tipo de proyectos son los más adecuados para Dreeeams?",
@@ -654,7 +656,7 @@
     "scheduleCall": "Agendar una Reunión",
     "callDescription": "Agenda una llamada de 30 minutos para hablar sobre tu proyecto",
     "footer": {
-      "ctaHeading": "¿Listo para comenzar tu proyecto?",
+      "ctaHeading": "Cuéntanos qué estás construyendo.",
       "tagline": "Productos digitales. Diseñados para rendir.",
       "quickLinks": "Enlaces Rápidos",
       "services": "Servicios",
@@ -685,10 +687,10 @@
   "cta": {
     "badge": "Desarrollo de Clase Mundial",
     "title": {
-      "line1": "Tu visión, nuestro código.",
-      "line2": "perfectamente ejecutado."
+      "line1": "Cuéntanos qué estás construyendo.",
+      "line2": ""
     },
-    "description": "Únete a 100+ empresas que confían en nosotros para construir aplicaciones web y móviles de alto rendimiento. Soluciones escalables, código limpio, resultados excepcionales.",
-    "button": "Inicia Tu Proyecto"
+    "description": "Proyectos serios desde $2.5M COP. La mayoría lanzan en 4–12 semanas.",
+    "button": "Agendar llamada"
   }
 }

@@ -122,7 +122,7 @@ export default function ManifestoSection() {
   const morphWords = t.raw('morphWords') as string[];
 
   return (
-    <section className="relative z-10 py-36 md:py-48 px-6 md:px-12 bg-black">
+    <section className="relative z-10 py-24 md:py-32 px-6 md:px-12 bg-black">
       <div className="max-w-5xl mx-auto">
         {/* Logo identity anchor */}
         <m.div
