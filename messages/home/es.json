@@ -1,9 +1,9 @@
 {
   "hero": {
     "tagline": "BOGOTÁ → MUNDIAL",
-    "title": "Ingeniería de producto para empresas que ejecutan.",
+    "title": "Ingeniería de producto para empresas que van en serio.",
     "subtitle": "Diseñamos, construimos y escalamos productos web y móviles. React, Next.js, React Native.",
-    "cta": "Inicia Tu Proyecto",
+    "cta": "Empieza tu proyecto",
     "seoHeading": "Agencia de Desarrollo Web Profesional - Desarrollo de Apps Móviles - Expertos en React, Next.js y React Native",
     "buttons": {
       "startProject": "AGENDAR LLAMADA",
@@ -21,40 +21,40 @@
       "name": "  nombre",
       "nameValue": "\"DREAM STUDIO\"",
       "mission": "  mision",
-      "missionValue": "\"Construimos productos digitales que no solo se ven bien—funcionan\"",
+      "missionValue": "\"Productos digitales que no solo se ven bien — rinden\"",
       "output": "  entrega",
-      "outputValue": "\"Entrega MVP 3-6 meses | 90% retención clientes | ROI real\"",
+      "outputValue": "\"MVP en 3–6 meses | 90% retención de clientes | ROI real\"",
       "status": "  estado",
-      "statusValue": "\"LISTO PARA ENVIAR RÁPIDO\"",
+      "statusValue": "\"LISTOS PARA LANZAR\"",
       "closeBrace": "'};'",
       "ready": "> Sistema listo. Hagamos crecer tu negocio."
     }
   },
   "manifesto": {
-    "headlineBefore": "Construimos sistemas sobre los que las empresas",
+    "headlineBefore": "Construimos lo que las empresas necesitan para",
     "headlineAfter": ".",
-    "morphWords": ["crecen", "escalan", "operan", "confían"],
+    "morphWords": ["crecer", "escalar", "operar", "liderar"],
     "principles": [
       {
-        "title": "Sistemas sobre páginas",
-        "description": "Sitios web, apps y automatización deben funcionar como un solo sistema."
+        "title": "Sistemas, no páginas",
+        "description": "Tu sitio, tu app y tus automatizaciones deben funcionar como un solo sistema."
       },
       {
-        "title": "Ejecución sobre ruido",
-        "description": "Las buenas ideas son baratas. Lo que importa es enviar y mejorar productos reales."
+        "title": "Ejecución, no ruido",
+        "description": "Las ideas sobran. Lo que importa es lanzar productos reales y mejorarlos."
       },
       {
-        "title": "Claridad sobre complejidad",
-        "description": "La tecnología moderna debe simplificar cómo operan las empresas, no hacerlo más difícil."
+        "title": "Claridad, no complejidad",
+        "description": "La tecnología debe simplificar tu operación, no complicarla."
       },
       {
-        "title": "Pensamiento a largo plazo",
-        "description": "Construimos bases digitales sobre las que las empresas pueden crecer por años."
+        "title": "Visión a largo plazo",
+        "description": "Construimos bases digitales que duran años, no meses."
       }
     ]
   },
   "clients": {
-    "badge": "Con quién nos encanta trabajar",
+    "badge": "Con quién trabajamos",
     "nonprofits": "Organizaciones Sin Fines de Lucro",
     "smallBusinesses": "Pequeñas Empresas",
     "startups": "Startups",
@@ -73,7 +73,7 @@
   "services": {
     "title": "Construimos productos modulares, no páginas. Cada sistema multiplica tus resultados.",
     "subtitle": "Tres sistemas. Un motor de crecimiento.",
-    "positioning": "No diseñamos páginas. Construimos sistemas modulares que escalan con tu negocio.",
+    "positioning": "No hacemos páginas bonitas. Construimos sistemas modulares que crecen con tu negocio.",
     "proofStrip": "30K+ tickets vendidos · 90K+ visitantes únicos · 4.3 rating en apps",
     "techStack": {
       "title": "Tecnologias y Herramientas Que Usamos:",
@@ -149,7 +149,7 @@
     },
     "mobileDev": {
       "title": "Infraestructura Escalable",
-      "description": "APIs, bases de datos y sistemas backend diseñados para confiabilidad y crecimiento. Seguros, documentados, listos para producción.",
+      "description": "APIs, bases de datos y sistemas backend hechos para aguantar y crecer. Seguros, documentados, listos para producción.",
       "features": [
         "Stack moderno (React, Next.js)",
         "Arquitectura de APIs",
@@ -158,9 +158,9 @@
       ],
       "metaDescription": "Desarrollo de backend robusto y servicios de API. Construimos sistemas backend escalables y seguros que impulsan tus aplicaciones.",
       "intro": {
-        "heading": "Infraestructura Backend Que Escala",
-        "paragraph1": "Construimos sistemas backend robustos y APIs que forman la columna vertebral de tus productos digitales. Nuestra experiencia abarca desde APIs RESTful hasta GraphQL, arquitectura de microservicios y procesamiento de datos en tiempo real.",
-        "paragraph2": "La seguridad, el rendimiento y la escalabilidad están en el núcleo de todo lo que construimos. Usamos las mejores prácticas de la industria y tecnologías modernas para garantizar que tu backend pueda manejar cualquier carga."
+        "heading": "Backend que aguanta y escala",
+        "paragraph1": "Construimos sistemas backend y APIs que son la columna vertebral de tus productos digitales. Trabajamos con APIs REST, GraphQL, microservicios y procesamiento de datos en tiempo real.",
+        "paragraph2": "Seguridad, rendimiento y escalabilidad están en el centro de todo lo que hacemos. Usamos tecnologías modernas y buenas prácticas para que tu backend aguante cualquier carga."
       },
       "detailFeatures": {
         "apis": {
@@ -176,8 +176,8 @@
           "description": "Seguridad de nivel bancario con encriptación, autenticación, autorización y auditorías de seguridad regulares. Tus datos y los de tus usuarios siempre están protegidos."
         },
         "scalability": {
-          "title": "Construido Para Escalar",
-          "description": "Arquitecturado para crecer con tu negocio. Desde startup hasta empresa, nuestras soluciones backend escalan sin esfuerzo para manejar millones de solicitudes."
+          "title": "Hecho para escalar",
+          "description": "Arquitectura pensada para crecer con tu negocio. De startup a empresa, nuestro backend escala sin fricciones para manejar millones de solicitudes."
         }
       },
       "technologies": {
@@ -235,8 +235,8 @@
         ]
       },
       "cta": {
-        "heading": "¿Necesitas Un Backend Robusto?",
-        "description": "Construyamos un sistema backend que impulse el crecimiento de tu negocio y maneje cualquier escala.",
+        "heading": "¿Tu backend no da abasto?",
+        "description": "Te armamos un sistema backend que soporte el crecimiento de tu negocio sin romperse.",
         "button": "Agendar una reunión"
       }
     },
@@ -251,26 +251,26 @@
       ],
       "metaDescription": "Soluciones impulsadas por IA y servicios de automatización. Ayudamos a las empresas a aprovechar la inteligencia artificial para aumentar la eficiencia y reducir costos.",
       "intro": {
-        "heading": "Soluciones de IA Que Transforman Tu Negocio",
-        "paragraph1": "Ayudamos a las empresas a aprovechar el poder de la IA para automatizar procesos, reducir costos y desbloquear nuevas oportunidades. Desde chatbots inteligentes hasta modelos de IA personalizados, construimos soluciones que resuelven problemas comerciales reales.",
-        "paragraph2": "Nuestros servicios de consultoría en IA te ayudan a identificar las mejores oportunidades para la implementación de IA en tu organización. Te guiamos a través de todo el proceso, desde la estrategia hasta la implementación."
+        "heading": "IA aplicada a problemas reales de negocio",
+        "paragraph1": "Ayudamos a empresas a usar IA para automatizar procesos, reducir costos y abrir nuevas oportunidades. Desde chatbots inteligentes hasta modelos personalizados, construimos soluciones que resuelven problemas reales.",
+        "paragraph2": "Te acompañamos desde la estrategia hasta la implementación. Identificamos dónde la IA genera más impacto en tu operación y la ponemos a trabajar."
       },
       "detailFeatures": {
         "ai": {
-          "title": "Modelos de IA Personalizados",
-          "description": "Desarrollamos soluciones de IA personalizadas adaptadas a tus necesidades comerciales específicas. Desde procesamiento de lenguaje natural hasta visión por computadora, aprovechamos tecnologías de IA de vanguardia."
+          "title": "Modelos de IA a la medida",
+          "description": "Desarrollamos soluciones de IA adaptadas a tu negocio. Procesamiento de lenguaje natural, visión por computadora y tecnologías de punta aplicadas a problemas concretos."
         },
         "automation": {
-          "title": "Automatización de Procesos",
-          "description": "Automatiza tareas y flujos de trabajo repetitivos con automatización inteligente. Ahorra tiempo, reduce errores y permite que tu equipo se concentre en trabajo de alto valor."
+          "title": "Automatización de procesos",
+          "description": "Automatiza tareas repetitivas con inteligencia. Ahorra tiempo, reduce errores y libera a tu equipo para trabajo de mayor valor."
         },
         "optimization": {
-          "title": "Optimización de Negocios",
-          "description": "Usa IA para optimizar tus operaciones, reducir costos y aumentar la eficiencia. Te ayudamos a tomar decisiones basadas en datos con análisis predictivos e insights."
+          "title": "Optimización operativa",
+          "description": "Usa IA para optimizar tu operación, reducir costos y tomar mejores decisiones. Análisis predictivo e insights aplicados a tu negocio."
         },
         "chatbots": {
-          "title": "Chatbots y Agentes de IA",
-          "description": "Chatbots inteligentes que entienden el contexto y proporcionan valor real. Disponibles 24/7 para apoyar a tus clientes y automatizar el servicio al cliente."
+          "title": "Chatbots y agentes de IA",
+          "description": "Chatbots inteligentes que entienden contexto y aportan valor real. Disponibles 24/7 para atender a tus clientes y automatizar soporte."
         }
       },
       "technologies": {
@@ -328,14 +328,14 @@
         ]
       },
       "cta": {
-        "heading": "¿Listo Para Aprovechar la IA?",
-        "description": "Exploremos cómo la IA puede transformar tu negocio y darte una ventaja competitiva.",
+        "heading": "¿Quieres aprovechar la IA en serio?",
+        "description": "Te mostramos cómo la IA puede darle una ventaja real a tu operación.",
         "button": "Agendar una reunión"
       }
     }
   },
   "socialProof": {
-    "title": "Empresas Confían, Usuarios Aman",
+    "title": "Números que respaldan",
     "metrics": {
       "tickets": {
         "value": "90K+",
@@ -356,8 +356,8 @@
     }
   },
   "portfolio": {
-    "title": "Nuestro Trabajo",
-    "subtitle": "Productos que hemos lanzado. Resultados que hemos medido.",
+    "title": "Lo que hemos construido",
+    "subtitle": "Productos lanzados. Resultados medidos.",
     "buttons": {
       "viewProject": "VER PROYECTO",
       "viewAllProjects": "VER TODOS LOS PROYECTOS",
@@ -387,10 +387,10 @@
     },
     "projects": {
       "huntRho": {
-        "description": "Plataforma de tickets y gestión de eventos con actualizaciones en tiempo real y analíticas."
+        "description": "Plataforma de boletería y gestión de eventos con datos en tiempo real y analítica integrada."
       },
       "perroNegro": {
-        "description": "Plataforma de tickets para el venue más grande de Bogotá. 90K visitantes únicos, 105K visitas, inventario en tiempo real.",
+        "description": "Sistema de boletería para el venue más grande de Bogotá. 90K visitantes únicos, 105K visitas, inventario en tiempo real.",
         "metrics": {
           "visitors": "90.000+",
           "visitorsLabel": "Visitantes únicos",
@@ -399,63 +399,63 @@
         }
       },
       "mariaHelena": {
-        "description": "Gestión de eventos para María Helena Amador. Reservas, diseño mobile-first."
+        "description": "Gestión de eventos para María Helena Amador. Sistema de reservas con diseño mobile-first."
       },
       "amazonasToures": {
-        "description": "Plataforma de turismo para expediciones al Amazonas. Motor de reservas, multi-idioma, SEO optimizado."
+        "description": "Plataforma de turismo para expediciones al Amazonas. Reservas en línea, multi-idioma, SEO optimizado."
       },
       "kuenta": {
-        "description": "Plataforma de pagos y transacciones con procesamiento seguro y flujos optimizados."
+        "description": "Plataforma de pagos y transacciones con procesamiento seguro y flujos simplificados."
       },
       "huntTickets": {
-        "description": "App de tickets para eventos. 30K+ tickets procesados, 4.3★ en App Store, 5K+ descargas en el primer año."
+        "description": "App de boletería para eventos. 30K+ tickets procesados, 4.3★ en App Store, 5K+ descargas en el primer año."
       }
     }
   },
   "timeline": {
-    "title": "Construido en movimiento.",
-    "subtitle": "Un estudio formado por lanzamientos, tracción y ejecución real.",
+    "title": "Construido sobre la marcha.",
+    "subtitle": "Un estudio que se forjó lanzando, vendiendo y ejecutando.",
     "items": {
       "2023": {
         "phase": "Fundación",
-        "description": "Herramientas internas, productos iniciales y experimentos de marca."
+        "description": "Herramientas internas, primeros productos y pruebas de concepto."
       },
       "2024": {
         "phase": "Lanzamientos",
-        "description": "Plataformas web, productos móviles y sistemas de conversión enviados."
+        "description": "Plataformas web, apps móviles y sistemas de conversión en producción."
       },
       "2025": {
         "phase": "Tracción",
-        "description": "Usuarios alcanzados, tickets vendidos, descargas generadas y mayor prueba de ejecución."
+        "description": "Usuarios reales, tickets vendidos, descargas y tracción medible."
       },
       "2026": {
         "phase": "Escala",
-        "description": "Dreeeams evoluciona como socio técnico construyendo sistemas web, móviles e IA para crecimiento a largo plazo."
+        "description": "Dreeeams evoluciona como socio técnico en web, móvil e IA para empresas en crecimiento."
       }
     }
   },
   "process": {
-    "title": "Nuestro Proceso",
+    "title": "Cómo trabajamos",
     "discover": {
       "title": "Descubrir",
-      "description": "Comenzamos entendiendo profundamente tu negocio, usuarios y objetivos. Investigamos, analizamos y definimos la estrategia que guiara todo el proyecto."
+      "description": "Arrancamos entendiendo tu negocio, tus usuarios y tus objetivos. Investigamos, analizamos y definimos la estrategia que guiará todo el proyecto."
     },
     "design": {
       "title": "Diseñar",
-      "description": "Creamos prototipos y diseños que dan vida a tu vision. Cada detalle es cuidadosamente trabajado para garantizar una experiencia de usuario excepcional."
+      "description": "Creamos prototipos y diseños que le dan forma a tu visión. Cada detalle está pensado para garantizar una experiencia de usuario sólida."
     },
     "develop": {
       "title": "Desarrollar",
-      "description": "Construimos tu producto con codigo limpio, mejores practicas y tecnologias modernas. Calidad, rendimiento y escalabilidad son nuestras prioridades."
+      "description": "Construimos tu producto con código limpio, buenas prácticas y tecnologías modernas. Calidad, rendimiento y escalabilidad son prioridad."
     },
     "deliver": {
       "title": "Entregar",
-      "description": "Lanzamos tu proyecto con exito y brindamos soporte continuo. Tu exito es nuestro exito, y estamos aqui a largo plazo."
+      "description": "Lanzamos tu proyecto y seguimos acompañándote. Tu éxito es el nuestro, y estamos aquí a largo plazo."
     }
   },
   "team": {
-    "title": "Conoce Nuestro Equipo",
-    "subtitle": "Gente talentosa detras de grandes productos"
+    "title": "Nuestro Equipo",
+    "subtitle": "La gente detrás de los productos"
   },
   "faq": {
     "title": "Preguntas Frecuentes",
@@ -533,7 +533,7 @@
     "title": "Características",
     "typography": {
       "title": "Tipografía",
-      "description": "Tipo hermoso y responsive que escala perfectamente."
+      "description": "Tipografía impecable que se adapta a cualquier pantalla."
     },
     "speed": {
       "title": "Velocidad",
@@ -545,15 +545,15 @@
     },
     "speedNetwork": {
       "title": "Red Global",
-      "description": "Rendimiento ultrarrápido en todo el mundo."
+      "description": "Rendimiento ultrarrápido en cualquier parte del mundo."
     },
     "security": {
-      "title": "Seguridad Primero",
-      "description": "Encriptación de nivel empresarial integrada."
+      "title": "Seguridad ante todo",
+      "description": "Encriptación de nivel empresarial incluida."
     },
     "mobile": {
-      "title": "Móvil Listo",
-      "description": "Optimizado para todos los dispositivos y tamaños de pantalla."
+      "title": "Optimizado para móvil",
+      "description": "Pensado para todos los dispositivos y tamaños de pantalla."
     },
     "speedIndicator": {
       "loadTime": "Tiempo de Carga"
@@ -561,8 +561,8 @@
   },
   "contact": {
     "title": "Cuéntanos más",
-    "subtitle": "Completa el formulario y nos pondremos en contacto contigo lo antes posible.",
-    "directContact": "¿Prefieres hablar con nosotros directamente? Llámanos o envíanos un correo.",
+    "subtitle": "Llena el formulario y te respondemos lo antes posible.",
+    "directContact": "¿Prefieres hablar directo? Llámanos o escríbenos.",
     "step": "Paso",
     "of": "de",
     "successMessage": "¡Gracias! Hemos recibido tu mensaje. Te contactaremos pronto.",
@@ -593,7 +593,7 @@
       "next": "Siguiente"
     },
     "support": {
-      "clientNotice": "Este formulario es exclusivo para Dreeeams clients",
+      "clientNotice": "Este formulario es exclusivo para clientes de Dreeeams",
       "name": "¿Cuál es tu nombre?",
       "email": "¿Cuál es tu correo electrónico?",
       "company": "¿Cuál es tu empresa?",
@@ -652,9 +652,9 @@
       "submit": "Enviar",
       "submitting": "Enviando..."
     },
-    "noSpam": "Sin spam, sin presión de ventas. Solo una conversación sobre tus objetivos.",
-    "scheduleCall": "Agendar una Reunión",
-    "callDescription": "Agenda una llamada de 30 minutos para hablar sobre tu proyecto",
+    "noSpam": "Sin spam, sin presión. Solo una conversación sobre lo que necesitas.",
+    "scheduleCall": "Agendar llamada",
+    "callDescription": "Una llamada de 30 minutos para hablar de tu proyecto",
     "footer": {
       "ctaHeading": "Cuéntanos qué estás construyendo.",
       "tagline": "Productos digitales. Diseñados para rendir.",
@@ -674,15 +674,15 @@
   },
   "thankYou": {
     "title": "¡Gracias!",
-    "subtitle": "Tu mensaje ha sido enviado exitosamente.",
-    "message": "Apreciamos que te hayas tomado el tiempo de contactarnos. Nuestro equipo ha recibido tu consulta y la revisará cuidadosamente. Normalmente respondemos dentro de 24-48 horas en días hábiles.",
+    "subtitle": "Recibimos tu mensaje.",
+    "message": "Nuestro equipo ya tiene tu solicitud y la va a revisar. Por lo general respondemos en 24 a 48 horas hábiles.",
     "whatsNext": "¿Qué sigue?",
-    "step1": "Nuestro equipo revisará los requisitos de tu proyecto",
-    "step2": "Prepararemos una propuesta personalizada para ti",
-    "step3": "Programaremos una llamada para discutir tu proyecto en detalle",
-    "backToHome": "Volver al Inicio",
-    "contactWhatsapp": "Chatear en WhatsApp",
-    "responseTime": "Tiempo promedio de respuesta: 24 horas"
+    "step1": "Revisamos los detalles de tu proyecto",
+    "step2": "Preparamos una propuesta a la medida",
+    "step3": "Agendamos una llamada para afinar los detalles",
+    "backToHome": "Volver al inicio",
+    "contactWhatsapp": "Escribir por WhatsApp",
+    "responseTime": "Tiempo de respuesta promedio: 24 horas"
   },
   "cta": {
     "badge": "Desarrollo de Clase Mundial",
