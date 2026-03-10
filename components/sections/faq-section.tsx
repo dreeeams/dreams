@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
 import { SplitText } from '@/components/ui/animated-text';
 
-const faqs = ['q1', 'q2', 'q3', 'q4', 'q5'];
+const faqs = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'];
 
 export default function FAQSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
@@ -114,10 +114,12 @@ export default function FAQSection() {
                 itemProp="acceptedAnswer"
                 itemType="https://schema.org/Answer"
               >
-                <div className="pb-8 pl-20">
-                  <p className="text-base md:text-lg leading-relaxed text-muted-foreground" itemProp="text">
-                    {t(`questions.${faqKey}.answer`)}
-                  </p>
+                <div className="pb-8 pl-20 space-y-3" itemProp="text">
+                  {String(t(`questions.${faqKey}.answer`)).split('\n').map((line, i) => (
+                    <p key={i} className="text-base md:text-lg leading-relaxed text-muted-foreground">
+                      {line}
+                    </p>
+                  ))}
                 </div>
               </m.div>
             </m.div>

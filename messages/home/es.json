@@ -461,24 +461,28 @@
     "title": "Preguntas Frecuentes",
     "questions": {
       "q1": {
-        "question": "¿Cuánto tiempo toma un proyecto típico?",
-        "answer": "4–6 semanas para sitios web. 3–6 meses para apps móviles. Definimos el cronograma en la primera llamada."
+        "question": "¿Qué tipo de proyectos son los más adecuados para Dreeeams?",
+        "answer": "Somos la mejor opción para empresas que necesitan una construcción digital seria — no solo un retoque visual.\nEso suele significar: plataformas web, sitios de producto con objetivos de negocio reales, apps móviles, sistemas backend e integraciones, o flujos de trabajo con IA y automatización.\nSi necesitas algo estratégico, escalable y bien ejecutado, probablemente somos un buen match."
       },
       "q2": {
-        "question": "¿Cuál es su modelo de precios?",
-        "answer": "Precio fijo o tiempo y materiales, según el alcance. Cotizamos después de entender tu proyecto."
+        "question": "¿Cuál es el presupuesto típico de un proyecto?",
+        "answer": "La mayoría de proyectos inician desde $2.500.000 COP y suben según la complejidad, integraciones y alcance.\nLos proyectos web más enfocados suelen estar en el rango menor. Apps móviles, sistemas backend y proyectos de IA/automatización tienden a requerir presupuestos mayores.\nDefinimos el alcance correcto primero y luego recomendamos el rango de presupuesto más adecuado."
       },
       "q3": {
-        "question": "¿Proporcionan soporte continuo?",
-        "answer": "Sí. Ofrecemos paquetes de mantenimiento que cubren actualizaciones, parches de seguridad y optimización de rendimiento."
+        "question": "¿Cuánto tiempo toma un proyecto normalmente?",
+        "answer": "Depende del tipo de construcción.\nUn sitio web enfocado o sistema de landing puede tomar 4–6 semanas. Una app móvil o plataforma compleja suele tomar 3–6 meses.\nDefinimos el cronograma durante nuestra primera llamada basándonos en tus objetivos y requerimientos."
       },
       "q4": {
-        "question": "¿Pueden trabajar con nuestro equipo existente?",
-        "answer": "Sí. Nos integramos con equipos internos y nos adaptamos a tu flujo de trabajo y herramientas."
+        "question": "¿Qué necesitan de nosotros antes de empezar?",
+        "answer": "Como mínimo, necesitamos claridad sobre tu objetivo.\nPuede ser: el problema que quieres resolver, el producto que quieres lanzar, el sistema que quieres mejorar, o el resultado que quieres que genere la construcción.\nNo necesitas documentación perfecta antes de contactarnos. Pero entre más claro sea tu objetivo, más rápido podemos definir alcance y ejecutar."
       },
       "q5": {
-        "question": "¿En qué tecnologías se especializan?",
-        "answer": "React, Next.js, React Native, Node.js, TypeScript, PostgreSQL, Supabase, Vercel."
+        "question": "¿Pueden trabajar con nuestro equipo interno o producto existente?",
+        "answer": "Sí.\nPodemos trabajar como socio de construcción independiente o colaborar con tu equipo interno — diseñadores, desarrolladores o líderes de producto.\nTambién tomamos productos existentes cuando el setup actual necesita rediseño, refactorización o una ejecución técnica más sólida."
+      },
+      "q6": {
+        "question": "¿Dan soporte al producto después del lanzamiento?",
+        "answer": "Sí.\nMuchos proyectos continúan después del lanzamiento con mejoras, nuevas funcionalidades, soporte técnico, refinamientos de rendimiento e iteración de producto.\nPreferimos construir sistemas que puedan evolucionar — no entregar algo una vez y desaparecer."
       }
     }
   },
