@@ -34,9 +34,6 @@
     "headlineBefore": "Construimos sistemas sobre los que las empresas",
     "headlineAfter": ".",
     "morphWords": ["crecen", "escalan", "operan", "confían"],
-    "intro": "Dreeeams es un estudio de producto enfocado en construir sistemas digitales que realmente funcionan.",
-    "introContrast": ["No páginas aisladas.", "No funcionalidades desconectadas."],
-    "introClose": "Infraestructura real: plataformas web, productos móviles y flujos de trabajo con IA diseñados para escalar con las empresas que los usan.",
     "principles": [
       {
         "title": "Sistemas sobre páginas",
@@ -54,8 +51,7 @@
         "title": "Pensamiento a largo plazo",
         "description": "Construimos bases digitales sobre las que las empresas pueden crecer por años."
       }
-    ],
-    "closing": "Si tu empresa necesita sistemas digitales que realmente muevan la aguja, construyámoslos."
+    ]
   },
   "clients": {
     "badge": "Con quién nos encanta trabajar",

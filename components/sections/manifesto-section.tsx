@@ -121,19 +121,18 @@ export default function ManifestoSection() {
   const tNav = useTranslations('nav');
 
   const principles = t.raw('principles') as { title: string; description: string }[];
-  const introContrast = t.raw('introContrast') as string[];
   const morphWords = t.raw('morphWords') as string[];
 
   return (
-    <section className="relative z-10 py-28 md:py-36 px-6 md:px-12 bg-black">
-      <div className="max-w-4xl mx-auto">
+    <section className="relative z-10 py-36 md:py-48 px-6 md:px-12 bg-black">
+      <div className="max-w-5xl mx-auto">
         {/* Logo identity anchor */}
         <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex justify-center mb-10"
+          className="flex justify-center mb-16 md:mb-20"
         >
           <Logo className="h-8 md:h-10 w-auto" fill="white" />
         </m.div>
@@ -144,38 +143,15 @@ export default function ManifestoSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-nostalgic text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.2] tracking-tight text-white text-center mb-20"
+          className="font-nostalgic text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.15] tracking-tight text-white text-center mb-24 md:mb-32"
         >
           {t('headlineBefore')}{' '}
           <MorphWord words={morphWords} />{' '}
           {t('headlineAfter')}
         </m.h2>
 
-        {/* Intro block */}
-        <m.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="mb-20 text-center"
-        >
-          <p className="text-base md:text-lg leading-relaxed text-white/70 mb-6">
-            {t('intro')}
-          </p>
-          <div className="space-y-1 mb-6">
-            {introContrast.map((line, i) => (
-              <p key={i} className="text-sm font-mono tracking-wider text-white/40">
-                {line}
-              </p>
-            ))}
-          </div>
-          <p className="text-base md:text-lg leading-relaxed text-white/70">
-            {t('introClose')}
-          </p>
-        </m.div>
-
-        {/* Principles grid — card surfaces adapted from GridPatternCard */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-20">
+        {/* Principles grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-24 md:mb-32">
           {principles.map((principle, index) => (
             <m.div
               key={index}
@@ -194,16 +170,16 @@ export default function ManifestoSection() {
                   backgroundSize: '24px 24px',
                 }}
               >
-                {/* Gradient overlay — fades texture toward solid */}
+                {/* Gradient overlay */}
                 <div className="size-full bg-gradient-to-tr from-black/95 via-black/70 to-black/40">
-                  <div className="p-6 md:p-8">
-                    <span className="block text-xs font-mono tracking-widest text-white/25 mb-4">
+                  <div className="p-7 md:p-10">
+                    <span className="block text-xs font-mono tracking-widest text-white/25 mb-5">
                       0{index + 1}
                     </span>
-                    <h3 className="text-lg md:text-xl font-nostalgic font-bold text-white mb-3 group-hover:text-white/95 transition-colors duration-300">
+                    <h3 className="text-xl md:text-2xl font-nostalgic font-bold text-white mb-3 group-hover:text-white/95 transition-colors duration-300">
                       {principle.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-white/45 group-hover:text-white/60 transition-colors duration-300">
+                    <p className="text-sm md:text-base leading-relaxed text-white/45 group-hover:text-white/60 transition-colors duration-300">
                       {principle.description}
                     </p>
                   </div>
@@ -213,7 +189,7 @@ export default function ManifestoSection() {
           ))}
         </div>
 
-        {/* Closing line + CTA */}
+        {/* CTA */}
         <m.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -221,9 +197,6 @@ export default function ManifestoSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center"
         >
-          <p className="text-base md:text-lg font-mono tracking-wide text-white/60 mb-10">
-            {t('closing')}
-          </p>
           <Link href="/start">
             <m.button
               whileHover={{ scale: 1.05 }}
