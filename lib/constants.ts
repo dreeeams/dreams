@@ -60,8 +60,35 @@ export const FORM_STEPS = {
 export const API_ENDPOINTS = {
   CONTACT: '/api/contact',
   INTAKE: '/api/intake',
+  LEAD: '/api/lead',
   HEALTH: '/api/health',
 } as const;
+
+// Phone Prefixes by Country Code (ISO 3166-1 alpha-2)
+export const COUNTRY_PHONE_PREFIXES: Record<string, string> = {
+  CO: '+57',
+  US: '+1',
+  CA: '+1',
+  MX: '+52',
+  AR: '+54',
+  BR: '+55',
+  CL: '+56',
+  PE: '+51',
+  EC: '+593',
+  VE: '+58',
+  GB: '+44',
+  FR: '+33',
+  DE: '+49',
+  ES: '+34',
+  IT: '+39',
+  PT: '+351',
+  NL: '+31',
+  AU: '+61',
+  IN: '+91',
+  JP: '+81',
+};
+
+export const DEFAULT_PHONE_PREFIX = '+1';
 
 // SEO
 export const SEO = {

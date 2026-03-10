@@ -5,7 +5,7 @@
       "description": "Responde unas preguntas rápidas y agenda una llamada con nuestro equipo."
     },
     "heading": "Construyamos algo",
-    "subtitle": "3 preguntas rápidas. Luego hablamos.",
+    "subtitle": "Unas preguntas rápidas. Luego hablamos.",
     "service": {
       "label": "¿Qué quieres construir?",
       "options": {
@@ -34,6 +34,21 @@
         "high": "$10M+ COP",
         "under": "Menos de $2.5M COP / Solo explorando"
       }
+    },
+    "identity": {
+      "label": "Preséntate antes de la reunión",
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "María",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "García",
+      "email": "Email de trabajo",
+      "emailPlaceholder": "maria@empresa.com",
+      "phone": "Teléfono (opcional)",
+      "phonePlaceholder": "301 234 5678",
+      "company": "Empresa (opcional)",
+      "companyPlaceholder": "Acme S.A.S.",
+      "continue": "Agendar llamada",
+      "companySuggestion": "¿Es {domain}?"
     },
     "back": "Atrás",
     "bookingHeading": "Gran match. Elige un horario abajo.",

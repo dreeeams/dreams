@@ -5,7 +5,7 @@
       "description": "Answer a few quick questions and book a call with our team."
     },
     "heading": "Let's build something",
-    "subtitle": "3 quick questions. Then we talk.",
+    "subtitle": "A few quick questions. Then we talk.",
     "service": {
       "label": "What are you looking to build?",
       "options": {
@@ -34,6 +34,21 @@
         "high": "$10,000+",
         "under": "Under $2,000 / Just exploring"
       }
+    },
+    "identity": {
+      "label": "Quick intro before we meet",
+      "firstName": "First name",
+      "firstNamePlaceholder": "Jane",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Smith",
+      "email": "Work email",
+      "emailPlaceholder": "jane@company.com",
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "555 123 4567",
+      "company": "Company (optional)",
+      "companyPlaceholder": "Acme Inc.",
+      "continue": "Book a call",
+      "companySuggestion": "Is this {domain}?"
     },
     "back": "Back",
     "bookingHeading": "Great fit. Pick a time below.",
