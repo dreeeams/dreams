@@ -81,12 +81,12 @@
     },
     "webDev": {
       "title": "Web que convierte",
-      "description": "Sitios diseñados para vender, no para decorar. Rápidos, medibles y optimizados para captar clientes.",
+      "description": "Sitios rápidos, medibles y hechos para captar clientes.",
       "features": [
-        "Landings de alto rendimiento",
-        "Componentes modulares y reutilizables",
-        "Diseño alineado a tu marca",
-        "Flujos pensados para convertir"
+        "Landings rápidos",
+        "UI modular y reutilizable",
+        "Diseño fiel a tu marca",
+        "Flujos de conversión"
       ],
       "metaDescription": "Diseñamos y desarrollamos interfaces que convierten tráfico en leads y ventas, sin sacrificar performance ni marca.",
       "hero": {
@@ -149,12 +149,12 @@
     },
     "mobileDev": {
       "title": "Backend escalable",
-      "description": "APIs y sistemas backend que aguantan carga real. Seguros, documentados, listos para producción.",
+      "description": "APIs y backend listos para producción. Seguros, rápidos y documentados.",
       "features": [
-        "Stack moderno (React, Next.js)",
-        "APIs bien diseñadas",
-        "Integraciones con CRM y herramientas",
-        "Infraestructura segura y escalable"
+        "APIs REST y GraphQL",
+        "Bases de datos optimizadas",
+        "Auth y seguridad integrada",
+        "Infraestructura que escala"
       ],
       "metaDescription": "Desarrollo de backend robusto y servicios de API. Construimos sistemas backend escalables y seguros que impulsan tus aplicaciones.",
       "intro": {
@@ -242,12 +242,12 @@
     },
     "uiux": {
       "title": "IA y automatización",
-      "description": "Agentes de IA y automatizaciones que le ahorran horas a tu equipo y multiplican su capacidad.",
+      "description": "Agentes y automatizaciones que le ahorran horas a tu equipo.",
       "features": [
-        "Chatbots inteligentes",
-        "Automatización de procesos",
-        "Cualificación automática de leads",
-        "Decisiones basadas en datos"
+        "Chatbots y agentes IA",
+        "Flujos automatizados",
+        "Cualificación de leads",
+        "Análisis y datos en tiempo real"
       ],
       "metaDescription": "Soluciones impulsadas por IA y servicios de automatización. Ayudamos a las empresas a aprovechar la inteligencia artificial para aumentar la eficiencia y reducir costos.",
       "intro": {
