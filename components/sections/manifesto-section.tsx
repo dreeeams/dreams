@@ -3,7 +3,6 @@
 import { useRef, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { m } from 'framer-motion';
-import Link from 'next/link';
 import Logo from '@/components/logo';
 
 // ---------------------------------------------------------------------------
@@ -118,7 +117,6 @@ function MorphWord({ words }: { words: string[] }) {
 // ---------------------------------------------------------------------------
 export default function ManifestoSection() {
   const t = useTranslations('manifesto');
-  const tNav = useTranslations('nav');
 
   const principles = t.raw('principles') as { title: string; description: string }[];
   const morphWords = t.raw('morphWords') as string[];
@@ -151,7 +149,7 @@ export default function ManifestoSection() {
         </m.h2>
 
         {/* Principles grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-24 md:mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {principles.map((principle, index) => (
             <m.div
               key={index}
@@ -189,24 +187,6 @@ export default function ManifestoSection() {
           ))}
         </div>
 
-        {/* CTA */}
-        <m.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center"
-        >
-          <Link href="/start">
-            <m.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 text-base md:text-lg font-medium text-black bg-white hover:bg-surface-light-1 border border-white transition-colors"
-            >
-              {tNav('getStarted')} →
-            </m.button>
-          </Link>
-        </m.div>
       </div>
     </section>
   );
